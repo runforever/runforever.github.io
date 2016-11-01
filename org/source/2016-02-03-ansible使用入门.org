@@ -11,9 +11,9 @@
 工作，所以使用配置管理工具将这些重复性的工作控制起来最合适不过了，之前有写过一篇用[[https:////docs.saltstack.com/en/latest/][ SaltStack]]
 做自动化运维的文章[[http:////runforever.github.io/2014-06-21/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/][ saltstack 使用笔记]]，这次换用 [[http:////docs.ansible.com][Ansible]] ，顺便比较一下两种工具。
 
-** 选用Ansible的原因
+** 选用 Ansible 的原因
 1. 轻量级
-2. 通过SSH下发命令
+2. 通过 SSH 下发命令
 
 {{{more}}}
 
