@@ -1,4 +1,4 @@
-#+TITLE: Ansible使用入门
+#+TITLE: Ansible 使用入门
 #+DATE: 2016-02-03
 #+SETUPFILE: ~/CodeRepo/GitRepo/octopress/org-sty/setupfile.org
 #+JEKYLL_LAYOUT: post
@@ -9,7 +9,7 @@
 ** 背景
 由于经常有部署新服务器的需求，服务器部署过程中的配置和基础环境的安装很多都是重复性的
 工作，所以使用配置管理工具将这些重复性的工作控制起来最合适不过了，之前有写过一篇用[[https:////docs.saltstack.com/en/latest/][ SaltStack]]
-做自动化运维的文章[[http://runforever.github.io/2014-06-21/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/][ saltstack 使用笔记]]，这次换用 [[http:////docs.ansible.com][Ansible]] ，顺便比较一下两种工具。
+做自动化运维的文章[[http:////runforever.github.io/2014-06-21/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/][ saltstack 使用笔记]]，这次换用 [[http:////docs.ansible.com][Ansible]] ，顺便比较一下两种工具。
 
 ** 选用Ansible的原因
 1. 轻量级
