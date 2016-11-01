@@ -86,40 +86,64 @@
 
 
 
-<meta name="description" content="Ansible使用入门
-
-
-背景
+<meta name="description" content="背景
 
 
 由于经常有部署新服务器的需求，服务器部署过程中的配置和基础环境的安装很多都是重复性的
-工作，所以使用配置管理工具将这些重复性的工作控制起来最合适不过了，之前有写过一篇用SaltStack
-做自动化运维的文章http://runforever.github.io/blog/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E">
+工作，所以使用配置管理工具将这些重复性的工作控制起来最合适不过了，之前有写过一篇用 SaltStack
+做自动化运维的文章 saltstack 使用笔记，这次换用 Ansible ，顺便比较一下两种工具。
+
+
+
+
+
+选用Ansible的原因
+
+
+轻量级
+
+通过SSH下发命令">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ansible使用入门">
 <meta property="og:url" content="http://yoursite.com/2016-02-03/2016-02-03-ansible使用入门/index.html">
 <meta property="og:site_name" content="Runforever">
-<meta property="og:description" content="Ansible使用入门
-
-
-背景
+<meta property="og:description" content="背景
 
 
 由于经常有部署新服务器的需求，服务器部署过程中的配置和基础环境的安装很多都是重复性的
-工作，所以使用配置管理工具将这些重复性的工作控制起来最合适不过了，之前有写过一篇用SaltStack
-做自动化运维的文章http://runforever.github.io/blog/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E">
-<meta property="og:updated_time" content="2016-11-01T02:56:14.000Z">
+工作，所以使用配置管理工具将这些重复性的工作控制起来最合适不过了，之前有写过一篇用 SaltStack
+做自动化运维的文章 saltstack 使用笔记，这次换用 Ansible ，顺便比较一下两种工具。
+
+
+
+
+
+选用Ansible的原因
+
+
+轻量级
+
+通过SSH下发命令">
+<meta property="og:updated_time" content="2016-11-01T06:35:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ansible使用入门">
-<meta name="twitter:description" content="Ansible使用入门
-
-
-背景
+<meta name="twitter:description" content="背景
 
 
 由于经常有部署新服务器的需求，服务器部署过程中的配置和基础环境的安装很多都是重复性的
-工作，所以使用配置管理工具将这些重复性的工作控制起来最合适不过了，之前有写过一篇用SaltStack
-做自动化运维的文章http://runforever.github.io/blog/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E">
+工作，所以使用配置管理工具将这些重复性的工作控制起来最合适不过了，之前有写过一篇用 SaltStack
+做自动化运维的文章 saltstack 使用笔记，这次换用 Ansible ，顺便比较一下两种工具。
+
+
+
+
+
+选用Ansible的原因
+
+
+轻量级
+
+通过SSH下发命令">
 
 
 
@@ -318,35 +342,35 @@
       
         
 <div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Ansible使用入门</h2>
+<h2 id="sec-1">背景</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1">背景</h3>
-<div class="outline-text-3" id="text-1-1">
 <p>
 由于经常有部署新服务器的需求，服务器部署过程中的配置和基础环境的安装很多都是重复性的
-工作，所以使用配置管理工具将这些重复性的工作控制起来最合适不过了，之前有写过一篇用<a href="https://docs.saltstack.com/en/latest/" target="_blank" rel="external">SaltStack</a>
-做自动化运维的文章<a href="http://runforever.github.io/blog/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0.html" target="_blank" rel="external">http://runforever.github.io/blog/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0.html</a>, 这次
-换用<a href="http://docs.ansible.com" target="_blank" rel="external">Ansible</a> ，顺便比较一下两种工具。
+工作，所以使用配置管理工具将这些重复性的工作控制起来最合适不过了，之前有写过一篇用<a href="https://docs.saltstack.com/en/latest/" target="_blank" rel="external"> SaltStack</a>
+做自动化运维的文章<a href="http:runforever.github.io/2014-06-21/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/" target="_blank" rel="external"> saltstack 使用笔记</a>，这次换用 <a href="http://docs.ansible.com" target="_blank" rel="external">Ansible</a> ，顺便比较一下两种工具。
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2">选用Ansible的原因</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">选用Ansible的原因</h2>
+<div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li>轻量级
 </li>
 <li>通过SSH下发命令
 </li>
 </ol>
+
+<p>
+<a id="more"></a>
+</p>
 </div>
 </div>
 
-<div id="outline-container-sec-1-3" class="outline-3">
-<h3 id="sec-1-3">如何开始</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">如何开始</h2>
+<div class="outline-text-2" id="text-3">
 <p>
 目录结构
 </p>
@@ -377,7 +401,7 @@
 </div>
 
 <p>
-首先配置好hosts文件, 格式:
+首先配置好 hosts 文件, 格式:
 </p>
 <div class="org-src-container">
 
@@ -392,7 +416,7 @@
 </div>
 
 <p>
-将上面的注释去掉，IP地址改成服务器地址，并且在服务器上加上本地的ssh 公钥，执行下面命令:
+将上面的注释去掉，IP 地址改成服务器地址，并且在服务器上加上本地的 ssh 公钥，执行下面命令:
 </p>
 <div class="org-src-container">
 
@@ -407,12 +431,15 @@ ansible all -m ping
 </div>
 </div>
 
-<div id="outline-container-sec-1-4" class="outline-3">
-<h3 id="sec-1-4">配置文件格式</h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">配置文件格式</h2>
+<div class="outline-text-2" id="text-4">
 <p>
-连接服务器没有问题的话，就可以使用写playbook(配置管理文件)来管理服务器了。<br>
-Ansible的配置文件使用的yaml格式，例子如下：
+连接服务器没有问题的话，就可以使用写 playbook（配置管理文件）来管理服务器了。
+</p>
+
+<p>
+Ansible 的配置文件使用的 YAML 格式，例子如下：
 </p>
 <div class="org-src-container">
 
@@ -479,46 +506,41 @@ ansible-playbook init_env.yml
 </div>
 </div>
 
-<div id="outline-container-sec-1-5" class="outline-3">
-<h3 id="sec-1-5">常用命令</h3>
-<div class="outline-text-3" id="text-1-5">
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">常用命令</h2>
+<div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 
-<pre class="src src-bash"># 对所用服务器web_hosts执行初始化命令
+<pre class="src src-bash"># 对所用服务器 web_hosts 执行初始化命令
 ansible-playbook web_env.yml
 
 # 指定服务器
 ansible-playbook web_env.yml --limit web_hosts
 
-# 调试(Dry Run)
+# 调试（Dry Run）
 ansible-playbook web_env.yml --check
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-1-6" class="outline-3">
-<h3 id="sec-1-6">整理出来的开源库参考</h3>
-<div class="outline-text-3" id="text-1-6">
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">整理出来的开源库参考</h2>
+<div class="outline-text-2" id="text-6">
 <p>
-<a href="https://github.com/runforever/Auto" target="_blank" rel="external">https://github.com/runforever/Auto</a>
+<a href="https://github.com/runforever/Auto" target="_blank" rel="external">Auto</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-1-7" class="outline-3">
-<h3 id="sec-1-7">总结</h3>
-<div class="outline-text-3" id="text-1-7">
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">总结</h2>
+<div class="outline-text-2" id="text-7">
 <p>
-Ansible对于我来说最大的有点就是使用ssh来执行命令，而SaltStack则需要在机器上安装客户端<br>
-其次Ansible由于设计的时候就考虑了监控和图形化，可视化做的不错，如果大家在考虑选择Ansible<br>
-还是SaltStack，个人推荐使用Ansible
+Ansible 对于我来说最大的有点就是使用 ssh 来执行命令，而 SaltStack 则需要在机器上安装客户端
+其次 Ansible 由于设计的时候就考虑了监控和图形化，可视化做的不错，如果大家在考虑选择 Ansible
+还是 SaltStack，个人推荐使用 Ansible
 </p>
-
-<p>
-<a id="more"></a>
-</p>
-</div>
 </div>
 </div>
 
@@ -699,7 +721,7 @@ Ansible对于我来说最大的有点就是使用ssh来执行命令，而SaltSta
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-1"><span class="nav-number">1.</span> <span class="nav-text">Ansible使用入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-1"><span class="nav-number">1.1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-2"><span class="nav-number">1.2.</span> <span class="nav-text">选用Ansible的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-3"><span class="nav-number">1.3.</span> <span class="nav-text">如何开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-4"><span class="nav-number">1.4.</span> <span class="nav-text">配置文件格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-5"><span class="nav-number">1.5.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-6"><span class="nav-number">1.6.</span> <span class="nav-text">整理出来的开源库参考</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-7"><span class="nav-number">1.7.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-1"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-2"><span class="nav-number">2.</span> <span class="nav-text">选用Ansible的原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-3"><span class="nav-number">3.</span> <span class="nav-text">如何开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-4"><span class="nav-number">4.</span> <span class="nav-text">配置文件格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-5"><span class="nav-number">5.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-6"><span class="nav-number">6.</span> <span class="nav-text">整理出来的开源库参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-7"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
         </section>

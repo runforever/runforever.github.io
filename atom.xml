@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-01T02:56:14.000Z</updated>
+  <updated>2016-11-01T06:35:28.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016-07-06/2016-07-06-%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89docker-registry/"/>
     <id>http://yoursite.com/2016-07-06/2016-07-06-如何搭建私有docker-registry/</id>
     <published>2016-07-05T16:00:00.000Z</published>
-    <updated>2016-11-01T02:56:14.000Z</updated>
+    <updated>2016-11-01T06:35:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>
 为了团队的其他同学可以方便的更新开发环境到本地，我们决定搭建私有的 Docker Registry。<br>
@@ -396,7 +396,7 @@ cp /etc/letsencrypt/live/yourdomain/privkey.pem /yourpath/docker-registry/certs/
     <link href="http://yoursite.com/2016-06-28/2016-06-28-django%E9%A1%B9%E7%9B%AE%E4%BD%BF%E7%94%A8docker%E5%81%9A%E7%8E%AF%E5%A2%83%E7%BB%9F%E4%B8%80/"/>
     <id>http://yoursite.com/2016-06-28/2016-06-28-django项目使用docker做环境统一/</id>
     <published>2016-06-27T16:00:00.000Z</published>
-    <updated>2016-11-01T02:56:14.000Z</updated>
+    <updated>2016-11-01T06:35:28.000Z</updated>
     
     <content type="html"><![CDATA[
 <div id="outline-container-sec-1" class="outline-2">
@@ -672,39 +672,39 @@ Redis缓存，Python的库，每次搭建环境更新环境对于前端的同学
     <link href="http://yoursite.com/2016-02-03/2016-02-03-ansible%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/"/>
     <id>http://yoursite.com/2016-02-03/2016-02-03-ansible使用入门/</id>
     <published>2016-02-02T16:00:00.000Z</published>
-    <updated>2016-11-01T02:56:14.000Z</updated>
+    <updated>2016-11-01T06:35:29.000Z</updated>
     
     <content type="html"><![CDATA[
 <div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Ansible使用入门</h2>
+<h2 id="sec-1">背景</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1">背景</h3>
-<div class="outline-text-3" id="text-1-1">
 <p>
 由于经常有部署新服务器的需求，服务器部署过程中的配置和基础环境的安装很多都是重复性的
-工作，所以使用配置管理工具将这些重复性的工作控制起来最合适不过了，之前有写过一篇用<a href="https://docs.saltstack.com/en/latest/" target="_blank" rel="external">SaltStack</a>
-做自动化运维的文章<a href="http://runforever.github.io/blog/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0.html" target="_blank" rel="external">http://runforever.github.io/blog/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0.html</a>, 这次
-换用<a href="http://docs.ansible.com" target="_blank" rel="external">Ansible</a> ，顺便比较一下两种工具。
+工作，所以使用配置管理工具将这些重复性的工作控制起来最合适不过了，之前有写过一篇用<a href="https://docs.saltstack.com/en/latest/" target="_blank" rel="external"> SaltStack</a>
+做自动化运维的文章<a href="http:runforever.github.io/2014-06-21/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/" target="_blank" rel="external"> saltstack 使用笔记</a>，这次换用 <a href="http://docs.ansible.com" target="_blank" rel="external">Ansible</a> ，顺便比较一下两种工具。
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2">选用Ansible的原因</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">选用Ansible的原因</h2>
+<div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li>轻量级
 </li>
 <li>通过SSH下发命令
 </li>
 </ol>
+
+<p>
+<a id="more"></a>
+</p>
 </div>
 </div>
 
-<div id="outline-container-sec-1-3" class="outline-3">
-<h3 id="sec-1-3">如何开始</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">如何开始</h2>
+<div class="outline-text-2" id="text-3">
 <p>
 目录结构
 </p>
@@ -735,7 +735,7 @@ Redis缓存，Python的库，每次搭建环境更新环境对于前端的同学
 </div>
 
 <p>
-首先配置好hosts文件, 格式:
+首先配置好 hosts 文件, 格式:
 </p>
 <div class="org-src-container">
 
@@ -750,7 +750,7 @@ Redis缓存，Python的库，每次搭建环境更新环境对于前端的同学
 </div>
 
 <p>
-将上面的注释去掉，IP地址改成服务器地址，并且在服务器上加上本地的ssh 公钥，执行下面命令:
+将上面的注释去掉，IP 地址改成服务器地址，并且在服务器上加上本地的 ssh 公钥，执行下面命令:
 </p>
 <div class="org-src-container">
 
@@ -765,12 +765,15 @@ ansible all -m ping
 </div>
 </div>
 
-<div id="outline-container-sec-1-4" class="outline-3">
-<h3 id="sec-1-4">配置文件格式</h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">配置文件格式</h2>
+<div class="outline-text-2" id="text-4">
 <p>
-连接服务器没有问题的话，就可以使用写playbook(配置管理文件)来管理服务器了。<br>
-Ansible的配置文件使用的yaml格式，例子如下：
+连接服务器没有问题的话，就可以使用写 playbook（配置管理文件）来管理服务器了。
+</p>
+
+<p>
+Ansible 的配置文件使用的 YAML 格式，例子如下：
 </p>
 <div class="org-src-container">
 
@@ -837,46 +840,41 @@ ansible-playbook init_env.yml
 </div>
 </div>
 
-<div id="outline-container-sec-1-5" class="outline-3">
-<h3 id="sec-1-5">常用命令</h3>
-<div class="outline-text-3" id="text-1-5">
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">常用命令</h2>
+<div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 
-<pre class="src src-bash"># 对所用服务器web_hosts执行初始化命令
+<pre class="src src-bash"># 对所用服务器 web_hosts 执行初始化命令
 ansible-playbook web_env.yml
 
 # 指定服务器
 ansible-playbook web_env.yml --limit web_hosts
 
-# 调试(Dry Run)
+# 调试（Dry Run）
 ansible-playbook web_env.yml --check
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-1-6" class="outline-3">
-<h3 id="sec-1-6">整理出来的开源库参考</h3>
-<div class="outline-text-3" id="text-1-6">
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">整理出来的开源库参考</h2>
+<div class="outline-text-2" id="text-6">
 <p>
-<a href="https://github.com/runforever/Auto" target="_blank" rel="external">https://github.com/runforever/Auto</a>
+<a href="https://github.com/runforever/Auto" target="_blank" rel="external">Auto</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-1-7" class="outline-3">
-<h3 id="sec-1-7">总结</h3>
-<div class="outline-text-3" id="text-1-7">
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">总结</h2>
+<div class="outline-text-2" id="text-7">
 <p>
-Ansible对于我来说最大的有点就是使用ssh来执行命令，而SaltStack则需要在机器上安装客户端<br>
-其次Ansible由于设计的时候就考虑了监控和图形化，可视化做的不错，如果大家在考虑选择Ansible<br>
-还是SaltStack，个人推荐使用Ansible
+Ansible 对于我来说最大的有点就是使用 ssh 来执行命令，而 SaltStack 则需要在机器上安装客户端
+其次 Ansible 由于设计的时候就考虑了监控和图形化，可视化做的不错，如果大家在考虑选择 Ansible
+还是 SaltStack，个人推荐使用 Ansible
 </p>
-
-<p>
-<a id="more"></a>
-</p>
-</div>
 </div>
 </div>
 ]]></content>
@@ -884,202 +882,25 @@ Ansible对于我来说最大的有点就是使用ssh来执行命令，而SaltSta
     <summary type="html">
     
       &lt;div id=&quot;outline-container-sec-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Ansible使用入门&lt;/h2&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;背景&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-&lt;/div&gt;&lt;div id=&quot;outline-container-sec-1-1&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-1&quot;&gt;背景&lt;/h3&gt;
-&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;
 &lt;p&gt;
 由于经常有部署新服务器的需求，服务器部署过程中的配置和基础环境的安装很多都是重复性的
-工作，所以使用配置管理工具将这些重复性的工作控制起来最合适不过了，之前有写过一篇用&lt;a href=&quot;https://docs.saltstack.com/en/latest/&quot;&gt;SaltStack&lt;/a&gt;
-做自动化运维的文章&lt;a href=&quot;http://runforever.github.io/blog/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0.html&quot;&gt;http://runforever.github.io/blog/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0.html&lt;/a&gt;, 这次
-换用&lt;a href=&quot;http://docs.ansible.com&quot;&gt;Ansible&lt;/a&gt; ，顺便比较一下两种工具。
+工作，所以使用配置管理工具将这些重复性的工作控制起来最合适不过了，之前有写过一篇用&lt;a href=&quot;https://docs.saltstack.com/en/latest/&quot;&gt; SaltStack&lt;/a&gt;
+做自动化运维的文章&lt;a href=&quot;http:runforever.github.io/2014-06-21/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/&quot;&gt; saltstack 使用笔记&lt;/a&gt;，这次换用 &lt;a href=&quot;http://docs.ansible.com&quot;&gt;Ansible&lt;/a&gt; ，顺便比较一下两种工具。
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id=&quot;outline-container-sec-1-2&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-2&quot;&gt;选用Ansible的原因&lt;/h3&gt;
-&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-2&quot;&gt;
+&lt;div id=&quot;outline-container-sec-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;选用Ansible的原因&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 &lt;ol class=&quot;org-ol&quot;&gt;
 &lt;li&gt;轻量级
 &lt;/li&gt;
 &lt;li&gt;通过SSH下发命令
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-sec-1-3&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-3&quot;&gt;如何开始&lt;/h3&gt;
-&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-3&quot;&gt;
-&lt;p&gt;
-目录结构
-&lt;/p&gt;
-&lt;div class=&quot;org-src-container&quot;&gt;
-
-&lt;pre class=&quot;src src-bash&quot;&gt;.
---hosts    # 服务器地址和组，以下的是配置
-├── config
-│   ├── kernel
-│   ├── tmux
-│   └── vim
-├── deploy
-│   └── project1
-│   └── project2
-├── docker
-│   └── fig_config
-│       ├── common
-│       ├── mongo
-│       ├── mysql
-│       ├── nginx
-│       ├── rabbitmq
-│       └── redis
-├── env
-├── iptables
-├── nginx
-└── ssh
-&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;
-首先配置好hosts文件, 格式:
-&lt;/p&gt;
-&lt;div class=&quot;org-src-container&quot;&gt;
-
-&lt;pre class=&quot;src src-ini&quot;&gt;; ansible hosts file user .ini format
-; group
-; [test]
-; ip address
-
-; service ip address
-; 127.0.0.1
-&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;
-将上面的注释去掉，IP地址改成服务器地址，并且在服务器上加上本地的ssh 公钥，执行下面命令:
-&lt;/p&gt;
-&lt;div class=&quot;org-src-container&quot;&gt;
-
-&lt;pre class=&quot;src src-bash&quot;&gt;# 导入环境变量
-export ANSIBLE_HOSTS=/hosts_file_direcory/hosts
-
-# 测试服务器连通
-ansible all -m ping
-# 如果没有问题服务器应该会返回 pong
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-sec-1-4&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-4&quot;&gt;配置文件格式&lt;/h3&gt;
-&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-4&quot;&gt;
-&lt;p&gt;
-连接服务器没有问题的话，就可以使用写playbook(配置管理文件)来管理服务器了。&lt;br  /&gt;
-Ansible的配置文件使用的yaml格式，例子如下：
-&lt;/p&gt;
-&lt;div class=&quot;org-src-container&quot;&gt;
-
-&lt;pre class=&quot;src src-yaml&quot;&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;# &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;-------- &lt;/span&gt;&lt;span style=&quot;color: #ffff00;&quot;&gt;basic env&lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;: init-env.yml -------------&lt;/span&gt;
-&lt;span style=&quot;color: #ff0000;&quot;&gt;# &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;install basic env tool task&lt;/span&gt;
-- &lt;span style=&quot;color: #ffff00;&quot;&gt;name&lt;/span&gt;: install pkg
-  &lt;span style=&quot;color: #ffff00;&quot;&gt;apt&lt;/span&gt;: pkg= state=present update_cache=yes
-  &lt;span style=&quot;color: #ffff00;&quot;&gt;with_items&lt;/span&gt;:
-    - gcc
-    - g++
-    - curl
-    - tmux
-    - python-dev
-    - python-setuptools
-    - python-pip
-    - htop
-    - zsh
-    - software-properties-common
-    - python-software-properties
-    - libpq-dev
-    - build-essential
-    - libmysqlclient-dev
-    - libevent-dev
-    - git
-    - wget
-    - mc
-
-&lt;span style=&quot;color: #ff0000;&quot;&gt;# &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;install python lib task&lt;/span&gt;
-- &lt;span style=&quot;color: #ffff00;&quot;&gt;name&lt;/span&gt;: install python pkg
-  &lt;span style=&quot;color: #ffff00;&quot;&gt;pip&lt;/span&gt;: name=
-  &lt;span style=&quot;color: #ffff00;&quot;&gt;with_items&lt;/span&gt;:
-    - fabric
-    - virtualenvwrapper
-    - ipython
-    - ipdb
-    - supervisor
-    - fig
-
-&lt;span style=&quot;color: #ff0000;&quot;&gt;# &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;add user task&lt;/span&gt;
-- &lt;span style=&quot;color: #ffff00;&quot;&gt;name&lt;/span&gt;: add deploy user
-  &lt;span style=&quot;color: #ffff00;&quot;&gt;user&lt;/span&gt;: name=deploy shell=/bin/zsh append=yes
-
-&lt;span style=&quot;color: #ff0000;&quot;&gt;# &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;----- &lt;/span&gt;&lt;span style=&quot;color: #ffff00;&quot;&gt;web basic env&lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;: web_env.yml -------&lt;/span&gt;
-&lt;span style=&quot;color: #ff0000;&quot;&gt;---&lt;/span&gt;
-- &lt;span style=&quot;color: #ffff00;&quot;&gt;hosts&lt;/span&gt;: your_web_hosts
-  &lt;span style=&quot;color: #ffff00;&quot;&gt;remote_user&lt;/span&gt;: root
-
-  &lt;span style=&quot;color: #ffff00;&quot;&gt;tasks&lt;/span&gt;:
-    - &lt;span style=&quot;color: #ffff00;&quot;&gt;include&lt;/span&gt;: init-env.yml
-    - &lt;span style=&quot;color: #ffff00;&quot;&gt;name&lt;/span&gt;: init web dir
-      &lt;span style=&quot;color: #ffff00;&quot;&gt;file&lt;/span&gt;: path=/data owner=root group=root state=directory mode=0755
-&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;
-运行
-&lt;/p&gt;
-&lt;div class=&quot;org-src-container&quot;&gt;
-
-&lt;pre class=&quot;src src-bash&quot;&gt;# 对服务器执行初始化命令
-ansible-playbook init_env.yml
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-sec-1-5&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-5&quot;&gt;常用命令&lt;/h3&gt;
-&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-5&quot;&gt;
-&lt;div class=&quot;org-src-container&quot;&gt;
-
-&lt;pre class=&quot;src src-bash&quot;&gt;# 对所用服务器web_hosts执行初始化命令
-ansible-playbook web_env.yml
-
-# 指定服务器
-ansible-playbook web_env.yml --limit web_hosts
-
-# 调试(Dry Run)
-ansible-playbook web_env.yml --check
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-sec-1-6&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-6&quot;&gt;整理出来的开源库参考&lt;/h3&gt;
-&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-6&quot;&gt;
-&lt;p&gt;
-&lt;a href=&quot;https://github.com/runforever/Auto&quot;&gt;https://github.com/runforever/Auto&lt;/a&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-sec-1-7&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-7&quot;&gt;总结&lt;/h3&gt;
-&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-7&quot;&gt;
-&lt;p&gt;
-Ansible对于我来说最大的有点就是使用ssh来执行命令，而SaltStack则需要在机器上安装客户端&lt;br  /&gt;
-其次Ansible由于设计的时候就考虑了监控和图形化，可视化做的不错，如果大家在考虑选择Ansible&lt;br  /&gt;
-还是SaltStack，个人推荐使用Ansible
-&lt;/p&gt;
 
 &lt;p&gt;
     
@@ -1095,7 +916,7 @@ Ansible对于我来说最大的有点就是使用ssh来执行命令，而SaltSta
     <link href="http://yoursite.com/2016-01-31/2016-01-31-django-uwsgi%E9%83%A8%E7%BD%B2/"/>
     <id>http://yoursite.com/2016-01-31/2016-01-31-django-uwsgi部署/</id>
     <published>2016-01-30T16:00:00.000Z</published>
-    <updated>2016-11-01T02:56:14.000Z</updated>
+    <updated>2016-11-01T06:35:29.000Z</updated>
     
     <content type="html"><![CDATA[
 <div id="outline-container-sec-1" class="outline-2">
@@ -1258,7 +1079,7 @@ no-orphans
     <link href="http://yoursite.com/2014-12-20/2014-12-20-angular.js%E5%85%A5%E9%97%A8%E5%8F%82%E8%80%83/"/>
     <id>http://yoursite.com/2014-12-20/2014-12-20-angular.js入门参考/</id>
     <published>2014-12-19T16:00:00.000Z</published>
-    <updated>2016-11-01T02:56:14.000Z</updated>
+    <updated>2016-11-01T06:35:30.000Z</updated>
     
     <content type="html"><![CDATA[
 <div id="outline-container-sec-1" class="outline-2">
@@ -1667,7 +1488,7 @@ app.js
     <link href="http://yoursite.com/2014-10-02/2014-10-02-%E6%94%AF%E4%BB%98%E5%AE%9D%E6%8E%A5%E5%8F%A3%E4%BD%BF%E7%94%A8/"/>
     <id>http://yoursite.com/2014-10-02/2014-10-02-支付宝接口使用/</id>
     <published>2014-10-01T16:00:00.000Z</published>
-    <updated>2016-11-01T02:56:14.000Z</updated>
+    <updated>2016-11-01T06:35:31.000Z</updated>
     
     <content type="html"><![CDATA[
 <div id="outline-container-sec-1" class="outline-2">
@@ -2238,7 +2059,7 @@ https://mapi.alipay.com/gateway.do?&lt;span style=&quot;color: #ffff00;&quot;&gt
     <link href="http://yoursite.com/2014-07-19/2014-07-19-python-mixin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2014-07-19/2014-07-19-python-mixin学习笔记/</id>
     <published>2014-07-18T16:00:00.000Z</published>
-    <updated>2016-11-01T02:56:14.000Z</updated>
+    <updated>2016-11-01T06:35:31.000Z</updated>
     
     <content type="html"><![CDATA[
 <div id="outline-container-sec-1" class="outline-2">
@@ -2793,7 +2614,7 @@ f.do_something()
     <link href="http://yoursite.com/2014-07-11/2014-07-11-saltstack%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97/"/>
     <id>http://yoursite.com/2014-07-11/2014-07-11-saltstack自定义模块/</id>
     <published>2014-07-10T16:00:00.000Z</published>
-    <updated>2016-11-01T02:56:14.000Z</updated>
+    <updated>2016-11-01T06:35:32.000Z</updated>
     
     <content type="html"><![CDATA[
 <div id="outline-container-sec-1" class="outline-2">
@@ -3120,7 +2941,7 @@ f.do_something()
     <link href="http://yoursite.com/2014-06-21/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2014-06-21/2014-06-21-salt使用笔记/</id>
     <published>2014-06-20T16:00:00.000Z</published>
-    <updated>2016-11-01T02:56:14.000Z</updated>
+    <updated>2016-11-01T06:35:32.000Z</updated>
     
     <content type="html"><![CDATA[
 <div id="outline-container-sec-1" class="outline-2">
@@ -3565,7 +3386,7 @@ saltstack 可以让你像编程一样去管理服务器，简单，高效，有�
     <link href="http://yoursite.com/2014-06-15/2014-06-15-justforfun%E8%AF%BB%E4%B9%A6%E6%84%9F%E6%83%B3/"/>
     <id>http://yoursite.com/2014-06-15/2014-06-15-justforfun读书感想/</id>
     <published>2014-06-14T16:00:00.000Z</published>
-    <updated>2016-11-01T02:56:14.000Z</updated>
+    <updated>2016-11-01T06:35:32.000Z</updated>
     
     <content type="html"><![CDATA[
 <div id="outline-container-sec-1" class="outline-2">
@@ -3802,7 +3623,7 @@ Linux 所取得的许多成功,其实可以归结为我的缺点所致: &lt;br  
     <link href="http://yoursite.com/2014-05-31/2014-05-31-clojure%E5%86%99dsl/"/>
     <id>http://yoursite.com/2014-05-31/2014-05-31-clojure写dsl/</id>
     <published>2014-05-30T16:00:00.000Z</published>
-    <updated>2016-11-01T02:56:14.000Z</updated>
+    <updated>2016-11-01T06:35:33.000Z</updated>
     
     <content type="html"><![CDATA[
 <div id="outline-container-sec-1" class="outline-2">
@@ -4093,7 +3914,7 @@ Lisp 强大还是在于她本身的语言表现力，描述问题是什么，而
     <link href="http://yoursite.com/2014-05-28/2014-05-28-golang%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95http%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     <id>http://yoursite.com/2014-05-28/2014-05-28-golang实现简单http服务器/</id>
     <published>2014-05-27T16:00:00.000Z</published>
-    <updated>2016-11-01T02:56:14.000Z</updated>
+    <updated>2016-11-01T06:35:34.000Z</updated>
     
     <content type="html"><![CDATA[
 <div id="outline-container-sec-1" class="outline-2">
@@ -4399,7 +4220,7 @@ Lisp 强大还是在于她本身的语言表现力，描述问题是什么，而
     <link href="http://yoursite.com/2014-05-24/2014-05-24-%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/"/>
     <id>http://yoursite.com/2014-05-24/2014-05-24-如何正确的打印日志/</id>
     <published>2014-05-23T16:00:00.000Z</published>
-    <updated>2016-11-01T02:56:14.000Z</updated>
+    <updated>2016-11-01T06:35:34.000Z</updated>
     
     <content type="html"><![CDATA[
 <div id="outline-container-sec-1" class="outline-2">
@@ -4600,7 +4421,7 @@ DEBUG or TRACE — 这两种日志具体的规范应该由项目组自己定义�
     <link href="http://yoursite.com/2014-05-18/2014-05-18-emacs-clojure-mode%E4%BD%BF%E7%94%A8/"/>
     <id>http://yoursite.com/2014-05-18/2014-05-18-emacs-clojure-mode使用/</id>
     <published>2014-05-17T16:00:00.000Z</published>
-    <updated>2016-11-01T02:56:14.000Z</updated>
+    <updated>2016-11-01T06:35:34.000Z</updated>
     
     <content type="html"><![CDATA[
 <div id="outline-container-sec-1" class="outline-2">
@@ -4777,7 +4598,7 @@ M-, 用来查看第三方库。&lt;br  /&gt;
     <link href="http://yoursite.com/2014-05-01/2014-05-01-docker%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2014-05-01/2014-05-01-docker使用笔记/</id>
     <published>2014-04-30T16:00:00.000Z</published>
-    <updated>2016-11-01T02:56:14.000Z</updated>
+    <updated>2016-11-01T06:35:34.000Z</updated>
     
     <content type="html"><![CDATA[
 <div id="outline-container-sec-1" class="outline-2">
@@ -5052,7 +4873,7 @@ docker rm &lt;span style=&quot;color: #ff00ff;&quot;&gt;`docker ps -a -q`&lt;/sp
     <link href="http://yoursite.com/2014-04-27/2014-04-27-golang%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
     <id>http://yoursite.com/2014-04-27/2014-04-27-golang单元测试/</id>
     <published>2014-04-26T16:00:00.000Z</published>
-    <updated>2016-11-01T02:56:14.000Z</updated>
+    <updated>2016-11-01T06:35:35.000Z</updated>
     
     <content type="html"><![CDATA[
 <div id="outline-container-sec-1" class="outline-2">
@@ -5363,7 +5184,7 @@ go test
     <link href="http://yoursite.com/2014-04-26/2014-04-26-go%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%8E%A5%E5%8F%A3/"/>
     <id>http://yoursite.com/2014-04-26/2014-04-26-go面向对象和接口/</id>
     <published>2014-04-25T16:00:00.000Z</published>
-    <updated>2016-11-01T02:56:14.000Z</updated>
+    <updated>2016-11-01T06:35:35.000Z</updated>
     
     <content type="html"><![CDATA[
 
@@ -5957,7 +5778,7 @@ sharp.&lt;span style=&quot;color: #0000ff; font-weight: bold;&quot;&gt;Circle&lt
     <link href="http://yoursite.com/2014-04-25/2014-04-25-go%E8%AF%AD%E8%A8%80%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%9E%8B/"/>
     <id>http://yoursite.com/2014-04-25/2014-04-25-go语言并发模型/</id>
     <published>2014-04-24T16:00:00.000Z</published>
-    <updated>2016-11-01T02:56:14.000Z</updated>
+    <updated>2016-11-01T06:35:35.000Z</updated>
     
     <content type="html"><![CDATA[
 <div id="outline-container-sec-1" class="outline-2">
@@ -6388,7 +6209,7 @@ sharp.&lt;span style=&quot;color: #0000ff; font-weight: bold;&quot;&gt;Circle&lt
     <link href="http://yoursite.com/2014-04-20/2014-04-20-mysql%E7%BB%9F%E8%AE%A1/"/>
     <id>http://yoursite.com/2014-04-20/2014-04-20-mysql统计/</id>
     <published>2014-04-19T16:00:00.000Z</published>
-    <updated>2016-11-01T02:56:14.000Z</updated>
+    <updated>2016-11-01T06:35:36.000Z</updated>
     
     <content type="html"><![CDATA[
 <div id="outline-container-sec-1" class="outline-2">
@@ -6624,7 +6445,7 @@ FROM_UNIXTIME(unixtime)
     <link href="http://yoursite.com/2014-04-19/2014-04-19-org-octopress-start/"/>
     <id>http://yoursite.com/2014-04-19/2014-04-19-org-octopress-start/</id>
     <published>2014-04-18T16:00:00.000Z</published>
-    <updated>2016-11-01T02:56:14.000Z</updated>
+    <updated>2016-11-01T06:35:36.000Z</updated>
     
     <content type="html"><![CDATA[
 <ul class="org-ul"><li>主要内容<br><div class="outline-text-5" id="text-0-0-0-1">
@@ -6782,23 +6603,23 @@ mac使用brew可以直接安装：
 </p>
 <div class="org-src-container">
 
-<pre class="src src-lisp">;;; org mode
-;;; &#25171;&#24320;&#21518;&#32512;&#21517;&#20026;org&#30340;&#25991;&#20214;&#26102;&#33258;&#21160;&#21551;&#29992;org mode
+<pre class="src src-lisp"><span style="color: #ff0000;">;;; </span><span style="color: #ff0000;">org mode</span>
+<span style="color: #ff0000;">;;; </span><span style="color: #ff0000;">&#25171;&#24320;&#21518;&#32512;&#21517;&#20026;org&#30340;&#25991;&#20214;&#26102;&#33258;&#21160;&#21551;&#29992;org mode</span>
 (add-to-list 'auto-mode-alist '(<span style="color: #00ff00;">"\\.org\\'"</span> . org-mode))
 (global-font-lock-mode 1)
 
-;;; org octopress
-;;; &#27880;&#24847;&#23558;optopress&#36335;&#24452;&#38656;&#35201;&#26367;&#25442;&#25104;&#20320;&#30340;optopress&#36335;&#24452;
-(require 'org-octopress)
+<span style="color: #ff0000;">;;; </span><span style="color: #ff0000;">org octopress</span>
+<span style="color: #ff0000;">;;; </span><span style="color: #ff0000;">&#27880;&#24847;&#23558;optopress&#36335;&#24452;&#38656;&#35201;&#26367;&#25442;&#25104;&#20320;&#30340;optopress&#36335;&#24452;</span>
+(<span style="color: #00ffff; font-weight: bold;">require</span> '<span style="color: #ff00ff;">org-octopress</span>)
 (setq org-octopress-directory-top       <span style="color: #00ff00;">"~/CodeRepo/GitRepo/octopress/source/org_pos/source"</span>)
 (setq org-octopress-directory-posts     <span style="color: #00ff00;">"~/CodeRepo/GitRepo/octopress/source/_posts"</span>)
 (setq org-octopress-directory-org-top   <span style="color: #00ff00;">"~/CodeRepo/GitRepo/octopress/source"</span>)
 (setq org-octopress-directory-org-posts <span style="color: #00ff00;">"~/CodeRepo/GitRepo/octopress/source/blog"</span>)
-;;; &#38656;&#35201;&#25335;&#36125;https:////github.com/yoshinari-nomura/org-octopress &#30340;setupfile-sample.org &#21040;&#19979;&#38754;&#30340;&#30446;&#24405;
-;;; &#24182;&#19988;&#38656;&#35201;&#26356;&#25442;&#21517;&#23383;
+<span style="color: #ff0000;">;;; </span><span style="color: #ff0000;">&#38656;&#35201;&#25335;&#36125;https:////github.com/yoshinari-nomura/org-octopress &#30340;setupfile-sample.org &#21040;&#19979;&#38754;&#30340;&#30446;&#24405;</span>
+<span style="color: #ff0000;">;;; </span><span style="color: #ff0000;">&#24182;&#19988;&#38656;&#35201;&#26356;&#25442;&#21517;&#23383;</span>
 (setq org-octopress-setup-file          <span style="color: #00ff00;">"~/CodeRepo/GitRepo/octopress/org-sty/setupfile.org"</span>)
 
-(provide 'init-local)
+(<span style="color: #00ffff; font-weight: bold;">provide</span> '<span style="color: #ff00ff;">init-local</span>)
 </pre>
 </div>
 
@@ -7023,23 +6844,23 @@ mac使用brew可以直接安装：
 &lt;/p&gt;
 &lt;div class=&quot;org-src-container&quot;&gt;
 
-&lt;pre class=&quot;src src-lisp&quot;&gt;;;; org mode
-;;; &amp;#25171;&amp;#24320;&amp;#21518;&amp;#32512;&amp;#21517;&amp;#20026;org&amp;#30340;&amp;#25991;&amp;#20214;&amp;#26102;&amp;#33258;&amp;#21160;&amp;#21551;&amp;#29992;org mode
+&lt;pre class=&quot;src src-lisp&quot;&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;;;; &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;org mode&lt;/span&gt;
+&lt;span style=&quot;color: #ff0000;&quot;&gt;;;; &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;&amp;#25171;&amp;#24320;&amp;#21518;&amp;#32512;&amp;#21517;&amp;#20026;org&amp;#30340;&amp;#25991;&amp;#20214;&amp;#26102;&amp;#33258;&amp;#21160;&amp;#21551;&amp;#29992;org mode&lt;/span&gt;
 (add-to-list &#39;auto-mode-alist &#39;(&lt;span style=&quot;color: #00ff00;&quot;&gt;&quot;\\.org\\&#39;&quot;&lt;/span&gt; . org-mode))
 (global-font-lock-mode 1)
 
-;;; org octopress
-;;; &amp;#27880;&amp;#24847;&amp;#23558;optopress&amp;#36335;&amp;#24452;&amp;#38656;&amp;#35201;&amp;#26367;&amp;#25442;&amp;#25104;&amp;#20320;&amp;#30340;optopress&amp;#36335;&amp;#24452;
-(require &#39;org-octopress)
+&lt;span style=&quot;color: #ff0000;&quot;&gt;;;; &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;org octopress&lt;/span&gt;
+&lt;span style=&quot;color: #ff0000;&quot;&gt;;;; &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;&amp;#27880;&amp;#24847;&amp;#23558;optopress&amp;#36335;&amp;#24452;&amp;#38656;&amp;#35201;&amp;#26367;&amp;#25442;&amp;#25104;&amp;#20320;&amp;#30340;optopress&amp;#36335;&amp;#24452;&lt;/span&gt;
+(&lt;span style=&quot;color: #00ffff; font-weight: bold;&quot;&gt;require&lt;/span&gt; &#39;&lt;span style=&quot;color: #ff00ff;&quot;&gt;org-octopress&lt;/span&gt;)
 (setq org-octopress-directory-top       &lt;span style=&quot;color: #00ff00;&quot;&gt;&quot;~/CodeRepo/GitRepo/octopress/source/org_pos/source&quot;&lt;/span&gt;)
 (setq org-octopress-directory-posts     &lt;span style=&quot;color: #00ff00;&quot;&gt;&quot;~/CodeRepo/GitRepo/octopress/source/_posts&quot;&lt;/span&gt;)
 (setq org-octopress-directory-org-top   &lt;span style=&quot;color: #00ff00;&quot;&gt;&quot;~/CodeRepo/GitRepo/octopress/source&quot;&lt;/span&gt;)
 (setq org-octopress-directory-org-posts &lt;span style=&quot;color: #00ff00;&quot;&gt;&quot;~/CodeRepo/GitRepo/octopress/source/blog&quot;&lt;/span&gt;)
-;;; &amp;#38656;&amp;#35201;&amp;#25335;&amp;#36125;https:////github.com/yoshinari-nomura/org-octopress &amp;#30340;setupfile-sample.org &amp;#21040;&amp;#19979;&amp;#38754;&amp;#30340;&amp;#30446;&amp;#24405;
-;;; &amp;#24182;&amp;#19988;&amp;#38656;&amp;#35201;&amp;#26356;&amp;#25442;&amp;#21517;&amp;#23383;
+&lt;span style=&quot;color: #ff0000;&quot;&gt;;;; &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;&amp;#38656;&amp;#35201;&amp;#25335;&amp;#36125;https:////github.com/yoshinari-nomura/org-octopress &amp;#30340;setupfile-sample.org &amp;#21040;&amp;#19979;&amp;#38754;&amp;#30340;&amp;#30446;&amp;#24405;&lt;/span&gt;
+&lt;span style=&quot;color: #ff0000;&quot;&gt;;;; &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;&amp;#24182;&amp;#19988;&amp;#38656;&amp;#35201;&amp;#26356;&amp;#25442;&amp;#21517;&amp;#23383;&lt;/span&gt;
 (setq org-octopress-setup-file          &lt;span style=&quot;color: #00ff00;&quot;&gt;&quot;~/CodeRepo/GitRepo/octopress/org-sty/setupfile.org&quot;&lt;/span&gt;)
 
-(provide &#39;init-local)
+(&lt;span style=&quot;color: #00ffff; font-weight: bold;&quot;&gt;provide&lt;/span&gt; &#39;&lt;span style=&quot;color: #ff00ff;&quot;&gt;init-local&lt;/span&gt;)
 &lt;/pre&gt;
 &lt;/div&gt;
 
