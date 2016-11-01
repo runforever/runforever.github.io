@@ -1,0 +1,129 @@
+#+TITLE: saltstack使用笔记
+#+DATE: 2014-06-21
+#+SETUPFILE: ~/CodeRepo/GitRepo/octopress/org-sty/setupfile.org
+#+JEKYLL_LAYOUT: post
+#+JEKYLL_CATEGORIES: saltstack
+#+JEKYLL_PUBLISHED: true
+#+JEKYLL_COMMENTS: true
+
+* saltstack使用笔记
+
+** 来由：
+公司需要部署把服务部署到自己的服务器中，每次迁移服务都得重新安装软件\\
+配置什么东西，身为程序员的我本身比较懒，就想找个工具把配置写好，下次\\
+部署的时候直接使用配置来玩，而不是每次都手工，所以就发现了 *saltstack*\\
+这个自动化部署工具了。\\
+
+** 简介
+salt采用的C/S架构，主机master和客户端minion，master通过命令控制客户端minion \\
+进行相应的任务（软件安装，配置，重启，定时任务，状态监控。。。）。
+
+** 核心
+远程执行引擎是Salt的核心，它能够为多组系统创建高速、安全的双向通讯网络。\\
+基于这个通许系统，Salt提供了一个非常快速、灵活并且容易使用的配置管理系统，\\
+称之为“Salt States”。\\
+
+** 安装配置
+参考 http:////docs.saltstack.cn/topics/tutorials/walkthrough.html \\
+#+BEGIN_SRC sh
+# 运行
+:salt-key -L
+# 如果出现客户端机器，说明配置成功了
+#+END_SRC
+
+** 使用
+*** salt state
+SLS（代表SaLt State文件）只是结构化的数据。\\
+#+BEGIN_SRC sh
+# 运行
+salt '*' state.highstate
+# 会让所有的minion到master上来取走自己的SLS定义
+
+# 模拟运行
+salt 'minion1.example.com' state.highstate -v test=True
+#+END_SRC
+
+*** 更多使用教程
+官方文档 http:////docs.saltstack.com/
+
+** salt 配置文件结构
+
+*** 开启salt配置文件
+#+BEGIN_SRC sh
+# 修改/etc/salt/master文件，去掉如下注释
+file_roots:
+  base:
+    - /srv/salt
+  prod:
+    - /srv/salt/prod
+  dev:
+    - /srv/salt/dev
+
+
+# 如果需要使用pillar，去掉如下注释
+# pillar可以允许你定义一些变量，敏感数据，具体参考 http://www.ituring.com.cn/article/42398
+pillar_root:
+  base:
+    - /srv/pillar
+#+END_SRC
+
+*** 配置文件格式
+1. salt 的配置文件使用yaml格式，文件名后缀是.sls
+2. 关于yaml格式可以参考http:////www.yaml.org/spec/1.2/spec.html
+   - json是yaml的子集，yaml可以描述更多的东西
+   - yaml的可读性要比json好，但是身为程序员的我觉得json的可读性更好。
+   - 学习yaml可以使用如下网站进行json和yaml的转换，http:////yamltojson.com/ ，这样可以更好的理解yaml。
+
+*** 配置文件的目录结构
+#+BEGIN_SRC yaml
+tops.sls （描述所有客户端需要执行的状态）
+prod （生产环境配置）
+  -- core （基本软件安装）
+     -- core.sls
+  -- nginx
+     -- nginx.sls
+     -- nginx.conf
+  -- vim
+     -- vim.sls
+     -- vim.local
+  -- git
+     -- git.sls
+  -- web
+     -- web.sls
+  -- ...
+     -- ...
+dev （测试环境配置）
+  -- ...
+     -- ...
+#+END_SRC
+
+*** 配置文件解释
+core.sls
+#+BEGIN_SRC yaml
+# /srv/salt/tops.sls
+prod:
+  '*':   # 所有minion都要获取core状态
+    - core.core
+
+# /srv/salt/prod/core/core.sls
+mypkgs:
+  pkg.installed:
+    - pkgs:
+      - gcc
+      - python-dev
+      - tmux
+      - build-essential
+      - g++
+      - ...
+#+END_SRC
+
+** 总结
+saltstack 可以让你像编程一样去管理服务器，简单，高效，有趣。
+
+** 参考
+#+BEGIN_QUOTE
+[[http:////docs.saltstack.cn/topics/tutorials/walkthrough.html][saltstack演练]] \\
+http:////docs.saltstack.cn/topics/tutorials/starting_states.html \\
+http:////www.ituring.com.cn/article/42398 \\
+#+END_QUOTE
+{{{more}}}
