@@ -1,0 +1,440 @@
+---
+title: "迁移 Octopress 到 Hexo"
+date: 2016-11-02
+layout: post
+categories: blog
+published: true
+comments: true
+---
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">不折腾会死</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+前几天更新了 <a href="http://runforever.github.io/2014-07-19/2014-07-19-python-mixin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Python Mixin 学习笔记</a> 这篇文章，文章中有一张图，于是乎想添加 fancybox 插件来预览图片，
+原本以为是非常简单的一件事，结果上 google 找，果然没有找到，同时发现博客的分页有 bug，再看看 Octopress 的
+最后更新时间，看到这些茫茫多的问题，于是便有了迁移 Octopress 到 Hexo 的念头。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">迁移前的调研</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+google 找了一些迁移的文章，发现迁移没有想象中难，于是开始准备。
+</p>
+
+<p>
+我的需求：
+</p>
+<ol class="org-ol">
+<li>可以继续使用 Emacs 上的 <a href="https://github.com/yoshinari-nomura/org-octopress">org-octopress</a> 插件写博客。
+</li>
+<li>可以兼容我之前写的文章，代码高亮必须漂亮。
+</li>
+<li>一定要有 fancybox。
+</li>
+<li>没有分页等乱七八糟的明显 bug。
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">迁移后的优点</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li>generate 速度大幅提高。
+</li>
+<li>Hexo 更新快，插件多，没有很明显的 bug。
+</li>
+<li>完美兼容我的写作习惯。
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">迁移过程</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li>安装配置 Hexo。
+</li>
+<li>迁移 <code>source/_posts</code> 里的博客源文件。
+</li>
+<li>重新配置 org-octopress。
+</li>
+<li>选择一个兼容 Octopress 文章的主题。
+</li>
+<li>调整 Hexo 和主题的配置。
+</li>
+<li>管理博客代码管理。
+</li>
+</ol>
+
+<p>
+<!-- more -->
+</p>
+</div>
+
+<div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1">安装配置 Hexo</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+安装过程可以参考 <a href="https://hexo.io/zh-cn/docs/index.html">官方文档</a>，值得注意的地方是：
+</p>
+<ol class="org-ol">
+<li>推荐使用 <a href="https://github.com/creationix/nvm">nvm</a> 安装 node。
+</li>
+<li><code>Error with DTrace</code> 使用 <code>npm install hexo --no-optional</code> 解决，参考 <a href="https:hexo.io/docs/troubleshooting.html#Error-with-DTrace-Mac-OS-X">hexo troubleshooting</a>。
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2">迁移 <code>source/_posts</code> 里的博客源文件</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Hexo 有 <a href="https://hexo.io/zh-cn/docs/migration.html#Octopress">迁移文档</a>，我的迁移过程：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash"># 创建文件夹
+mkdir blog
+cd blog
+
+# 初始化
+hexo init
+
+# 安装依赖
+npm install
+
+# 解决 Error with DTrace 问题
+npm install hexo --no-optional
+
+# 查看目录
+tree -L 1
+
+.
+├── _config.yml
+├── db.json
+├── node_modules
+├── org
+├── package.json
+├── public
+├── scaffolds
+├── source
+└── themes
+
+# 复制 Octopress source/_posts 的文件到当前的 source/_posts
+cp /your_octopress_path/source_posts/* source/_posts
+</pre>
+</div>
+
+<p>
+首次配置 <code>blog/_config.yml</code>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-yaml"><span style="color: #ffff00;">title</span>: Runforever
+<span style="color: #ffff00;">subtitle</span>: K.I.S.S
+<span style="color: #ffff00;">description</span>: &#25105;&#21482;&#26159;&#22312;&#20889;&#19968;&#20010;&#25925;&#20107;
+<span style="color: #ffff00;">author</span>: runforever
+
+<span style="color: #ff0000;">...</span>
+
+<span style="color: #ffff00;">permalink</span>: :year-:month-:day/:title/  <span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#35201;&#21644; Octopress &#30340; permalink &#20445;&#25345;&#19968;&#33268;</span>
+</pre>
+</div>
+
+<p>
+生成博客
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">hexo generate
+hexo server --watch
+
+# 可以简写
+hexo g
+hexo s --watch
+</pre>
+</div>
+<p>
+这些步骤没有什么难度，很快就搞定了。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3">重新配置 org-octopress</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+我的配置如下：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-lisp">(<span style="color: #00ffff; font-weight: bold;">require</span> '<span style="color: #ff00ff;">org-octopress</span>)
+(setq org-octopress-directory-top       <span style="color: #00ff00;">"/your-blog-path/source"</span>)
+(setq org-octopress-directory-posts     <span style="color: #00ff00;">"/your-blog-path/source/_posts"</span>)
+(setq org-octopress-directory-org-top   <span style="color: #00ff00;">"/your-blog-path/source"</span>)
+(setq org-octopress-directory-org-posts <span style="color: #00ff00;">"/your-blog-path/org/source"</span>)
+(setq org-octopress-setup-file          <span style="color: #00ff00;">"/your-blog-path/org/setupfile.org"</span>)
+</pre>
+</div>
+
+<p>
+在 blog 文件夹下新建了 org 目录，里面有 org 的配置文件 <code>setupfile.org</code> 和放博客源文件的 source 目录，
+需要将原来 octopress 的 org 博客源文件 copy 到 org/source 。
+</p>
+
+<p>
+配置好后，重启 Emacs，修改了 <a href="http://runforever.github.io/2016-02-03/2016-02-03-ansible%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/">Ansible 使用入门</a> 文章来测试效果，没有问题。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-4" class="outline-3">
+<h3 id="sec-4-4">选择一个兼容 Octopress 文章的主题</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+这个过程是整个迁移过程中最耗时的，<a href="https://hexo.io/themes/">Hexo Theme</a> 这里满屏幕的主题，经过测试 <a href="https://github.com/iissnan/hexo-theme-next">hexo-theme-next</a> 是对
+迁移的兼容性最好的，别的主题要么样式错乱，要么代码高亮有问题，整个测试过程让我崩溃的想要放弃。
+</p>
+
+<p>
+next 主题 <a href="http://theme-next.iissnan.com/getting-started.html">安装文档</a>，过程：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">git clone https://github.com/iissnan/hexo-theme-next.git theme/next
+</pre>
+</div>
+
+<p>
+修改 <code>blog/_config.yml</code> 中 theme 配置
+</p>
+<div class="org-src-container">
+
+<pre class="src src-yaml"><span style="color: #ff0000;"># </span><span style="color: #ff0000;">Extensions</span>
+<span style="color: #ff0000;">## </span><span style="color: #ff0000;">Plugins: http://hexo.io/plugins/</span>
+<span style="color: #ff0000;">## </span><span style="color: #ff0000;">Themes: http://hexo.io/themes/</span>
+<span style="color: #ffff00;">theme</span>: next
+</pre>
+</div>
+
+<p>
+测试
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">hexo g
+hexo s
+</pre>
+</div>
+
+<p>
+当我看到显示效果后，我决定就是它了，接下来就是配置的微调了。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-5" class="outline-3">
+<h3 id="sec-4-5">调整 Hexo 和主题的配置</h3>
+<div class="outline-text-3" id="text-4-5">
+<p>
+<code>blog/_config.yml</code> 的调整
+</p>
+<div class="org-src-container">
+
+<pre class="src src-yaml"><span style="color: #ffff00;">title</span>: Runforever
+<span style="color: #ffff00;">subtitle</span>: K.I.S.S
+<span style="color: #ffff00;">description</span>: &#25105;&#21482;&#26159;&#22312;&#20889;&#19968;&#20010;&#25925;&#20107;
+<span style="color: #ffff00;">author</span>: runforever
+<span style="color: #ffff00;">language</span>: zh-Hans   <span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#35821;&#35328;</span>
+<span style="color: #ffff00;">timezone</span>: Asia/Shanghai  <span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#22320;&#21306;</span>
+<span style="color: #ffff00;">avatar</span>: http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg   <span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#22836;&#20687;&#37197;&#32622;</span>
+
+<span style="color: #ffff00;">permalink</span>: :year-:month-:day/:title/  <span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#21338;&#23458;&#38142;&#25509;</span>
+</pre>
+</div>
+
+<p>
+<code>theme/next/_config.yml</code> 的调整
+</p>
+<div class="org-src-container">
+
+<pre class="src src-yaml"><span style="color: #ffff00;">keywords</span>: <span style="color: #00ff00;">"&#25105;&#21482;&#26159;&#22312;&#20889;&#25925;&#20107;"</span>
+
+<span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#35774;&#32622;&#20195;&#30721;&#32972;&#26223;</span>
+<span style="color: #ff0000;">#    </span><span style="color: #ff0000;">normal | night | night eighties | night blue | night bright</span>
+<span style="color: #ff0000;"># </span><span style="color: #ff0000;">https://github.com/chriskempson/tomorrow-theme</span>
+<span style="color: #ffff00;">highlight_theme</span>: night
+
+<span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#20391;&#36793;&#26639;&#33756;&#21333;&#23637;&#31034;</span>
+<span style="color: #ffff00;">menu</span>:
+  <span style="color: #ffff00;">home</span>: /
+  <span style="color: #ffff00;">categories</span>: /categories
+  <span style="color: #ffff00;">archives</span>: /archives
+
+<span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#25105;&#36873;&#29992;&#30340;&#20027;&#39064;</span>
+<span style="color: #ff0000;"># </span><span style="color: #ff0000;">Schemes</span>
+<span style="color: #ff0000;">#</span><span style="color: #ff0000;">scheme: Muse</span>
+<span style="color: #ffff00;">scheme</span>: Mist
+<span style="color: #ff0000;">#</span><span style="color: #ff0000;">scheme: Pisces</span>
+
+<span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#23637;&#31034;&#30340;&#38142;&#25509;</span>
+<span style="color: #ffff00;">social</span>:
+  <span style="color: #ffff00;">GitHub</span>: https://github.com/runforever
+  <span style="color: #ffff00;">Bitbucket</span>: https://bitbucket.com/runforever
+  <span style="color: #ffff00;">&#25552; Issue</span>: https://github.com/runforever/runforever.github.com/issues/new
+
+<span style="color: #ffff00;">sidebar</span>:
+  <span style="color: #ffff00;">position</span>: left
+  <span style="color: #ff0000;"># </span><span style="color: #ff0000;">Sidebar Display, </span><span style="color: #ffff00;">available value</span><span style="color: #ff0000;">:</span>
+  <span style="color: #ff0000;">#  </span><span style="color: #ff0000;">- post    expand on posts automatically. Default.</span>
+  <span style="color: #ff0000;">#  </span><span style="color: #ff0000;">- always  expand for all pages automatically</span>
+  <span style="color: #ff0000;">#  </span><span style="color: #ff0000;">- hide    expand only when click on the sidebar toggle icon.</span>
+  <span style="color: #ff0000;">#  </span><span style="color: #ff0000;">- remove  Totally remove sidebar including sidebar toggler.</span>
+  <span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#35774;&#32622;&#20391;&#36793;&#26639;&#24635;&#26159;&#26174;&#31034;</span>
+  <span style="color: #ffff00;">display</span>: always
+</pre>
+</div>
+<p>
+经过测试，代码高亮主题为 <code>night</code> 的时候兼容效果最好，预览后，终于看到曙光了，
+不过侧边栏分类页面无法显示，查看<a href="http:theme-next.iissnan.com/theme-settings.html#categories-page"> 主题配置</a> 文档找到了解决方案。
+</p>
+
+
+<div class="figure">
+<p><img src="http://cdn.defcoding.com/F089DF58-F049-431A-88DD-C3744954318C.png" alt="F089DF58-F049-431A-88DD-C3744954318C.png" />
+</p>
+</div>
+
+
+<div class="figure">
+<p><img src="http://cdn.defcoding.com/93E66597-DCA7-4F7D-AA13-FA70CE6ACB2C.png" alt="93E66597-DCA7-4F7D-AA13-FA70CE6ACB2C.png" />
+</p>
+</div>
+
+<p>
+现在只剩下如何去管理博客代码这个问题了。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-6" class="outline-3">
+<h3 id="sec-4-6">博客代码管理</h3>
+<div class="outline-text-3" id="text-4-6">
+<p>
+我依然使用 GitHub Pages 来发布博客，根据<a href="https://hexo.io/zh-cn/docs/deployment.html#Git"> 官方部署文档</a> 来做就行。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash"># hexo-deployer-git
+npm install hexo-deployer-git --save
+</pre>
+</div>
+
+<p>
+修改 <code>blog/_config.yml</code>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-yaml"><span style="color: #ff0000;"># </span><span style="color: #ff0000;">Deployment</span>
+<span style="color: #ff0000;">## </span><span style="color: #ff0000;">Docs: http://hexo.io/docs/deployment.html</span>
+<span style="color: #ffff00;">deploy</span>:
+  <span style="color: #ffff00;">type</span>: git
+  <span style="color: #ffff00;">repo</span>: https://github.com/runforever/runforever.github.com.git
+</pre>
+</div>
+
+<p>
+测试发布
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">hexo g
+hexo deploy
+</pre>
+</div>
+
+<p>
+发布没有问题，博客代码的版本控制我延续 Octopress 的策略使用 master 和 source 两个分支，
+master 用于博客发布，source 用于源代码管理。
+</p>
+</div>
+
+<div id="outline-container-sec-4-6-1" class="outline-4">
+<h4 id="sec-4-6-1">提交博客源代码</h4>
+<div class="outline-text-4" id="text-4-6-1">
+<p>
+将 theme/ 文件夹添加的 blog/.gitignore
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+themes/
+</pre>
+</div>
+
+<p>
+提交代码
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">git add .
+git commit -a -m "init hexo blog"
+
+# 修改 master 分支重命名为 source
+git branch -m source
+
+# 强制 push
+git push -f
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4-6-2" class="outline-4">
+<h4 id="sec-4-6-2">提交博客主题</h4>
+<div class="outline-text-4" id="text-4-6-2">
+<p>
+首先，GitHub 上 fork 一份 <a href="https://github.com/iissnan/hexo-theme-next">hexo-theme-next</a> 到自己的仓库。
+然后，开始提交代码。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">cd theme/next
+git remote set-url origin https://your-fork-repo.git
+git commit -a -m 'change config'
+git push
+</pre>
+</div>
+<p>
+打完收工，整个迁移过程已经完成，博客效果正如你现在看到的。
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">感谢</h2>
+<div class="outline-text-2" id="text-5">
+<ol class="org-ol">
+<li>Hexo 提供静态博客框架。
+</li>
+<li>next 提供的博客主题。
+</li>
+</ol>
+</div>
+</div>

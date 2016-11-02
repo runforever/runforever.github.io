@@ -1,0 +1,265 @@
+#+TITLE: 迁移 Octopress 到 Hexo
+#+DATE: 2016-11-02
+#+SETUPFILE: ~/CodeRepo/GitRepo/Road/blog/org/setupfile.org
+#+JEKYLL_LAYOUT: post
+#+JEKYLL_CATEGORIES: blog
+#+JEKYLL_PUBLISHED: true
+#+JEKYLL_COMMENTS: true
+
+** 不折腾会死
+前几天更新了 [[http:////runforever.github.io/2014-07-19/2014-07-19-python-mixin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/][Python Mixin 学习笔记]] 这篇文章，文章中有一张图，于是乎想添加 fancybox 插件来预览图片，
+原本以为是非常简单的一件事，结果上 google 找，果然没有找到，同时发现博客的分页有 bug，再看看 Octopress 的
+最后更新时间，看到这些茫茫多的问题，于是便有了迁移 Octopress 到 Hexo 的念头。
+
+** 迁移前的调研
+google 找了一些迁移的文章，发现迁移没有想象中难，于是开始准备。
+
+我的需求：
+1. 可以继续使用 Emacs 上的 [[https:////github.com/yoshinari-nomura/org-octopress][org-octopress]] 插件写博客。
+2. 可以兼容我之前写的文章，代码高亮必须漂亮。
+3. 一定要有 fancybox。
+4. 没有分页等乱七八糟的明显 bug。
+
+** 迁移后的优点
+1. generate 速度大幅提高。
+2. Hexo 更新快，插件多，没有很明显的 bug。
+3. 完美兼容我的写作习惯。
+
+** 迁移过程
+1. 安装配置 Hexo。
+2. 迁移 =source/_posts= 里的博客源文件。
+3. 重新配置 org-octopress。
+4. 选择一个兼容 Octopress 文章的主题。
+5. 调整 Hexo 和主题的配置。
+6. 管理博客代码管理。
+
+{{{more}}}
+
+*** 安装配置 Hexo
+安装过程可以参考 [[https:////hexo.io/zh-cn/docs/index.html][官方文档]]，值得注意的地方是：
+1. 推荐使用 [[https:////github.com/creationix/nvm][nvm]] 安装 node。
+2. =Error with DTrace= 使用 =npm install hexo --no-optional= 解决，参考 [[https://hexo.io/docs/troubleshooting.html#Error-with-DTrace-Mac-OS-X][hexo troubleshooting]]。
+
+*** 迁移 =source/_posts= 里的博客源文件
+Hexo 有 [[https:////hexo.io/zh-cn/docs/migration.html#Octopress][迁移文档]]，我的迁移过程：
+#+BEGIN_SRC bash
+# 创建文件夹
+mkdir blog
+cd blog
+
+# 初始化
+hexo init
+
+# 安装依赖
+npm install
+
+# 解决 Error with DTrace 问题
+npm install hexo --no-optional
+
+# 查看目录
+tree -L 1
+
+.
+├── _config.yml
+├── db.json
+├── node_modules
+├── org
+├── package.json
+├── public
+├── scaffolds
+├── source
+└── themes
+
+# 复制 Octopress source/_posts 的文件到当前的 source/_posts
+cp /your_octopress_path/source_posts/* source/_posts
+#+END_SRC
+
+首次配置 =blog/_config.yml=
+#+BEGIN_SRC yaml
+title: Runforever
+subtitle: K.I.S.S
+description: 我只是在写一个故事
+author: runforever
+
+...
+
+permalink: :year-:month-:day/:title/  # 要和 Octopress 的 permalink 保持一致
+#+END_SRC
+
+生成博客
+#+BEGIN_SRC bash
+hexo generate
+hexo server --watch
+
+# 可以简写
+hexo g
+hexo s --watch
+#+END_SRC
+这些步骤没有什么难度，很快就搞定了。
+
+*** 重新配置 org-octopress
+我的配置如下：
+#+BEGIN_SRC lisp
+(require 'org-octopress)
+(setq org-octopress-directory-top       "/your-blog-path/source")
+(setq org-octopress-directory-posts     "/your-blog-path/source/_posts")
+(setq org-octopress-directory-org-top   "/your-blog-path/source")
+(setq org-octopress-directory-org-posts "/your-blog-path/org/source")
+(setq org-octopress-setup-file          "/your-blog-path/org/setupfile.org")
+#+END_SRC
+
+在 blog 文件夹下新建了 org 目录，里面有 org 的配置文件 =setupfile.org= 和放博客源文件的 source 目录，
+需要将原来 octopress 的 org 博客源文件 copy 到 org/source 。
+
+配置好后，重启 Emacs，修改了 [[http:////runforever.github.io/2016-02-03/2016-02-03-ansible%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/][Ansible 使用入门]] 文章来测试效果，没有问题。
+
+*** 选择一个兼容 Octopress 文章的主题
+这个过程是整个迁移过程中最耗时的，[[https:////hexo.io/themes/][Hexo Theme]] 这里满屏幕的主题，经过测试 [[https:////github.com/iissnan/hexo-theme-next][hexo-theme-next]] 是对
+迁移的兼容性最好的，别的主题要么样式错乱，要么代码高亮有问题，整个测试过程让我崩溃的想要放弃。
+
+next 主题 [[http:////theme-next.iissnan.com/getting-started.html][安装文档]]，过程：
+#+BEGIN_SRC bash
+git clone https://github.com/iissnan/hexo-theme-next.git theme/next
+#+END_SRC
+
+修改 =blog/_config.yml= 中 theme 配置
+#+BEGIN_SRC yaml
+# Extensions
+## Plugins: http://hexo.io/plugins/
+## Themes: http://hexo.io/themes/
+theme: next
+#+END_SRC
+
+测试
+#+BEGIN_SRC bash
+hexo g
+hexo s
+#+END_SRC
+
+当我看到显示效果后，我决定就是它了，接下来就是配置的微调了。
+
+*** 调整 Hexo 和主题的配置
+=blog/_config.yml= 的调整
+#+BEGIN_SRC yaml
+title: Runforever
+subtitle: K.I.S.S
+description: 我只是在写一个故事
+author: runforever
+language: zh-Hans   # 语言
+timezone: Asia/Shanghai  # 地区
+avatar: http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg   # 头像配置
+
+permalink: :year-:month-:day/:title/  # 博客链接
+
+#+END_SRC
+
+=theme/next/_config.yml= 的调整
+#+BEGIN_SRC yaml
+keywords: "我只是在写故事"
+
+# 设置代码背景
+#    normal | night | night eighties | night blue | night bright
+# https://github.com/chriskempson/tomorrow-theme
+highlight_theme: night
+
+# 侧边栏菜单展示
+menu:
+  home: /
+  categories: /categories
+  archives: /archives
+
+# 我选用的主题
+# Schemes
+#scheme: Muse
+scheme: Mist
+#scheme: Pisces
+
+# 展示的链接
+social:
+  GitHub: https://github.com/runforever
+  Bitbucket: https://bitbucket.com/runforever
+  提 Issue: https://github.com/runforever/runforever.github.com/issues/new
+
+sidebar:
+  position: left
+  # Sidebar Display, available value:
+  #  - post    expand on posts automatically. Default.
+  #  - always  expand for all pages automatically
+  #  - hide    expand only when click on the sidebar toggle icon.
+  #  - remove  Totally remove sidebar including sidebar toggler.
+  # 设置侧边栏总是显示
+  display: always
+#+END_SRC
+经过测试，代码高亮主题为 =night= 的时候兼容效果最好，预览后，终于看到曙光了，
+不过侧边栏分类页面无法显示，查看[[http://theme-next.iissnan.com/theme-settings.html#categories-page][ 主题配置]] 文档找到了解决方案。
+
+http:////cdn.defcoding.com/F089DF58-F049-431A-88DD-C3744954318C.png
+
+http:////cdn.defcoding.com/93E66597-DCA7-4F7D-AA13-FA70CE6ACB2C.png
+
+现在只剩下如何去管理博客代码这个问题了。
+
+*** 博客代码管理
+我依然使用 GitHub Pages 来发布博客，根据[[https:////hexo.io/zh-cn/docs/deployment.html#Git][ 官方部署文档]] 来做就行。
+#+BEGIN_SRC bash
+# hexo-deployer-git
+npm install hexo-deployer-git --save
+#+END_SRC
+
+修改 =blog/_config.yml=
+#+BEGIN_SRC yaml
+# Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: https://github.com/runforever/runforever.github.com.git
+#+END_SRC
+
+测试发布
+#+BEGIN_SRC bash
+hexo g
+hexo deploy
+#+END_SRC
+
+发布没有问题，博客代码的版本控制我延续 Octopress 的策略使用 master 和 source 两个分支，
+master 用于博客发布，source 用于源代码管理。
+
+**** 提交博客源代码
+将 theme/ 文件夹添加的 blog/.gitignore
+#+BEGIN_SRC bash
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+themes/
+#+END_SRC
+
+提交代码
+#+BEGIN_SRC bash
+git add .
+git commit -a -m "init hexo blog"
+
+# 修改 master 分支重命名为 source
+git branch -m source
+
+# 强制 push
+git push -f
+#+END_SRC
+
+**** 提交博客主题
+首先，GitHub 上 fork 一份 [[https:////github.com/iissnan/hexo-theme-next][hexo-theme-next]] 到自己的仓库。
+然后，开始提交代码。
+#+BEGIN_SRC bash
+cd theme/next
+git remote set-url origin https://your-fork-repo.git
+git commit -a -m 'change config'
+git push
+#+END_SRC
+打完收工，整个迁移过程已经完成，博客效果正如你现在看到的。
+
+** 感谢
+1. Hexo 提供静态博客框架。
+2. next 提供的博客主题。
