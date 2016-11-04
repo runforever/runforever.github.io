@@ -13,7 +13,7 @@ avatar: http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://runforever.github.io
 root: /
 permalink: :year-:month-:day/:title/
 permalink_defaults:
@@ -70,4 +70,4 @@ theme: next
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/runforever/runforever.github.com.git
+  repo: https://github.com/runforever/runforever.github.io.git
