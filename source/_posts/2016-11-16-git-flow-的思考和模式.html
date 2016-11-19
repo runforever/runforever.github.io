@@ -1,0 +1,154 @@
+---
+title: "Git Flow 重新思考"
+date: 2016-11-16
+layout: post
+categories: git
+published: true
+comments: true
+---
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">一次 Git Flow 的讨论</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+新项目启动，我建议使用 Fork + Pull Request 模式开发，保持提交的干净整洁，其他的同学则建议用一个 dev 分支中央式开发，方便多人协作和同步代码，
+最终使用了一个 dev 分支的模式，后端觉得项目初始阶段相互依赖会比较多，方便协作，前端觉得这样方便同时与多人对接后端的接口。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">对于 Git Flow 的思考</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+讨论结束后，我开始重新思考 Git Flow 的模式和使用，得到的答案是使用最基本的 Git 特点就可以适应各种 Git Flow。
+</p>
+
+<blockquote>
+<p>
+Git 是为了管理 Linux 内核源代码而开发的版本控制系统，它与生俱来的特点就是 <b><b>分布式</b></b> 和 <b><b>简单的分支管理</b></b>
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">我的需求</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li>协作方便。
+</li>
+<li>提交历史要干净整洁。
+</li>
+<li>方便 code review。
+</li>
+</ol>
+
+<p>
+<!-- more -->
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Fork + Pull Request 模式</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1">理想场景</h3>
+<div class="outline-text-3" id="text-4-1">
+
+<div class="figure">
+<p><img src="http://cdn.defcoding.com/42231478-BC3F-4F9B-91D5-27D160DEB630.png" alt="42231478-BC3F-4F9B-91D5-27D160DEB630.png" />
+</p>
+</div>
+
+<p>
+理想场景下开发者 A、B、C 开发的功能互不依赖，每个人可以在自己 fork 的仓库下随便搞，但是必须保证 Pull Request 的 Commit 干净整洁。<br  />
+从这里可以看出来，Fork + Pull Request 的模式是鼓励每个人把 Commit 做好的。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2">协作场景</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+现实中的场景往往涉及到多人协作，一个人很容易保持干净的提交历史，在多人开发协作要保证这点就需要好好利用 Git 的特点了。
+<img src="http://cdn.defcoding.com/img_0059.jpg" alt="img_0059.jpg" />
+</p>
+
+<p>
+现在 A、B、C 三个人都在 <code>cooperate-feature</code> 分支上开发，如果没有任何方案去管理 Commit，很有可能出现下面的情况。
+</p>
+
+
+<div class="figure">
+<p><img src="http://cdn.defcoding.com/85771217-ECD7-401C-977C-71D60B9C9B94.png" alt="85771217-ECD7-401C-977C-71D60B9C9B94.png" />
+</p>
+</div>
+
+<p>
+如果可以 A、B、C 做的提交合并一下就好了，类似下面的结果。
+</p>
+
+
+<div class="figure">
+<p><img src="http://cdn.defcoding.com/0CE21100-0C88-4A95-9BDF-AD2E144B42BE.png" alt="0CE21100-0C88-4A95-9BDF-AD2E144B42BE.png" />
+</p>
+</div>
+
+<p>
+使用下面的流程可以要达到上面的目的。
+</p>
+
+
+<div class="figure">
+<p><img src="http://cdn.defcoding.com/160609DE-5A2F-4265-B2A4-9EDCBEAB3B1A.png" alt="160609DE-5A2F-4265-B2A4-9EDCBEAB3B1A.png" />
+</p>
+</div>
+
+<p>
+具体流程：
+</p>
+<ol class="org-ol">
+<li>定义一个协作分支，不能直接在上面做提交，只用作同步和分支合并。
+</li>
+<li>每次要开发新功能都需要切分支，如： <code>feature-xxx</code> 、 <code>bugfix-xxx</code> 、 <code>hotfix-xxx</code> 。
+</li>
+<li>开发完成后花几分钟使用 <code>rebase</code> 命令将提交合并和写清晰的 commit message。
+</li>
+<li>将提交合并到协作分支。
+</li>
+<li>push 协作分支到远端让其他人同步。
+</li>
+</ol>
+
+<p>
+这样就利用了 Git 分支的优势解决了提交历史的问题，最重要的一点是定义好协作分支，并且协作分支只负责同步和合并自己其他分支的提交。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">一个分支中央式开发模式</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+明白了协作场景的正确用法后，一个分支中央式开发模式可以对应进去，中央分支是协作分支，只负责同步和合并代码，开发功能切分支去开发，完成后合并。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">结论</h2>
+<div class="outline-text-2" id="text-6">
+<ol class="org-ol">
+<li>要学会使用 Git 的协作流程，这是最基本的 Git 技能。
+</li>
+<li>中央是开发适合项目初期，协作比较多的场景。
+</li>
+<li>Fork + Pull Request 模式适合项目稳定的时期，方便 Code Review。
+</li>
+</ol>
+</div>
+</div>
