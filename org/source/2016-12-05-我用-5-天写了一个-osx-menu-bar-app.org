@@ -1,0 +1,180 @@
+#+TITLE: 我用 5 天写了一个 OSX Menu Bar App（第一天）
+#+DATE: 2016-12-05
+#+SETUPFILE: ~/CodeRepo/GitRepo/Road/blog/org/setupfile.org
+#+JEKYLL_LAYOUT: post
+#+JEKYLL_CATEGORIES: Swift
+#+JEKYLL_PUBLISHED: true
+#+JEKYLL_COMMENTS: true
+
+** 目录
+1. 第一天（方案调研和框架搭建）
+2. 第二天（快速原型跑通流程）
+3. 第三天（同时上传多张图片）
+4. 第四天（UI 细节调整）
+5. 第五天（设计 Logo 和总结）
+
+** 第一天（方案调研和框架搭建）
+
+** 起源
+我在尝试写一本初学者的编程书《[[http:////py.defcoding.com][如何教妹子学 Python]]》，书中的图片是上传到七牛云上的，每次上传图片的流程让我觉得很难受，保存图片到桌面，打开浏览器，进入七牛后台，选择图片，上传成功，复制链接，写成 Markdown，放到书里......\\
+在 App Store 里找了一圈，有个叫 iPic 的工具，感觉是我想要的东西，但是我接受不了每年要交 20 元的收费模式，又不是什么很难的东西，打算自己实现，实现的过程中学到了很多东西，便有了将实现过程分享出来的想法，
+试着帮助那些遇到同样问题的人，上传工具早在国庆期间就写完了，现在才写文章完全是自己的拖延症导致的。
+
+** 需求
+1. 实现一个 Menubar App。
+2. 图片和文件上传到七牛。
+3. 支持多文件拖动上传。
+4. 支持剪贴板上传。
+5. 可以方便的复制文件上传后的 url 和 markdown 格式的 url。
+
+** 技术可行性
+1. 使用Swift 可以实现 Menubar App。
+2. 七牛有相应的 SDK 可以实现上传图片。
+
+** 准备工作
+1. 会使用 Swift 语言。
+2. 会使用 cocopods 安装 Swift 库。
+3. 安装了 Dash 工具可以随时查看 cocoa 的 API 文档。
+4. 可以使用 Google 找解决方案。
+
+** 最终效果
+http:////cdn.defcoding.com/idragshow.gif
+
+{{{more}}}
+
+** 开始折腾
+*** Search the f**king google
+确定好需求，开始在 Google 上找解决方案，一开始我并不知道我要做的应用叫 Menubar app，我是这样搜索的：
+http:////cdn.defcoding.com/BE2F3DD9-139A-4F10-AEB8-14E5872F7B22.png
+
+箭头指向的 [[http:////footle.org/WeatherBar/][文章]] 对我帮助最大，项目基础框架就是根据这篇文章搭建出来的。
+
+*** 新建项目
+**** 第一步：选择 macos 的 cocoa 应用
+http:////cdn.defcoding.com/5E4913C2-C137-4BDD-B10D-68D4936C90C1.png
+
+**** 第二步：填写好乱七八糟的项目信息
+http:////cdn.defcoding.com/CD7DD7D4-8E7A-4B3C-8AA7-688BC25F8C1D.png
+
+**** 第三步：运行试试
+点击运行按钮，尝试一下 =Hello world= 的感觉
+http:////cdn.defcoding.com/6495FACD-DD72-4CA5-A6B6-ED19CEEC8B79.png
+
+**** 第四步：调整成 Menubar App
+Menubar App 不需要主窗口，也不需要显示在 Dock 栏中，只需要显示在屏幕右上角的 Menubar 中就可以了。\\
+
+=Main.Storyboard= 是编辑 App 界面的地方，这个跟 iOS 一样嘛，看来前段时间学习的 iOS 编程有用武之地了。
+
+*打开 =Main.Storyboard= ，删除不需要的东西*\\
+http:////cdn.defcoding.com/451BEA2D-26EB-472E-A78E-0186C120251D.png
+
+*添加上 Menu Item 控件*\\
+http:////cdn.defcoding.com/34D0D3AE-88FB-441A-95A9-0262B2839660.png
+
+*添加程序启动入口 NSObject*\\
+和添加 Menu 一样的操作，先搜索，后拖动\\
+http:////cdn.defcoding.com/72739EF5-3DF0-4646-9CA8-812BE9515D76.png
+
+新建入口源代码文件，选择类型\\
+http:////cdn.defcoding.com/64243827-5702-492B-96E1-291D64D6E5B9.png
+
+填写名字和继承类\\
+http:////cdn.defcoding.com/8C24E5DE-5831-4716-877F-69F4E0241179.png
+
+写入启动代码\\
+#+BEGIN_SRC swift
+import Cocoa
+
+class DragAppController: NSObject {
+
+    override func awakeFromNib() {
+        print("hello world")
+    }
+}
+#+END_SRC
+
+绑定代码和 UI\\
+http:////cdn.defcoding.com/18C2172B-034D-42EC-AD84-589E1F6398A5.png
+
+测试运行一下\\
+http:////cdn.defcoding.com/6617CFE7-48EE-478E-AA64-D99BC4549A1B.png
+
+*设置在 Dock 栏中不展示应用*\\
+http:////cdn.defcoding.com/272E780C-2FC1-4159-A9BB-831E38693FC4.png
+
+*绑定 Menu Item，使用 Ctrl + Drag 操作*\\
+同时展示 UI 和 代码技巧\\
+http:////cdn.defcoding.com/DE13C6D9-429B-4939-862B-8EFDF2016359.png
+
+Ctrl + Drag 操作，按住键盘上的 Ctrl，然后用鼠标拖拽\\
+http:////cdn.defcoding.com/29C85A61-8065-4190-BB40-BC092A274CCD.png
+
+填写变量名\\
+http:////cdn.defcoding.com/77DBFBAE-94F2-4438-AB8B-DA9BE0C2F81D.png
+
+写代码\\
+#+BEGIN_SRC swift
+import Cocoa
+
+class DragAppController: NSObject {
+
+    @IBOutlet weak var dragMenu: NSMenu!
+    let dragStatusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
+
+    override func awakeFromNib() {
+        dragStatusItem.title = "iDrag"
+        dragStatusItem.menu = dragMenu
+    }
+}
+#+END_SRC
+
+运行\\
+http:////cdn.defcoding.com/5045E8C5-A1C7-4301-9F7B-4A88795A882F.png
+
+*看不懂 NSStatusBar 是什么鬼，Read the f**king menu*
+http:////cdn.defcoding.com/453F83F0-753C-4BDF-8C4B-514B4DCEB883.png
+
+遇到什么不懂的只有多看 API 文档，没有别的办法。
+
+到这里我们已经把框架搭建好了，下面我们尝试写一个 Action。
+
+*** 编写退出应用的 Action
+*调整 UI 删除没有的选项和配置相关属性*\\
+http:////cdn.defcoding.com/6EEC0F20-FEE0-4C69-A9B5-98E874BAEFE3.png
+
+*使用 Ctrl + Drag 建立 Action 与代码的连接*
+http:////cdn.defcoding.com/291D8B08-04BC-4BC5-A912-69326F7AF216.png
+
+*填写 Action 信息*
+http:////cdn.defcoding.com/7A917924-4B84-424B-BEAE-CC725C3B88D3.png
+
+*写代码*
+#+BEGIN_SRC swift
+import Cocoa
+
+class DragAppController: NSObject {
+
+    @IBOutlet weak var dragMenu: NSMenu!
+    let dragStatusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
+
+    override func awakeFromNib() {
+        dragStatusItem.title = "iDrag"
+        dragStatusItem.menu = dragMenu
+    }
+
+    // 退出代码
+    @IBAction func quitAction(_ sender: NSMenuItem) {
+        NSApplication.shared().terminate(self)
+    }
+}
+#+END_SRC
+
+*运行*\\
+http:////cdn.defcoding.com/823ED2FB-C5CA-4D3A-AF74-2AAF9C42812A.png
+
+** 总结
+框架搭好了，可以尝试写逻辑了，有几个点是一定要注意的：
+
+1. 学会同时展示 UI 和代码。
+2. 会用 Ctrl + Drag。
+3. 会查文档。
