@@ -131,7 +131,7 @@ class DragAppController: NSObject {
 运行\\
 http:////cdn.defcoding.com/5045E8C5-A1C7-4301-9F7B-4A88795A882F.png
 
-*看不懂 NSStatusBar 是什么鬼，Read the f**king menu*
+*看不懂 NSStatusBar 是什么鬼，Read the f**king manual*
 http:////cdn.defcoding.com/453F83F0-753C-4BDF-8C4B-514B4DCEB883.png
 
 遇到什么不懂的只有多看 API 文档，没有别的办法。
