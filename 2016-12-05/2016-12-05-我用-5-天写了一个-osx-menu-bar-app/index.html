@@ -1,0 +1,1041 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="思考与记录" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Runforever" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="目录
+
+
+第一天（方案调研和框架搭建）
+
+第二天（快速原型跑通流程）
+
+第三天（同时上传多张图片）
+
+第四天（UI 细节调整）
+
+第五天（设计 Logo 和总结）
+
+
+
+
+
+
+第一天（方案调研和框架搭建）
+
+
+
+起源
+
+
+我在尝试写一本初学者的编程书《如何教妹子学 Python》，书中的图片是上传到七牛云上的，每次上传图片的流程让我觉得很难受，保存图片到桌面，打开浏览器，进入七牛后台，选择图片，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我用 5 天写了一个 OSX Menu Bar App（第一天）">
+<meta property="og:url" content="http://runforever.github.io/2016-12-05/2016-12-05-我用-5-天写了一个-osx-menu-bar-app/index.html">
+<meta property="og:site_name" content="Runforever">
+<meta property="og:description" content="目录
+
+
+第一天（方案调研和框架搭建）
+
+第二天（快速原型跑通流程）
+
+第三天（同时上传多张图片）
+
+第四天（UI 细节调整）
+
+第五天（设计 Logo 和总结）
+
+
+
+
+
+
+第一天（方案调研和框架搭建）
+
+
+
+起源
+
+
+我在尝试写一本初学者的编程书《如何教妹子学 Python》，书中的图片是上传到七牛云上的，每次上传图片的流程让我觉得很难受，保存图片到桌面，打开浏览器，进入七牛后台，选择图片，">
+<meta property="og:image" content="http://cdn.defcoding.com/idragshow.gif">
+<meta property="og:image" content="http://cdn.defcoding.com/BE2F3DD9-139A-4F10-AEB8-14E5872F7B22.png">
+<meta property="og:image" content="http://cdn.defcoding.com/5E4913C2-C137-4BDD-B10D-68D4936C90C1.png">
+<meta property="og:image" content="http://cdn.defcoding.com/CD7DD7D4-8E7A-4B3C-8AA7-688BC25F8C1D.png">
+<meta property="og:image" content="http://cdn.defcoding.com/6495FACD-DD72-4CA5-A6B6-ED19CEEC8B79.png">
+<meta property="og:image" content="http://cdn.defcoding.com/451BEA2D-26EB-472E-A78E-0186C120251D.png">
+<meta property="og:image" content="http://cdn.defcoding.com/34D0D3AE-88FB-441A-95A9-0262B2839660.png">
+<meta property="og:image" content="http://cdn.defcoding.com/72739EF5-3DF0-4646-9CA8-812BE9515D76.png">
+<meta property="og:image" content="http://cdn.defcoding.com/64243827-5702-492B-96E1-291D64D6E5B9.png">
+<meta property="og:image" content="http://cdn.defcoding.com/8C24E5DE-5831-4716-877F-69F4E0241179.png">
+<meta property="og:image" content="http://cdn.defcoding.com/18C2172B-034D-42EC-AD84-589E1F6398A5.png">
+<meta property="og:image" content="http://cdn.defcoding.com/6617CFE7-48EE-478E-AA64-D99BC4549A1B.png">
+<meta property="og:image" content="http://cdn.defcoding.com/272E780C-2FC1-4159-A9BB-831E38693FC4.png">
+<meta property="og:image" content="http://cdn.defcoding.com/DE13C6D9-429B-4939-862B-8EFDF2016359.png">
+<meta property="og:image" content="http://cdn.defcoding.com/29C85A61-8065-4190-BB40-BC092A274CCD.png">
+<meta property="og:image" content="http://cdn.defcoding.com/77DBFBAE-94F2-4438-AB8B-DA9BE0C2F81D.png">
+<meta property="og:image" content="http://cdn.defcoding.com/5045E8C5-A1C7-4301-9F7B-4A88795A882F.png">
+<meta property="og:image" content="http://cdn.defcoding.com/453F83F0-753C-4BDF-8C4B-514B4DCEB883.png">
+<meta property="og:image" content="http://cdn.defcoding.com/6EEC0F20-FEE0-4C69-A9B5-98E874BAEFE3.png">
+<meta property="og:image" content="http://cdn.defcoding.com/291D8B08-04BC-4BC5-A912-69326F7AF216.png">
+<meta property="og:image" content="http://cdn.defcoding.com/7A917924-4B84-424B-BEAE-CC725C3B88D3.png">
+<meta property="og:image" content="http://cdn.defcoding.com/823ED2FB-C5CA-4D3A-AF74-2AAF9C42812A.png">
+<meta property="og:updated_time" content="2016-12-09T04:38:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我用 5 天写了一个 OSX Menu Bar App（第一天）">
+<meta name="twitter:description" content="目录
+
+
+第一天（方案调研和框架搭建）
+
+第二天（快速原型跑通流程）
+
+第三天（同时上传多张图片）
+
+第四天（UI 细节调整）
+
+第五天（设计 Logo 和总结）
+
+
+
+
+
+
+第一天（方案调研和框架搭建）
+
+
+
+起源
+
+
+我在尝试写一本初学者的编程书《如何教妹子学 Python》，书中的图片是上传到七牛云上的，每次上传图片的流程让我觉得很难受，保存图片到桌面，打开浏览器，进入七牛后台，选择图片，">
+<meta name="twitter:image" content="http://cdn.defcoding.com/idragshow.gif">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://runforever.github.io/2016-12-05/2016-12-05-我用-5-天写了一个-osx-menu-bar-app/"/>
+
+
+  <title> 我用 5 天写了一个 OSX Menu Bar App（第一天） | Runforever </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Runforever</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">K.I.S.S</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                我用 5 天写了一个 OSX Menu Bar App（第一天）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-05T00:00:00+08:00" content="2016-12-05">
+              2016-12-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">目录</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li>第一天（方案调研和框架搭建）
+</li>
+<li>第二天（快速原型跑通流程）
+</li>
+<li>第三天（同时上传多张图片）
+</li>
+<li>第四天（UI 细节调整）
+</li>
+<li>第五天（设计 Logo 和总结）
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">第一天（方案调研和框架搭建）</h2>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">起源</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+我在尝试写一本初学者的编程书《<a href="http://py.defcoding.com" target="_blank" rel="external">如何教妹子学 Python</a>》，书中的图片是上传到七牛云上的，每次上传图片的流程让我觉得很难受，保存图片到桌面，打开浏览器，进入七牛后台，选择图片，上传成功，复制链接，写成 Markdown，放到书里&#x2026;&#x2026;<br>
+在 App Store 里找了一圈，有个叫 iPic 的工具，感觉是我想要的东西，但是我接受不了每年要交 20 元的收费模式，又不是什么很难的东西，打算自己实现，实现的过程中学到了很多东西，便有了将实现过程分享出来的想法，
+试着帮助那些遇到同样问题的人，上传工具早在国庆期间就写完了，现在才写文章完全是自己的拖延症导致的。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">需求</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li>实现一个 Menubar App。
+</li>
+<li>图片和文件上传到七牛。
+</li>
+<li>支持多文件拖动上传。
+</li>
+<li>支持剪贴板上传。
+</li>
+<li>可以方便的复制文件上传后的 url 和 markdown 格式的 url。
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">技术可行性</h2>
+<div class="outline-text-2" id="text-5">
+<ol class="org-ol">
+<li>使用Swift 可以实现 Menubar App。
+</li>
+<li>七牛有相应的 SDK 可以实现上传图片。
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">准备工作</h2>
+<div class="outline-text-2" id="text-6">
+<ol class="org-ol">
+<li>会使用 Swift 语言。
+</li>
+<li>会使用 cocopods 安装 Swift 库。
+</li>
+<li>安装了 Dash 工具可以随时查看 cocoa 的 API 文档。
+</li>
+<li>可以使用 Google 找解决方案。
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">最终效果</h2>
+<div class="outline-text-2" id="text-7">
+
+<div class="figure">
+<p><img src="http://cdn.defcoding.com/idragshow.gif" alt="idragshow.gif">
+</p>
+</div>
+
+<p>
+<a id="more"></a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8">开始折腾</h2>
+<div class="outline-text-2" id="text-8">
+</div><div id="outline-container-sec-8-1" class="outline-3">
+<h3 id="sec-8-1">Search the f**king google</h3>
+<div class="outline-text-3" id="text-8-1">
+<p>
+确定好需求，开始在 Google 上找解决方案，一开始我并不知道我要做的应用叫 Menubar app，我是这样搜索的：
+<img src="http://cdn.defcoding.com/BE2F3DD9-139A-4F10-AEB8-14E5872F7B22.png" alt="BE2F3DD9-139A-4F10-AEB8-14E5872F7B22.png">
+</p>
+
+<p>
+箭头指向的 <a href="http://footle.org/WeatherBar/" target="_blank" rel="external">文章</a> 对我帮助最大，项目基础框架就是根据这篇文章搭建出来的。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-8-2" class="outline-3">
+<h3 id="sec-8-2">新建项目</h3>
+<div class="outline-text-3" id="text-8-2">
+</div><div id="outline-container-sec-8-2-1" class="outline-4">
+<h4 id="sec-8-2-1">第一步：选择 macos 的 cocoa 应用</h4>
+<div class="outline-text-4" id="text-8-2-1">
+
+<div class="figure">
+<p><img src="http://cdn.defcoding.com/5E4913C2-C137-4BDD-B10D-68D4936C90C1.png" alt="5E4913C2-C137-4BDD-B10D-68D4936C90C1.png">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-8-2-2" class="outline-4">
+<h4 id="sec-8-2-2">第二步：填写好乱七八糟的项目信息</h4>
+<div class="outline-text-4" id="text-8-2-2">
+
+<div class="figure">
+<p><img src="http://cdn.defcoding.com/CD7DD7D4-8E7A-4B3C-8AA7-688BC25F8C1D.png" alt="CD7DD7D4-8E7A-4B3C-8AA7-688BC25F8C1D.png">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-8-2-3" class="outline-4">
+<h4 id="sec-8-2-3">第三步：运行试试</h4>
+<div class="outline-text-4" id="text-8-2-3">
+<p>
+点击运行按钮，尝试一下 <code>Hello world</code> 的感觉
+<img src="http://cdn.defcoding.com/6495FACD-DD72-4CA5-A6B6-ED19CEEC8B79.png" alt="6495FACD-DD72-4CA5-A6B6-ED19CEEC8B79.png">
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-8-2-4" class="outline-4">
+<h4 id="sec-8-2-4">第四步：调整成 Menubar App</h4>
+<div class="outline-text-4" id="text-8-2-4">
+<p>
+Menubar App 不需要主窗口，也不需要显示在 Dock 栏中，只需要显示在屏幕右上角的 Menubar 中就可以了。<br>
+</p>
+
+<p>
+<code>Main.Storyboard</code> 是编辑 App 界面的地方，这个跟 iOS 一样嘛，看来前段时间学习的 iOS 编程有用武之地了。
+</p>
+
+<p>
+<b>打开 <code>Main.Storyboard</code> ，删除不需要的东西</b><br>
+<img src="http://cdn.defcoding.com/451BEA2D-26EB-472E-A78E-0186C120251D.png" alt="451BEA2D-26EB-472E-A78E-0186C120251D.png">
+</p>
+
+<p>
+<b>添加上 Menu Item 控件</b><br>
+<img src="http://cdn.defcoding.com/34D0D3AE-88FB-441A-95A9-0262B2839660.png" alt="34D0D3AE-88FB-441A-95A9-0262B2839660.png">
+</p>
+
+<p>
+<b>添加程序启动入口 NSObject</b><br>
+和添加 Menu 一样的操作，先搜索，后拖动<br>
+<img src="http://cdn.defcoding.com/72739EF5-3DF0-4646-9CA8-812BE9515D76.png" alt="72739EF5-3DF0-4646-9CA8-812BE9515D76.png">
+</p>
+
+<p>
+新建入口源代码文件，选择类型<br>
+<img src="http://cdn.defcoding.com/64243827-5702-492B-96E1-291D64D6E5B9.png" alt="64243827-5702-492B-96E1-291D64D6E5B9.png">
+</p>
+
+<p>
+填写名字和继承类<br>
+<img src="http://cdn.defcoding.com/8C24E5DE-5831-4716-877F-69F4E0241179.png" alt="8C24E5DE-5831-4716-877F-69F4E0241179.png">
+</p>
+
+<p>
+写入启动代码<br>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-swift">import Cocoa
+
+class DragAppController: NSObject {
+
+    override func awakeFromNib() {
+        print("hello world")
+    }
+}
+</pre>
+</div>
+
+<p>
+绑定代码和 UI<br>
+<img src="http://cdn.defcoding.com/18C2172B-034D-42EC-AD84-589E1F6398A5.png" alt="18C2172B-034D-42EC-AD84-589E1F6398A5.png">
+</p>
+
+<p>
+测试运行一下<br>
+<img src="http://cdn.defcoding.com/6617CFE7-48EE-478E-AA64-D99BC4549A1B.png" alt="6617CFE7-48EE-478E-AA64-D99BC4549A1B.png">
+</p>
+
+<p>
+<b>设置在 Dock 栏中不展示应用</b><br>
+<img src="http://cdn.defcoding.com/272E780C-2FC1-4159-A9BB-831E38693FC4.png" alt="272E780C-2FC1-4159-A9BB-831E38693FC4.png">
+</p>
+
+<p>
+<b>绑定 Menu Item，使用 Ctrl + Drag 操作</b><br>
+同时展示 UI 和 代码技巧<br>
+<img src="http://cdn.defcoding.com/DE13C6D9-429B-4939-862B-8EFDF2016359.png" alt="DE13C6D9-429B-4939-862B-8EFDF2016359.png">
+</p>
+
+<p>
+Ctrl + Drag 操作，按住键盘上的 Ctrl，然后用鼠标拖拽<br>
+<img src="http://cdn.defcoding.com/29C85A61-8065-4190-BB40-BC092A274CCD.png" alt="29C85A61-8065-4190-BB40-BC092A274CCD.png">
+</p>
+
+<p>
+填写变量名<br>
+<img src="http://cdn.defcoding.com/77DBFBAE-94F2-4438-AB8B-DA9BE0C2F81D.png" alt="77DBFBAE-94F2-4438-AB8B-DA9BE0C2F81D.png">
+</p>
+
+<p>
+写代码<br>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-swift">import Cocoa
+
+class DragAppController: NSObject {
+
+    @IBOutlet weak var dragMenu: NSMenu!
+    let dragStatusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
+
+    override func awakeFromNib() {
+        dragStatusItem.title = "iDrag"
+        dragStatusItem.menu = dragMenu
+    }
+}
+</pre>
+</div>
+
+<p>
+运行<br>
+<img src="http://cdn.defcoding.com/5045E8C5-A1C7-4301-9F7B-4A88795A882F.png" alt="5045E8C5-A1C7-4301-9F7B-4A88795A882F.png">
+</p>
+
+<p>
+<b>看不懂 NSStatusBar 是什么鬼，Read the f**king menu</b>
+<img src="http://cdn.defcoding.com/453F83F0-753C-4BDF-8C4B-514B4DCEB883.png" alt="453F83F0-753C-4BDF-8C4B-514B4DCEB883.png">
+</p>
+
+<p>
+遇到什么不懂的只有多看 API 文档，没有别的办法。
+</p>
+
+<p>
+到这里我们已经把框架搭建好了，下面我们尝试写一个 Action。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-8-3" class="outline-3">
+<h3 id="sec-8-3">编写退出应用的 Action</h3>
+<div class="outline-text-3" id="text-8-3">
+<p>
+<b>调整 UI 删除没有的选项和配置相关属性</b><br>
+<img src="http://cdn.defcoding.com/6EEC0F20-FEE0-4C69-A9B5-98E874BAEFE3.png" alt="6EEC0F20-FEE0-4C69-A9B5-98E874BAEFE3.png">
+</p>
+
+<p>
+<b>使用 Ctrl + Drag 建立 Action 与代码的连接</b>
+<img src="http://cdn.defcoding.com/291D8B08-04BC-4BC5-A912-69326F7AF216.png" alt="291D8B08-04BC-4BC5-A912-69326F7AF216.png">
+</p>
+
+<p>
+<b>填写 Action 信息</b>
+<img src="http://cdn.defcoding.com/7A917924-4B84-424B-BEAE-CC725C3B88D3.png" alt="7A917924-4B84-424B-BEAE-CC725C3B88D3.png">
+</p>
+
+<p>
+<b>写代码</b>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-swift">import Cocoa
+
+class DragAppController: NSObject {
+
+    @IBOutlet weak var dragMenu: NSMenu!
+    let dragStatusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
+
+    override func awakeFromNib() {
+        dragStatusItem.title = "iDrag"
+        dragStatusItem.menu = dragMenu
+    }
+
+    // 退出代码
+    @IBAction func quitAction(_ sender: NSMenuItem) {
+        NSApplication.shared().terminate(self)
+    }
+}
+</pre>
+</div>
+
+<p>
+<b>运行</b><br>
+<img src="http://cdn.defcoding.com/823ED2FB-C5CA-4D3A-AF74-2AAF9C42812A.png" alt="823ED2FB-C5CA-4D3A-AF74-2AAF9C42812A.png">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9">总结</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+框架搭好了，可以尝试写逻辑了，有几个点是一定要注意的：
+</p>
+
+<ol class="org-ol">
+<li>学会同时展示 UI 和代码。
+</li>
+<li>会用 Ctrl + Drag。
+</li>
+<li>会查文档。
+</li>
+</ol>
+</div>
+</div>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016-11-16/2016-11-16-git-flow-的思考和模式/" rel="next" title="Git Flow 重新思考">
+                <i class="fa fa-chevron-left"></i> Git Flow 重新思考
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg"
+               alt="runforever" />
+          <p class="site-author-name" itemprop="name">runforever</p>
+          <p class="site-description motion-element" itemprop="description">思考与记录</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/runforever" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://bitbucket.com/runforever" target="_blank" title="Bitbucket">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Bitbucket
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/runforever/runforever.github.com/issues/new" target="_blank" title="提 Issue">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  提 Issue
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-1"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-2"><span class="nav-number">2.</span> <span class="nav-text">第一天（方案调研和框架搭建）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-3"><span class="nav-number">3.</span> <span class="nav-text">起源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-4"><span class="nav-number">4.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-5"><span class="nav-number">5.</span> <span class="nav-text">技术可行性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-6"><span class="nav-number">6.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-7"><span class="nav-number">7.</span> <span class="nav-text">最终效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-8"><span class="nav-number">8.</span> <span class="nav-text">开始折腾</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-8-1"><span class="nav-number">8.1.</span> <span class="nav-text">Search the f**king google</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-8-2"><span class="nav-number">8.2.</span> <span class="nav-text">新建项目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sec-8-2-1"><span class="nav-number">8.2.1.</span> <span class="nav-text">第一步：选择 macos 的 cocoa 应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sec-8-2-2"><span class="nav-number">8.2.2.</span> <span class="nav-text">第二步：填写好乱七八糟的项目信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sec-8-2-3"><span class="nav-number">8.2.3.</span> <span class="nav-text">第三步：运行试试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sec-8-2-4"><span class="nav-number">8.2.4.</span> <span class="nav-text">第四步：调整成 Menubar App</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-8-3"><span class="nav-number">8.3.</span> <span class="nav-text">编写退出应用的 Action</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-9"><span class="nav-number">9.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">runforever</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
