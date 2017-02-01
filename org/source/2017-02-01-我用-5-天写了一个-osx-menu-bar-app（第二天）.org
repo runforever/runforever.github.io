@@ -1,0 +1,215 @@
+#+TITLE: 我用 5 天写了一个 OSX Menu Bar App（第二天）
+#+DATE: 2017-02-01
+#+SETUPFILE: ~/CodeRepo/GitRepo/Road/blog/org/setupfile.org
+#+JEKYLL_LAYOUT: post
+#+JEKYLL_CATEGORIES: Swift
+#+JEKYLL_PUBLISHED: true
+#+JEKYLL_COMMENTS: true
+
+** 目录
+1. [[http:////blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/][第一天（方案调研和框架搭建）]]
+2. 第二天（快速原型跑通流程）
+3. 第三天（拖动上传和上传多张图片）
+4. 第四天（UI 细节调整）
+5. 第五天（设计 Logo 和总结）
+
+** 第二天（快速原型跑通流程）
+前面把框架搭好了，我个人喜欢的开发方式是快速原型先做 MVP（最小可行性产品），
+然后基于 MVP 迭代新功能，而我想做的东西的 MVP 就是能上传图片。
+
+** 调研如何使用七牛
+*** 七牛推荐的模型
+http:////cdn.defcoding.com/3DC4851E-57DE-4743-AD1C-9ED2DC763D02.png
+参考文档：[[https:////developer.qiniu.io/kodo/manual/security][七牛安全机制]]
+
+*** 重要的概念：
+1. 密钥（AccessKey/SecretKey），作用：生成上传凭证。
+2. 上传凭证（UploadToken），作用：上传文件时用作七牛服务器认证。
+
+*** 七牛上传的流程：
+1. 使用密钥构造上传凭证。
+2. 使用七牛 SDK 将上传凭证和文件一并提交实现上传。
+
+七牛推荐的方式是客户端在上传时先请求服务端生成上传策略，客户端获取到上传策略后才能上传文件。\\
+这个应用只有客户端，上传凭证只能在客户端构造，构造的算法参考：[[https:////developer.qiniu.io/kodo/manual/upload-token][上传凭证]]
+
+*** 经过分析，我需要如下 Swift 库：
+1. 七牛的官方 [[https:////github.com/qiniu/objc-sdk][iOS SDK]]。
+2. 对字符串进行 HMAC-SHA1 加密的库 [[https:////github.com/krzyzanowskim/CryptoSwift][CryptoSwift]]。
+3. 能解析 JSON 的库 [[https:////github.com/SwiftyJSON/SwiftyJSON][SwiftyJSON]]。
+
+下面开始折腾。
+
+{{{more}}}
+
+** 使用 CocoaPods 安装 Swift 库
+我写应用的时候刚好赶上 Swift3 发布，Swift3 有了自己的包管理器 [[https:////github.com/apple/swift-package-manager][Swift Package Manager（SPM）]]，因为是刚刚发布，可能很多库上面都还没有，
+保险起见我还是使用 [[https:////cocoapods.org][CocoaPods]] 来管理 Swift 的库。
+
+我使用 [[https:////rvm.io][RVM]] 管理 Ruby 环境，按照 [[https://guides.cocoapods.org/using/getting-started.html#getting-started][官方安装文档]] 安装 CocoaPods 很顺利，执行 =pod repo update= 同步的时候巨慢，原因大家都懂，
+网上有加速的办法，大家自行寻找适合自己的吧，我自己使用的是 ShadowSocks + proxychains4，我的同步方法 =proxychains4 pod repo update= 。
+http:////cdn.defcoding.com/E399924F-EE60-486E-AF8F-E66247BD534B.png
+
+*** CocoaPods 使用
+在项目根目录建一个 =Podfile= 文件
+#+BEGIN_SRC swift
+iDragProject
+├── Podfile  # 创建的文件
+├── iDragProject
+└── iDragProject.xcodeproj
+
+3 directories, 1 file
+#+END_SRC
+
+里面写入要安装的库
+#+BEGIN_SRC ruby
+# Uncomment this line to define a global platform for your project
+platform :osx, '10.11'
+
+target 'iDrag' do
+  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for iDrag
+  pod "Qiniu", "~> 7.1"
+  pod "CryptoSwift"
+  pod "SwiftyJSON"
+end
+
+# 由于我使用swift3，需要配置一下编译设置
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['SWIFT_VERSION'] = '3.0'
+    end
+  end
+end
+#+END_SRC
+
+Podfile 配置完后，使用 =pod install= 命令即可安装。
+http:////cdn.defcoding.com/E649A905-13A2-405C-80F0-354761202F9E.png
+
+安装完成后，项目里面会多出 3 个文件， =Podfile.lock= 、 =Pods= 和 =iDrag.xcworkspace= ，使用 Xcode 打开项目的时候选择 =iDrag.xcworkspace= 而不是原来的 =iDrag.xcodeproj= 。
+http:////cdn.defcoding.com/CBED4913-0C06-44A5-9038-87466799DE46.png
+
+打开后运行测试一下
+http:////cdn.defcoding.com/7228A76B-0A6B-4AA1-9A18-CDAD3CFD67A3.png
+
+*** 如何添加新的 Swift 库
+在 Podfile 里添加上新的库配置，然后执行 =pod update= 命令即可更新。
+
+库准备好了，可以开始写代码了，先从构造上传凭证开始。
+
+** 构造上传凭证
+目前对七牛 SDK 的操作有构造上传凭证和上传文件，以后还有其他上传操作，我决定把这些操作统一放到名字为 =DragUploadManager= 的类里。\\
+
+新建一个 =Controllers.swift= 的文件，里面放上传相关操作的代码。
+http:////cdn.defcoding.com/BF993D43-8622-4E15-9072-B53A3892F4B8.png
+
+实现代码：
+#+BEGIN_SRC swift
+func createQiniuToken(filename: String) -> String {
+    let accessKey = "your access key"
+    let secretKey = "your secret key"
+    let bucket = "your bucket"
+
+    // 上传凭证需要的 deadline 参数，Google 搜到的 Swift 转时间戳的方法，两个小时
+    let deadline = round(NSDate(timeIntervalSinceNow: 3600).timeIntervalSince1970)
+
+    // 上传凭证构造第一步，准备 Json 格式数据，使用 SwiftJSON 库来构造
+    let putPolicyDict:JSON = [
+        "scope": "\(bucket):\(filename)",
+        "deadline": deadline,
+        ]
+
+    // 上传凭证构造第二步，用 Base64 编码数据
+    let b64PutPolicy = QNUrlSafeBase64.encode(putPolicyDict.rawString()!)!
+
+    // 上传凭证第三步，用 secretKey 将上面 Base64 编码后的数据使用 HMAC sha1 算法加密
+    // 转成二进制格式
+    let secretSign =  try! HMAC(key: (secretKey.utf8.map({$0})), variant: .sha1).authenticate((b64PutPolicy.utf8.map({$0})))
+
+    // 上传凭证第四步，将加密后的数据在用 Base64 编码
+    let b64SecretSign = QNUrlSafeBase64.encode(Data(bytes: secretSign))!
+
+    // 最后，按照七牛的格式构造成上传凭证
+    let putPolicy:String = [accessKey, b64SecretSign, b64PutPolicy].joined(separator: ":")
+    return putPolicy
+}
+#+END_SRC
+
+运行看看效果
+http:////cdn.defcoding.com/03656444-A868-47FD-8502-A7ED8E0C3892.png
+
+** 实现上传
+上传凭证构造好之后，可以开始测试上传文件功能了，查看了七牛 SDK 的 API，可以使用 =putFile= 函数来做测试。
+
+=DragUploadManger= 添加 =uploadFile= 函数
+#+BEGIN_SRC swift
+func uploadFile(filePath: String) {
+    // 获取文件路径中的文件名
+    let filename = NSURL(fileURLWithPath: filePath).lastPathComponent!
+
+    // 创建上传凭证
+    let token = createQiniuToken(filename: filename)
+
+    // 上传文件
+    let qiNiu = QNUploadManager()!
+    qiNiu.putFile(filePath, key: filename, token: token, complete: {info, key, resp -> Void in
+        switch info?.statusCode {
+        case Int32(200)?:
+            print("upload success")
+        default:
+            print("upload fail")
+        }
+    }, option: nil)
+}
+#+END_SRC
+
+添加测试代码测试上传
+http:////cdn.defcoding.com/25AA7415-08B5-4AE5-A7EC-CE8AD403C92E.png
+
+上传失败信息
+#+BEGIN_SRC bash
+017-02-01 21:46:17.286161 iDragProject[29836:489720] App Transport Security
+has blocked a cleartext HTTP (http://) resource load since it is insecure.
+Temporary exceptions can be configured via your app's Info.plist file.
+upload fail
+#+END_SRC
+苹果安全机制限制，http 不安全，要实现上传需要到 Info.plist 设置一下
+
+设置 Info.plist
+http:////cdn.defcoding.com/736C21D3-5FA2-45BB-80C9-F9D106548EE9.png
+
+打开后文件最后添加如下代码
+#+BEGIN_SRC xml
+<key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSExceptionDomains</key>
+    <dict>
+        <key>qiniu.com</key>
+        <dict>
+            <key>NSIncludesSubdomains</key>
+            <true/>
+            <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+            <true/>
+            <key>NSTemporaryExceptionMinimumTLSVersion</key>
+            <string>TLSv1.1</string>
+        </dict>
+    </dict>
+</dict>
+#+END_SRC
+
+代码添加位置
+http:////cdn.defcoding.com/997A225D-7BDA-4C18-82C7-4E6FDB0A4048.png
+
+添加完后效果
+http:////cdn.defcoding.com/24FA762F-A515-4207-A832-529C96158C9A.png
+
+再次测试上传
+http:////cdn.defcoding.com/D2F5D4C8-079B-48E9-A6DC-636F825B2FC5.png
+日志显示上传成功，可以去七牛的后台检查一下是否有上传的文件
+
+** 总结
+上传功能已经实现，接下来就是要实现拖动文件上传了。\\
+值得注意的地方是：一定要学会使用 CocoaPods 管理 Swift 库。

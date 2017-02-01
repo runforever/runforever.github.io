@@ -1,0 +1,357 @@
+---
+title: "我用 5 天写了一个 OSX Menu Bar App（第二天）"
+date: 2017-02-01
+layout: post
+categories: Swift
+published: true
+comments: true
+---
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">目录</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li><a href="http://blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/">第一天（方案调研和框架搭建）</a>
+</li>
+<li>第二天（快速原型跑通流程）
+</li>
+<li>第三天（拖动上传和上传多张图片）
+</li>
+<li>第四天（UI 细节调整）
+</li>
+<li>第五天（设计 Logo 和总结）
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">第二天（快速原型跑通流程）</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+前面把框架搭好了，我个人喜欢的开发方式是快速原型先做 MVP（最小可行性产品），
+然后基于 MVP 迭代新功能，而我想做的东西的 MVP 就是能上传图片。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">调研如何使用七牛</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">七牛推荐的模型</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+<img src="http://cdn.defcoding.com/3DC4851E-57DE-4743-AD1C-9ED2DC763D02.png" alt="3DC4851E-57DE-4743-AD1C-9ED2DC763D02.png" />
+参考文档：<a href="https://developer.qiniu.io/kodo/manual/security">七牛安全机制</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">重要的概念：</h3>
+<div class="outline-text-3" id="text-3-2">
+<ol class="org-ol">
+<li>密钥（AccessKey/SecretKey），作用：生成上传凭证。
+</li>
+<li>上传凭证（UploadToken），作用：上传文件时用作七牛服务器认证。
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3">七牛上传的流程：</h3>
+<div class="outline-text-3" id="text-3-3">
+<ol class="org-ol">
+<li>使用密钥构造上传凭证。
+</li>
+<li>使用七牛 SDK 将上传凭证和文件一并提交实现上传。
+</li>
+</ol>
+
+<p>
+七牛推荐的方式是客户端在上传时先请求服务端生成上传策略，客户端获取到上传策略后才能上传文件。<br  />
+这个应用只有客户端，上传凭证只能在客户端构造，构造的算法参考：<a href="https://developer.qiniu.io/kodo/manual/upload-token">上传凭证</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-4" class="outline-3">
+<h3 id="sec-3-4">经过分析，我需要如下 Swift 库：</h3>
+<div class="outline-text-3" id="text-3-4">
+<ol class="org-ol">
+<li>七牛的官方 <a href="https://github.com/qiniu/objc-sdk">iOS SDK</a>。
+</li>
+<li>对字符串进行 HMAC-SHA1 加密的库 <a href="https://github.com/krzyzanowskim/CryptoSwift">CryptoSwift</a>。
+</li>
+<li>能解析 JSON 的库 <a href="https://github.com/SwiftyJSON/SwiftyJSON">SwiftyJSON</a>。
+</li>
+</ol>
+
+<p>
+下面开始折腾。
+</p>
+
+<p>
+<!-- more -->
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">使用 CocoaPods 安装 Swift 库</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+我写应用的时候刚好赶上 Swift3 发布，Swift3 有了自己的包管理器 <a href="https://github.com/apple/swift-package-manager">Swift Package Manager（SPM）</a>，因为是刚刚发布，可能很多库上面都还没有，
+保险起见我还是使用 <a href="https://cocoapods.org">CocoaPods</a> 来管理 Swift 的库。
+</p>
+
+<p>
+我使用 <a href="https://rvm.io">RVM</a> 管理 Ruby 环境，按照 <a href="https:guides.cocoapods.org/using/getting-started.html#getting-started">官方安装文档</a> 安装 CocoaPods 很顺利，执行 <code>pod repo update</code> 同步的时候巨慢，原因大家都懂，
+网上有加速的办法，大家自行寻找适合自己的吧，我自己使用的是 ShadowSocks + proxychains4，我的同步方法 <code>proxychains4 pod repo update</code> 。
+<img src="http://cdn.defcoding.com/E399924F-EE60-486E-AF8F-E66247BD534B.png" alt="E399924F-EE60-486E-AF8F-E66247BD534B.png" />
+</p>
+</div>
+
+<div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1">CocoaPods 使用</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+在项目根目录建一个 <code>Podfile</code> 文件
+</p>
+<div class="org-src-container">
+
+<pre class="src src-swift">iDragProject
+├── Podfile  # 创建的文件
+├── iDragProject
+└── iDragProject.xcodeproj
+
+3 directories, 1 file
+</pre>
+</div>
+
+<p>
+里面写入要安装的库
+</p>
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #ff0000;"># </span><span style="color: #ff0000;">Uncomment this line to define a global platform for your project</span>
+platform <span style="color: #ff00ff;">:osx</span>, <span style="color: #00ff00;">'10.11'</span>
+
+target <span style="color: #00ff00;">'iDrag'</span> <span style="color: #00ffff; font-weight: bold;">do</span>
+  <span style="color: #ff0000;"># </span><span style="color: #ff0000;">Comment this line if you're not using Swift and don't want to use dynamic frameworks</span>
+  use_frameworks!
+
+  <span style="color: #ff0000;"># </span><span style="color: #ff0000;">Pods for iDrag</span>
+  pod <span style="color: #00ff00;">"Qiniu"</span>, <span style="color: #00ff00;">"~&gt; 7.1"</span>
+  pod <span style="color: #00ff00;">"CryptoSwift"</span>
+  pod <span style="color: #00ff00;">"SwiftyJSON"</span>
+<span style="color: #00ffff; font-weight: bold;">end</span>
+
+<span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#30001;&#20110;&#25105;&#20351;&#29992;swift3&#65292;&#38656;&#35201;&#37197;&#32622;&#19968;&#19979;&#32534;&#35793;&#35774;&#32622;</span>
+post_install <span style="color: #00ffff; font-weight: bold;">do</span> |installer|
+  installer.pods_project.targets.each <span style="color: #00ffff; font-weight: bold;">do</span> |target|
+    target.build_configurations.each <span style="color: #00ffff; font-weight: bold;">do</span> |config|
+      config.build_settings[<span style="color: #00ff00;">'SWIFT_VERSION'</span>] = <span style="color: #00ff00;">'3.0'</span>
+    <span style="color: #00ffff; font-weight: bold;">end</span>
+  <span style="color: #00ffff; font-weight: bold;">end</span>
+<span style="color: #00ffff; font-weight: bold;">end</span>
+</pre>
+</div>
+
+<p>
+Podfile 配置完后，使用 <code>pod install</code> 命令即可安装。
+<img src="http://cdn.defcoding.com/E649A905-13A2-405C-80F0-354761202F9E.png" alt="E649A905-13A2-405C-80F0-354761202F9E.png" />
+</p>
+
+<p>
+安装完成后，项目里面会多出 3 个文件， <code>Podfile.lock</code> 、 <code>Pods</code> 和 <code>iDrag.xcworkspace</code> ，使用 Xcode 打开项目的时候选择 <code>iDrag.xcworkspace</code> 而不是原来的 <code>iDrag.xcodeproj</code> 。
+<img src="http://cdn.defcoding.com/CBED4913-0C06-44A5-9038-87466799DE46.png" alt="CBED4913-0C06-44A5-9038-87466799DE46.png" />
+</p>
+
+<p>
+打开后运行测试一下
+<img src="http://cdn.defcoding.com/7228A76B-0A6B-4AA1-9A18-CDAD3CFD67A3.png" alt="7228A76B-0A6B-4AA1-9A18-CDAD3CFD67A3.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2">如何添加新的 Swift 库</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+在 Podfile 里添加上新的库配置，然后执行 <code>pod update</code> 命令即可更新。
+</p>
+
+<p>
+库准备好了，可以开始写代码了，先从构造上传凭证开始。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">构造上传凭证</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+目前对七牛 SDK 的操作有构造上传凭证和上传文件，以后还有其他上传操作，我决定把这些操作统一放到名字为 <code>DragUploadManager</code> 的类里。<br  />
+</p>
+
+<p>
+新建一个 <code>Controllers.swift</code> 的文件，里面放上传相关操作的代码。
+<img src="http://cdn.defcoding.com/BF993D43-8622-4E15-9072-B53A3892F4B8.png" alt="BF993D43-8622-4E15-9072-B53A3892F4B8.png" />
+</p>
+
+<p>
+实现代码：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-swift">func createQiniuToken(filename: String) -&gt; String {
+    let accessKey = "your access key"
+    let secretKey = "your secret key"
+    let bucket = "your bucket"
+
+    // 上传凭证需要的 deadline 参数，Google 搜到的 Swift 转时间戳的方法，两个小时
+    let deadline = round(NSDate(timeIntervalSinceNow: 3600).timeIntervalSince1970)
+
+    // 上传凭证构造第一步，准备 Json 格式数据，使用 SwiftJSON 库来构造
+    let putPolicyDict:JSON = [
+        "scope": "\(bucket):\(filename)",
+        "deadline": deadline,
+        ]
+
+    // 上传凭证构造第二步，用 Base64 编码数据
+    let b64PutPolicy = QNUrlSafeBase64.encode(putPolicyDict.rawString()!)!
+
+    // 上传凭证第三步，用 secretKey 将上面 Base64 编码后的数据使用 HMAC sha1 算法加密
+    // 转成二进制格式
+    let secretSign =  try! HMAC(key: (secretKey.utf8.map({$0})), variant: .sha1).authenticate((b64PutPolicy.utf8.map({$0})))
+
+    // 上传凭证第四步，将加密后的数据在用 Base64 编码
+    let b64SecretSign = QNUrlSafeBase64.encode(Data(bytes: secretSign))!
+
+    // 最后，按照七牛的格式构造成上传凭证
+    let putPolicy:String = [accessKey, b64SecretSign, b64PutPolicy].joined(separator: ":")
+    return putPolicy
+}
+</pre>
+</div>
+
+<p>
+运行看看效果
+<img src="http://cdn.defcoding.com/03656444-A868-47FD-8502-A7ED8E0C3892.png" alt="03656444-A868-47FD-8502-A7ED8E0C3892.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">实现上传</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+上传凭证构造好之后，可以开始测试上传文件功能了，查看了七牛 SDK 的 API，可以使用 <code>putFile</code> 函数来做测试。
+</p>
+
+<p>
+<code>DragUploadManger</code> 添加 <code>uploadFile</code> 函数
+</p>
+<div class="org-src-container">
+
+<pre class="src src-swift">func uploadFile(filePath: String) {
+    // 获取文件路径中的文件名
+    let filename = NSURL(fileURLWithPath: filePath).lastPathComponent!
+
+    // 创建上传凭证
+    let token = createQiniuToken(filename: filename)
+
+    // 上传文件
+    let qiNiu = QNUploadManager()!
+    qiNiu.putFile(filePath, key: filename, token: token, complete: {info, key, resp -&gt; Void in
+        switch info?.statusCode {
+        case Int32(200)?:
+            print("upload success")
+        default:
+            print("upload fail")
+        }
+    }, option: nil)
+}
+</pre>
+</div>
+
+<p>
+添加测试代码测试上传
+<img src="http://cdn.defcoding.com/25AA7415-08B5-4AE5-A7EC-CE8AD403C92E.png" alt="25AA7415-08B5-4AE5-A7EC-CE8AD403C92E.png" />
+</p>
+
+<p>
+上传失败信息
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">017-02-01 21:46:17.286161 iDragProject[29836:489720] App Transport Security
+has blocked a cleartext HTTP (http://) resource load since it is insecure.
+Temporary exceptions can be configured via your app's Info.plist file.
+upload fail
+</pre>
+</div>
+<p>
+苹果安全机制限制，http 不安全，要实现上传需要到 Info.plist 设置一下
+</p>
+
+<p>
+设置 Info.plist
+<img src="http://cdn.defcoding.com/736C21D3-5FA2-45BB-80C9-F9D106548EE9.png" alt="736C21D3-5FA2-45BB-80C9-F9D106548EE9.png" />
+</p>
+
+<p>
+打开后文件最后添加如下代码
+</p>
+<div class="org-src-container">
+
+<pre class="src src-xml">&lt;<span style="color: #0000ff; font-weight: bold;">key</span>&gt;NSAppTransportSecurity&lt;/<span style="color: #0000ff; font-weight: bold;">key</span>&gt;
+&lt;<span style="color: #0000ff; font-weight: bold;">dict</span>&gt;
+    &lt;<span style="color: #0000ff; font-weight: bold;">key</span>&gt;NSExceptionDomains&lt;/<span style="color: #0000ff; font-weight: bold;">key</span>&gt;
+    &lt;<span style="color: #0000ff; font-weight: bold;">dict</span>&gt;
+        &lt;<span style="color: #0000ff; font-weight: bold;">key</span>&gt;qiniu.com&lt;/<span style="color: #0000ff; font-weight: bold;">key</span>&gt;
+        &lt;<span style="color: #0000ff; font-weight: bold;">dict</span>&gt;
+            &lt;<span style="color: #0000ff; font-weight: bold;">key</span>&gt;NSIncludesSubdomains&lt;/<span style="color: #0000ff; font-weight: bold;">key</span>&gt;
+            &lt;<span style="color: #0000ff; font-weight: bold;">true</span>/&gt;
+            &lt;<span style="color: #0000ff; font-weight: bold;">key</span>&gt;NSTemporaryExceptionAllowsInsecureHTTPLoads&lt;/<span style="color: #0000ff; font-weight: bold;">key</span>&gt;
+            &lt;<span style="color: #0000ff; font-weight: bold;">true</span>/&gt;
+            &lt;<span style="color: #0000ff; font-weight: bold;">key</span>&gt;NSTemporaryExceptionMinimumTLSVersion&lt;/<span style="color: #0000ff; font-weight: bold;">key</span>&gt;
+            &lt;<span style="color: #0000ff; font-weight: bold;">string</span>&gt;TLSv1.1&lt;/<span style="color: #0000ff; font-weight: bold;">string</span>&gt;
+        &lt;/<span style="color: #0000ff; font-weight: bold;">dict</span>&gt;
+    &lt;/<span style="color: #0000ff; font-weight: bold;">dict</span>&gt;
+&lt;/<span style="color: #0000ff; font-weight: bold;">dict</span>&gt;
+</pre>
+</div>
+
+<p>
+代码添加位置
+<img src="http://cdn.defcoding.com/997A225D-7BDA-4C18-82C7-4E6FDB0A4048.png" alt="997A225D-7BDA-4C18-82C7-4E6FDB0A4048.png" />
+</p>
+
+<p>
+添加完后效果
+<img src="http://cdn.defcoding.com/24FA762F-A515-4207-A832-529C96158C9A.png" alt="24FA762F-A515-4207-A832-529C96158C9A.png" />
+</p>
+
+<p>
+再次测试上传
+<img src="http://cdn.defcoding.com/D2F5D4C8-079B-48E9-A6DC-636F825B2FC5.png" alt="D2F5D4C8-079B-48E9-A6DC-636F825B2FC5.png" />
+日志显示上传成功，可以去七牛的后台检查一下是否有上传的文件
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">总结</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+上传功能已经实现，接下来就是要实现拖动文件上传了。<br  />
+值得注意的地方是：一定要学会使用 CocoaPods 管理 Swift 库。
+</p>
+</div>
+</div>
