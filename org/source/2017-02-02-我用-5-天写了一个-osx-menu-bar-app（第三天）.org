@@ -1,0 +1,199 @@
+#+TITLE: 我用 5 天写了一个 OSX Menu Bar App（第三天）
+#+DATE: 2017-02-02
+#+SETUPFILE: ~/CodeRepo/GitRepo/Road/blog/org/setupfile.org
+#+JEKYLL_LAYOUT: post
+#+JEKYLL_CATEGORIES: Swift
+#+JEKYLL_PUBLISHED: true
+#+JEKYLL_COMMENTS: true
+
+** 目录
+1. [[http:////blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/][第一天（方案调研和框架搭建）]]
+2. [[http:////blog.defcoding.com/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/][第二天（快速原型跑通流程）]]
+3. [[http:////blog.defcoding.com/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/][第三天（拖动上传和上传多张图片）]]
+4. 第四天（UI 细节调整）
+5. 第五天（设计 Logo 和总结）
+
+** 第三天（拖动上传和上传多张图片）
+前面上传流程已经跑通了，不过也仅仅是功能跑通了，要达到可以使用至少需要实现从
+文件夹拖动文件上传，并且可以同时上传多张图片。
+
+** 拖动上传方案调研
+使用 Google 先查找方案：
+http:////cdn.defcoding.com/CB8C546F-AD0E-4F7E-9AFA-29138BBFE187.png
+
+根据 Google 搜到文章的更新时间查看了一下相关资料，其中这篇 [[http:////swiftrien.blogspot.hk/2015/03/file-drag-drop-for-os-x.html][File drag & drop for OS-X]] 让
+我对 =OSX 的 Drag & Drop= 编程有了个大概的了解，进而查找到了[[https:////developer.apple.com/reference/appkit/nsdraggingdestination][NSDraggingDestination]]  协议，
+查看官方文档确定这个是我想要的东西。
+http:////cdn.defcoding.com/BB27652F-7B86-433A-A19E-1365AEA67B24.png
+
+NSDraaingDestination 的使用总结：
+1. DragAppController 扩展 NSDraggingDestination 协议。
+2. window 对象使用 =registerForDraggedTypes= 方法注册 Drag 操作。
+3. 重写 =draggingEntered= 方法，实现文件拖动标识。
+4. 重写 =performDragOperation= 方法，实现上传操作。
+
+下面开始写代码。
+{{{more}}}
+
+** 拖动上传代码实现
+http:////cdn.defcoding.com/D272FE29-ED2F-445E-A9FD-A05AB16559B8.png
+
+代码讲解：
+#+BEGIN_SRC swift
+import Cocoa
+
+// 扩展 NSWindowDelegate, NSDraggingDestination 协议
+class DragAppController: NSObject, NSWindowDelegate, NSDraggingDestination {
+
+    @IBOutlet weak var dragMenu: NSMenu!
+    let dragStatusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
+
+    override func awakeFromNib() {
+        dragStatusItem.title = "iDrag"
+        dragStatusItem.menu = dragMenu
+
+        // 注册 Drag 操作
+        dragStatusItem.button?.window?.registerForDraggedTypes([NSFilenamesPboardType])
+        dragStatusItem.button?.window?.delegate = self
+
+    }
+
+    // 重写 draggingEntered 方法
+    // 实现文件拖动到 menu 的时候显示绿色的 "+" 号
+    func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
+        return NSDragOperation.copy
+    }
+
+    // 重写 performDragOperation 方法
+    // 实现上传文件操作
+    func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
+        // 获取拖动文件的路径
+        let pasteBoard = sender.draggingPasteboard()
+        let filePaths = pasteBoard.propertyList(forType: NSFilenamesPboardType) as! NSArray
+
+        // 分别上传每一个文件
+        let uploadManager = DragUploadManager()
+        for filePath in filePaths {
+            uploadManager.uploadFile(filePath: filePath as! String)
+        }
+        return true
+    }
+
+    @IBAction func quitAction(_ sender: NSMenuItem) {
+        NSApplication.shared().terminate(self)
+    }
+
+}
+#+END_SRC
+
+*** 运行测试拖动上传
+http:////cdn.defcoding.com/QQ20170202-144424-iloveimg-compressed.gif
+
+测试上传图片成功了，这个应用目前是支持多张图片同时上传的，不过如果想达到所有图片都上传成功之后做一些通知相关的操作就比较麻烦了，因为上传 API 异步编程模型（callback 回调方式的编程模型），为了让代码可读性更高，避免 Callback Hell，我 Google 了相关的方案，找到了 [[http:////promisekit.org][PromiseKit]] 这个库，目的是用同步的方式写出异步的代码。
+
+** PromiseKit 使用
+使用一项技术前，必须先对技术有一定的了解，确定这项技术是否能解决问题，而不是“靠撞大运编程”，我已经确定 Promise 编程范式可以达到我的目的，所以我使用它，关于 Promise 编程范式可以参考 [[http:////liubin.org/promises-book/][JavaScript Promise 迷你书]]，这里不拓展了。
+
+*** 使用 CocoaPods 安装 PromiseKit
+又该 CocoaPods 上场了，Podfile 添加上 PromiseKit，然后执行 =pod update= 。
+
+Podfile 代码：
+#+BEGIN_SRC ruby
+# Uncomment this line to define a global platform for your project
+platform :osx, '10.11'
+
+target 'iDragProject' do
+  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for iDrag
+  pod "Qiniu", "~> 7.1"
+  pod "CryptoSwift"
+  pod "SwiftyJSON"
+  pod "PromiseKit", "~> 4.0"
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['SWIFT_VERSION'] = '3.0'
+    end
+  end
+end
+#+END_SRC
+
+执行 =pod update= ：
+http:////cdn.defcoding.com/7D071A5C-CE97-4256-A350-7A4940D2CBDF.png
+
+安装完成后，重新打开我们的项目，使用 =Cmd + b= 重新编译项目。
+
+*** 使用 PromiseKit
+实施方案：
+1. 将上传函数 =uploadFile= 封装成 Promise 对象。
+2. 需要一个管理同时上传多个文件的函数 =uploadFiles= 。
+3. 由于是多个文件都上传成功后才执行相应的操作，经过调研需要使用 PromiseKit 中的 =when= 方法。
+
+实现：
+http:////cdn.defcoding.com/9F1E98D2-DFE7-49BE-B4A1-9663B44C73FD.png
+
+修改上传调用代码：
+http:////cdn.defcoding.com/E8C45853-39C8-4A56-8AE1-15C0EDB11B5C.png
+
+=Controllers.swift= 代码讲解：
+#+BEGIN_SRC swift
+func uploadFiles(filePaths: NSArray) {
+    var uploadFiles: [Promise<String>] = []
+
+    // 将需要上传的文件加入到 promise 对象列表中
+    for path in filePaths {
+        let filePath = path as! String
+        uploadFiles.append(uploadFile(filePath: filePath))
+    }
+
+    // 当所有文件都上传完成后执行操作
+    when(fulfilled: uploadFiles).then(
+        execute: { filenames -> Void in
+            print("upload success")
+        }
+    ).catch(
+        execute: {error in
+            print(error)
+        }
+    )
+}
+
+func uploadFile(filePath: String) -> Promise<String> {
+    // 构造 Promise 对象
+    return Promise { fulfill, reject in
+        // 获取文件路径中的文件名
+        let filename = NSURL(fileURLWithPath: filePath).lastPathComponent!
+
+        // 创建上传凭证
+        let token = createQiniuToken(filename: filename)
+
+        // 上传文件
+        let qiNiu = QNUploadManager()!
+        qiNiu.putFile(filePath, key: filename, token: token, complete: {info, key, resp -> Void in
+            switch info?.statusCode {
+            case Int32(200)?:
+                print("\(filename) upload success")
+                fulfill(filename)
+            default:
+                reject((info?.error)!)
+            }
+        }, option: nil)
+    }
+}
+#+END_SRC
+
+运行测试：
+http:////cdn.defcoding.com/4C5D080B-37D6-49FB-835B-F0BD1779B18B.png
+
+测试成功，在所有文件上传完成后打印 =upload success= ，完全符合预期。
+
+** 总结：
+可以使用的版本有了，之后就是界面和交互的优化了。
+
+Promise 编程模型和 PromiseKit 库是非常值得学习的，在 iOS 相关的编程同样可以使用得到。
+
+示例代码：[[https:////github.com/runforever/iDragProject][iDragProject]]
