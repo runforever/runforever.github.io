@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://runforever.github.io/"/>
-  <updated>2017-02-01T14:17:36.000Z</updated>
+  <updated>2017-02-02T09:01:22.000Z</updated>
   <id>http://runforever.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>我用 5 天写了一个 OSX Menu Bar App（第二天）</title>
-    <link href="http://runforever.github.io/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/"/>
-    <id>http://runforever.github.io/2017-02-01/2017-02-01-我用-5-天写了一个-osx-menu-bar-app（第二天）/</id>
-    <published>2017-01-31T16:00:00.000Z</published>
-    <updated>2017-02-01T14:17:36.000Z</updated>
+    <title>我用 5 天写了一个 OSX Menu Bar App（第三天）</title>
+    <link href="http://runforever.github.io/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/"/>
+    <id>http://runforever.github.io/2017-02-02/2017-02-02-我用-5-天写了一个-osx-menu-bar-app（第三天）/</id>
+    <published>2017-02-01T16:00:00.000Z</published>
+    <updated>2017-02-02T09:01:22.000Z</updated>
     
     <content type="html"><![CDATA[
 <div id="outline-container-sec-1" class="outline-2">
@@ -29,9 +29,389 @@
 <ol class="org-ol">
 <li><a href="http://blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/" target="_blank" rel="external">第一天（方案调研和框架搭建）</a>
 </li>
-<li>第二天（快速原型跑通流程）
+<li><a href="http://blog.defcoding.com/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第二天（快速原型跑通流程）</a>
 </li>
-<li>第三天（拖动上传和上传多张图片）
+<li><a href="http://blog.defcoding.com/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第三天（拖动上传和上传多张图片）</a>
+</li>
+<li>第四天（UI 细节调整）
+</li>
+<li>第五天（设计 Logo 和总结）
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">第三天（拖动上传和上传多张图片）</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+前面上传流程已经跑通了，不过也仅仅是功能跑通了，要达到可以使用至少需要实现从
+文件夹拖动文件上传，并且可以同时上传多张图片。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">拖动上传方案调研</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+使用 Google 先查找方案：
+<img src="http://cdn.defcoding.com/CB8C546F-AD0E-4F7E-9AFA-29138BBFE187.png" alt="CB8C546F-AD0E-4F7E-9AFA-29138BBFE187.png">
+</p>
+
+<p>
+根据 Google 搜到文章的更新时间查看了一下相关资料，其中这篇 <a href="http://swiftrien.blogspot.hk/2015/03/file-drag-drop-for-os-x.html" target="_blank" rel="external">File drag &amp; drop for OS-X</a> 让
+我对 <code>OSX 的 Drag &amp; Drop</code> 编程有了个大概的了解，进而查找到了<a href="https://developer.apple.com/reference/appkit/nsdraggingdestination" target="_blank" rel="external">NSDraggingDestination</a>  协议，
+查看官方文档确定这个是我想要的东西。
+<img src="http://cdn.defcoding.com/BB27652F-7B86-433A-A19E-1365AEA67B24.png" alt="BB27652F-7B86-433A-A19E-1365AEA67B24.png">
+</p>
+
+<p>
+NSDraaingDestination 的使用总结：
+</p>
+<ol class="org-ol">
+<li>DragAppController 扩展 NSDraggingDestination 协议。
+</li>
+<li>window 对象使用 <code>registerForDraggedTypes</code> 方法注册 Drag 操作。
+</li>
+<li>重写 <code>draggingEntered</code> 方法，实现文件拖动标识。
+</li>
+<li>重写 <code>performDragOperation</code> 方法，实现上传操作。
+</li>
+</ol>
+
+<p>
+下面开始写代码。
+<a id="more"></a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">拖动上传代码实现</h2>
+<div class="outline-text-2" id="text-4">
+
+<div class="figure">
+<p><img src="http://cdn.defcoding.com/D272FE29-ED2F-445E-A9FD-A05AB16559B8.png" alt="D272FE29-ED2F-445E-A9FD-A05AB16559B8.png">
+</p>
+</div>
+
+<p>
+代码讲解：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-swift">import Cocoa
+
+// 扩展 NSWindowDelegate, NSDraggingDestination 协议
+class DragAppController: NSObject, NSWindowDelegate, NSDraggingDestination {
+
+    @IBOutlet weak var dragMenu: NSMenu!
+    let dragStatusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
+
+    override func awakeFromNib() {
+        dragStatusItem.title = "iDrag"
+        dragStatusItem.menu = dragMenu
+
+        // 注册 Drag 操作
+        dragStatusItem.button?.window?.registerForDraggedTypes([NSFilenamesPboardType])
+        dragStatusItem.button?.window?.delegate = self
+
+    }
+
+    // 重写 draggingEntered 方法
+    // 实现文件拖动到 menu 的时候显示绿色的 "+" 号
+    func draggingEntered(_ sender: NSDraggingInfo) -&gt; NSDragOperation {
+        return NSDragOperation.copy
+    }
+
+    // 重写 performDragOperation 方法
+    // 实现上传文件操作
+    func performDragOperation(_ sender: NSDraggingInfo) -&gt; Bool {
+        // 获取拖动文件的路径
+        let pasteBoard = sender.draggingPasteboard()
+        let filePaths = pasteBoard.propertyList(forType: NSFilenamesPboardType) as! NSArray
+
+        // 分别上传每一个文件
+        let uploadManager = DragUploadManager()
+        for filePath in filePaths {
+            uploadManager.uploadFile(filePath: filePath as! String)
+        }
+        return true
+    }
+
+    @IBAction func quitAction(_ sender: NSMenuItem) {
+        NSApplication.shared().terminate(self)
+    }
+
+}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1">运行测试拖动上传</h3>
+<div class="outline-text-3" id="text-4-1">
+
+<div class="figure">
+<p><img src="http://cdn.defcoding.com/QQ20170202-144424-iloveimg-compressed.gif" alt="QQ20170202-144424-iloveimg-compressed.gif">
+</p>
+</div>
+
+<p>
+测试上传图片成功了，这个应用目前是支持多张图片同时上传的，不过如果想达到所有图片都上传成功之后做一些通知相关的操作就比较麻烦了，因为上传 API 异步编程模型（callback 回调方式的编程模型），为了让代码可读性更高，避免 Callback Hell，我 Google 了相关的方案，找到了 <a href="http://promisekit.org" target="_blank" rel="external">PromiseKit</a> 这个库，目的是用同步的方式写出异步的代码。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">PromiseKit 使用</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+使用一项技术前，必须先对技术有一定的了解，确定这项技术是否能解决问题，而不是“靠撞大运编程”，我已经确定 Promise 编程范式可以达到我的目的，所以我使用它，关于 Promise 编程范式可以参考 <a href="http://liubin.org/promises-book/" target="_blank" rel="external">JavaScript Promise 迷你书</a>，这里不拓展了。
+</p>
+</div>
+
+<div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1">使用 CocoaPods 安装 PromiseKit</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+又该 CocoaPods 上场了，Podfile 添加上 PromiseKit，然后执行 <code>pod update</code> 。
+</p>
+
+<p>
+Podfile 代码：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #ff0000;"># </span><span style="color: #ff0000;">Uncomment this line to define a global platform for your project</span>
+platform <span style="color: #ff00ff;">:osx</span>, <span style="color: #00ff00;">'10.11'</span>
+
+target <span style="color: #00ff00;">'iDragProject'</span> <span style="color: #00ffff; font-weight: bold;">do</span>
+  <span style="color: #ff0000;"># </span><span style="color: #ff0000;">Comment this line if you're not using Swift and don't want to use dynamic frameworks</span>
+  use_frameworks!
+
+  <span style="color: #ff0000;"># </span><span style="color: #ff0000;">Pods for iDrag</span>
+  pod <span style="color: #00ff00;">"Qiniu"</span>, <span style="color: #00ff00;">"~&gt; 7.1"</span>
+  pod <span style="color: #00ff00;">"CryptoSwift"</span>
+  pod <span style="color: #00ff00;">"SwiftyJSON"</span>
+  pod <span style="color: #00ff00;">"PromiseKit"</span>, <span style="color: #00ff00;">"~&gt; 4.0"</span>
+<span style="color: #00ffff; font-weight: bold;">end</span>
+
+post_install <span style="color: #00ffff; font-weight: bold;">do</span> |installer|
+  installer.pods_project.targets.each <span style="color: #00ffff; font-weight: bold;">do</span> |target|
+    target.build_configurations.each <span style="color: #00ffff; font-weight: bold;">do</span> |config|
+      config.build_settings[<span style="color: #00ff00;">'SWIFT_VERSION'</span>] = <span style="color: #00ff00;">'3.0'</span>
+    <span style="color: #00ffff; font-weight: bold;">end</span>
+  <span style="color: #00ffff; font-weight: bold;">end</span>
+<span style="color: #00ffff; font-weight: bold;">end</span>
+</pre>
+</div>
+
+<p>
+执行 <code>pod update</code> ：
+<img src="http://cdn.defcoding.com/7D071A5C-CE97-4256-A350-7A4940D2CBDF.png" alt="7D071A5C-CE97-4256-A350-7A4940D2CBDF.png">
+</p>
+
+<p>
+安装完成后，重新打开我们的项目，使用 <code>Cmd + b</code> 重新编译项目。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-5-2" class="outline-3">
+<h3 id="sec-5-2">使用 PromiseKit</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+实施方案：
+</p>
+<ol class="org-ol">
+<li>将上传函数 <code>uploadFile</code> 封装成 Promise 对象。
+</li>
+<li>需要一个管理同时上传多个文件的函数 <code>uploadFiles</code> 。
+</li>
+<li>由于是多个文件都上传成功后才执行相应的操作，经过调研需要使用 PromiseKit 中的 <code>when</code> 方法。
+</li>
+</ol>
+
+<p>
+实现：
+<img src="http://cdn.defcoding.com/9F1E98D2-DFE7-49BE-B4A1-9663B44C73FD.png" alt="9F1E98D2-DFE7-49BE-B4A1-9663B44C73FD.png">
+</p>
+
+<p>
+修改上传调用代码：
+<img src="http://cdn.defcoding.com/E8C45853-39C8-4A56-8AE1-15C0EDB11B5C.png" alt="E8C45853-39C8-4A56-8AE1-15C0EDB11B5C.png">
+</p>
+
+<p>
+<code>Controllers.swift</code> 代码讲解：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-swift">func uploadFiles(filePaths: NSArray) {
+    var uploadFiles: [Promise&lt;String&gt;] = []
+
+    // 将需要上传的文件加入到 promise 对象列表中
+    for path in filePaths {
+        let filePath = path as! String
+        uploadFiles.append(uploadFile(filePath: filePath))
+    }
+
+    // 当所有文件都上传完成后执行操作
+    when(fulfilled: uploadFiles).then(
+        execute: { filenames -&gt; Void in
+            print("upload success")
+        }
+    ).catch(
+        execute: {error in
+            print(error)
+        }
+    )
+}
+
+func uploadFile(filePath: String) -&gt; Promise&lt;String&gt; {
+    // 构造 Promise 对象
+    return Promise { fulfill, reject in
+        // 获取文件路径中的文件名
+        let filename = NSURL(fileURLWithPath: filePath).lastPathComponent!
+
+        // 创建上传凭证
+        let token = createQiniuToken(filename: filename)
+
+        // 上传文件
+        let qiNiu = QNUploadManager()!
+        qiNiu.putFile(filePath, key: filename, token: token, complete: {info, key, resp -&gt; Void in
+            switch info?.statusCode {
+            case Int32(200)?:
+                print("\(filename) upload success")
+                fulfill(filename)
+            default:
+                reject((info?.error)!)
+            }
+        }, option: nil)
+    }
+}
+</pre>
+</div>
+
+<p>
+运行测试：
+<img src="http://cdn.defcoding.com/4C5D080B-37D6-49FB-835B-F0BD1779B18B.png" alt="4C5D080B-37D6-49FB-835B-F0BD1779B18B.png">
+</p>
+
+<p>
+测试成功，在所有文件上传完成后打印 <code>upload success</code> ，完全符合预期。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">总结：</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+可以使用的版本有了，之后就是界面和交互的优化了。
+</p>
+
+<p>
+Promise 编程模型和 PromiseKit 库是非常值得学习的，在 iOS 相关的编程同样可以使用得到。
+</p>
+
+<p>
+示例代码：<a href="https://github.com/runforever/iDragProject" target="_blank" rel="external">iDragProject</a>
+</p>
+</div>
+</div>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;div id=&quot;outline-container-sec-1&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-1&quot;&gt;目录&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/&quot;&gt;第一天（方案调研和框架搭建）&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.defcoding.com/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/&quot;&gt;第二天（快速原型跑通流程）&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.defcoding.com/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/&quot;&gt;第三天（拖动上传和上传多张图片）&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;第四天（UI 细节调整）
+&lt;/li&gt;
+&lt;li&gt;第五天（设计 Logo 和总结）
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-sec-2&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-2&quot;&gt;第三天（拖动上传和上传多张图片）&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
+&lt;p&gt;
+前面上传流程已经跑通了，不过也仅仅是功能跑通了，要达到可以使用至少需要实现从
+文件夹拖动文件上传，并且可以同时上传多张图片。
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;outline-container-sec-3&quot; class=&quot;outline-2&quot;&gt;
+&lt;h2 id=&quot;sec-3&quot;&gt;拖动上传方案调研&lt;/h2&gt;
+&lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
+&lt;p&gt;
+使用 Google 先查找方案：
+&lt;img src=&quot;http://cdn.defcoding.com/CB8C546F-AD0E-4F7E-9AFA-29138BBFE187.png&quot; alt=&quot;CB8C546F-AD0E-4F7E-9AFA-29138BBFE187.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+根据 Google 搜到文章的更新时间查看了一下相关资料，其中这篇 &lt;a href=&quot;http://swiftrien.blogspot.hk/2015/03/file-drag-drop-for-os-x.html&quot;&gt;File drag &amp;amp; drop for OS-X&lt;/a&gt; 让
+我对 &lt;code&gt;OSX 的 Drag &amp;amp; Drop&lt;/code&gt; 编程有了个大概的了解，进而查找到了&lt;a href=&quot;https://developer.apple.com/reference/appkit/nsdraggingdestination&quot;&gt;NSDraggingDestination&lt;/a&gt;  协议，
+查看官方文档确定这个是我想要的东西。
+&lt;img src=&quot;http://cdn.defcoding.com/BB27652F-7B86-433A-A19E-1365AEA67B24.png&quot; alt=&quot;BB27652F-7B86-433A-A19E-1365AEA67B24.png&quot; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+NSDraaingDestination 的使用总结：
+&lt;/p&gt;
+&lt;ol class=&quot;org-ol&quot;&gt;
+&lt;li&gt;DragAppController 扩展 NSDraggingDestination 协议。
+&lt;/li&gt;
+&lt;li&gt;window 对象使用 &lt;code&gt;registerForDraggedTypes&lt;/code&gt; 方法注册 Drag 操作。
+&lt;/li&gt;
+&lt;li&gt;重写 &lt;code&gt;draggingEntered&lt;/code&gt; 方法，实现文件拖动标识。
+&lt;/li&gt;
+&lt;li&gt;重写 &lt;code&gt;performDragOperation&lt;/code&gt; 方法，实现上传操作。
+&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;
+下面开始写代码。
+    
+    </summary>
+    
+      <category term="Swift" scheme="http://runforever.github.io/categories/Swift/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>我用 5 天写了一个 OSX Menu Bar App（第二天）</title>
+    <link href="http://runforever.github.io/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/"/>
+    <id>http://runforever.github.io/2017-02-01/2017-02-01-我用-5-天写了一个-osx-menu-bar-app（第二天）/</id>
+    <published>2017-01-31T16:00:00.000Z</published>
+    <updated>2017-02-02T08:40:46.000Z</updated>
+    
+    <content type="html"><![CDATA[
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">目录</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li><a href="http://blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/" target="_blank" rel="external">第一天（方案调研和框架搭建）</a>
+</li>
+<li><a href="http://blog.defcoding.com/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第二天（快速原型跑通流程）</a>
+</li>
+<li><a href="http://blog.defcoding.com/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第三天（拖动上传和上传多张图片）</a>
 </li>
 <li>第四天（UI 细节调整）
 </li>
@@ -381,9 +761,9 @@ upload fail
 &lt;ol class=&quot;org-ol&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;http://blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/&quot;&gt;第一天（方案调研和框架搭建）&lt;/a&gt;
 &lt;/li&gt;
-&lt;li&gt;第二天（快速原型跑通流程）
+&lt;li&gt;&lt;a href=&quot;http://blog.defcoding.com/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/&quot;&gt;第二天（快速原型跑通流程）&lt;/a&gt;
 &lt;/li&gt;
-&lt;li&gt;第三天（拖动上传和上传多张图片）
+&lt;li&gt;&lt;a href=&quot;http://blog.defcoding.com/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/&quot;&gt;第三天（拖动上传和上传多张图片）&lt;/a&gt;
 &lt;/li&gt;
 &lt;li&gt;第四天（UI 细节调整）
 &lt;/li&gt;
@@ -475,7 +855,7 @@ upload fail
     <link href="http://runforever.github.io/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/"/>
     <id>http://runforever.github.io/2016-12-05/2016-12-05-我用-5-天写了一个-osx-menu-bar-app/</id>
     <published>2016-12-04T16:00:00.000Z</published>
-    <updated>2017-02-01T14:03:09.000Z</updated>
+    <updated>2017-02-02T09:01:22.000Z</updated>
     
     <content type="html"><![CDATA[
 <div id="outline-container-sec-1" class="outline-2">
@@ -484,9 +864,9 @@ upload fail
 <ol class="org-ol">
 <li><a href="http://blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/" target="_blank" rel="external">第一天（方案调研和框架搭建）</a>
 </li>
-<li>第二天（快速原型跑通流程）
+<li><a href="http://blog.defcoding.com/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第二天（快速原型跑通流程）</a>
 </li>
-<li>第三天（拖动上传和上传多张图片）
+<li><a href="http://blog.defcoding.com/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第三天（拖动上传和上传多张图片）</a>
 </li>
 <li>第四天（UI 细节调整）
 </li>
@@ -815,6 +1195,10 @@ class DragAppController: NSObject {
 <li>会查文档。
 </li>
 </ol>
+
+<p>
+示例代码：<a href="https://github.com/runforever/iDragProject" target="_blank" rel="external">iDragProject</a>
+</p>
 </div>
 </div>
 ]]></content>
@@ -827,9 +1211,9 @@ class DragAppController: NSObject {
 &lt;ol class=&quot;org-ol&quot;&gt;
 &lt;li&gt;&lt;a href=&quot;http://blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/&quot;&gt;第一天（方案调研和框架搭建）&lt;/a&gt;
 &lt;/li&gt;
-&lt;li&gt;第二天（快速原型跑通流程）
+&lt;li&gt;&lt;a href=&quot;http://blog.defcoding.com/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/&quot;&gt;第二天（快速原型跑通流程）&lt;/a&gt;
 &lt;/li&gt;
-&lt;li&gt;第三天（拖动上传和上传多张图片）
+&lt;li&gt;&lt;a href=&quot;http://blog.defcoding.com/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/&quot;&gt;第三天（拖动上传和上传多张图片）&lt;/a&gt;
 &lt;/li&gt;
 &lt;li&gt;第四天（UI 细节调整）
 &lt;/li&gt;
@@ -6664,281 +7048,6 @@ M-, 用来查看第三方库。&lt;br  /&gt;
       <category term="Clojure" scheme="http://runforever.github.io/categories/Clojure/"/>
     
       <category term="Emacs" scheme="http://runforever.github.io/categories/Clojure/Emacs/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Docker使用笔记</title>
-    <link href="http://runforever.github.io/2014-05-01/2014-05-01-docker%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
-    <id>http://runforever.github.io/2014-05-01/2014-05-01-docker使用笔记/</id>
-    <published>2014-04-30T16:00:00.000Z</published>
-    <updated>2016-11-01T06:35:34.000Z</updated>
-    
-    <content type="html"><![CDATA[
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Docker使用笔记</h2>
-<div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1">什么是Docker</h3>
-<div class="outline-text-3" id="text-1-1">
-<p class="verse">
-docker的英文本意是码头工人，也就是搬运工，这种搬运工搬运的是集装箱（Container），<br>
-集装箱里面装的可不是商品货物，而是任意类型的App，Docker把App（叫Payload）装在Container内，<br>
-通过Linux Container技术的包装将App变成一种标准化的、可移植的、自管理的组件，<br>
-这种组件可以在你的latop上开发、调试、运行，最终非常方便和一致地运行在production环境下。<br>
-</p>
-</div>
-</div>
-
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2">Docker的特点</h3>
-<div class="outline-text-3" id="text-1-2">
-<p class="verse">
-1. Docker提供了一种可移植的配置标准化机制，允许你一致性地在不同的机器上运行同一个Container；而LXC本身可能因为不同机器的不同配置而无法方便地移植运行；<br>
-2. Docker以App为中心，为应用的部署做了很多优化，而LXC的帮助脚本主要是聚焦于如何机器启动地更快和耗更少的内存；<br>
-3. Docker为App提供了一种自动化构建机制（Dockerfile），包括打包，基础设施依赖管理和安装等等；<br>
-4. Docker提供了一种类似git的Container版本化的机制，允许你对你创建过的容器进行版本管理，依靠这种机制，你还可以下载别人创建的Container，甚至像git那样进行合并；<br>
-5. Docker Container是可重用的，依赖于版本化机制，你很容易重用别人的Container（叫Image），作为基础版本进行扩展；<br>
-6. Docker Container是可共享的，有点类似github一样，Docker有自己的INDEX，你可以创建自己的Docker用户并上传和下载Docker Image；<br>
-7. Docker提供了很多的工具链，形成了一个生态系统；这些工具的目标是自动化、个性化和集成化，包括对PAAS平台的支持等；<br>
-</p>
-</div>
-</div>
-
-<div id="outline-container-sec-1-3" class="outline-3">
-<h3 id="sec-1-3">为什么使用Docker</h3>
-<div class="outline-text-3" id="text-1-3">
-<p class="verse">
-1. 打包的开发环境，方便部署和迁移。<br>
-2. 对于没有服务器的程序员可以用来模拟集群。<br>
-3. 保持开发机器的干净整洁，将数据库、Web服务器这些东西放到Container里。<br>
-</p>
-</div>
-</div>
-
-<div id="outline-container-sec-1-4" class="outline-3">
-<h3 id="sec-1-4">Mac上使用Docker</h3>
-<div class="outline-text-3" id="text-1-4">
-<p>
-直接根据官网教程安装即可，<a href="https://docs.docker.com/docker-for-mac/" target="_blank" rel="external">https://docs.docker.com/docker-for-mac/</a>
-</p>
-</div>
-</div>
-
-<div id="outline-container-sec-1-5" class="outline-3">
-<h3 id="sec-1-5">使用Docker</h3>
-<div class="outline-text-3" id="text-1-5">
-<p>
-首先请查看官方的基础教程，移步<a href="https://www.docker.io/gettingstarted/" target="_blank" rel="external">https://www.docker.io/gettingstarted/</a>  <br>
-</p>
-
-<p>
-Docker类似Git，可以使用pull命令获取公共镜像。<br>
-如我的开发环境需要Mysql，我可以很方便的使用下面的命令获取镜像。<br>
-</p>
-<div class="org-src-container">
-
-<pre class="src src-sh"><span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#26597;&#25214;&#21253;&#21547;MySql&#26381;&#21153;&#30340;&#38236;&#20687;</span>
-docker search mysql
-
-<span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#25214;&#21040;&#21518;</span>
-docker pull tutum/mysql
-
-<span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#19979;&#36733;&#23436;&#25104;&#21518;&#36816;&#34892;&#65292; -d &#26159;deamon&#26041;&#24335;&#36816;&#34892;&#65292;-p &#26159;&#31471;&#21475;&#36716;&#21457;</span>
-<span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#21629;&#20196;&#30340;&#24847;&#24605;&#26159;&#21518;&#21488;&#36816;&#34892;&#36825;&#20010;Container&#65292;&#24182;&#19988;&#23558;CoreOS&#30340;3306&#31471;&#21475;</span>
-<span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#36716;&#21457;&#21040;Container&#30340;3306&#31471;&#21475;&#19978;</span>
-<span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#23487;&#20027;&#26426;&#22120;&#65288;Mac&#65289;&#23601;&#21487;&#20197;&#36890;&#36807;mysql -h CoreOS&#30340;&#22806;&#32593;IP -u admin -p</span>
-<span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#36830;&#25509;Mysql&#26381;&#21153;&#20102;</span>
-docker run -d -p 3306:3306 tutum/mysql
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-1-6" class="outline-3">
-<h3 id="sec-1-6">Docker 常用命令</h3>
-<div class="outline-text-3" id="text-1-6">
-<div class="org-src-container">
-
-<pre class="src src-sh"><span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#26597;&#30475;&#25152;&#26377;image</span>
-docker images
-
-<span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#26597;&#30475;&#27491;&#22312;&#36816;&#34892;&#30340;Container&#65292;-l &#26159;&#26368;&#21518;&#36816;&#34892;&#30340;Container&#65292;-a &#25152;&#26377;&#36816;&#34892;&#30340;Container</span>
-docker ps
-
-<span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#26597;&#30475;Container&#30340;&#36816;&#34892;&#20449;&#24687;</span>
-docker logs container_id
-
-<span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#26597;&#30475;Container&#30340;&#37197;&#32622;&#20449;&#24687;&#12290;</span>
-docker inspect
-
-<span style="color: #ff0000;">#</span><span style="color: #ff0000;">&#20132;&#20114;&#24335;&#36816;&#34892;shell&#65292;&#23601;&#20687;ssh&#21040;Container&#19968;&#26679;&#65292;&#21487;&#20197;&#22312;Container&#37324;Do everything</span>
-docker run -i -t image_id /bin/bash
-
-<span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#23558;&#23545;Container&#30340;&#20462;&#25913;&#25552;&#20132;&#65292;&#23450;&#21046;&#33258;&#24049;&#30340;Image</span>
-docker commit container_id image_name
-
-<span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#21024;&#38500;&#25152;&#26377;&#30340;&#38236;&#20687;&#65288;&#24910;&#29992;&#65289;</span>
-docker kill $(docker ps -q) ; docker rm $(docker ps -a -q) ; docker rmi $(docker images -q -a)
-
-<span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#21024;&#38500;&#25152;&#26377;&#30340;Container</span>
-docker rm <span style="color: #ff00ff;">`docker ps -a -q`</span>
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-1-7" class="outline-3">
-<h3 id="sec-1-7">参考</h3>
-<div class="outline-text-3" id="text-1-7">
-<blockquote>
-<p>
-<a href="http://tech.uc.cn/?p=2726" target="_blank" rel="external">http://tech.uc.cn/?p=2726</a> <br>
-<a href="http://cn.soulmachine.me/blog/20131026/" target="_blank" rel="external">http://cn.soulmachine.me/blog/20131026/</a> <br>
-<a href="http://blog.segmentfault.com/yexiaobai/1190000000482229" target="_blank" rel="external">http://blog.segmentfault.com/yexiaobai/1190000000482229</a> <br>
-</p>
-</blockquote>
-
-<p>
-<a id="more"></a>
-</p>
-</div>
-</div>
-</div>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;div id=&quot;outline-container-sec-1&quot; class=&quot;outline-2&quot;&gt;
-&lt;h2 id=&quot;sec-1&quot;&gt;Docker使用笔记&lt;/h2&gt;
-&lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
-&lt;/div&gt;&lt;div id=&quot;outline-container-sec-1-1&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-1&quot;&gt;什么是Docker&lt;/h3&gt;
-&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;
-&lt;p class=&quot;verse&quot;&gt;
-docker的英文本意是码头工人，也就是搬运工，这种搬运工搬运的是集装箱（Container），&lt;br  /&gt;
-集装箱里面装的可不是商品货物，而是任意类型的App，Docker把App（叫Payload）装在Container内，&lt;br  /&gt;
-通过Linux Container技术的包装将App变成一种标准化的、可移植的、自管理的组件，&lt;br  /&gt;
-这种组件可以在你的latop上开发、调试、运行，最终非常方便和一致地运行在production环境下。&lt;br  /&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-sec-1-2&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-2&quot;&gt;Docker的特点&lt;/h3&gt;
-&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-2&quot;&gt;
-&lt;p class=&quot;verse&quot;&gt;
-1. Docker提供了一种可移植的配置标准化机制，允许你一致性地在不同的机器上运行同一个Container；而LXC本身可能因为不同机器的不同配置而无法方便地移植运行；&lt;br  /&gt;
-2. Docker以App为中心，为应用的部署做了很多优化，而LXC的帮助脚本主要是聚焦于如何机器启动地更快和耗更少的内存；&lt;br  /&gt;
-3. Docker为App提供了一种自动化构建机制（Dockerfile），包括打包，基础设施依赖管理和安装等等；&lt;br  /&gt;
-4. Docker提供了一种类似git的Container版本化的机制，允许你对你创建过的容器进行版本管理，依靠这种机制，你还可以下载别人创建的Container，甚至像git那样进行合并；&lt;br  /&gt;
-5. Docker Container是可重用的，依赖于版本化机制，你很容易重用别人的Container（叫Image），作为基础版本进行扩展；&lt;br  /&gt;
-6. Docker Container是可共享的，有点类似github一样，Docker有自己的INDEX，你可以创建自己的Docker用户并上传和下载Docker Image；&lt;br  /&gt;
-7. Docker提供了很多的工具链，形成了一个生态系统；这些工具的目标是自动化、个性化和集成化，包括对PAAS平台的支持等；&lt;br  /&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-sec-1-3&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-3&quot;&gt;为什么使用Docker&lt;/h3&gt;
-&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-3&quot;&gt;
-&lt;p class=&quot;verse&quot;&gt;
-1. 打包的开发环境，方便部署和迁移。&lt;br  /&gt;
-2. 对于没有服务器的程序员可以用来模拟集群。&lt;br  /&gt;
-3. 保持开发机器的干净整洁，将数据库、Web服务器这些东西放到Container里。&lt;br  /&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-sec-1-4&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-4&quot;&gt;Mac上使用Docker&lt;/h3&gt;
-&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-4&quot;&gt;
-&lt;p&gt;
-直接根据官网教程安装即可，&lt;a href=&quot;https://docs.docker.com/docker-for-mac/&quot;&gt;https://docs.docker.com/docker-for-mac/&lt;/a&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-sec-1-5&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-5&quot;&gt;使用Docker&lt;/h3&gt;
-&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-5&quot;&gt;
-&lt;p&gt;
-首先请查看官方的基础教程，移步&lt;a href=&quot;https://www.docker.io/gettingstarted/&quot;&gt;https://www.docker.io/gettingstarted/&lt;/a&gt;  &lt;br  /&gt;
-&lt;/p&gt;
-
-&lt;p&gt;
-Docker类似Git，可以使用pull命令获取公共镜像。&lt;br  /&gt;
-如我的开发环境需要Mysql，我可以很方便的使用下面的命令获取镜像。&lt;br  /&gt;
-&lt;/p&gt;
-&lt;div class=&quot;org-src-container&quot;&gt;
-
-&lt;pre class=&quot;src src-sh&quot;&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;# &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;&amp;#26597;&amp;#25214;&amp;#21253;&amp;#21547;MySql&amp;#26381;&amp;#21153;&amp;#30340;&amp;#38236;&amp;#20687;&lt;/span&gt;
-docker search mysql
-
-&lt;span style=&quot;color: #ff0000;&quot;&gt;# &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;&amp;#25214;&amp;#21040;&amp;#21518;&lt;/span&gt;
-docker pull tutum/mysql
-
-&lt;span style=&quot;color: #ff0000;&quot;&gt;# &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;&amp;#19979;&amp;#36733;&amp;#23436;&amp;#25104;&amp;#21518;&amp;#36816;&amp;#34892;&amp;#65292; -d &amp;#26159;deamon&amp;#26041;&amp;#24335;&amp;#36816;&amp;#34892;&amp;#65292;-p &amp;#26159;&amp;#31471;&amp;#21475;&amp;#36716;&amp;#21457;&lt;/span&gt;
-&lt;span style=&quot;color: #ff0000;&quot;&gt;# &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;&amp;#21629;&amp;#20196;&amp;#30340;&amp;#24847;&amp;#24605;&amp;#26159;&amp;#21518;&amp;#21488;&amp;#36816;&amp;#34892;&amp;#36825;&amp;#20010;Container&amp;#65292;&amp;#24182;&amp;#19988;&amp;#23558;CoreOS&amp;#30340;3306&amp;#31471;&amp;#21475;&lt;/span&gt;
-&lt;span style=&quot;color: #ff0000;&quot;&gt;# &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;&amp;#36716;&amp;#21457;&amp;#21040;Container&amp;#30340;3306&amp;#31471;&amp;#21475;&amp;#19978;&lt;/span&gt;
-&lt;span style=&quot;color: #ff0000;&quot;&gt;# &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;&amp;#23487;&amp;#20027;&amp;#26426;&amp;#22120;&amp;#65288;Mac&amp;#65289;&amp;#23601;&amp;#21487;&amp;#20197;&amp;#36890;&amp;#36807;mysql -h CoreOS&amp;#30340;&amp;#22806;&amp;#32593;IP -u admin -p&lt;/span&gt;
-&lt;span style=&quot;color: #ff0000;&quot;&gt;# &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;&amp;#36830;&amp;#25509;Mysql&amp;#26381;&amp;#21153;&amp;#20102;&lt;/span&gt;
-docker run -d -p 3306:3306 tutum/mysql
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-sec-1-6&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-6&quot;&gt;Docker 常用命令&lt;/h3&gt;
-&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-6&quot;&gt;
-&lt;div class=&quot;org-src-container&quot;&gt;
-
-&lt;pre class=&quot;src src-sh&quot;&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;# &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;&amp;#26597;&amp;#30475;&amp;#25152;&amp;#26377;image&lt;/span&gt;
-docker images
-
-&lt;span style=&quot;color: #ff0000;&quot;&gt;# &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;&amp;#26597;&amp;#30475;&amp;#27491;&amp;#22312;&amp;#36816;&amp;#34892;&amp;#30340;Container&amp;#65292;-l &amp;#26159;&amp;#26368;&amp;#21518;&amp;#36816;&amp;#34892;&amp;#30340;Container&amp;#65292;-a &amp;#25152;&amp;#26377;&amp;#36816;&amp;#34892;&amp;#30340;Container&lt;/span&gt;
-docker ps
-
-&lt;span style=&quot;color: #ff0000;&quot;&gt;# &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;&amp;#26597;&amp;#30475;Container&amp;#30340;&amp;#36816;&amp;#34892;&amp;#20449;&amp;#24687;&lt;/span&gt;
-docker logs container_id
-
-&lt;span style=&quot;color: #ff0000;&quot;&gt;# &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;&amp;#26597;&amp;#30475;Container&amp;#30340;&amp;#37197;&amp;#32622;&amp;#20449;&amp;#24687;&amp;#12290;&lt;/span&gt;
-docker inspect
-
-&lt;span style=&quot;color: #ff0000;&quot;&gt;#&lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;&amp;#20132;&amp;#20114;&amp;#24335;&amp;#36816;&amp;#34892;shell&amp;#65292;&amp;#23601;&amp;#20687;ssh&amp;#21040;Container&amp;#19968;&amp;#26679;&amp;#65292;&amp;#21487;&amp;#20197;&amp;#22312;Container&amp;#37324;Do everything&lt;/span&gt;
-docker run -i -t image_id /bin/bash
-
-&lt;span style=&quot;color: #ff0000;&quot;&gt;# &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;&amp;#23558;&amp;#23545;Container&amp;#30340;&amp;#20462;&amp;#25913;&amp;#25552;&amp;#20132;&amp;#65292;&amp;#23450;&amp;#21046;&amp;#33258;&amp;#24049;&amp;#30340;Image&lt;/span&gt;
-docker commit container_id image_name
-
-&lt;span style=&quot;color: #ff0000;&quot;&gt;# &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;&amp;#21024;&amp;#38500;&amp;#25152;&amp;#26377;&amp;#30340;&amp;#38236;&amp;#20687;&amp;#65288;&amp;#24910;&amp;#29992;&amp;#65289;&lt;/span&gt;
-docker kill $(docker ps -q) ; docker rm $(docker ps -a -q) ; docker rmi $(docker images -q -a)
-
-&lt;span style=&quot;color: #ff0000;&quot;&gt;# &lt;/span&gt;&lt;span style=&quot;color: #ff0000;&quot;&gt;&amp;#21024;&amp;#38500;&amp;#25152;&amp;#26377;&amp;#30340;Container&lt;/span&gt;
-docker rm &lt;span style=&quot;color: #ff00ff;&quot;&gt;`docker ps -a -q`&lt;/span&gt;
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id=&quot;outline-container-sec-1-7&quot; class=&quot;outline-3&quot;&gt;
-&lt;h3 id=&quot;sec-1-7&quot;&gt;参考&lt;/h3&gt;
-&lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-7&quot;&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;a href=&quot;http://tech.uc.cn/?p=2726&quot;&gt;http://tech.uc.cn/?p=2726&lt;/a&gt; &lt;br  /&gt;
-&lt;a href=&quot;http://cn.soulmachine.me/blog/20131026/&quot;&gt;http://cn.soulmachine.me/blog/20131026/&lt;/a&gt; &lt;br  /&gt;
-&lt;a href=&quot;http://blog.segmentfault.com/yexiaobai/1190000000482229&quot;&gt;http://blog.segmentfault.com/yexiaobai/1190000000482229&lt;/a&gt; &lt;br  /&gt;
-&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;
-    
-    </summary>
-    
-      <category term="Docker" scheme="http://runforever.github.io/categories/Docker/"/>
     
     
   </entry>
