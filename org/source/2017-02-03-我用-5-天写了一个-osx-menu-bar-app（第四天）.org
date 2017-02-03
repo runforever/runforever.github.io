@@ -1,0 +1,183 @@
+#+TITLE: 我用 5 天写了一个 OSX Menu Bar App（第四天）
+#+DATE: 2017-02-03
+#+SETUPFILE: ~/CodeRepo/GitRepo/Road/blog/org/setupfile.org
+#+JEKYLL_LAYOUT: post
+#+JEKYLL_CATEGORIES: Swift
+#+JEKYLL_PUBLISHED: true
+#+JEKYLL_COMMENTS: true
+
+** 目录
+1. [[http:////blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/][第一天（方案调研和框架搭建）]]
+2. [[http:////blog.defcoding.com/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/][第二天（快速原型跑通流程）]]
+3. [[http:////blog.defcoding.com/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/][第三天（拖动上传和上传多张图片）]]
+4. [[http:////blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E5%9B%9B%E5%A4%A9%EF%BC%89/][第四天（UI 细节调整）]]
+5. 第五天（设计 Logo 和总结）
+
+** 第四天（UI 细节调整）
+拖动上传多个文件已经实现，前面的工作解决了上传的问题，接下来要解决的是上传完成后如何使用的问题，经过一番需求分析，总结如下：
+1. UI 需要展示出上传后文件的缩略图和文件名，方便获取到文件的信息。
+2. 我要在 org 格式和 Markdown 格式的文档中插入图片，因此要提供复制链接和复制 Markdown 的操作。
+3. 将七牛 AccessKey、SecretKey、Bucket 和回调 Domain 做成设置 UI，提供给其他人使用。
+
+*** 最终的 UI
+上传成功的 UI
+http:////cdn.defcoding.com/6FDE92BD-2FE0-4063-BB98-B9573AA94D3C.png
+
+设置的 UI
+http:////cdn.defcoding.com/E9A7253E-51F1-420F-AF85-DDB558831949.png
+
+下面开始折腾。
+
+{{{more}}}
+
+** 设置功能
+由于第一次开发 OSX 应用，经验不多，本着先易后难的原则，先从设置功能开始，熟悉 OSX 应用开发模式，也为接下来做复杂 UI 的工作积累经验。
+
+设置功能需求：
+1. 提供 AccessKey、SecretKey 等七牛账号的配置。
+2. 能保存配置。
+3. 支持 OSX 本身调出设置的快捷键。
+
+*** 在 Main.storyboard 添加设置 UI
+*在菜单栏中添加设置选项*
+http:////cdn.defcoding.com/8EF0EBB1-5A2D-47D5-81C4-AF7FFF8ADE0E.png
+
+*配置完成效果*
+http:////cdn.defcoding.com/D9E4FC99-C689-459D-9D91-2652F64A9B20.png
+
+*添加设置窗口*
+http:////cdn.defcoding.com/7C32F025-AAF1-4443-A238-3723CBB25223.png
+
+*Ctrl + Drag 操作连接设置选项和设置窗口*
+http:////cdn.defcoding.com/ctrldrag.gif
+=Action Segue= 的 Action 选择 =Show=
+
+*运行测试*
+http:////cdn.defcoding.com/EF847758-2289-45DA-A7DF-833A1883D1D7.png
+
+*** 添加配置项
+布局对我来说一直是个比较难的点，好在新版的 Mac OSX 支持 StackView 布局，很方便的解决了问题，
+我学习 UI 布局是通过 [[https:////www.appcoda.com/swift/][Beginning iOS 10 Programming With Swift]] 这本书和 [[https:////www.youtube.com][YouTube]] 上的 iOS 相关的教程，
+在做这个应用前花了不少功夫，布局的知识很多，也不是我要表达的重点，限于篇幅，这里就不扩展了。
+
+*使用 StackView 布局的配置项效果*
+http:////cdn.defcoding.com/D704D97C-3C3E-4AFD-AD93-77DE41F862DC.png
+
+*** 保存设置逻辑实现
+我不想每次启动应用都要重新配置七牛相关的东西，配置要保存下来，Google 了相关方案，找到了 [[https:////developer.apple.com/reference/appkit/nsuserdefaultscontroller][NSUserDefaultsController]] API，看了 API 介绍和一些教程文档，确定这个东西可以解决我的问题。
+
+设置功能是一个新 Feature，所以需要一个新的 ViewController 来实现它，没有人能忍受把所有代码都放到一个文件中，
+不相关的功能代码能分开就分开，方便以后维护，我一直信奉 K.I.S.S 原则，一个东西（包、模块、类、函数）只做一件事并且做好。
+
+需要实现的逻辑：
+1. 保存，保存设置项到 NSUserDefaults。
+2. 取消，直接关闭设置窗口。
+
+*新建 SettingViewController.swift 文件*
+http:////cdn.defcoding.com/B0CCBD34-B986-4339-937B-91C1B2029F89.png
+
+*绑定设置 UI*
+http:////cdn.defcoding.com/E424D78D-1E88-4F41-9E67-74B1740CD0BB.png
+
+*Ctrl + Drag 将 UI 元素和代码绑定*
+http:////cdn.defcoding.com/8DF7CCAB-FD59-4355-9AF0-167C6B3E5CF2.png
+
+*代码讲解*
+#+BEGIN_SRC swift
+//
+//  SettingViewController.swift
+//  iDragProject
+//
+//  Created by runforever on 2017/2/3.
+//  Copyright © 2017年 defcoding. All rights reserved.
+//
+
+import Cocoa
+
+class SettingViewController: NSViewController {
+
+    @IBOutlet var accessKeyInput: NSTextField!
+    @IBOutlet var secretKeyInput: NSTextField!
+    @IBOutlet var bucketInput: NSTextField!
+    @IBOutlet var domainInput: NSTextField!
+
+    var userDefaults: UserDefaults!
+    var settingMeta: [String: NSTextField]!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // 设置项与UI的对应配置，方便存取设置数据
+        settingMeta = [
+            "accessKey": accessKeyInput,
+            "secretKey": secretKeyInput,
+            "bucket": bucketInput,
+            "domain": domainInput,
+        ]
+        userDefaults = NSUserDefaultsController.shared().defaults
+
+        // 展示已经保存的设置项
+        displaySettings()
+    }
+
+    func displaySettings() {
+        // 根据设置项与UI的对应配置，展示相应的设置到UI中
+        for (key, input) in settingMeta {
+            if let value = userDefaults.string(forKey: key) {
+                input.stringValue = value
+            }
+        }
+    }
+
+    @IBAction func confirmAction(_ sender: NSButton) {
+        // 保存UI中的值到配置中
+        for (key, input) in settingMeta {
+            let setting = input.stringValue
+            userDefaults.set(setting, forKey: key)
+        }
+
+        userDefaults.synchronize()
+        self.view.window?.close()
+    }
+
+    @IBAction func cancelAction(_ sender: NSButton) {
+        self.view.window?.close()
+    }
+}
+#+END_SRC
+
+*测试运行*
+http:////cdn.defcoding.com/BFB5F22E-A9AF-4C5D-9A5F-7EECFDC4EB12.png
+
+*修改获取设置项的代码*
+http:////cdn.defcoding.com/D91D4D4A-64E3-4112-A673-64593A35C052.png
+
+** 上传完成 UI 展示实现
+有了前面做 UI 的经验，这块功能做起来顺手一些了，不过这块功能本身比较复杂，花的时间也比较多，
+由于所需要的知识跟前面差不多，我就不说实现细节了，把实现思路和大家分享一下。
+
+*** 展示方案
+依然是 Google 找列表展示方案，确定使用 Scroll View，Scroll View 包含一个 TableView，TableView 中定义好每行展示的 UI 就行，方案如下图：
+http:////cdn.defcoding.com/4760EECB-1B9D-40D9-9169-EAF07BC2C9A8.png
+
+*** 复制功能
+复制功能是用系统剪贴板 [[https:////developer.apple.com/reference/appkit/nspasteboard][NSPasteboard]] 实现
+
+*** 实现思路
+1. 新建 =UploadImageView.swift= 文件放 Scroll View 的 UI 操作相关代码。
+2. 新建 =UploadImageCell.swift= 文件放 Scroll View 中每一行的 UI 操作相关代码。
+3. 新建 =Models.swift= 文件放 Scroll View 中每一行 UI 元素的结构体代码。
+
+架构的思路：解耦、K.I.S.S\\
+相关的操作：=Ctrl Drag=\\
+遇到不会的：Google 和使用 Dash 查看 API 文档
+
+剩下来的就是写代码实现了。
+
+** 总结
+1. UI 布局很重要，要花功夫学。
+2. 学会在 Storyboard 实现 UI 的操作。
+3. 使用 K.I.S.S 思想控制代码的复杂度。
+4. 坚持，使用各种方法（Google、查看 API、StackOverflow、YouTube）解决问题。
+
+示例代码：[[https:////github.com/runforever/iDragProject][iDragProject]]

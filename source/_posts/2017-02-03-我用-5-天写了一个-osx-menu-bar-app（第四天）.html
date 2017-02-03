@@ -1,0 +1,324 @@
+---
+title: "我用 5 天写了一个 OSX Menu Bar App（第四天）"
+date: 2017-02-03
+layout: post
+categories: Swift
+published: true
+comments: true
+---
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">目录</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li><a href="http://blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/">第一天（方案调研和框架搭建）</a>
+</li>
+<li><a href="http://blog.defcoding.com/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/">第二天（快速原型跑通流程）</a>
+</li>
+<li><a href="http://blog.defcoding.com/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/">第三天（拖动上传和上传多张图片）</a>
+</li>
+<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E5%9B%9B%E5%A4%A9%EF%BC%89/">第四天（UI 细节调整）</a>
+</li>
+<li>第五天（设计 Logo 和总结）
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">第四天（UI 细节调整）</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+拖动上传多个文件已经实现，前面的工作解决了上传的问题，接下来要解决的是上传完成后如何使用的问题，经过一番需求分析，总结如下：
+</p>
+<ol class="org-ol">
+<li>UI 需要展示出上传后文件的缩略图和文件名，方便获取到文件的信息。
+</li>
+<li>我要在 org 格式和 Markdown 格式的文档中插入图片，因此要提供复制链接和复制 Markdown 的操作。
+</li>
+<li>将七牛 AccessKey、SecretKey、Bucket 和回调 Domain 做成设置 UI，提供给其他人使用。
+</li>
+</ol>
+</div>
+
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">最终的 UI</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+上传成功的 UI
+<img src="http://cdn.defcoding.com/6FDE92BD-2FE0-4063-BB98-B9573AA94D3C.png" alt="6FDE92BD-2FE0-4063-BB98-B9573AA94D3C.png" />
+</p>
+
+<p>
+设置的 UI
+<img src="http://cdn.defcoding.com/E9A7253E-51F1-420F-AF85-DDB558831949.png" alt="E9A7253E-51F1-420F-AF85-DDB558831949.png" />
+</p>
+
+<p>
+下面开始折腾。
+</p>
+
+<p>
+<!-- more -->
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">设置功能</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+由于第一次开发 OSX 应用，经验不多，本着先易后难的原则，先从设置功能开始，熟悉 OSX 应用开发模式，也为接下来做复杂 UI 的工作积累经验。
+</p>
+
+<p>
+设置功能需求：
+</p>
+<ol class="org-ol">
+<li>提供 AccessKey、SecretKey 等七牛账号的配置。
+</li>
+<li>能保存配置。
+</li>
+<li>支持 OSX 本身调出设置的快捷键。
+</li>
+</ol>
+</div>
+
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">在 Main.storyboard 添加设置 UI</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+<b>在菜单栏中添加设置选项</b>
+<img src="http://cdn.defcoding.com/8EF0EBB1-5A2D-47D5-81C4-AF7FFF8ADE0E.png" alt="8EF0EBB1-5A2D-47D5-81C4-AF7FFF8ADE0E.png" />
+</p>
+
+<p>
+<b>配置完成效果</b>
+<img src="http://cdn.defcoding.com/D9E4FC99-C689-459D-9D91-2652F64A9B20.png" alt="D9E4FC99-C689-459D-9D91-2652F64A9B20.png" />
+</p>
+
+<p>
+<b>添加设置窗口</b>
+<img src="http://cdn.defcoding.com/7C32F025-AAF1-4443-A238-3723CBB25223.png" alt="7C32F025-AAF1-4443-A238-3723CBB25223.png" />
+</p>
+
+<p>
+<b>Ctrl + Drag 操作连接设置选项和设置窗口</b>
+<img src="http://cdn.defcoding.com/ctrldrag.gif" alt="ctrldrag.gif" />
+<code>Action Segue</code> 的 Action 选择 <code>Show</code>
+</p>
+
+<p>
+<b>运行测试</b>
+<img src="http://cdn.defcoding.com/EF847758-2289-45DA-A7DF-833A1883D1D7.png" alt="EF847758-2289-45DA-A7DF-833A1883D1D7.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">添加配置项</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+布局对我来说一直是个比较难的点，好在新版的 Mac OSX 支持 StackView 布局，很方便的解决了问题，
+我学习 UI 布局是通过 <a href="https://www.appcoda.com/swift/">Beginning iOS 10 Programming With Swift</a> 这本书和 <a href="https://www.youtube.com">YouTube</a> 上的 iOS 相关的教程，
+在做这个应用前花了不少功夫，布局的知识很多，也不是我要表达的重点，限于篇幅，这里就不扩展了。
+</p>
+
+<p>
+<b>使用 StackView 布局的配置项效果</b>
+<img src="http://cdn.defcoding.com/D704D97C-3C3E-4AFD-AD93-77DE41F862DC.png" alt="D704D97C-3C3E-4AFD-AD93-77DE41F862DC.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3">保存设置逻辑实现</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+我不想每次启动应用都要重新配置七牛相关的东西，配置要保存下来，Google 了相关方案，找到了 <a href="https://developer.apple.com/reference/appkit/nsuserdefaultscontroller">NSUserDefaultsController</a> API，看了 API 介绍和一些教程文档，确定这个东西可以解决我的问题。
+</p>
+
+<p>
+设置功能是一个新 Feature，所以需要一个新的 ViewController 来实现它，没有人能忍受把所有代码都放到一个文件中，
+不相关的功能代码能分开就分开，方便以后维护，我一直信奉 K.I.S.S 原则，一个东西（包、模块、类、函数）只做一件事并且做好。
+</p>
+
+<p>
+需要实现的逻辑：
+</p>
+<ol class="org-ol">
+<li>保存，保存设置项到 NSUserDefaults。
+</li>
+<li>取消，直接关闭设置窗口。
+</li>
+</ol>
+
+<p>
+<b>新建 SettingViewController.swift 文件</b>
+<img src="http://cdn.defcoding.com/B0CCBD34-B986-4339-937B-91C1B2029F89.png" alt="B0CCBD34-B986-4339-937B-91C1B2029F89.png" />
+</p>
+
+<p>
+<b>绑定设置 UI</b>
+<img src="http://cdn.defcoding.com/E424D78D-1E88-4F41-9E67-74B1740CD0BB.png" alt="E424D78D-1E88-4F41-9E67-74B1740CD0BB.png" />
+</p>
+
+<p>
+<b>Ctrl + Drag 将 UI 元素和代码绑定</b>
+<img src="http://cdn.defcoding.com/8DF7CCAB-FD59-4355-9AF0-167C6B3E5CF2.png" alt="8DF7CCAB-FD59-4355-9AF0-167C6B3E5CF2.png" />
+</p>
+
+<p>
+<b>代码讲解</b>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-swift">//
+//  SettingViewController.swift
+//  iDragProject
+//
+//  Created by runforever on 2017/2/3.
+//  Copyright © 2017年 defcoding. All rights reserved.
+//
+
+import Cocoa
+
+class SettingViewController: NSViewController {
+
+    @IBOutlet var accessKeyInput: NSTextField!
+    @IBOutlet var secretKeyInput: NSTextField!
+    @IBOutlet var bucketInput: NSTextField!
+    @IBOutlet var domainInput: NSTextField!
+
+    var userDefaults: UserDefaults!
+    var settingMeta: [String: NSTextField]!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // 设置项与UI的对应配置，方便存取设置数据
+        settingMeta = [
+            "accessKey": accessKeyInput,
+            "secretKey": secretKeyInput,
+            "bucket": bucketInput,
+            "domain": domainInput,
+        ]
+        userDefaults = NSUserDefaultsController.shared().defaults
+
+        // 展示已经保存的设置项
+        displaySettings()
+    }
+
+    func displaySettings() {
+        // 根据设置项与UI的对应配置，展示相应的设置到UI中
+        for (key, input) in settingMeta {
+            if let value = userDefaults.string(forKey: key) {
+                input.stringValue = value
+            }
+        }
+    }
+
+    @IBAction func confirmAction(_ sender: NSButton) {
+        // 保存UI中的值到配置中
+        for (key, input) in settingMeta {
+            let setting = input.stringValue
+            userDefaults.set(setting, forKey: key)
+        }
+
+        userDefaults.synchronize()
+        self.view.window?.close()
+    }
+
+    @IBAction func cancelAction(_ sender: NSButton) {
+        self.view.window?.close()
+    }
+}
+</pre>
+</div>
+
+<p>
+<b>测试运行</b>
+<img src="http://cdn.defcoding.com/BFB5F22E-A9AF-4C5D-9A5F-7EECFDC4EB12.png" alt="BFB5F22E-A9AF-4C5D-9A5F-7EECFDC4EB12.png" />
+</p>
+
+<p>
+<b>修改获取设置项的代码</b>
+<img src="http://cdn.defcoding.com/D91D4D4A-64E3-4112-A673-64593A35C052.png" alt="D91D4D4A-64E3-4112-A673-64593A35C052.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">上传完成 UI 展示实现</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+有了前面做 UI 的经验，这块功能做起来顺手一些了，不过这块功能本身比较复杂，花的时间也比较多，
+由于所需要的知识跟前面差不多，我就不说实现细节了，把实现思路和大家分享一下。
+</p>
+</div>
+
+<div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1">展示方案</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+依然是 Google 找列表展示方案，确定使用 Scroll View，Scroll View 包含一个 TableView，TableView 中定义好每行展示的 UI 就行，方案如下图：
+<img src="http://cdn.defcoding.com/4760EECB-1B9D-40D9-9169-EAF07BC2C9A8.png" alt="4760EECB-1B9D-40D9-9169-EAF07BC2C9A8.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2">复制功能</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+复制功能是用系统剪贴板 <a href="https://developer.apple.com/reference/appkit/nspasteboard">NSPasteboard</a> 实现
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3">实现思路</h3>
+<div class="outline-text-3" id="text-4-3">
+<ol class="org-ol">
+<li>新建 <code>UploadImageView.swift</code> 文件放 Scroll View 的 UI 操作相关代码。
+</li>
+<li>新建 <code>UploadImageCell.swift</code> 文件放 Scroll View 中每一行的 UI 操作相关代码。
+</li>
+<li>新建 <code>Models.swift</code> 文件放 Scroll View 中每一行 UI 元素的结构体代码。
+</li>
+</ol>
+
+<p>
+架构的思路：解耦、K.I.S.S<br  />
+相关的操作：=Ctrl Drag=<br  />
+遇到不会的：Google 和使用 Dash 查看 API 文档
+</p>
+
+<p>
+剩下来的就是写代码实现了。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">总结</h2>
+<div class="outline-text-2" id="text-5">
+<ol class="org-ol">
+<li>UI 布局很重要，要花功夫学。
+</li>
+<li>学会在 Storyboard 实现 UI 的操作。
+</li>
+<li>使用 K.I.S.S 思想控制代码的复杂度。
+</li>
+<li>坚持，使用各种方法（Google、查看 API、StackOverflow、YouTube）解决问题。
+</li>
+</ol>
+
+<p>
+示例代码：<a href="https://github.com/runforever/iDragProject">iDragProject</a>
+</p>
+</div>
+</div>
