@@ -235,6 +235,199 @@
             
               
                 
+                <a class="post-title-link" href="/2016-01-31/2016-01-31-django-uwsgi部署/" itemprop="url">
+                  uwsgi部署Django服务的坑
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-31T00:00:00+08:00" content="2016-01-31">
+              2016-01-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/uwsgi/" itemprop="url" rel="index">
+                    <span itemprop="name">uwsgi</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/uwsgi/django/" itemprop="url" rel="index">
+                    <span itemprop="name">django</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">uwsgi部署Django服务</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">部署Django的方式</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>gunicorn + Nginx
+</li>
+<li>uwsgi + Nginx
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1">gunicorn + Nginx</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+<a href="http://gunicorn.org">http://gunicorn.org</a> 最大的好处就是部署简单，如果没有特殊要求，推荐使用这种方式部署Python Web程序
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-1-2" class="outline-4">
+<h4 id="sec-1-1-2">uwsgi + Nginx</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+uwsgi 相对 gunicorn来说配置选项相对复杂，但是uwsgi是支持websocket的，出于这个原因选择uwsgi来部署django程序
+</p>
+</div>
+
+<ul class="org-ul"><li>问题1：uwsgi的默认监听进程的数量100<br  /><div class="outline-text-5" id="text-1-1-2-1">
+<p>
+解决： 之前由于只知道启动uwsgi worker的数量，不管怎么调worker的数量，并发都很低，<br  />
+配置listen参数解决，根据服务器配置和访问来决定，目前我开的是20000
+</p>
+</div>
+</li>
+
+<li>问题2：supervisor没有办法优雅的重启uwsgi worker，导致服务器资源被重启的uwsgi进程占满<br  /><div class="outline-text-5" id="text-1-1-2-2">
+<p>
+解决：配置no-orphans参数
+</p>
+</div>
+</li>
+
+<li>配置范例<br  /><div class="outline-text-5" id="text-1-1-2-3">
+<div class="org-src-container">
+
+<pre class="src src-ini">master = true
+processes = 8
+thread = 100
+thread-stacksize = 512
+stats = 127.0.0.1:9194
+buffer-size = 65535
+enable-threads = true
+http-timeout = 60
+socket-timeout = 60
+chmod-socket = 666
+harakiri = 60
+max-requests = 20000
+listen = 20000
+no-orphans
+</pre>
+</div>
+
+<p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016-01-31/2016-01-31-django-uwsgi部署/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2014-12-20/2014-12-20-angular.js入门参考/" itemprop="url">
                   Angular.js入门参考
                 </a>
@@ -2626,207 +2819,6 @@ DEBUG or TRACE — 这两种日志具体的规范应该由项目组自己定义�
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014-05-18/2014-05-18-emacs-clojure-mode使用/" itemprop="url">
-                  Emacs clojure-mode使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-05-18T00:00:00+08:00" content="2014-05-18">
-              2014-05-18
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Clojure/" itemprop="url" rel="index">
-                    <span itemprop="name">Clojure</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Clojure/Emacs/" itemprop="url" rel="index">
-                    <span itemprop="name">Emacs</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Emacs 中使用Clojure Mode</h2>
-<div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1">基本配置</h3>
-<div class="outline-text-3" id="text-1-1">
-<p>
-兄弟，不要折腾了，直接照抄Emacs大师Steve Purcell的配置<a href="https://github.com/purcell/emacs.d">https://github.com/purcell/emacs.d</a> <br  />
-配置完之后Clojure－Mode已经配置好，附带一些其他的配置。
-</p>
-</div>
-</div>
-
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2">使用</h3>
-<div class="outline-text-3" id="text-1-2">
-</div><div id="outline-container-sec-1-2-1" class="outline-4">
-<h4 id="sec-1-2-1">安装leiningen <a href="https://github.com/technomancy/leiningen">https://github.com/technomancy/leiningen</a></h4>
-<div class="outline-text-4" id="text-1-2-1">
-<p>
-leiningen 是一个Clojure的项目管理工具。
-</p>
-</div>
-</div>
-
-<div id="outline-container-sec-1-2-2" class="outline-4">
-<h4 id="sec-1-2-2">常用快捷键</h4>
-<div class="outline-text-4" id="text-1-2-2">
-<p>
-M-x cider-jack-in 打开一个repl 的session，你编写的Clojure代码之后会在这里运行。<br  />
-</p>
-
-<p>
-C-c C-k 编译Clojure代码，如果编译出错 C-c C-f来定位错误的地方然后修正。<br  />
-</p>
-
-<p>
-C-c C-, 可以用来运行测试文件，结果会输出到打开的repl session。<br  />
-</p>
-
-<p>
-C-c M-n 用来切换repl session的namespace， 如果你正在编写一个clojure文件，可以<br  />
-使用这个快捷键来一边开发，一边测试。<br  />
-</p>
-
-<p>
-C-c C-o 可以用来清初repl session的无用信息。<br  />
-</p>
-
-<p>
-C-c C-d 可以用来查看函数的doc。<br  />
-</p>
-
-<p>
-M-. 可以查看函数的源代码。<br  />
-</p>
-
-<p>
-M-, 用来查看第三方库。<br  />
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-1-3" class="outline-3">
-<h3 id="sec-1-3">参考</h3>
-<div class="outline-text-3" id="text-1-3">
-<blockquote>
-<p>
-<a href="https://github.com/technomancy/leiningen">https://github.com/technomancy/leiningen</a> leiningen使用 <br  />
-<a href="http://clojure-doc.org/articles/tutorials/emacs.html">http://clojure-doc.org/articles/tutorials/emacs.html</a> 官方教程 <br  />
-</p>
-</blockquote>
-
-<p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014-05-18/2014-05-18-emacs-clojure-mode使用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2872,7 +2864,7 @@ M-, 用来查看第三方库。<br  />
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
