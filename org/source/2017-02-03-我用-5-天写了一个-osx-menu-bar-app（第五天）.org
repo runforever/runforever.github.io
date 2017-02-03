@@ -1,0 +1,44 @@
+#+TITLE: 我用 5 天写了一个 OSX Menu Bar App（第五天）
+#+DATE: 2017-02-03
+#+SETUPFILE: ~/CodeRepo/GitRepo/Road/blog/org/setupfile.org
+#+JEKYLL_LAYOUT: post
+#+JEKYLL_CATEGORIES: Swift
+#+JEKYLL_PUBLISHED: true
+#+JEKYLL_COMMENTS: true
+
+** 目录
+1. [[http:////blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/][第一天（方案调研和框架搭建）]]
+2. [[http:////blog.defcoding.com/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/][第二天（快速原型跑通流程）]]
+3. [[http:////blog.defcoding.com/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/][第三天（拖动上传和上传多张图片）]]
+4. [[http:////blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E5%9B%9B%E5%A4%A9%EF%BC%89/][第四天（UI 细节调整）]]
+5. [[http:////blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%94%E5%A4%A9%EF%BC%89/][第五天（设计 Logo 和总结）]]
+
+** 第五天（设计 Logo 和总结）
+前面的工作做完这个应用就基本成型了，接下来就是重构代码，迭代新 Feature，设计一下 Logo，写写总结了。\\
+重构和迭代是一个持续的过程，这个没什么好说的，就是不断的改进代码，设计 Logo 的过程倒是可以说说。
+
+{{{more}}}
+
+** 设计 Logo
+前段时间看了一篇文章[[http:////www.techug.com/post/logo-designed-by-programmers.html][《一群程序员去设计logo，闹剧发生了》]]，当时觉得太搞笑了，现在轮到自己设计 Logo 了，结果闹剧仍然在继续。\\
+我先网上找了一个设计 Logo 的网站 [[http:////www.logoko.com.cn/design]] ，然后一不小心，Logo 设计成下面的样子：
+http:////cdn.defcoding.com/B26C13F2-FE63-438D-B83C-09936416A66B.png
+没有关系，我信奉的原则，Logo 不需要包含任何含义。
+
+Logo 设计出来了，要把它转成 Mac 需要格式和大小，不知道什么时候我电脑里面居然装了 [[https:////itunes.apple.com/us/app/iconkit-icon-resizer-for-app/id507135296?mt%3D12][IconKit]]，于是就用它来转换了，转换后效果：
+http:////cdn.defcoding.com/8CD5DF79-690B-495A-B211-DEB62234744C.png
+
+将转换后的图片放到 =Assets.xcassets= 中的 =AppIcon= 里，最终效果：
+http:////cdn.defcoding.com/A33E8D51-FF2A-4CDA-88AD-12DDEEB87067.png
+
+** 获取编译后的 App
+我不是 iOS 开发者，并没有 Apple 的开发者账号，我一开始想做这个应用的原因只是解决我写书插入图片的问题，所以我想先自己用，用的不错再注册开发者账号发布出去，也是 Google 了半天，结果发现，就在 =Products= 文件夹中，复制到 =Applications= （应用程序）文件夹中就可以了。
+http:////cdn.defcoding.com/0C82BAA0-5732-4C79-A3EB-88F3C34FE1B6.png
+
+** 写总结
+没有开源项目和网上的博客资料我觉得我写不出来这个应用，项目完成后我想自己应该好好总结一下学到的东西，
+看是否能帮助到其他人，现在写的博客，图片上传都是用的自己写的工具，这种感觉挺有意思的，文章中描述的大多是我解决问题的思路过程，
+其实学习技术细节花了很多时间，最终版的应用也不是当时 5 天完成的样子了，由于我经常用 QQ 截图，所以后来又加上了剪贴板直接上传的功能，
+再加上一些断断续续的改进，现在的代码结构跟刚刚完成的时候已经完全不一样了，如今我把项目源码完全公开，希望可以帮助到更多的人。
+
+项目地址：[[https:////github.com/runforever/iDrag][iDrag]]
