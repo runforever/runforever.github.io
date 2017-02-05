@@ -86,123 +86,65 @@
 
 
 
-<meta name="description" content="Golang实现简单HTTP服务器
+<meta name="description" content="需求
 
 
-设计思想
-
-
-一图胜千言：
-
-并发模型是，只要有client来访问就开一个goroutine去处理，goroutine之间
-不需要通信。
+最近在做一个 Web App，需要使用 ElasticSearch 用作全文检索，Web App 的业务数据库使用的是 PostgreSQL，为了同步
+PostgreSQL 的表数据到 ElasticSearch 于是便开始了方案调研。
 
 
 
 
 
-实现的功能
+Web App 的技术栈介绍
 
 
-并发处理浏览器请求。
+Django、Django REST framework 作为 Web 开发框架。
 
-日志模块。
-
-配置模块。
-
-
-
-
-
-
-代码结构
-
-
-
-.
-&amp;#9500;&amp;#9472;&amp;#9472; README.md
-&amp;#9500;&amp;#9472;&amp;#9472; RE">
+Redis 作为缓存">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Golang实现简单HTTP服务器">
-<meta property="og:url" content="http://runforever.github.io/2014-05-28/2014-05-28-golang实现简单http服务器/index.html">
+<meta property="og:title" content="PostgresSQL 同步数据到 ElasticSearch 方案调研总结">
+<meta property="og:url" content="http://runforever.github.io/2017-02-05/2017-02-05-postgressql-同步数据到-elasticsearch-技术方案调研/index.html">
 <meta property="og:site_name" content="Runforever">
-<meta property="og:description" content="Golang实现简单HTTP服务器
+<meta property="og:description" content="需求
 
 
-设计思想
-
-
-一图胜千言：
-
-并发模型是，只要有client来访问就开一个goroutine去处理，goroutine之间
-不需要通信。
+最近在做一个 Web App，需要使用 ElasticSearch 用作全文检索，Web App 的业务数据库使用的是 PostgreSQL，为了同步
+PostgreSQL 的表数据到 ElasticSearch 于是便开始了方案调研。
 
 
 
 
 
-实现的功能
+Web App 的技术栈介绍
 
 
-并发处理浏览器请求。
+Django、Django REST framework 作为 Web 开发框架。
 
-日志模块。
-
-配置模块。
-
-
-
-
-
-
-代码结构
-
-
-
-.
-&amp;#9500;&amp;#9472;&amp;#9472; README.md
-&amp;#9500;&amp;#9472;&amp;#9472; RE">
-<meta property="og:image" content="http://i1.piimg.com/567571/1bcc6ee379374835.png">
-<meta property="og:updated_time" content="2016-11-01T06:35:34.000Z">
+Redis 作为缓存">
+<meta property="og:image" content="http://cdn.defcoding.com/70591D01-86B9-4006-BA3A-EEBE4D64787B.png">
+<meta property="og:image" content="http://cdn.defcoding.com/B4F39FD4-F28C-4B90-A308-DA2EC13D9245.png">
+<meta property="og:image" content="http://cdn.defcoding.com/757D7026-EDCB-4D77-AFA4-C30AC0C45A0C.png">
+<meta property="og:updated_time" content="2017-02-05T08:33:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Golang实现简单HTTP服务器">
-<meta name="twitter:description" content="Golang实现简单HTTP服务器
+<meta name="twitter:title" content="PostgresSQL 同步数据到 ElasticSearch 方案调研总结">
+<meta name="twitter:description" content="需求
 
 
-设计思想
-
-
-一图胜千言：
-
-并发模型是，只要有client来访问就开一个goroutine去处理，goroutine之间
-不需要通信。
+最近在做一个 Web App，需要使用 ElasticSearch 用作全文检索，Web App 的业务数据库使用的是 PostgreSQL，为了同步
+PostgreSQL 的表数据到 ElasticSearch 于是便开始了方案调研。
 
 
 
 
 
-实现的功能
+Web App 的技术栈介绍
 
 
-并发处理浏览器请求。
+Django、Django REST framework 作为 Web 开发框架。
 
-日志模块。
-
-配置模块。
-
-
-
-
-
-
-代码结构
-
-
-
-.
-&amp;#9500;&amp;#9472;&amp;#9472; README.md
-&amp;#9500;&amp;#9472;&amp;#9472; RE">
-<meta name="twitter:image" content="http://i1.piimg.com/567571/1bcc6ee379374835.png">
+Redis 作为缓存">
+<meta name="twitter:image" content="http://cdn.defcoding.com/70591D01-86B9-4006-BA3A-EEBE4D64787B.png">
 
 
 
@@ -223,10 +165,10 @@
 
 
 
-  <link rel="canonical" href="http://runforever.github.io/2014-05-28/2014-05-28-golang实现简单http服务器/"/>
+  <link rel="canonical" href="http://runforever.github.io/2017-02-05/2017-02-05-postgressql-同步数据到-elasticsearch-技术方案调研/"/>
 
 
-  <title> Golang实现简单HTTP服务器 | Runforever </title>
+  <title> PostgresSQL 同步数据到 ElasticSearch 方案调研总结 | Runforever </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -340,7 +282,7 @@
             
             
               
-                Golang实现简单HTTP服务器
+                PostgresSQL 同步数据到 ElasticSearch 方案调研总结
               
             
           </h1>
@@ -352,8 +294,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-05-28T00:00:00+08:00" content="2014-05-28">
-              2014-05-28
+            <time itemprop="dateCreated" datetime="2017-02-05T00:00:00+08:00" content="2017-02-05">
+              2017-02-05
             </time>
           </span>
 
@@ -366,8 +308,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Go/" itemprop="url" rel="index">
-                    <span itemprop="name">Go</span>
+                  <a href="/categories/PostgreSQL/" itemprop="url" rel="index">
+                    <span itemprop="name">PostgreSQL</span>
                   </a>
                 </span>
 
@@ -378,8 +320,8 @@
 
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Go/Http/" itemprop="url" rel="index">
-                    <span itemprop="name">Http</span>
+                  <a href="/categories/PostgreSQL/ElasticSearch/" itemprop="url" rel="index">
+                    <span itemprop="name">ElasticSearch</span>
                   </a>
                 </span>
 
@@ -398,7 +340,7 @@
 
           
           
-             <span id="/2014-05-28/2014-05-28-golang实现简单http服务器/" class="leancloud_visitors" data-flag-title="Golang实现简单HTTP服务器">
+             <span id="/2017-02-05/2017-02-05-postgressql-同步数据到-elasticsearch-技术方案调研/" class="leancloud_visitors" data-flag-title="PostgresSQL 同步数据到 ElasticSearch 方案调研总结">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -422,148 +364,157 @@
       
         
 <div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Golang实现简单HTTP服务器</h2>
+<h2 id="sec-1">需求</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1">设计思想</h3>
-<div class="outline-text-3" id="text-1-1">
 <p>
-一图胜千言：<br>
-<img src="http://i1.piimg.com/567571/1bcc6ee379374835.png" alt="1bcc6ee379374835.png">
-并发模型是，只要有client来访问就开一个goroutine去处理，goroutine之间<br>
-不需要通信。<br>
+最近在做一个 Web App，需要使用 ElasticSearch 用作全文检索，Web App 的业务数据库使用的是 PostgreSQL，为了同步
+PostgreSQL 的表数据到 ElasticSearch 于是便开始了方案调研。
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2">实现的功能</h3>
-<div class="outline-text-3" id="text-1-2">
-<ul class="org-ul">
-<li>并发处理浏览器请求。
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Web App 的技术栈介绍</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li>Django、Django REST framework 作为 Web 开发框架。
 </li>
-<li>日志模块。
+<li>Redis 作为缓存和消息队列。
 </li>
-<li>配置模块。
+<li>PostgreSQL 作为业务数据库。
 </li>
-</ul>
+<li>Celery 作为异步消息任务框架。
+</li>
+<li>ElasticSearch 用作全文索引。
+</li>
+</ol>
 </div>
 </div>
 
-<div id="outline-container-sec-1-3" class="outline-3">
-<h3 id="sec-1-3">代码结构</h3>
-<div class="outline-text-3" id="text-1-3">
-<div class="org-src-container">
-
-<pre class="src src-sh">.
-&#9500;&#9472;&#9472; README.md
-&#9500;&#9472;&#9472; README.org
-&#9500;&#9472;&#9472; deps                          <span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#23433;&#35013;&#31532;&#19977;&#26041;&#24211;&#33050;&#26412;</span>
-&#9500;&#9472;&#9472; install                       <span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#32534;&#35793;&#33050;&#26412;</span>
-&#9492;&#9472;&#9472; src                           <span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#28304;&#20195;&#30721;</span>
-    &#9500;&#9472;&#9472; config                    <span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#37197;&#32622;&#27169;&#22359;</span>
-    &#9474;&#160;&#160; &#9492;&#9472;&#9472; config.go
-    &#9500;&#9472;&#9472; github.com                <span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#31532;&#19977;&#26041;&#24211;</span>
-    &#9500;&#9472;&#9472; gohttpserver              <span style="color: #ff0000;"># </span><span style="color: #ff0000;">main&#27169;&#22359;</span>
-    &#9474;&#160;&#160; &#9492;&#9472;&#9472; gohttpserver.go
-    &#9500;&#9472;&#9472; logger                    <span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#26085;&#24535;&#27169;&#22359;</span>
-    &#9474;&#160;&#160; &#9492;&#9472;&#9472; logger.go
-    &#9500;&#9472;&#9472; request                   <span style="color: #ff0000;"># </span><span style="color: #ff0000;">request &#27169;&#22359;</span>
-    &#9474;&#160;&#160; &#9500;&#9472;&#9472; request.go
-    &#9474;&#160;&#160; &#9492;&#9472;&#9472; request_test.go
-    &#9492;&#9472;&#9472; response                  <span style="color: #ff0000;"># </span><span style="color: #ff0000;">response &#27169;&#22359;</span>
-        &#9500;&#9472;&#9472; response.go
-        &#9492;&#9472;&#9472; response_test.go.
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-1-4" class="outline-3">
-<h3 id="sec-1-4">关键代码</h3>
-<div class="outline-text-3" id="text-1-4">
-<div class="org-src-container">
-
-<pre class="src src-go"><span style="color: #ff0000;">// </span><span style="color: #ff0000;">&#22788;&#29702;client&#30340;goroutine</span>
-<span style="color: #00ffff; font-weight: bold;">func</span> (ghs *<span style="color: #00ff00;">GoHttpServer</span>) <span style="color: #0000ff; font-weight: bold;">handleClient</span>(conn net.Conn) {
-        reqChans := request.<span style="color: #0000ff; font-weight: bold;">RequestsChans</span>(conn)
-        response.<span style="color: #0000ff; font-weight: bold;">StartResponse</span>(conn, reqChans)
-}
-
-<span style="color: #ff0000;">// </span><span style="color: #ff0000;">&#26381;&#21153;&#22120;&#27704;&#36828;&#36816;&#34892;&#65292;&#21482;&#35201;&#26377;client&#23601;&#29992;goroutine&#21435;&#22788;&#29702;</span>
-<span style="color: #00ffff; font-weight: bold;">func</span> (ghs *<span style="color: #00ff00;">GoHttpServer</span>) <span style="color: #0000ff; font-weight: bold;">ServerForever</span>() {
-        <span style="color: #00ffff; font-weight: bold;">for</span> {
-                conn, err := ghs.listener.<span style="color: #0000ff; font-weight: bold;">AcceptTCP</span>()
-                <span style="color: #00ffff; font-weight: bold;">if</span> err != <span style="color: #ff00ff;">nil</span> {
-                        logger.Logger.<span style="color: #0000ff; font-weight: bold;">Warning</span>(
-                                <span style="color: #00ff00;">"Accept Client connection error, error msg %s"</span>,
-                                err.<span style="color: #0000ff; font-weight: bold;">Error</span>(),
-                        )
-                        <span style="color: #00ffff; font-weight: bold;">continue</span>
-                }
-                timeout := time.Second * time.<span style="color: #0000ff; font-weight: bold;">Duration</span>(config.SerConfig.Timeout)
-                conn.<span style="color: #0000ff; font-weight: bold;">SetDeadline</span>(time.<span style="color: #0000ff; font-weight: bold;">Now</span>().<span style="color: #0000ff; font-weight: bold;">Add</span>(timeout))
-                <span style="color: #00ffff; font-weight: bold;">go</span> ghs.<span style="color: #0000ff; font-weight: bold;">handleClient</span>(conn)
-        }
-}
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-1-5" class="outline-3">
-<h3 id="sec-1-5">遇到的问题</h3>
-<div class="outline-text-3" id="text-1-5">
-</div><div id="outline-container-sec-1-5-1" class="outline-4">
-<h4 id="sec-1-5-1">如何处理Http/1.1中的Keep-Alive?</h4>
-<div class="outline-text-4" id="text-1-5-1">
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">方案一：通过 PostgreSQL 的 FDW 功能同步</h2>
+<div class="outline-text-2" id="text-3">
 <p>
-解决：使用channel来当作request队列，response模块从队列读取request信息返回。
+方案的来源：<a href="https://yq.aliyun.com/articles/56824" target="_blank" rel="external">PostgreSQL内核扩展之 - ElasticSearch同步插件</a>
 </p>
-<div class="org-src-container">
-
-<pre class="src src-go"><span style="color: #ff0000;">// </span><span style="color: #ff0000;">return http request channels</span>
-<span style="color: #00ffff; font-weight: bold;">func</span> <span style="color: #0000ff; font-weight: bold;">RequestsChans</span>(conn net.Conn) <span style="color: #00ffff; font-weight: bold;">chan</span> *<span style="color: #00ff00;">Request</span> {
-        reader := bufio.<span style="color: #0000ff; font-weight: bold;">NewReader</span>(conn)
-        reqCap := config.SerConfig.ReqChanCap
-        reqChans := <span style="color: #0000ff; font-weight: bold;">make</span>(<span style="color: #00ffff; font-weight: bold;">chan</span> *<span style="color: #00ff00;">Request</span>, reqCap)
-
-        <span style="color: #00ffff; font-weight: bold;">go</span> <span style="color: #00ffff; font-weight: bold;">func</span>() {
-                reqSlice := <span style="color: #0000ff; font-weight: bold;">make</span>([]<span style="color: #00ff00;">string</span>, reqCap)
-                <span style="color: #00ffff; font-weight: bold;">for</span> {
-                        line, err := reader.<span style="color: #0000ff; font-weight: bold;">ReadString</span>(<span style="color: #00ff00;">'\n'</span>)
-                        <span style="color: #00ffff; font-weight: bold;">if</span> err == <span style="color: #ff00ff;">nil</span> {
-                                line = strings.<span style="color: #0000ff; font-weight: bold;">TrimSpace</span>(line)
-                                reqSlice = <span style="color: #0000ff; font-weight: bold;">append</span>(reqSlice, line)
-                                <span style="color: #00ffff; font-weight: bold;">if</span> <span style="color: #0000ff; font-weight: bold;">len</span>(line) == 0 {
-                                        req := <span style="color: #0000ff; font-weight: bold;">parseRequest</span>(reqSlice)
-                                        <span style="color: #0000ff; font-weight: bold;">loggerReqInfo</span>(conn, req)
-                                        reqChans &lt;- req
-                                        reqSlice = reqSlice[:0]
-                                }
-                        } <span style="color: #00ffff; font-weight: bold;">else</span> {
-                                logger.Logger.<span style="color: #0000ff; font-weight: bold;">Debug</span>(
-                                        <span style="color: #00ff00;">"Ip %s connection close, close msg %s"</span>,
-                                        conn.<span style="color: #0000ff; font-weight: bold;">RemoteAddr</span>().<span style="color: #0000ff; font-weight: bold;">String</span>(),
-                                        err.<span style="color: #0000ff; font-weight: bold;">Error</span>(),
-                                )
-                                conn.<span style="color: #0000ff; font-weight: bold;">Close</span>()
-                                <span style="color: #00ffff; font-weight: bold;">break</span>
-                        }
-                }
-                <span style="color: #0000ff; font-weight: bold;">close</span>(reqChans)
-        }()
-        <span style="color: #00ffff; font-weight: bold;">return</span> reqChans
-}
-</pre>
-</div>
 
 <p>
-完整代码请参照<a href="https://bitbucket.org/runforever/gohttpserver/overview" target="_blank" rel="external">https://bitbucket.org/runforever/gohttpserver/overview</a>
+架构图：
+<img src="http://cdn.defcoding.com/70591D01-86B9-4006-BA3A-EEBE4D64787B.png" alt="70591D01-86B9-4006-BA3A-EEBE4D64787B.png">
+</p>
+
+<p>
+关键技术点：通过 PostgreSQL 的 <a href="https://wiki.postgresql.org/wiki/Foreign_data_wrappers" target="_blank" rel="external">FDW</a>（Foreign data wrappers）特性，在 PostgreSQL 层面使用数据库触发器的方式将相应的表数据同步到 ElasticSearch 中，
+在要同步的表上添加新建、更新、删除的同步触发器。
+</p>
+
+<p>
 <a id="more"></a>
 </p>
+
+<p>
+咋一看这个方案好像还是那么一回事，当我真正去使用的时候才发现问题很多，而且这些问题目前还没有解决方案。
+</p>
+
+<p>
+根据教程，我先扩展了 PostgreSQL 的 Docker <a href="https://hub.docker.com/_/postgres/" target="_blank" rel="external">官方镜像</a>，为镜像添加上了 <a href="http://multicorn.org" target="_blank" rel="external">multicorn</a> 和 <a href="https://github.com/Mikulas/pg-es-fdw?spm=5176.100239.blogcont56824.12.9bOrBa" target="_blank" rel="external">pg-es-fdw </a>，扩展镜像地址：<a href="https:github.com/runforever/docker-psql-es" target="_blank" rel="external">docker-psql-es</a>。<br>
+说明：pg-es-fdw 使用 multicorn 同步 PostgreSQL 的数据到 ElasticSearch 中。
+</p>
+
+<p>
+环境搭建完成各个组件的版本：
+</p>
+
+<ol class="org-ol">
+<li>PostgreSQL 9.5.5
+</li>
+<li>ElasticSearch 5.1.1
+</li>
+<li>multicorn 1.3.3
+</li>
+<li>pg-es-fdw
+</li>
+</ol>
+
+<p>
+测试的时候，果不其然，新建 PostgreSQL 表数据可以正常同步到 ElasticSearch 中，更新的时候就报错了，于是发现了这个 <a href="https://github.com/Mikulas/pg-es-fdw/issues/2" target="_blank" rel="external">issue </a>：
+<img src="http://cdn.defcoding.com/B4F39FD4-F28C-4B90-A308-DA2EC13D9245.png" alt="B4F39FD4-F28C-4B90-A308-DA2EC13D9245.png">
+</p>
+
+<p>
+ElasticSearch 版本是 1.7 才能解决，这个方案简直要了亲命，1.7 到 5.1.1 都跨了 2.x 这个大版本了，再看看 <a href="https://github.com/medcl/elasticsearch-analysis-ik" target="_blank" rel="external">elasticsearch-analysis-ik</a> 中文分词的支持版本，有种要绝望的感觉，1.7 版本我是肯定不能用的。
+</p>
+
+<p>
+结论：
+当我 Google 搜索方案的时候就很少，当我看到 pg-es-fdw 最后更新时间和 star 情况后其实有所预知会出现这样的问题，可是还是想试试，结果浪费了大量时间。<br>
+这个方案要等 multicorn 这个库对新版 ElasticSearch 有所支持才行，这个库是 C 语言写的，我现在无力折腾，只好放弃这个方案。
+</p>
 </div>
 </div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">方案二：MySQL 配合 go-mysql-elasticsearch 工具同步</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+这个方案业务数据库要换成 MySQL，<a href="https://github.com/siddontang/go-mysql-elasticsearch" target="_blank" rel="external">go-mysql-elasticsearch</a> 这个工具会通过 mysqldump 获取 MySQL 的原始数据，之后用 binlog 同步。<br>
+这个方案不错，Star 很多，应该可行，于是便开始扩展 Docker 镜像。<br>
+</p>
+
+<p>
+制作镜像的过程中我突然想到这些方式我都没有办法监控到同步过程中的错误，对我来说有种没法控制的感觉，于是灵光一现，Django 不是有个 Signal 机制可以做这些事吗？于是便中断这个方案的测试，开始使用 Signal 机制同步。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">方案三：Django Signal 配合 Celery 同步</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+前面两个方案是将同步过程放到数据库层面，只要表数据有更新就会同步，而我想到的这个方案是放在应用层面做的同步，必须通过 Django Web API 写入表才会触发 Signal 进而调用同步逻辑同步数据到 ElasticSearch 中。
+</p>
+
+<p>
+架构图：
+<img src="http://cdn.defcoding.com/757D7026-EDCB-4D77-AFA4-C30AC0C45A0C.png" alt="757D7026-EDCB-4D77-AFA4-C30AC0C45A0C.png">
+</p>
+
+<p>
+优点：<br>
+</p>
+<ol class="org-ol">
+<li>实现简单，不依赖数据库和 ElasticSearch 版本。
+</li>
+<li>可以通过 Celery 来监控到同步错误，方便 Bug 修复和重新同步。
+</li>
+</ol>
+
+<p>
+缺点：<br>
+数据写入必须通过 Web 接口。
+</p>
+
+<p>
+写完 Signal 代码测试了一下，这个方案确实可用，而且可控。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">其他小知识</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+使用 ElasticSearch 的时候先提前做好 Index 中每个 field 的数据类型，不要使用默认的，因为 field 的类型不能修改。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">总结</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+方案调研完后我发现似乎没有通用的方案来解决同步数据到 ElasticSearch 的问题，我想大家还是根据自己项目来制定相应的方案，目前我自己用的这个方案用作 Web App 的快速原型还不错，如果数据量大了，再考虑其他的方案。
+</p>
 </div>
 </div>
 
@@ -591,17 +542,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014-05-24/2014-05-24-如何正确的打印日志/" rel="next" title="如何正确的打印日志">
-                <i class="fa fa-chevron-left"></i> 如何正确的打印日志
+              <a href="/2017-02-04/2017-02-03-我用-5-天写了一个-osx-menu-bar-app（第五天）/" rel="next" title="我用 5 天写了一个 OSX Menu Bar App（第五天）">
+                <i class="fa fa-chevron-left"></i> 我用 5 天写了一个 OSX Menu Bar App（第五天）
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2014-05-31/2014-05-31-clojure写dsl/" rel="prev" title="Clojure写DSL">
-                Clojure写DSL <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -744,7 +691,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-1"><span class="nav-number">1.</span> <span class="nav-text">Golang实现简单HTTP服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-1"><span class="nav-number">1.1.</span> <span class="nav-text">设计思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-2"><span class="nav-number">1.2.</span> <span class="nav-text">实现的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-3"><span class="nav-number">1.3.</span> <span class="nav-text">代码结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-4"><span class="nav-number">1.4.</span> <span class="nav-text">关键代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-5"><span class="nav-number">1.5.</span> <span class="nav-text">遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sec-1-5-1"><span class="nav-number">1.5.1.</span> <span class="nav-text">如何处理Http/1.1中的Keep-Alive?</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-1"><span class="nav-number">1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-2"><span class="nav-number">2.</span> <span class="nav-text">Web App 的技术栈介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-3"><span class="nav-number">3.</span> <span class="nav-text">方案一：通过 PostgreSQL 的 FDW 功能同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-4"><span class="nav-number">4.</span> <span class="nav-text">方案二：MySQL 配合 go-mysql-elasticsearch 工具同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-5"><span class="nav-number">5.</span> <span class="nav-text">方案三：Django Signal 配合 Celery 同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-6"><span class="nav-number">6.</span> <span class="nav-text">其他小知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-7"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
         </section>

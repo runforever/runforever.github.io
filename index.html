@@ -235,6 +235,187 @@
             
               
                 
+                <a class="post-title-link" href="/2017-02-05/2017-02-05-postgressql-同步数据到-elasticsearch-技术方案调研/" itemprop="url">
+                  PostgresSQL 同步数据到 ElasticSearch 方案调研总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-05T00:00:00+08:00" content="2017-02-05">
+              2017-02-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/PostgreSQL/" itemprop="url" rel="index">
+                    <span itemprop="name">PostgreSQL</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/PostgreSQL/ElasticSearch/" itemprop="url" rel="index">
+                    <span itemprop="name">ElasticSearch</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017-02-05/2017-02-05-postgressql-同步数据到-elasticsearch-技术方案调研/" class="leancloud_visitors" data-flag-title="PostgresSQL 同步数据到 ElasticSearch 方案调研总结">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">需求</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+最近在做一个 Web App，需要使用 ElasticSearch 用作全文检索，Web App 的业务数据库使用的是 PostgreSQL，为了同步
+PostgreSQL 的表数据到 ElasticSearch 于是便开始了方案调研。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Web App 的技术栈介绍</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li>Django、Django REST framework 作为 Web 开发框架。
+</li>
+<li>Redis 作为缓存和消息队列。
+</li>
+<li>PostgreSQL 作为业务数据库。
+</li>
+<li>Celery 作为异步消息任务框架。
+</li>
+<li>ElasticSearch 用作全文索引。
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">方案一：通过 PostgreSQL 的 FDW 功能同步</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+方案的来源：<a href="https://yq.aliyun.com/articles/56824">PostgreSQL内核扩展之 - ElasticSearch同步插件</a>
+</p>
+
+<p>
+架构图：
+<img src="http://cdn.defcoding.com/70591D01-86B9-4006-BA3A-EEBE4D64787B.png" alt="70591D01-86B9-4006-BA3A-EEBE4D64787B.png" />
+</p>
+
+<p>
+关键技术点：通过 PostgreSQL 的 <a href="https://wiki.postgresql.org/wiki/Foreign_data_wrappers">FDW</a>（Foreign data wrappers）特性，在 PostgreSQL 层面使用数据库触发器的方式将相应的表数据同步到 ElasticSearch 中，
+在要同步的表上添加新建、更新、删除的同步触发器。
+</p>
+
+<p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017-02-05/2017-02-05-postgressql-同步数据到-elasticsearch-技术方案调研/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017-02-04/2017-02-03-我用-5-天写了一个-osx-menu-bar-app（第五天）/" itemprop="url">
                   我用 5 天写了一个 OSX Menu Bar App（第五天）
                 </a>
@@ -1813,164 +1994,6 @@ google 找了一些迁移的文章，发现迁移没有想象中难，于是开�
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016-06-28/2016-06-28-django项目使用docker做环境统一/" itemprop="url">
-                  Django项目如何使用Docker搭建环境
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-28T00:00:00+08:00" content="2016-06-28">
-              2016-06-28
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Docker/" itemprop="url" rel="index">
-                    <span itemprop="name">Docker</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Docker/Django/" itemprop="url" rel="index">
-                    <span itemprop="name">Django</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-             <span id="/2016-06-28/2016-06-28-django项目使用docker做环境统一/" class="leancloud_visitors" data-flag-title="Django项目如何使用Docker搭建环境">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">背景</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-公司的项目前后端是分离的，前端使用React作为技术栈，后端使用Django做完web开发框架，
-前端的同学调试代码的时候需要启动后端的项目，后端的项目往往需要一堆环境依赖，例如数据库，
-Redis缓存，Python的库，每次搭建环境更新环境对于前端的同学来说都是一场噩梦，比如安装数据库，
-编译Python的库等等都会遇到很多问题，为了提高效率，更好的统一开发环境，所以使用了Docker来做
-这件事。
-</p>
-</div>
-</div>
-
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">达到的效果</h2>
-<div class="outline-text-2" id="text-2">
-
-<div class="figure">
-<p><img src="http://i1.piimg.com/567571/b91020a400c2106d.png" alt="b91020a400c2106d.png" />
-</p>
-</div>
-
-<p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016-06-28/2016-06-28-django项目使用docker做环境统一/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2016,7 +2039,7 @@ Redis缓存，Python的库，每次搭建环境更新环境对于前端的同学
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -2024,7 +2047,7 @@ Redis缓存，Python的库，每次搭建环境更新环境对于前端的同学
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
