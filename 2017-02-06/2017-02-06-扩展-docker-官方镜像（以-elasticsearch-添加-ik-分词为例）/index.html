@@ -86,76 +86,55 @@
 
 
 
-<meta name="description" content="Golang 单元测试
+<meta name="description" content="需求
 
 
-哲学
-
-
-
-测试只能证明你的代码有问题，不能证明你的代码没有问题。
+最近做的一个应用使用 Elasticsearch 做全文搜索引擎，由于是中文的全文搜索，需要 Elasticsearch 的中文分词插件对内容进行分词，经过调研决定使用 Elasticsearch 5.1.1 版本（现已更新成 5.2.0 版本）和 elasticsearch-analysis-ik 中文分词插件。
 
 
 
 
 
+使用 Docker 搭建环境
 
-测似的粒度
 
-
-老板为我的代码付报酬，而不是测试，所以，我对此的价值观是——测试越少越好，
-少到你对你的代码质量达到了某种自信（我觉得这种的自信标准应该要高于业内的
-标准，当然，这种自信也可能是种自大）。如果我的编码生涯中不会犯这种典型的
-错误（如：在构造函数中设了个错误的值），那我就不会">
+我主要使用 Docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Golang单元测试">
-<meta property="og:url" content="http://runforever.github.io/2014-04-27/2014-04-27-golang单元测试/index.html">
+<meta property="og:title" content="扩展 Docker 官方镜像（以 Elasticsearch 添加 ik 分词为例）">
+<meta property="og:url" content="http://runforever.github.io/2017-02-06/2017-02-06-扩展-docker-官方镜像（以-elasticsearch-添加-ik-分词为例）/index.html">
 <meta property="og:site_name" content="Runforever">
-<meta property="og:description" content="Golang 单元测试
+<meta property="og:description" content="需求
 
 
-哲学
-
-
-
-测试只能证明你的代码有问题，不能证明你的代码没有问题。
+最近做的一个应用使用 Elasticsearch 做全文搜索引擎，由于是中文的全文搜索，需要 Elasticsearch 的中文分词插件对内容进行分词，经过调研决定使用 Elasticsearch 5.1.1 版本（现已更新成 5.2.0 版本）和 elasticsearch-analysis-ik 中文分词插件。
 
 
 
 
 
+使用 Docker 搭建环境
 
-测似的粒度
 
-
-老板为我的代码付报酬，而不是测试，所以，我对此的价值观是——测试越少越好，
-少到你对你的代码质量达到了某种自信（我觉得这种的自信标准应该要高于业内的
-标准，当然，这种自信也可能是种自大）。如果我的编码生涯中不会犯这种典型的
-错误（如：在构造函数中设了个错误的值），那我就不会">
-<meta property="og:updated_time" content="2016-11-01T06:35:35.000Z">
+我主要使用 Docker">
+<meta property="og:image" content="http://cdn.defcoding.com/9BDDB7EF-B72F-4252-97A5-048E4C4AD5E3.png">
+<meta property="og:image" content="http://cdn.defcoding.com/1E49F66B-D801-437D-B138-21CA2370BDE9.png">
+<meta property="og:updated_time" content="2017-02-06T12:56:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Golang单元测试">
-<meta name="twitter:description" content="Golang 单元测试
+<meta name="twitter:title" content="扩展 Docker 官方镜像（以 Elasticsearch 添加 ik 分词为例）">
+<meta name="twitter:description" content="需求
 
 
-哲学
-
-
-
-测试只能证明你的代码有问题，不能证明你的代码没有问题。
+最近做的一个应用使用 Elasticsearch 做全文搜索引擎，由于是中文的全文搜索，需要 Elasticsearch 的中文分词插件对内容进行分词，经过调研决定使用 Elasticsearch 5.1.1 版本（现已更新成 5.2.0 版本）和 elasticsearch-analysis-ik 中文分词插件。
 
 
 
 
 
+使用 Docker 搭建环境
 
-测似的粒度
 
-
-老板为我的代码付报酬，而不是测试，所以，我对此的价值观是——测试越少越好，
-少到你对你的代码质量达到了某种自信（我觉得这种的自信标准应该要高于业内的
-标准，当然，这种自信也可能是种自大）。如果我的编码生涯中不会犯这种典型的
-错误（如：在构造函数中设了个错误的值），那我就不会">
+我主要使用 Docker">
+<meta name="twitter:image" content="http://cdn.defcoding.com/9BDDB7EF-B72F-4252-97A5-048E4C4AD5E3.png">
 
 
 
@@ -176,10 +155,10 @@
 
 
 
-  <link rel="canonical" href="http://runforever.github.io/2014-04-27/2014-04-27-golang单元测试/"/>
+  <link rel="canonical" href="http://runforever.github.io/2017-02-06/2017-02-06-扩展-docker-官方镜像（以-elasticsearch-添加-ik-分词为例）/"/>
 
 
-  <title> Golang单元测试 | Runforever </title>
+  <title> 扩展 Docker 官方镜像（以 Elasticsearch 添加 ik 分词为例） | Runforever </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -293,7 +272,7 @@
             
             
               
-                Golang单元测试
+                扩展 Docker 官方镜像（以 Elasticsearch 添加 ik 分词为例）
               
             
           </h1>
@@ -305,8 +284,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-04-27T00:00:00+08:00" content="2014-04-27">
-              2014-04-27
+            <time itemprop="dateCreated" datetime="2017-02-06T00:00:00+08:00" content="2017-02-06">
+              2017-02-06
             </time>
           </span>
 
@@ -319,8 +298,20 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Go/" itemprop="url" rel="index">
-                    <span itemprop="name">Go</span>
+                  <a href="/categories/Docker/" itemprop="url" rel="index">
+                    <span itemprop="name">Docker</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Docker/Elasticsearch/" itemprop="url" rel="index">
+                    <span itemprop="name">Elasticsearch</span>
                   </a>
                 </span>
 
@@ -339,7 +330,7 @@
 
           
           
-             <span id="/2014-04-27/2014-04-27-golang单元测试/" class="leancloud_visitors" data-flag-title="Golang单元测试">
+             <span id="/2017-02-06/2017-02-06-扩展-docker-官方镜像（以-elasticsearch-添加-ik-分词为例）/" class="leancloud_visitors" data-flag-title="扩展 Docker 官方镜像（以 Elasticsearch 添加 ik 分词为例）">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -363,151 +354,171 @@
       
         
 <div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Golang 单元测试</h2>
+<h2 id="sec-1">需求</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1">哲学</h3>
-<div class="outline-text-3" id="text-1-1">
-<blockquote>
 <p>
-测试只能证明你的代码有问题，不能证明你的代码没有问题。
-</p>
-</blockquote>
-</div>
-</div>
-
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2">测似的粒度</h3>
-<div class="outline-text-3" id="text-1-2">
-<p class="verse">
-老板为我的代码付报酬，而不是测试，所以，我对此的价值观是——测试越少越好，<br>
-少到你对你的代码质量达到了某种自信（我觉得这种的自信标准应该要高于业内的<br>
-标准，当然，这种自信也可能是种自大）。如果我的编码生涯中不会犯这种典型的<br>
-错误（如：在构造函数中设了个错误的值），那我就不会测试它。我倾向于去对<br>
-那些有意义的错误做测试，所以，我对一些比较复杂的条件逻辑会异常地小心。<br>
-当在一个团队中，我会非常小心的测试那些会让团队容易出错的代码。<br>
-<br>
-个人理解：测试需要测有意义的东西，而不是盲目的100%覆盖，需要的是恰到好处<br>
-的UT。<br>
+最近做的一个应用使用 Elasticsearch 做全文搜索引擎，由于是中文的全文搜索，需要 Elasticsearch 的中文分词插件对内容进行分词，经过调研决定使用 Elasticsearch 5.1.1 版本（现已更新成 5.2.0 版本）和 <a href="https://github.com/medcl/elasticsearch-analysis-ik" target="_blank" rel="external">elasticsearch-analysis-ik</a> 中文分词插件。
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-1-3" class="outline-3">
-<h3 id="sec-1-3">TDD(测试驱动开发)</h3>
-<div class="outline-text-3" id="text-1-3">
-<p class="verse">
-个人理解：<br>
-1. 测试不能帮助你写出优秀的设计，只能保证你写的代码不出错。<br>
-2. 软件开发是一种发现问题解决问题的过程，TDD并不能达到这样<br>
-&#xa0;&#xa0;&#xa0;的效果。<br>
-3. TDD保证代码正确，但是什么来保证TDD的case是正确的。<br>
-4. TDD的好处大多是理论上的，实际上是不是只有做过才知道。<br>
-5. 决定软件工艺的还是设计，程序员需要知道怎么思考，怎么设计，<br>
-&#xa0;&#xa0;&#xa0;怎么测试，而不是教条主义的照搬某某理论，某某Best Practice。<br>
-6. 软件工程是没有银弹的，TDD也许适合你的项目，你的编程风格，<br>
-&#xa0;&#xa0;&#xa0;但是不一定适合所有人。<br>
-<br>
-总结： 软件需要的是恰到好处的设计和单元测试。<br>
-</p>
-</div>
-</div>
-
-<div id="outline-container-sec-1-4" class="outline-3">
-<h3 id="sec-1-4">Go语言中的单元测试</h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">使用 Docker 搭建环境</h2>
+<div class="outline-text-2" id="text-2">
 <p>
-go语言自带 <b>testing</b> 测试框架， <b>go test</b> 命令可以运行单元测试和性能测试。<br>
-</p>
-</div>
-
-<div id="outline-container-sec-1-4-1" class="outline-4">
-<h4 id="sec-1-4-1">使用</h4>
-</div>
-</div>
-<div id="outline-container-sec-1-5" class="outline-3">
-<h3 id="sec-1-5">exa.go 文件</h3>
-<div class="outline-text-3" id="text-1-5">
-<div class="org-src-container">
-
-<pre class="src src-go"><span style="color: #00ffff; font-weight: bold;">package</span> main
-
-<span style="color: #00ffff; font-weight: bold;">import</span> <span style="color: #00ff00;">"fmt"</span>
-
-<span style="color: #00ffff; font-weight: bold;">func</span> <span style="color: #0000ff; font-weight: bold;">Add</span>(x, y int) int {
-        <span style="color: #00ffff; font-weight: bold;">return</span> x + y
-}
-
-<span style="color: #00ffff; font-weight: bold;">func</span> <span style="color: #0000ff; font-weight: bold;">main</span>() {
-        x, y := 1, 2
-        fmt.<span style="color: #0000ff; font-weight: bold;">Println</span>(<span style="color: #0000ff; font-weight: bold;">Add</span>(x, y))
-}
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-1-6" class="outline-3">
-<h3 id="sec-1-6">exa_test.go 测试文件</h3>
-<div class="outline-text-3" id="text-1-6">
-<div class="org-src-container">
-
-<pre class="src src-go"><span style="color: #00ffff; font-weight: bold;">package</span> main
-
-<span style="color: #00ffff; font-weight: bold;">import</span> (
-        <span style="color: #00ff00;">"testing"</span>
-)
-
-<span style="color: #00ffff; font-weight: bold;">func</span> <span style="color: #0000ff; font-weight: bold;">TestAdd</span>(t *testing.T) {
-        <span style="color: #00ffff; font-weight: bold;">if</span> x := <span style="color: #0000ff; font-weight: bold;">Add</span>(1, 3); x != 4 {
-                t.<span style="color: #0000ff; font-weight: bold;">Error</span>(<span style="color: #00ff00;">"error in test Add"</span>)
-        }
-        <span style="color: #00ffff; font-weight: bold;">if</span> x := <span style="color: #0000ff; font-weight: bold;">Add</span>(1, 3); x != 5 {
-                t.<span style="color: #0000ff; font-weight: bold;">Error</span>(<span style="color: #00ff00;">"error in test Add 5"</span>)
-        }
-}
-</pre>
-</div>
-
-<div class="org-src-container">
-
-<pre class="src src-sh"><span style="color: #ff0000;"># </span><span style="color: #ff0000;">&#22312;&#24403;&#21069;&#25991;&#20214;&#22841;&#36816;&#34892;go test&#20415;&#21487;&#20197;&#36816;&#34892;&#27979;&#35797;</span>
-go test
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-1-7" class="outline-3">
-<h3 id="sec-1-7">使用原则</h3>
-<div class="outline-text-3" id="text-1-7">
-<p class="verse">
-1. 文件名必须是_test.go结尾的，这样在执行go test的时候才会执行到相应的代码<br>
-2. 你必须import testing这个包<br>
-3. 所有的测试用例函数必须是Test开头<br>
-4. 测试用例会按照源代码中写的顺序依次执行<br>
-5. 测试函数TestXxx()的参数是testing.T，我们可以使用该类型来记录错误或者是<br>
-&#xa0;&#xa0;&#xa0;测试状态<br>
-6. 测试格式：func TestXxx (t *testing.T),Xxx部分可以为任意的字母数字的组合，<br>
-&#xa0;&#xa0;&#xa0;但是首字母不能是小写字母[a-z]，例如Testintdiv是错误的函数名。<br>
-7. 函数中通过调用testing.T的Error, Errorf, FailNow, Fatal, FatalIf方法，<br>
-&#xa0;&#xa0;&#xa0;说明测试不通过，调用Log方法用来记录测试的信息。<br>
+我主要使用 Docker 来搭建一切开发环境，所以便想到了使用 Elastisearch 的官方 Docker 镜像扩展安装 ik 分词插件的方案。
 </p>
 </div>
 </div>
 
-
-<div id="outline-container-sec-1-8" class="outline-3">
-<h3 id="sec-1-8">参考</h3>
-<div class="outline-text-3" id="text-1-8">
-<p class="verse">
-<a href="http://coolshell.cn/articles/8209.html" target="_blank" rel="external">http://coolshell.cn/articles/8209.html</a><br>
-<a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/ebook/11.3.md" target="_blank" rel="external">https://github.com/astaxie/build-web-application-with-golang/blob/master/ebook/11.3.md</a><br>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">方案一：使用 docker commit 的方式扩展</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+<b>先说结果，这种方式扩展官方镜像无法启动，具体原因不明，读者如果知道，请告诉我。</b>
 </p>
+
+<p>
+之所以一开始使用这种方案是因为我自己 Django 开发环境的镜像都是这样扩展的，但是经过我的测试用这种方式扩展 PostgreSQL 和 Elasticsearch 的官方 Docker 镜像就会导致扩展后的镜像无法启动，虽然不能使用，我还是把这个方案的操作流程分享出来。
+</p>
+
 <p>
 <a id="more"></a>
 </p>
 </div>
+
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">操作流程</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+下载 Elasticsearch 镜像
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">docker pull elasticsearch
+</pre>
+</div>
+
+<p>
+下载 ik 的分词
+进入 ik 的 <a href="https://github.com/medcl/elasticsearch-analysis-ik/releases" target="_blank" rel="external">release</a> 下载页面，根据 Elasticsearch 的版本下载相应的编译好的 ik 分词插件，然后解压
+</p>
+
+<p>
+进入镜像的 bash shell，新建 ik 分词插件文件夹
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">docker run -it elasticsearch:latest /bin/bash
+mkdir -p /usr/share/elasticsearch/plugins/ik
+</pre>
+</div>
+
+<p>
+使用 docker copy 命令将下载并且解压好的 ik 分词拷贝到 docker container 里
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">docker copy elasticsearch-analysis-ik-5.2.0 es_container_id:/root
+</pre>
+</div>
+
+<p>
+使用打开的 bash shell container 将 /root 目录下的 ik 分词文件拷贝到 /usr/share/elasticsearch/plugins/ik 中
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">cd /root
+cp -r elasticsearch-analysis-ik-5.2.0/* /usr/share/elasticsearch/plugins/ik
+</pre>
+</div>
+
+<p>
+退出 docker container 并且将修改提交
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">docker commit -a 'add ik plugin' -m 'runforever' es_container_id{768cadafcd9} es_ik:latest
+</pre>
+</div>
+
+<p>
+使用如下 docker-compose.yml 启动，启动命令 <code>docker-compose up</code>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-yaml"><span style="color: #ffff00;">version</span>: <span style="color: #00ff00;">'2'</span>
+<span style="color: #ffff00;">services</span>:
+  <span style="color: #ffff00;">es</span>:
+    <span style="color: #ffff00;">build</span>: .
+    <span style="color: #ffff00;">image</span>: es_ik:latest
+    <span style="color: #ffff00;">environment</span>:
+      - http.host=0.0.0.0
+      - transport.host=127.0.0.1
+</pre>
+</div>
+
+<p>
+报错提示：
+<img src="http://cdn.defcoding.com/9BDDB7EF-B72F-4252-97A5-048E4C4AD5E3.png" alt="9BDDB7EF-B72F-4252-97A5-048E4C4AD5E3.png">
+</p>
+
+<p>
+参考：ik <a href="https://github.com/medcl/elasticsearch-analysis-ik#install" target="_blank" rel="external">安装文档 </a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">方案二：使用 Dockerfile 扩展</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+上面的方案不行就只有使用 Dockerfile 扩展方案了，这个方案只是把上面的操作写到 Dockerfile 里。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">FROM elasticsearch:latest
+RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+RUN apt-get update &amp;&amp; apt-get install zip
+RUN mkdir -p /usr/share/elasticsearch/plugins/ik
+RUN cd /usr/share/elasticsearch/plugins/ik &amp;&amp; wget https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v5.1.1/elasticsearch-analysis-ik-5.1.1.zip &amp;&amp; unzip elasticsearch-analysis-ik-5.1.1.zip
+</pre>
+</div>
+
+<p>
+使用：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">docker build . -t es_ik:latest
+docker-compose up
+</pre>
+</div>
+
+<p>
+运行结果：
+<img src="http://cdn.defcoding.com/1E49F66B-D801-437D-B138-21CA2370BDE9.png" alt="1E49F66B-D801-437D-B138-21CA2370BDE9.png">
+</p>
+
+<p>
+GitHub 地址：<a href="https://github.com/runforever/es_ik5.1.1" target="_blank" rel="external">es_ik5.1.1</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">总结</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+如果需要给官方 Docker 官方镜像添加功能，使用 Dockerfile 的方式就可以了。
+</p>
+
+<p>
+小技巧一：使用 daocloud 可以加速下载 Docker Hub 镜像的速度，<a href="https://www.daocloud.io/mirror#accelerator-doc" target="_blank" rel="external">使用教程</a>。<br>
+小技巧二：扩展镜像的时候把软件源换成国内的源，例如：<br>
+<code>RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list</code>
+</p>
 </div>
 </div>
 
@@ -535,17 +546,13 @@ go test
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014-04-26/2014-04-26-go面向对象和接口/" rel="next" title="Golang面向对象编程">
-                <i class="fa fa-chevron-left"></i> Golang面向对象编程
+              <a href="/2017-02-05/2017-02-05-postgressql-同步数据到-elasticsearch-技术方案调研/" rel="next" title="PostgresSQL 同步数据到 Elasticsearch 方案调研总结">
+                <i class="fa fa-chevron-left"></i> PostgresSQL 同步数据到 Elasticsearch 方案调研总结
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2014-05-01/2014-05-01-docker使用笔记/" rel="prev" title="Docker使用笔记">
-                Docker使用笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -688,7 +695,7 @@ go test
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-1"><span class="nav-number">1.</span> <span class="nav-text">Golang 单元测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-1"><span class="nav-number">1.1.</span> <span class="nav-text">哲学</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-2"><span class="nav-number">1.2.</span> <span class="nav-text">测似的粒度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-3"><span class="nav-number">1.3.</span> <span class="nav-text">TDD(测试驱动开发)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-4"><span class="nav-number">1.4.</span> <span class="nav-text">Go语言中的单元测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sec-1-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-5"><span class="nav-number">1.5.</span> <span class="nav-text">exa.go 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-6"><span class="nav-number">1.6.</span> <span class="nav-text">exa_test.go 测试文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-7"><span class="nav-number">1.7.</span> <span class="nav-text">使用原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-8"><span class="nav-number">1.8.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-1"><span class="nav-number">1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-2"><span class="nav-number">2.</span> <span class="nav-text">使用 Docker 搭建环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-3"><span class="nav-number">3.</span> <span class="nav-text">方案一：使用 docker commit 的方式扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-3-1"><span class="nav-number">3.1.</span> <span class="nav-text">操作流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-4"><span class="nav-number">4.</span> <span class="nav-text">方案二：使用 Dockerfile 扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-5"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
         </section>

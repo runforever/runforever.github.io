@@ -235,8 +235,173 @@
             
               
                 
+                <a class="post-title-link" href="/2017-02-06/2017-02-06-扩展-docker-官方镜像（以-elasticsearch-添加-ik-分词为例）/" itemprop="url">
+                  扩展 Docker 官方镜像（以 Elasticsearch 添加 ik 分词为例）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-06T00:00:00+08:00" content="2017-02-06">
+              2017-02-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Docker/" itemprop="url" rel="index">
+                    <span itemprop="name">Docker</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Docker/Elasticsearch/" itemprop="url" rel="index">
+                    <span itemprop="name">Elasticsearch</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017-02-06/2017-02-06-扩展-docker-官方镜像（以-elasticsearch-添加-ik-分词为例）/" class="leancloud_visitors" data-flag-title="扩展 Docker 官方镜像（以 Elasticsearch 添加 ik 分词为例）">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">需求</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+最近做的一个应用使用 Elasticsearch 做全文搜索引擎，由于是中文的全文搜索，需要 Elasticsearch 的中文分词插件对内容进行分词，经过调研决定使用 Elasticsearch 5.1.1 版本（现已更新成 5.2.0 版本）和 <a href="https://github.com/medcl/elasticsearch-analysis-ik">elasticsearch-analysis-ik</a> 中文分词插件。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">使用 Docker 搭建环境</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+我主要使用 Docker 来搭建一切开发环境，所以便想到了使用 Elastisearch 的官方 Docker 镜像扩展安装 ik 分词插件的方案。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">方案一：使用 docker commit 的方式扩展</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+<b>先说结果，这种方式扩展官方镜像无法启动，具体原因不明，读者如果知道，请告诉我。</b>
+</p>
+
+<p>
+之所以一开始使用这种方案是因为我自己 Django 开发环境的镜像都是这样扩展的，但是经过我的测试用这种方式扩展 PostgreSQL 和 Elasticsearch 的官方 Docker 镜像就会导致扩展后的镜像无法启动，虽然不能使用，我还是把这个方案的操作流程分享出来。
+</p>
+
+<p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017-02-06/2017-02-06-扩展-docker-官方镜像（以-elasticsearch-添加-ik-分词为例）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017-02-05/2017-02-05-postgressql-同步数据到-elasticsearch-技术方案调研/" itemprop="url">
-                  PostgresSQL 同步数据到 ElasticSearch 方案调研总结
+                  PostgresSQL 同步数据到 Elasticsearch 方案调研总结
                 </a>
               
             
@@ -275,8 +440,8 @@
 
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/PostgreSQL/ElasticSearch/" itemprop="url" rel="index">
-                    <span itemprop="name">ElasticSearch</span>
+                  <a href="/categories/PostgreSQL/Elasticsearch/" itemprop="url" rel="index">
+                    <span itemprop="name">Elasticsearch</span>
                   </a>
                 </span>
 
@@ -295,7 +460,7 @@
 
           
           
-             <span id="/2017-02-05/2017-02-05-postgressql-同步数据到-elasticsearch-技术方案调研/" class="leancloud_visitors" data-flag-title="PostgresSQL 同步数据到 ElasticSearch 方案调研总结">
+             <span id="/2017-02-05/2017-02-05-postgressql-同步数据到-elasticsearch-技术方案调研/" class="leancloud_visitors" data-flag-title="PostgresSQL 同步数据到 Elasticsearch 方案调研总结">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -322,8 +487,8 @@
 <h2 id="sec-1">需求</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-最近在做一个 Web App，需要使用 ElasticSearch 用作全文检索，Web App 的业务数据库使用的是 PostgreSQL，为了同步
-PostgreSQL 的表数据到 ElasticSearch 于是便开始了方案调研。
+最近在做一个 Web App，需要使用 Elasticsearch 用作全文搜索，Web App 的业务数据库使用的是 PostgreSQL，为了同步
+PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
 </p>
 </div>
 </div>
@@ -340,7 +505,7 @@ PostgreSQL 的表数据到 ElasticSearch 于是便开始了方案调研。
 </li>
 <li>Celery 作为异步消息任务框架。
 </li>
-<li>ElasticSearch 用作全文索引。
+<li>Elasticsearch 用作全文搜索。
 </li>
 </ol>
 </div>
@@ -350,7 +515,7 @@ PostgreSQL 的表数据到 ElasticSearch 于是便开始了方案调研。
 <h2 id="sec-3">方案一：通过 PostgreSQL 的 FDW 功能同步</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-方案的来源：<a href="https://yq.aliyun.com/articles/56824">PostgreSQL内核扩展之 - ElasticSearch同步插件</a>
+方案的来源：<a href="https://yq.aliyun.com/articles/56824">PostgreSQL内核扩展之 - Elasticsearch同步插件</a>
 </p>
 
 <p>
@@ -359,7 +524,7 @@ PostgreSQL 的表数据到 ElasticSearch 于是便开始了方案调研。
 </p>
 
 <p>
-关键技术点：通过 PostgreSQL 的 <a href="https://wiki.postgresql.org/wiki/Foreign_data_wrappers">FDW</a>（Foreign data wrappers）特性，在 PostgreSQL 层面使用数据库触发器的方式将相应的表数据同步到 ElasticSearch 中，
+关键技术点：通过 PostgreSQL 的 <a href="https://wiki.postgresql.org/wiki/Foreign_data_wrappers">FDW</a>（Foreign data wrappers）特性，在 PostgreSQL 层面使用数据库触发器的方式将相应的表数据同步到 Elasticsearch 中，
 在要同步的表上添加新建、更新、删除的同步触发器。
 </p>
 
@@ -1843,162 +2008,11 @@ google 找了一些迁移的文章，发现迁移没有想象中难，于是开�
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016-07-06/2016-07-06-如何搭建私有docker-registry/" itemprop="url">
-                  搭建私有 Docker Registry
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-06T00:00:00+08:00" content="2016-07-06">
-              2016-07-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Docker/" itemprop="url" rel="index">
-                    <span itemprop="name">Docker</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-             <span id="/2016-07-06/2016-07-06-如何搭建私有docker-registry/" class="leancloud_visitors" data-flag-title="搭建私有 Docker Registry">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>
-为了团队的其他同学可以方便的更新开发环境到本地，我们决定搭建私有的 Docker Registry。<br  />
-不使用公共服务的原因：
-</p>
-<ol class="org-ol">
-<li>Docker Hub 在国外，同步超级慢。
-</li>
-<li>DaoCloud 的私有 image 需要收费，对于我们小团队来说不太友好。
-</li>
-</ol>
-
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">搭建步骤</h2>
-<div class="outline-text-2" id="text-1">
-<ol class="org-ol">
-<li>环境准备。
-</li>
-<li>配置 LetsEncrypt 证书。
-</li>
-<li>安装 Docker Registry。
-</li>
-<li>配置 Nginx。
-</li>
-<li>后续工作。
-</li>
-</ol>
-
-<p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016-07-06/2016-07-06-如何搭建私有docker-registry/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2039,7 +2053,7 @@ google 找了一些迁移的文章，发现迁移没有想象中难，于是开�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -2047,7 +2061,7 @@ google 找了一些迁移的文章，发现迁移没有想象中难，于是开�
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
