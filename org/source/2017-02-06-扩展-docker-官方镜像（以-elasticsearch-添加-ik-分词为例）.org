@@ -1,0 +1,96 @@
+#+TITLE: 扩展 Docker 官方镜像（以 Elasticsearch 添加 ik 分词为例）
+#+DATE: 2017-02-06
+#+SETUPFILE: ~/CodeRepo/GitRepo/Road/blog/org/setupfile.org
+#+JEKYLL_LAYOUT: post
+#+JEKYLL_CATEGORIES: [Docker, Elasticsearch]
+#+JEKYLL_PUBLISHED: true
+#+JEKYLL_COMMENTS: true
+
+** 需求
+最近做的一个应用使用 Elasticsearch 做全文搜索引擎，由于是中文的全文搜索，需要 Elasticsearch 的中文分词插件对内容进行分词，经过调研决定使用 Elasticsearch 5.1.1 版本（现已更新成 5.2.0 版本）和 [[https:////github.com/medcl/elasticsearch-analysis-ik][elasticsearch-analysis-ik]] 中文分词插件。
+
+** 使用 Docker 搭建环境
+我主要使用 Docker 来搭建一切开发环境，所以便想到了使用 Elastisearch 的官方 Docker 镜像扩展安装 ik 分词插件的方案。
+
+** 方案一：使用 docker commit 的方式扩展
+*先说结果，这种方式扩展官方镜像无法启动，具体原因不明，读者如果知道，请告诉我。*
+
+之所以一开始使用这种方案是因为我自己 Django 开发环境的镜像都是这样扩展的，但是经过我的测试用这种方式扩展 PostgreSQL 和 Elasticsearch 的官方 Docker 镜像就会导致扩展后的镜像无法启动，虽然不能使用，我还是把这个方案的操作流程分享出来。
+
+{{{more}}}
+
+*** 操作流程
+下载 Elasticsearch 镜像
+#+BEGIN_SRC bash
+docker pull elasticsearch
+#+END_SRC
+
+下载 ik 的分词
+进入 ik 的 [[https:////github.com/medcl/elasticsearch-analysis-ik/releases][release]] 下载页面，根据 Elasticsearch 的版本下载相应的编译好的 ik 分词插件，然后解压
+
+进入镜像的 bash shell，新建 ik 分词插件文件夹
+#+BEGIN_SRC bash
+docker run -it elasticsearch:latest /bin/bash
+mkdir -p /usr/share/elasticsearch/plugins/ik
+#+END_SRC
+
+使用 docker copy 命令将下载并且解压好的 ik 分词拷贝到 docker container 里
+#+BEGIN_SRC bash
+docker copy elasticsearch-analysis-ik-5.2.0 es_container_id:/root
+#+END_SRC
+
+使用打开的 bash shell container 将 /root 目录下的 ik 分词文件拷贝到 /usr/share/elasticsearch/plugins/ik 中
+#+BEGIN_SRC bash
+cd /root
+cp -r elasticsearch-analysis-ik-5.2.0/* /usr/share/elasticsearch/plugins/ik
+#+END_SRC
+
+退出 docker container 并且将修改提交
+#+BEGIN_SRC bash
+docker commit -a 'add ik plugin' -m 'runforever' es_container_id{768cadafcd9} es_ik:latest
+#+END_SRC
+
+使用如下 docker-compose.yml 启动，启动命令 =docker-compose up=
+#+BEGIN_SRC yaml
+version: '2'
+services:
+  es:
+    build: .
+    image: es_ik:latest
+    environment:
+      - http.host=0.0.0.0
+      - transport.host=127.0.0.1
+#+END_SRC
+
+报错提示：
+http:////cdn.defcoding.com/9BDDB7EF-B72F-4252-97A5-048E4C4AD5E3.png
+
+参考：ik [[https:////github.com/medcl/elasticsearch-analysis-ik#install][安装文档 ]]
+
+** 方案二：使用 Dockerfile 扩展
+上面的方案不行就只有使用 Dockerfile 扩展方案了，这个方案只是把上面的操作写到 Dockerfile 里。
+#+BEGIN_SRC bash
+FROM elasticsearch:latest
+RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+RUN apt-get update && apt-get install zip
+RUN mkdir -p /usr/share/elasticsearch/plugins/ik
+RUN cd /usr/share/elasticsearch/plugins/ik && wget https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v5.1.1/elasticsearch-analysis-ik-5.1.1.zip && unzip elasticsearch-analysis-ik-5.1.1.zip
+#+END_SRC
+
+使用：
+#+BEGIN_SRC bash
+docker build . -t es_ik:latest
+docker-compose up
+#+END_SRC
+
+运行结果：
+http:////cdn.defcoding.com/1E49F66B-D801-437D-B138-21CA2370BDE9.png
+
+GitHub 地址：[[https:////github.com/runforever/es_ik5.1.1][es_ik5.1.1]]
+
+** 总结
+如果需要给官方 Docker 官方镜像添加功能，使用 Dockerfile 的方式就可以了。
+
+小技巧一：使用 daocloud 可以加速下载 Docker Hub 镜像的速度，[[https:////www.daocloud.io/mirror#accelerator-doc][使用教程]]。\\
+小技巧二：扩展镜像的时候把软件源换成国内的源，例如：\\
+=RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list=

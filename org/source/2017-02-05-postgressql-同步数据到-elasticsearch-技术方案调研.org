@@ -1,29 +1,29 @@
-#+TITLE: PostgresSQL 同步数据到 ElasticSearch 方案调研总结
+#+TITLE: PostgresSQL 同步数据到 Elasticsearch 方案调研总结
 #+DATE: 2017-02-05
 #+SETUPFILE: ~/CodeRepo/GitRepo/Road/blog/org/setupfile.org
 #+JEKYLL_LAYOUT: post
-#+JEKYLL_CATEGORIES: [PostgreSQL, ElasticSearch]
+#+JEKYLL_CATEGORIES: [PostgreSQL, Elasticsearch]
 #+JEKYLL_PUBLISHED: true
 #+JEKYLL_COMMENTS: true
 
 ** 需求
-最近在做一个 Web App，需要使用 ElasticSearch 用作全文检索，Web App 的业务数据库使用的是 PostgreSQL，为了同步
-PostgreSQL 的表数据到 ElasticSearch 于是便开始了方案调研。
+最近在做一个 Web App，需要使用 Elasticsearch 用作全文搜索，Web App 的业务数据库使用的是 PostgreSQL，为了同步
+PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
 
 ** Web App 的技术栈介绍
 1. Django、Django REST framework 作为 Web 开发框架。
 2. Redis 作为缓存和消息队列。
 3. PostgreSQL 作为业务数据库。
 4. Celery 作为异步消息任务框架。
-5. ElasticSearch 用作全文索引。
+5. Elasticsearch 用作全文搜索。
 
 ** 方案一：通过 PostgreSQL 的 FDW 功能同步
-方案的来源：[[https:////yq.aliyun.com/articles/56824][PostgreSQL内核扩展之 - ElasticSearch同步插件]]
+方案的来源：[[https:////yq.aliyun.com/articles/56824][PostgreSQL内核扩展之 - Elasticsearch同步插件]]
 
 架构图：
 http:////cdn.defcoding.com/70591D01-86B9-4006-BA3A-EEBE4D64787B.png
 
-关键技术点：通过 PostgreSQL 的 [[https:////wiki.postgresql.org/wiki/Foreign_data_wrappers][FDW]]（Foreign data wrappers）特性，在 PostgreSQL 层面使用数据库触发器的方式将相应的表数据同步到 ElasticSearch 中，
+关键技术点：通过 PostgreSQL 的 [[https:////wiki.postgresql.org/wiki/Foreign_data_wrappers][FDW]]（Foreign data wrappers）特性，在 PostgreSQL 层面使用数据库触发器的方式将相应的表数据同步到 Elasticsearch 中，
 在要同步的表上添加新建、更新、删除的同步触发器。
 
 {{{more}}}
@@ -31,23 +31,23 @@ http:////cdn.defcoding.com/70591D01-86B9-4006-BA3A-EEBE4D64787B.png
 咋一看这个方案好像还是那么一回事，当我真正去使用的时候才发现问题很多，而且这些问题目前还没有解决方案。
 
 根据教程，我先扩展了 PostgreSQL 的 Docker [[https:////hub.docker.com/_/postgres/][官方镜像]]，为镜像添加上了 [[http:////multicorn.org][multicorn]] 和 [[https:////github.com/Mikulas/pg-es-fdw?spm%3D5176.100239.blogcont56824.12.9bOrBa][pg-es-fdw ]]，扩展镜像地址：[[https://github.com/runforever/docker-psql-es][docker-psql-es]]。\\
-说明：pg-es-fdw 使用 multicorn 同步 PostgreSQL 的数据到 ElasticSearch 中。
+说明：pg-es-fdw 使用 multicorn 同步 PostgreSQL 的数据到 Elasticsearch 中。
 
 环境搭建完成各个组件的版本：
 
 1. PostgreSQL 9.5.5
-2. ElasticSearch 5.1.1
+2. Elasticsearch 5.1.1
 3. multicorn 1.3.3
 4. pg-es-fdw
 
-测试的时候，果不其然，新建 PostgreSQL 表数据可以正常同步到 ElasticSearch 中，更新的时候就报错了，于是发现了这个 [[https:////github.com/Mikulas/pg-es-fdw/issues/2][issue ]]：
+测试的时候，果不其然，新建 PostgreSQL 表数据可以正常同步到 Elasticsearch 中，更新的时候就报错了，于是发现了这个 [[https:////github.com/Mikulas/pg-es-fdw/issues/2][issue ]]：
 http:////cdn.defcoding.com/B4F39FD4-F28C-4B90-A308-DA2EC13D9245.png
 
-ElasticSearch 版本是 1.7 才能解决，这个方案简直要了亲命，1.7 到 5.1.1 都跨了 2.x 这个大版本了，再看看 [[https:////github.com/medcl/elasticsearch-analysis-ik][elasticsearch-analysis-ik]] 中文分词的支持版本，有种要绝望的感觉，1.7 版本我是肯定不能用的。
+Elasticsearch 版本是 1.7 才能解决，这个方案简直要了亲命，1.7 到 5.1.1 都跨了 2.x 这个大版本了，再看看 [[https:////github.com/medcl/elasticsearch-analysis-ik][elasticsearch-analysis-ik]] 中文分词的支持版本，有种要绝望的感觉，1.7 版本我是肯定不能用的。
 
 结论：
 当我 Google 搜索方案的时候就很少，当我看到 pg-es-fdw 最后更新时间和 star 情况后其实有所预知会出现这样的问题，可是还是想试试，结果浪费了大量时间。\\
-这个方案要等 multicorn 这个库对新版 ElasticSearch 有所支持才行，这个库是 C 语言写的，我现在无力折腾，只好放弃这个方案。
+这个方案要等 multicorn 这个库对新版 Elasticsearch 有所支持才行，这个库是 C 语言写的，我现在无力折腾，只好放弃这个方案。
 
 ** 方案二：MySQL 配合 go-mysql-elasticsearch 工具同步
 这个方案业务数据库要换成 MySQL，[[https:////github.com/siddontang/go-mysql-elasticsearch][go-mysql-elasticsearch]] 这个工具会通过 mysqldump 获取 MySQL 的原始数据，之后用 binlog 同步。\\
@@ -56,13 +56,13 @@ ElasticSearch 版本是 1.7 才能解决，这个方案简直要了亲命，1.7 
 制作镜像的过程中我突然想到这些方式我都没有办法监控到同步过程中的错误，对我来说有种没法控制的感觉，于是灵光一现，Django 不是有个 Signal 机制可以做这些事吗？于是便中断这个方案的测试，开始使用 Signal 机制同步。
 
 ** 方案三：Django Signal 配合 Celery 同步
-前面两个方案是将同步过程放到数据库层面，只要表数据有更新就会同步，而我想到的这个方案是放在应用层面做的同步，必须通过 Django Web API 写入表才会触发 Signal 进而调用同步逻辑同步数据到 ElasticSearch 中。
+前面两个方案是将同步过程放到数据库层面，只要表数据有更新就会同步，而我想到的这个方案是放在应用层面做的同步，必须通过 Django Web API 写入表才会触发 Signal 进而调用同步逻辑同步数据到 Elasticsearch 中。
 
 架构图：
 http:////cdn.defcoding.com/757D7026-EDCB-4D77-AFA4-C30AC0C45A0C.png
 
 优点：\\
-1. 实现简单，不依赖数据库和 ElasticSearch 版本。
+1. 实现简单，不依赖数据库和 Elasticsearch 版本。
 2. 可以通过 Celery 来监控到同步错误，方便 Bug 修复和重新同步。
 
 缺点：\\
@@ -71,7 +71,7 @@ http:////cdn.defcoding.com/757D7026-EDCB-4D77-AFA4-C30AC0C45A0C.png
 写完 Signal 代码测试了一下，这个方案确实可用，而且可控。
 
 ** 其他小知识
-使用 ElasticSearch 的时候先提前做好 Index 中每个 field 的数据类型，不要使用默认的，因为 field 的类型不能修改。
+使用 Elasticsearch 的时候先提前做好 Index 中每个 field 的数据类型，不要使用默认的，因为 field 的类型不能修改。
 
 ** 总结
-方案调研完后我发现似乎没有通用的方案来解决同步数据到 ElasticSearch 的问题，我想大家还是根据自己项目来制定相应的方案，目前我自己用的这个方案用作 Web App 的快速原型还不错，如果数据量大了，再考虑其他的方案。
+方案调研完后我发现似乎没有通用的方案来解决同步数据到 Elasticsearch 的问题，我想大家还是根据自己项目来制定相应的方案，目前我自己用的这个方案用作 Web App 的快速原型还不错，如果数据量大了，再考虑其他的方案。
