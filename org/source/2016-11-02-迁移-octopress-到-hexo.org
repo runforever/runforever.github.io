@@ -7,9 +7,9 @@
 #+JEKYLL_COMMENTS: true
 
 ** 不折腾会死
-前几天更新了 [[http:////runforever.github.io/2014-07-19/2014-07-19-python-mixin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/][Python Mixin 学习笔记]] 这篇文章，文章中有一张图，于是乎想添加 fancybox 插件来预览图片，
-原本以为是非常简单的一件事，结果上 google 找，果然没有找到，同时发现博客的分页有 bug，再看看 Octopress 的
-最后更新时间，看到这些茫茫多的问题，于是便有了迁移 Octopress 到 Hexo 的念头。
+前几天更新了 [[http:////runforever.github.io/2014-07-19/2014-07-19-python-mixin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/][Python Mixin 学习笔记]] 这篇文章，文章中有一张图要显示，于是想添加 fancybox 插件来预览图片，
+原本以为是非常简单的一件事，结果上 google 果然没有找到，同时发现博客的分页有 bug，再看看 Octopress 的
+最后更新时间，想到 Octopress 这些茫茫多的问题于是便有了迁移 Octopress 到 Hexo 的念头。
 
 ** 迁移前的调研
 google 找了一些迁移的文章，发现迁移没有想象中难，于是开始准备。
@@ -31,7 +31,7 @@ google 找了一些迁移的文章，发现迁移没有想象中难，于是开�
 3. 重新配置 org-octopress。
 4. 选择一个兼容 Octopress 文章的主题。
 5. 调整 Hexo 和主题的配置。
-6. 管理博客代码管理。
+6. 博客代码管理。
 
 {{{more}}}
 
