@@ -16,5 +16,5 @@ jobs:
           name: deploy to product
           command: |
             if [ "${CIRCLE_BRANCH}" == "master"  ]; then
-              scp -oStrictHostKeyChecking=no -r . ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_DIR}
+              scp -oStrictHostKeyChecking=no -r i[!.]* ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_DIR}
             fi
