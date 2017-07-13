@@ -1,0 +1,51 @@
+#+TITLE: 使用 Python 和 Phantomjs 对网页截图
+#+DATE: 2017-07-13
+#+SETUPFILE: ~/CodeRepo/GitRepo/Road/blog/org/setupfile.org
+#+JEKYLL_LAYOUT: post
+#+JEKYLL_CATEGORIES: Python
+#+JEKYLL_PUBLISHED: true
+#+JEKYLL_COMMENTS: true
+
+** 背景
+最近在做的一个 Web App，有个需要对 url 截图的需求，Google 了一番找到了使用 Python 和 Phantomjs 的方案，这里记录了如何使用以及遇到坑的解决方案。
+
+** 一些坑
+1. 中文字体展示。
+2. Phantomjs 进程无法正常退出，导致服务器卡死。
+
+** 安装
+1. 使用这个 [[https:////gist.github.com/rahularyan/ff4619c435f8bb94ef5b][Gist]] 安装 phantomjs。
+2. 使用 =pip install selenium= ，[[http:////selenium-python.readthedocs.io/installation.html][Selenium 文档]]。
+3. 安装中文字体： =apt-get install xfonts-wqy ttf-wqy-microhei=
+
+{{{more}}}
+
+** 使用
+#+BEGIN_SRC python
+import signal
+
+from selenium import webdriver
+
+def screenshot():
+    driver = webdriver.PhantomJS()
+    # 设置加载页面超时时间
+    driver.set_page_load_timeout(12)
+    # 设置窗口大小
+    driver.set_window_size(1024, 768)
+
+    try:
+       driver.get(url)
+       # 截图保存到内存中，后续使用 Pillow 压缩图片
+       origin_png = self.driver.get_screenshot_as_png()
+    except:
+       return ''
+    # 结束 Phantomjs 进程
+    finally:
+       driver.service.process.send_signal(signal.SIGTERM)
+       driver.quit()
+#+END_SRC
+
+注意事项：一定要使用 finally 语句结束 Phantomjs 释放资源
+
+** 后续
+目前部分国外网站无法截图，可以加上代理解决。
