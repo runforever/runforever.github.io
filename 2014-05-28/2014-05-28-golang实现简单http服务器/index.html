@@ -1,20 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next mist use-motion">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
 
 
 
@@ -63,12 +73,12 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="关注你创造的价值" />
+  <meta name="keywords" content="一个人的思考" />
 
 
 
@@ -79,158 +89,61 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
 
 
 
 
-<meta name="description" content="Golang实现简单HTTP服务器
-
-
-设计思想
-
-
-一图胜千言：
-
-并发模型是，只要有client来访问就开一个goroutine去处理，goroutine之间
-不需要通信。
-
-
-
-
-
-实现的功能
-
-
-并发处理浏览器请求。
-
-日志模块。
-
-配置模块。
-
-
-
-
-
-
-代码结构
-
-
-
-.
-&amp;#9500;&amp;#9472;&amp;#9472; README.md
-&amp;#9500;&amp;#9472;&amp;#9472; RE">
+<meta name="description" content="Golang实现简单HTTP服务器   设计思想   一图胜千言：  并发模型是，只要有client来访问就开一个goroutine去处理，goroutine之间 不需要通信。      实现的功能   并发处理浏览器请求。  日志模块。  配置模块。       代码结构    . &amp;#9500;&amp;#9472;&amp;#9472; README.md &amp;#9500;&amp;#9472;&amp;#9472; RE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Golang实现简单HTTP服务器">
-<meta property="og:url" content="http://runforever.github.io/2014-05-28/2014-05-28-golang实现简单http服务器/index.html">
+<meta property="og:url" content="http://blog.defcoding.com/2014-05-28/2014-05-28-golang实现简单http服务器/index.html">
 <meta property="og:site_name" content="Runforever">
-<meta property="og:description" content="Golang实现简单HTTP服务器
-
-
-设计思想
-
-
-一图胜千言：
-
-并发模型是，只要有client来访问就开一个goroutine去处理，goroutine之间
-不需要通信。
-
-
-
-
-
-实现的功能
-
-
-并发处理浏览器请求。
-
-日志模块。
-
-配置模块。
-
-
-
-
-
-
-代码结构
-
-
-
-.
-&amp;#9500;&amp;#9472;&amp;#9472; README.md
-&amp;#9500;&amp;#9472;&amp;#9472; RE">
+<meta property="og:description" content="Golang实现简单HTTP服务器   设计思想   一图胜千言：  并发模型是，只要有client来访问就开一个goroutine去处理，goroutine之间 不需要通信。      实现的功能   并发处理浏览器请求。  日志模块。  配置模块。       代码结构    . &amp;#9500;&amp;#9472;&amp;#9472; README.md &amp;#9500;&amp;#9472;&amp;#9472; RE">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://i1.piimg.com/567571/1bcc6ee379374835.png">
 <meta property="og:updated_time" content="2016-11-01T06:35:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Golang实现简单HTTP服务器">
-<meta name="twitter:description" content="Golang实现简单HTTP服务器
-
-
-设计思想
-
-
-一图胜千言：
-
-并发模型是，只要有client来访问就开一个goroutine去处理，goroutine之间
-不需要通信。
-
-
-
-
-
-实现的功能
-
-
-并发处理浏览器请求。
-
-日志模块。
-
-配置模块。
-
-
-
-
-
-
-代码结构
-
-
-
-.
-&amp;#9500;&amp;#9472;&amp;#9472; README.md
-&amp;#9500;&amp;#9472;&amp;#9472; RE">
+<meta name="twitter:description" content="Golang实现简单HTTP服务器   设计思想   一图胜千言：  并发模型是，只要有client来访问就开一个goroutine去处理，goroutine之间 不需要通信。      实现的功能   并发处理浏览器请求。  日志模块。  配置模块。       代码结构    . &amp;#9500;&amp;#9472;&amp;#9472; README.md &amp;#9500;&amp;#9472;&amp;#9472; RE">
 <meta name="twitter:image" content="http://i1.piimg.com/567571/1bcc6ee379374835.png">
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"always"},
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"right","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
+    tabs: true,
     motion: true,
     duoshuo: {
       userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
+  <link rel="canonical" href="http://blog.defcoding.com/2014-05-28/2014-05-28-golang实现简单http服务器/"/>
 
-  <link rel="canonical" href="http://runforever.github.io/2014-05-28/2014-05-28-golang实现简单http服务器/"/>
 
 
-  <title> Golang实现简单HTTP服务器 | Runforever </title>
-</head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
 
+  <title>Golang实现简单HTTP服务器 | Runforever</title>
   
 
 
@@ -240,36 +153,42 @@
 
 
 
+</head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Runforever</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Runforever</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">to be a rock star</p>
+      
   </div>
-  <p class="site-subtitle">K.I.S.S</p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -282,23 +201,29 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
             首页
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
             
-            分类
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
             
-            归档
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
           </a>
         </li>
       
@@ -309,6 +234,8 @@
 
   
 </nav>
+
+
 
  </div>
     </header>
@@ -323,49 +250,68 @@
     
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2014-05-28/2014-05-28-golang实现简单http服务器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                Golang实现简单HTTP服务器
-              
-            
-          </h1>
+          <h1 class="post-title" itemprop="name headline">Golang实现简单HTTP服务器</h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-05-28T00:00:00+08:00" content="2014-05-28">
-              2014-05-28
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-05-28T00:00:00+08:00">
+                2014-05-28
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Go/" itemprop="url" rel="index">
                     <span itemprop="name">Go</span>
                   </a>
@@ -375,9 +321,8 @@
                 
                   ， 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Go/Http/" itemprop="url" rel="index">
                     <span itemprop="name">Http</span>
                   </a>
@@ -385,35 +330,52 @@
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2014-05-28/2014-05-28-golang实现简单http服务器/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2014-05-28/2014-05-28-golang实现简单http服务器/" itemprop="commentsCount"></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2014-05-28/2014-05-28-golang实现简单http服务器/" class="leancloud_visitors" data-flag-title="Golang实现简单HTTP服务器">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -569,22 +531,21 @@
 
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
 
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
+      
+
+      
+      
       
 
       
@@ -596,6 +557,8 @@
               </a>
             
           </div>
+
+          <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
@@ -610,6 +573,10 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -627,6 +594,8 @@
           
   <div class="comments" id="comments">
     
+      <div id="SOHUCS"></div>
+    
   </div>
 
 
@@ -643,6 +612,7 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
@@ -658,25 +628,32 @@
         </ul>
       
 
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg"
                alt="runforever" />
           <p class="site-author-name" itemprop="name">runforever</p>
-          <p class="site-description motion-element" itemprop="description">思考与记录</p>
+           
+              <p class="site-description motion-element" itemprop="description">K.I.S.S</p>
+          
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">32</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
 
           
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -704,7 +681,9 @@
                   
                     <i class="fa fa-fw fa-github"></i>
                   
-                  GitHub
+                    
+                      GitHub
+                    
                 </a>
               </span>
             
@@ -713,16 +692,20 @@
                   
                     <i class="fa fa-fw fa-globe"></i>
                   
-                  Bitbucket
+                    
+                      Bitbucket
+                    
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://github.com/runforever/runforever.github.com/issues/new" target="_blank" title="提 Issue">
+                <a href="https://github.com/runforever/runforever.github.com/issues/new" target="_blank" title="Issue">
                   
                     <i class="fa fa-fw fa-globe"></i>
                   
-                  提 Issue
+                    
+                      Issue
+                    
                 </a>
               </span>
             
@@ -735,19 +718,29 @@
         
         
 
+        
+
+
       </section>
 
       
+      <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
+
             
               
             
+
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-1"><span class="nav-number">1.</span> <span class="nav-text">Golang实现简单HTTP服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-1"><span class="nav-number">1.1.</span> <span class="nav-text">设计思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-2"><span class="nav-number">1.2.</span> <span class="nav-text">实现的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-3"><span class="nav-number">1.3.</span> <span class="nav-text">代码结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-4"><span class="nav-number">1.4.</span> <span class="nav-text">关键代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-5"><span class="nav-number">1.5.</span> <span class="nav-text">遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sec-1-5-1"><span class="nav-number">1.5.1.</span> <span class="nav-text">如何处理Http/1.1中的Keep-Alive?</span></a></li></ol></li></ol></li></ol></div>
             
+
           </div>
         </section>
+      <!--/noindex-->
+      
+
       
 
     </div>
@@ -768,28 +761,44 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">runforever</span>
+
+  
 </div>
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
+  <div class="powered-by">
+    由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+  </div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">
+    主题 &mdash;
+    <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+      NexT.Gemini
+    </a>
+  </div>
+
 
         
+
+
+
+
+
+
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
   </div>
 
   
@@ -809,6 +818,15 @@
 
 
   
+
+
+
+
+
+
+
+
+
 
 
 
@@ -834,46 +852,89 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
-
-
-
-  
-
-
-
-  
-
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cytaFECxl';
+      var conf = 'c790d4e2585f77bd2ea0822d36bca8f2';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+
+
+  
+
+
+
+
 
   
 
   
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
   <script>AV.initialize("X8cdFXDspCtfRDzoNsWTTLdv-gzGzoHsz", "44Pa7S7UXwFW2x1syGaCOnLX");</script>
   <script>
     function showTime(Counter) {
@@ -983,6 +1044,11 @@
 
   
 
+  
+
+  
+
+  
 
 </body>
 </html>

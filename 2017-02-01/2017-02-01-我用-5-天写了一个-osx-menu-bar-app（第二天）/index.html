@@ -1,20 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next mist use-motion">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
 
 
 
@@ -63,12 +73,12 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="关注你创造的价值" />
+  <meta name="keywords" content="一个人的思考" />
 
 
 
@@ -79,75 +89,20 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
 
 
 
 
-<meta name="description" content="目录
-
-
-第一天（方案调研和框架搭建）
-
-第二天（快速原型跑通流程）
-
-第三天（拖动上传和上传多张图片）
-
-第四天（UI 细节调整）
-
-第五天（设计 Logo 和总结）
-
-
-
-
-
-
-第二天（快速原型跑通流程）
-
-
-前面把框架搭好了，我个人喜欢的开发方式是快速原型先做 MVP（最小可行性产品），
-然后基于 MVP 迭代新功能，而我想做的东西的 MVP 就是能上传图片。
-
-
-
-
-
-调研如何使用七牛">
+<meta name="description" content="目录   第一天（方案调研和框架搭建）  第二天（快速原型跑通流程）  第三天（拖动上传和上传多张图片）  第四天（UI 细节调整）  第五天（设计 Logo 和总结）       第二天（快速原型跑通流程）   前面把框架搭好了，我个人喜欢的开发方式是快速原型先做 MVP（最小可行性产品）， 然后基于 MVP 迭代新功能，而我想做的东西的 MVP 就是能上传图片。      调研如何使用七牛">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我用 5 天写了一个 OSX Menu Bar App（第二天）">
-<meta property="og:url" content="http://runforever.github.io/2017-02-01/2017-02-01-我用-5-天写了一个-osx-menu-bar-app（第二天）/index.html">
+<meta property="og:url" content="http://blog.defcoding.com/2017-02-01/2017-02-01-我用-5-天写了一个-osx-menu-bar-app（第二天）/index.html">
 <meta property="og:site_name" content="Runforever">
-<meta property="og:description" content="目录
-
-
-第一天（方案调研和框架搭建）
-
-第二天（快速原型跑通流程）
-
-第三天（拖动上传和上传多张图片）
-
-第四天（UI 细节调整）
-
-第五天（设计 Logo 和总结）
-
-
-
-
-
-
-第二天（快速原型跑通流程）
-
-
-前面把框架搭好了，我个人喜欢的开发方式是快速原型先做 MVP（最小可行性产品），
-然后基于 MVP 迭代新功能，而我想做的东西的 MVP 就是能上传图片。
-
-
-
-
-
-调研如何使用七牛">
+<meta property="og:description" content="目录   第一天（方案调研和框架搭建）  第二天（快速原型跑通流程）  第三天（拖动上传和上传多张图片）  第四天（UI 细节调整）  第五天（设计 Logo 和总结）       第二天（快速原型跑通流程）   前面把框架搭好了，我个人喜欢的开发方式是快速原型先做 MVP（最小可行性产品）， 然后基于 MVP 迭代新功能，而我想做的东西的 MVP 就是能上传图片。      调研如何使用七牛">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://cdn.defcoding.com/3DC4851E-57DE-4743-AD1C-9ED2DC763D02.png">
 <meta property="og:image" content="http://cdn.defcoding.com/E399924F-EE60-486E-AF8F-E66247BD534B.png">
 <meta property="og:image" content="http://cdn.defcoding.com/E649A905-13A2-405C-80F0-354761202F9E.png">
@@ -163,64 +118,43 @@
 <meta property="og:updated_time" content="2017-02-03T12:51:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="我用 5 天写了一个 OSX Menu Bar App（第二天）">
-<meta name="twitter:description" content="目录
-
-
-第一天（方案调研和框架搭建）
-
-第二天（快速原型跑通流程）
-
-第三天（拖动上传和上传多张图片）
-
-第四天（UI 细节调整）
-
-第五天（设计 Logo 和总结）
-
-
-
-
-
-
-第二天（快速原型跑通流程）
-
-
-前面把框架搭好了，我个人喜欢的开发方式是快速原型先做 MVP（最小可行性产品），
-然后基于 MVP 迭代新功能，而我想做的东西的 MVP 就是能上传图片。
-
-
-
-
-
-调研如何使用七牛">
+<meta name="twitter:description" content="目录   第一天（方案调研和框架搭建）  第二天（快速原型跑通流程）  第三天（拖动上传和上传多张图片）  第四天（UI 细节调整）  第五天（设计 Logo 和总结）       第二天（快速原型跑通流程）   前面把框架搭好了，我个人喜欢的开发方式是快速原型先做 MVP（最小可行性产品）， 然后基于 MVP 迭代新功能，而我想做的东西的 MVP 就是能上传图片。      调研如何使用七牛">
 <meta name="twitter:image" content="http://cdn.defcoding.com/3DC4851E-57DE-4743-AD1C-9ED2DC763D02.png">
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"always"},
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"right","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
+    tabs: true,
     motion: true,
     duoshuo: {
       userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
+  <link rel="canonical" href="http://blog.defcoding.com/2017-02-01/2017-02-01-我用-5-天写了一个-osx-menu-bar-app（第二天）/"/>
 
-  <link rel="canonical" href="http://runforever.github.io/2017-02-01/2017-02-01-我用-5-天写了一个-osx-menu-bar-app（第二天）/"/>
 
 
-  <title> 我用 5 天写了一个 OSX Menu Bar App（第二天） | Runforever </title>
-</head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
 
+  <title>我用 5 天写了一个 OSX Menu Bar App（第二天） | Runforever</title>
   
 
 
@@ -230,36 +164,42 @@
 
 
 
+</head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Runforever</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Runforever</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">to be a rock star</p>
+      
   </div>
-  <p class="site-subtitle">K.I.S.S</p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -272,23 +212,29 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
             首页
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
             
-            分类
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
             
-            归档
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
           </a>
         </li>
       
@@ -299,6 +245,8 @@
 
   
 </nav>
+
+
 
  </div>
     </header>
@@ -313,49 +261,68 @@
     
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2017-02-01/2017-02-01-我用-5-天写了一个-osx-menu-bar-app（第二天）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                我用 5 天写了一个 OSX Menu Bar App（第二天）
-              
-            
-          </h1>
+          <h1 class="post-title" itemprop="name headline">我用 5 天写了一个 OSX Menu Bar App（第二天）</h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-01T00:00:00+08:00" content="2017-02-01">
-              2017-02-01
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-01T00:00:00+08:00">
+                2017-02-01
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Swift/" itemprop="url" rel="index">
                     <span itemprop="name">Swift</span>
                   </a>
@@ -363,35 +330,52 @@
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017-02-01/2017-02-01-我用-5-天写了一个-osx-menu-bar-app（第二天）/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017-02-01/2017-02-01-我用-5-天写了一个-osx-menu-bar-app（第二天）/" itemprop="commentsCount"></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2017-02-01/2017-02-01-我用-5-天写了一个-osx-menu-bar-app（第二天）/" class="leancloud_visitors" data-flag-title="我用 5 天写了一个 OSX Menu Bar App（第二天）">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -403,15 +387,15 @@
 <h2 id="sec-1">目录</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
-<li><a href="http://blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/" target="_blank" rel="external">第一天（方案调研和框架搭建）</a>
+<li><a href="http://blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/">第一天（方案调研和框架搭建）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第二天（快速原型跑通流程）</a>
+<li><a href="http://blog.defcoding.com/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/">第二天（快速原型跑通流程）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第三天（拖动上传和上传多张图片）</a>
+<li><a href="http://blog.defcoding.com/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/">第三天（拖动上传和上传多张图片）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E5%9B%9B%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第四天（UI 细节调整）</a>
+<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E5%9B%9B%E5%A4%A9%EF%BC%89/">第四天（UI 细节调整）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%94%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第五天（设计 Logo 和总结）</a>
+<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%94%E5%A4%A9%EF%BC%89/">第五天（设计 Logo 和总结）</a>
 </li>
 </ol>
 </div>
@@ -750,22 +734,21 @@ upload fail
 
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
 
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
+      
+
+      
+      
       
 
       
@@ -777,6 +760,8 @@ upload fail
               </a>
             
           </div>
+
+          <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
@@ -791,6 +776,10 @@ upload fail
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -808,6 +797,8 @@ upload fail
           
   <div class="comments" id="comments">
     
+      <div id="SOHUCS"></div>
+    
   </div>
 
 
@@ -824,6 +815,7 @@ upload fail
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
@@ -839,25 +831,32 @@ upload fail
         </ul>
       
 
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg"
                alt="runforever" />
           <p class="site-author-name" itemprop="name">runforever</p>
-          <p class="site-description motion-element" itemprop="description">思考与记录</p>
+           
+              <p class="site-description motion-element" itemprop="description">K.I.S.S</p>
+          
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">32</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
 
           
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -885,7 +884,9 @@ upload fail
                   
                     <i class="fa fa-fw fa-github"></i>
                   
-                  GitHub
+                    
+                      GitHub
+                    
                 </a>
               </span>
             
@@ -894,16 +895,20 @@ upload fail
                   
                     <i class="fa fa-fw fa-globe"></i>
                   
-                  Bitbucket
+                    
+                      Bitbucket
+                    
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://github.com/runforever/runforever.github.com/issues/new" target="_blank" title="提 Issue">
+                <a href="https://github.com/runforever/runforever.github.com/issues/new" target="_blank" title="Issue">
                   
                     <i class="fa fa-fw fa-globe"></i>
                   
-                  提 Issue
+                    
+                      Issue
+                    
                 </a>
               </span>
             
@@ -916,19 +921,29 @@ upload fail
         
         
 
+        
+
+
       </section>
 
       
+      <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
+
             
               
             
+
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-1"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-2"><span class="nav-number">2.</span> <span class="nav-text">第二天（快速原型跑通流程）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-3"><span class="nav-number">3.</span> <span class="nav-text">调研如何使用七牛</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-3-1"><span class="nav-number">3.1.</span> <span class="nav-text">七牛推荐的模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-3-2"><span class="nav-number">3.2.</span> <span class="nav-text">重要的概念：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-3-3"><span class="nav-number">3.3.</span> <span class="nav-text">七牛上传的流程：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-3-4"><span class="nav-number">3.4.</span> <span class="nav-text">经过分析，我需要如下 Swift 库：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-4"><span class="nav-number">4.</span> <span class="nav-text">使用 CocoaPods 安装 Swift 库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-4-1"><span class="nav-number">4.1.</span> <span class="nav-text">CocoaPods 使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-4-2"><span class="nav-number">4.2.</span> <span class="nav-text">如何添加新的 Swift 库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-5"><span class="nav-number">5.</span> <span class="nav-text">构造上传凭证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-6"><span class="nav-number">6.</span> <span class="nav-text">实现上传</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-7"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
+
           </div>
         </section>
+      <!--/noindex-->
+      
+
       
 
     </div>
@@ -949,28 +964,44 @@ upload fail
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">runforever</span>
+
+  
 </div>
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
+  <div class="powered-by">
+    由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+  </div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">
+    主题 &mdash;
+    <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+      NexT.Gemini
+    </a>
+  </div>
+
 
         
+
+
+
+
+
+
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
   </div>
 
   
@@ -990,6 +1021,15 @@ upload fail
 
 
   
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1015,46 +1055,89 @@ upload fail
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
-
-
-
-  
-
-
-
-  
-
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cytaFECxl';
+      var conf = 'c790d4e2585f77bd2ea0822d36bca8f2';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+
+
+  
+
+
+
+
 
   
 
   
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
   <script>AV.initialize("X8cdFXDspCtfRDzoNsWTTLdv-gzGzoHsz", "44Pa7S7UXwFW2x1syGaCOnLX");</script>
   <script>
     function showTime(Counter) {
@@ -1164,6 +1247,11 @@ upload fail
 
   
 
+  
+
+  
+
+  
 
 </body>
 </html>

@@ -1,20 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next mist use-motion">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
 
 
 
@@ -63,12 +73,12 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="关注你创造的价值" />
+  <meta name="keywords" content="一个人的思考" />
 
 
 
@@ -79,50 +89,58 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
 
 
 
 
-<meta name="description" content="思考与记录">
+<meta name="description" content="K.I.S.S">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Runforever">
-<meta property="og:url" content="http://runforever.github.io/page/2/index.html">
+<meta property="og:url" content="http://blog.defcoding.com/page/2/index.html">
 <meta property="og:site_name" content="Runforever">
-<meta property="og:description" content="思考与记录">
+<meta property="og:description" content="K.I.S.S">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Runforever">
-<meta name="twitter:description" content="思考与记录">
+<meta name="twitter:description" content="K.I.S.S">
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"always"},
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"right","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
+    tabs: true,
     motion: true,
     duoshuo: {
       userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
+  <link rel="canonical" href="http://blog.defcoding.com/page/2/"/>
 
-  <link rel="canonical" href="http://runforever.github.io/page/2/"/>
 
 
-  <title> Runforever </title>
-</head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
 
+  <title>Runforever</title>
   
 
 
@@ -132,38 +150,44 @@
 
 
 
+</head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left 
+  <div class="container sidebar-position-right 
    page-home 
  ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Runforever</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Runforever</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">to be a rock star</p>
+      
   </div>
-  <p class="site-subtitle">K.I.S.S</p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -176,23 +200,29 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
             首页
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
             
-            分类
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
             
-            归档
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
           </a>
         </li>
       
@@ -203,6 +233,8 @@
 
   
 </nav>
+
+
 
  </div>
     </header>
@@ -217,13 +249,27 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2016-11-02/2016-11-02-迁移-octopress-到-hexo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -231,38 +277,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016-11-02/2016-11-02-迁移-octopress-到-hexo/" itemprop="url">
-                  迁移 Octopress 到 Hexo
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016-11-02/2016-11-02-迁移-octopress-到-hexo/" itemprop="url">迁移 Octopress 到 Hexo</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-02T00:00:00+08:00" content="2016-11-02">
-              2016-11-02
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-02T00:00:00+08:00">
+                2016-11-02
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/blog/" itemprop="url" rel="index">
                     <span itemprop="name">blog</span>
                   </a>
@@ -270,35 +320,52 @@
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2016-11-02/2016-11-02-迁移-octopress-到-hexo/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2016-11-02/2016-11-02-迁移-octopress-到-hexo/" class="cy_cmt_count" data-xid="2016-11-02/2016-11-02-迁移-octopress-到-hexo/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2016-11-02/2016-11-02-迁移-octopress-到-hexo/" class="leancloud_visitors" data-flag-title="迁移 Octopress 到 Hexo">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -310,7 +377,7 @@
 <h2 id="sec-1">不折腾会死</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-前几天更新了 <a href="http://runforever.github.io/2014-07-19/2014-07-19-python-mixin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Python Mixin 学习笔记</a> 这篇文章，文章中有一张图要显示，于是想添加 fancybox 插件来预览图片，
+前几天更新了 <a href="http://runforever.github.io/2014-07-19/2014-07-19-python-mixin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_blank" rel="external">Python Mixin 学习笔记</a> 这篇文章，文章中有一张图要显示，于是想添加 fancybox 插件来预览图片，
 原本以为是非常简单的一件事，结果上 google 果然没有找到，同时发现博客的分页有 bug，再看看 Octopress 的
 最后更新时间，想到 Octopress 这些茫茫多的问题于是便有了迁移 Octopress 到 Hexo 的念头。
 </p>
@@ -328,7 +395,7 @@ google 找了一些迁移的文章，发现迁移没有想象中难，于是开�
 我的需求：
 </p>
 <ol class="org-ol">
-<li>可以继续使用 Emacs 上的 <a href="https://github.com/yoshinari-nomura/org-octopress">org-octopress</a> 插件写博客。
+<li>可以继续使用 Emacs 上的 <a href="https://github.com/yoshinari-nomura/org-octopress" target="_blank" rel="external">org-octopress</a> 插件写博客。
 </li>
 <li>可以兼容我之前写的文章，代码高亮必须漂亮。
 </li>
@@ -373,24 +440,29 @@ google 找了一些迁移的文章，发现迁移没有想象中难，于是开�
 </ol>
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2016-11-02/2016-11-02-迁移-octopress-到-hexo/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -400,6 +472,10 @@ google 找了一些迁移的文章，发现迁移没有想象中难，于是开�
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -407,13 +483,27 @@ google 找了一些迁移的文章，发现迁移没有想象中难，于是开�
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2016-07-06/2016-07-06-如何搭建私有docker-registry/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -421,38 +511,42 @@ google 找了一些迁移的文章，发现迁移没有想象中难，于是开�
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016-07-06/2016-07-06-如何搭建私有docker-registry/" itemprop="url">
-                  搭建私有 Docker Registry
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016-07-06/2016-07-06-如何搭建私有docker-registry/" itemprop="url">搭建私有 Docker Registry</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-06T00:00:00+08:00" content="2016-07-06">
-              2016-07-06
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-06T00:00:00+08:00">
+                2016-07-06
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Docker/" itemprop="url" rel="index">
                     <span itemprop="name">Docker</span>
                   </a>
@@ -460,35 +554,52 @@ google 找了一些迁移的文章，发现迁移没有想象中难，于是开�
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2016-07-06/2016-07-06-如何搭建私有docker-registry/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2016-07-06/2016-07-06-如何搭建私有docker-registry/" class="cy_cmt_count" data-xid="2016-07-06/2016-07-06-如何搭建私有docker-registry/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2016-07-06/2016-07-06-如何搭建私有docker-registry/" class="leancloud_visitors" data-flag-title="搭建私有 Docker Registry">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -497,7 +608,7 @@ google 找了一些迁移的文章，发现迁移没有想象中难，于是开�
       
         
           <p>
-为了团队的其他同学可以方便的更新开发环境到本地，我们决定搭建私有的 Docker Registry。<br  />
+为了团队的其他同学可以方便的更新开发环境到本地，我们决定搭建私有的 Docker Registry。<br>
 不使用公共服务的原因：
 </p>
 <ol class="org-ol">
@@ -524,24 +635,29 @@ google 找了一些迁移的文章，发现迁移没有想象中难，于是开�
 </ol>
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2016-07-06/2016-07-06-如何搭建私有docker-registry/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -551,6 +667,10 @@ google 找了一些迁移的文章，发现迁移没有想象中难，于是开�
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -558,13 +678,27 @@ google 找了一些迁移的文章，发现迁移没有想象中难，于是开�
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2016-06-28/2016-06-28-django项目使用docker做环境统一/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -572,38 +706,42 @@ google 找了一些迁移的文章，发现迁移没有想象中难，于是开�
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016-06-28/2016-06-28-django项目使用docker做环境统一/" itemprop="url">
-                  Django项目如何使用Docker搭建环境
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016-06-28/2016-06-28-django项目使用docker做环境统一/" itemprop="url">Django项目如何使用Docker搭建环境</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-28T00:00:00+08:00" content="2016-06-28">
-              2016-06-28
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-28T00:00:00+08:00">
+                2016-06-28
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Docker/" itemprop="url" rel="index">
                     <span itemprop="name">Docker</span>
                   </a>
@@ -613,9 +751,8 @@ google 找了一些迁移的文章，发现迁移没有想象中难，于是开�
                 
                   ， 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Docker/Django/" itemprop="url" rel="index">
                     <span itemprop="name">Django</span>
                   </a>
@@ -623,35 +760,52 @@ google 找了一些迁移的文章，发现迁移没有想象中难，于是开�
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2016-06-28/2016-06-28-django项目使用docker做环境统一/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2016-06-28/2016-06-28-django项目使用docker做环境统一/" class="cy_cmt_count" data-xid="2016-06-28/2016-06-28-django项目使用docker做环境统一/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2016-06-28/2016-06-28-django项目使用docker做环境统一/" class="leancloud_visitors" data-flag-title="Django项目如何使用Docker搭建环境">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -677,29 +831,34 @@ Redis缓存，Python的库，每次搭建环境更新环境对于前端的同学
 <div class="outline-text-2" id="text-2">
 
 <div class="figure">
-<p><img src="http://i1.piimg.com/567571/b91020a400c2106d.png" alt="b91020a400c2106d.png" />
+<p><img src="http://i1.piimg.com/567571/b91020a400c2106d.png" alt="b91020a400c2106d.png">
 </p>
 </div>
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2016-06-28/2016-06-28-django项目使用docker做环境统一/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -709,6 +868,10 @@ Redis缓存，Python的库，每次搭建环境更新环境对于前端的同学
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -716,13 +879,27 @@ Redis缓存，Python的库，每次搭建环境更新环境对于前端的同学
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2016-02-03/2016-02-03-ansible使用入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -730,38 +907,42 @@ Redis缓存，Python的库，每次搭建环境更新环境对于前端的同学
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016-02-03/2016-02-03-ansible使用入门/" itemprop="url">
-                  Ansible 使用入门
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016-02-03/2016-02-03-ansible使用入门/" itemprop="url">Ansible 使用入门</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-02-03T00:00:00+08:00" content="2016-02-03">
-              2016-02-03
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-03T00:00:00+08:00">
+                2016-02-03
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Ansible/" itemprop="url" rel="index">
                     <span itemprop="name">Ansible</span>
                   </a>
@@ -769,35 +950,52 @@ Redis缓存，Python的库，每次搭建环境更新环境对于前端的同学
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2016-02-03/2016-02-03-ansible使用入门/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2016-02-03/2016-02-03-ansible使用入门/" class="cy_cmt_count" data-xid="2016-02-03/2016-02-03-ansible使用入门/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2016-02-03/2016-02-03-ansible使用入门/" class="leancloud_visitors" data-flag-title="Ansible 使用入门">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -810,8 +1008,8 @@ Redis缓存，Python的库，每次搭建环境更新环境对于前端的同学
 <div class="outline-text-2" id="text-1">
 <p>
 由于经常有部署新服务器的需求，服务器部署过程中的配置和基础环境的安装很多都是重复性的
-工作，所以使用配置管理工具将这些重复性的工作控制起来最合适不过了，之前有写过一篇用<a href="https://docs.saltstack.com/en/latest/"> SaltStack</a>
-做自动化运维的文章<a href="http://runforever.github.io/2014-06-21/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"> saltstack 使用笔记</a>，这次换用 <a href="http://docs.ansible.com">Ansible</a> ，顺便比较一下两种工具。
+工作，所以使用配置管理工具将这些重复性的工作控制起来最合适不过了，之前有写过一篇用<a href="https://docs.saltstack.com/en/latest/" target="_blank" rel="external"> SaltStack</a>
+做自动化运维的文章<a href="http://runforever.github.io/2014-06-21/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/" target="_blank" rel="external"> saltstack 使用笔记</a>，这次换用 <a href="http://docs.ansible.com" target="_blank" rel="external">Ansible</a> ，顺便比较一下两种工具。
 </p>
 </div>
 </div>
@@ -827,24 +1025,29 @@ Redis缓存，Python的库，每次搭建环境更新环境对于前端的同学
 </ol>
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2016-02-03/2016-02-03-ansible使用入门/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -854,6 +1057,10 @@ Redis缓存，Python的库，每次搭建环境更新环境对于前端的同学
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -861,13 +1068,27 @@ Redis缓存，Python的库，每次搭建环境更新环境对于前端的同学
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2016-01-31/2016-01-31-django-uwsgi部署/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -875,38 +1096,42 @@ Redis缓存，Python的库，每次搭建环境更新环境对于前端的同学
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016-01-31/2016-01-31-django-uwsgi部署/" itemprop="url">
-                  uwsgi部署Django服务的坑
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016-01-31/2016-01-31-django-uwsgi部署/" itemprop="url">uwsgi部署Django服务的坑</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-31T00:00:00+08:00" content="2016-01-31">
-              2016-01-31
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-31T00:00:00+08:00">
+                2016-01-31
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/uwsgi/" itemprop="url" rel="index">
                     <span itemprop="name">uwsgi</span>
                   </a>
@@ -916,9 +1141,8 @@ Redis缓存，Python的库，每次搭建环境更新环境对于前端的同学
                 
                   ， 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/uwsgi/django/" itemprop="url" rel="index">
                     <span itemprop="name">django</span>
                   </a>
@@ -926,35 +1150,52 @@ Redis缓存，Python的库，每次搭建环境更新环境对于前端的同学
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2016-01-31/2016-01-31-django-uwsgi部署/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2016-01-31/2016-01-31-django-uwsgi部署/" class="cy_cmt_count" data-xid="2016-01-31/2016-01-31-django-uwsgi部署/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2016-01-31/2016-01-31-django-uwsgi部署/" class="leancloud_visitors" data-flag-title="uwsgi部署Django服务的坑">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -980,7 +1221,7 @@ Redis缓存，Python的库，每次搭建环境更新环境对于前端的同学
 <h4 id="sec-1-1-1">gunicorn + Nginx</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
-<a href="http://gunicorn.org">http://gunicorn.org</a> 最大的好处就是部署简单，如果没有特殊要求，推荐使用这种方式部署Python Web程序
+<a href="http://gunicorn.org" target="_blank" rel="external">http://gunicorn.org</a> 最大的好处就是部署简单，如果没有特殊要求，推荐使用这种方式部署Python Web程序
 </p>
 </div>
 </div>
@@ -993,22 +1234,22 @@ uwsgi 相对 gunicorn来说配置选项相对复杂，但是uwsgi是支持websoc
 </p>
 </div>
 
-<ul class="org-ul"><li>问题1：uwsgi的默认监听进程的数量100<br  /><div class="outline-text-5" id="text-1-1-2-1">
+<ul class="org-ul"><li>问题1：uwsgi的默认监听进程的数量100<br><div class="outline-text-5" id="text-1-1-2-1">
 <p>
-解决： 之前由于只知道启动uwsgi worker的数量，不管怎么调worker的数量，并发都很低，<br  />
+解决： 之前由于只知道启动uwsgi worker的数量，不管怎么调worker的数量，并发都很低，<br>
 配置listen参数解决，根据服务器配置和访问来决定，目前我开的是20000
 </p>
 </div>
 </li>
 
-<li>问题2：supervisor没有办法优雅的重启uwsgi worker，导致服务器资源被重启的uwsgi进程占满<br  /><div class="outline-text-5" id="text-1-1-2-2">
+<li>问题2：supervisor没有办法优雅的重启uwsgi worker，导致服务器资源被重启的uwsgi进程占满<br><div class="outline-text-5" id="text-1-1-2-2">
 <p>
 解决：配置no-orphans参数
 </p>
 </div>
 </li>
 
-<li>配置范例<br  /><div class="outline-text-5" id="text-1-1-2-3">
+<li>配置范例<br><div class="outline-text-5" id="text-1-1-2-3">
 <div class="org-src-container">
 
 <pre class="src src-ini">master = true
@@ -1029,24 +1270,29 @@ no-orphans
 </div>
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2016-01-31/2016-01-31-django-uwsgi部署/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1056,6 +1302,10 @@ no-orphans
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1063,13 +1313,27 @@ no-orphans
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2014-12-20/2014-12-20-angular.js入门参考/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -1077,38 +1341,42 @@ no-orphans
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2014-12-20/2014-12-20-angular.js入门参考/" itemprop="url">
-                  Angular.js入门参考
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2014-12-20/2014-12-20-angular.js入门参考/" itemprop="url">Angular.js入门参考</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-12-20T00:00:00+08:00" content="2014-12-20">
-              2014-12-20
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-12-20T00:00:00+08:00">
+                2014-12-20
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Angular/" itemprop="url" rel="index">
                     <span itemprop="name">Angular</span>
                   </a>
@@ -1116,35 +1384,52 @@ no-orphans
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2014-12-20/2014-12-20-angular.js入门参考/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2014-12-20/2014-12-20-angular.js入门参考/" class="cy_cmt_count" data-xid="2014-12-20/2014-12-20-angular.js入门参考/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2014-12-20/2014-12-20-angular.js入门参考/" class="leancloud_visitors" data-flag-title="Angular.js入门参考">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1159,9 +1444,9 @@ no-orphans
 <h3 id="sec-1-1">来源</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-很早听说这个前端MV*框架，最近公司的一个新项目未来可能需要支持手机App，所以决定<br  />
-使用API驱动的设计，也就是网站后端只提供API，逻辑处理由前端实现，也就是Angular这些<br  />
-前端框架要做的事情了，以后如果上手机App的话也可以使用同一套API，不用单独为手机App<br  />
+很早听说这个前端MV*框架，最近公司的一个新项目未来可能需要支持手机App，所以决定<br>
+使用API驱动的设计，也就是网站后端只提供API，逻辑处理由前端实现，也就是Angular这些<br>
+前端框架要做的事情了，以后如果上手机App的话也可以使用同一套API，不用单独为手机App<br>
 开发新的API。
 </p>
 </div>
@@ -1171,8 +1456,8 @@ no-orphans
 <h3 id="sec-1-2">前端MV*是什么？</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
-MV* 可以是MVC(Model, View, Controller)模式，也可以是MVVM(Model, View, ViewModel)<br  />
-你可以把Angular用成你想要的模式，而MVVM正是我项目里面想要的东西，Model和UI的双向绑定<br  />
+MV* 可以是MVC(Model, View, Controller)模式，也可以是MVVM(Model, View, ViewModel)<br>
+你可以把Angular用成你想要的模式，而MVVM正是我项目里面想要的东西，Model和UI的双向绑定<br>
 也就是Model变化UI相应的改变，UI改变Model也跟着改变。
 </p>
 </div>
@@ -1344,24 +1629,29 @@ app.js
 </p>
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2014-12-20/2014-12-20-angular.js入门参考/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1371,6 +1661,10 @@ app.js
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1378,13 +1672,27 @@ app.js
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2014-10-02/2014-10-02-支付宝接口使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -1392,38 +1700,42 @@ app.js
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2014-10-02/2014-10-02-支付宝接口使用/" itemprop="url">
-                  Python使用支付宝接口
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2014-10-02/2014-10-02-支付宝接口使用/" itemprop="url">Python使用支付宝接口</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-10-02T00:00:00+08:00" content="2014-10-02">
-              2014-10-02
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-10-02T00:00:00+08:00">
+                2014-10-02
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Python/" itemprop="url" rel="index">
                     <span itemprop="name">Python</span>
                   </a>
@@ -1433,9 +1745,8 @@ app.js
                 
                   ， 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Python/Alipay/" itemprop="url" rel="index">
                     <span itemprop="name">Alipay</span>
                   </a>
@@ -1443,35 +1754,52 @@ app.js
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2014-10-02/2014-10-02-支付宝接口使用/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2014-10-02/2014-10-02-支付宝接口使用/" class="cy_cmt_count" data-xid="2014-10-02/2014-10-02-支付宝接口使用/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2014-10-02/2014-10-02-支付宝接口使用/" class="leancloud_visitors" data-flag-title="Python使用支付宝接口">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1495,7 +1823,7 @@ app.js
 <h3 id="sec-1-2">使用支付宝什么接口</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
-支付宝接口有很多，而线上支付使用的是即时到账接口，这里有<a href="https:b.alipay.com/order/productDetail.htm?productId=2012111200373124&tabId=1#ps-tabinfo-hash">官方介绍</a>
+支付宝接口有很多，而线上支付使用的是即时到账接口，这里有<a href="https:b.alipay.com/order/productDetail.htm?productId=2012111200373124&tabId=1#ps-tabinfo-hash" target="_blank" rel="external">官方介绍</a>
 </p>
 </div>
 </div>
@@ -1504,7 +1832,7 @@ app.js
 <h3 id="sec-1-3">如何使用该接口</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
-实现代码参考了<a href="https:github.com/yefei/python-alipay">python-alipay</a>
+实现代码参考了<a href="https:github.com/yefei/python-alipay" target="_blank" rel="external">python-alipay</a>
 </p>
 </div>
 
@@ -1512,7 +1840,7 @@ app.js
 <h4 id="sec-1-3-1">获取PID和32位KEY</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
-只能是企业才能申请该接口的使用，实名认证通过后，你只要拿到PID和KEY <br  />
+只能是企业才能申请该接口的使用，实名认证通过后，你只要拿到PID和KEY <br>
 就行了。
 </p>
 </div>
@@ -1521,7 +1849,7 @@ app.js
 <div id="outline-container-sec-1-3-2" class="outline-4">
 <h4 id="sec-1-3-2">使用该接口</h4>
 <div class="outline-text-4" id="text-1-3-2">
-</div><ul class="org-ul"><li>使用该接口需要实现两个工具函数:<br  /><div class="outline-text-5" id="text-1-3-2-1">
+</div><ul class="org-ul"><li>使用该接口需要实现两个工具函数:<br><div class="outline-text-5" id="text-1-3-2-1">
 <ol class="org-ol">
 <li>构造支付宝的支付链接，如果链接请求成功会生存支付宝的支付页面。
 </li>
@@ -1531,7 +1859,7 @@ app.js
 </div>
 </li>
 
-<li>实现构造支付链接<br  /><div class="outline-text-5" id="text-1-3-2-2">
+<li>实现构造支付链接<br><div class="outline-text-5" id="text-1-3-2-2">
 <p>
 注意事项：
 </p>
@@ -1544,9 +1872,9 @@ app.js
 </div>
 </li>
 
-<li>实现验证支付宝返回数据的验证<br  /><div class="outline-text-5" id="text-1-3-2-3">
+<li>实现验证支付宝返回数据的验证<br><div class="outline-text-5" id="text-1-3-2-3">
 <p>
-验证支付宝请求return_url和notify_url的数据 <br  />
+验证支付宝请求return_url和notify_url的数据 <br>
 注意事项
 </p>
 <ol class="org-ol">
@@ -1558,8 +1886,8 @@ app.js
 
 <p>
 代码：
-一个配置类AlipayConfig <br  />
-一个工具类AlipayUtils <br  />
+一个配置类AlipayConfig <br>
+一个工具类AlipayUtils <br>
 </p>
 
 <p>
@@ -1746,29 +2074,34 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
 <h3 id="sec-1-4">总结：</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
-支付宝的文档确实有点看不懂，上面放了两个运行结果，希望大家做起来有点方向，知道构造什么，验证什么，<br  />
-感谢github上<a href="https:github.com/yefei/python-alipay">这个repo</a>, 给了我很大的帮助。
+支付宝的文档确实有点看不懂，上面放了两个运行结果，希望大家做起来有点方向，知道构造什么，验证什么，<br>
+感谢github上<a href="https:github.com/yefei/python-alipay" target="_blank" rel="external">这个repo</a>, 给了我很大的帮助。
 </p>
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2014-10-02/2014-10-02-支付宝接口使用/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1778,6 +2111,10 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1785,13 +2122,27 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2014-07-19/2014-07-19-python-mixin学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -1799,38 +2150,42 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2014-07-19/2014-07-19-python-mixin学习笔记/" itemprop="url">
-                  Python Mixin 学习笔记
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2014-07-19/2014-07-19-python-mixin学习笔记/" itemprop="url">Python Mixin 学习笔记</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-07-19T00:00:00+08:00" content="2014-07-19">
-              2014-07-19
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-07-19T00:00:00+08:00">
+                2014-07-19
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Python/" itemprop="url" rel="index">
                     <span itemprop="name">Python</span>
                   </a>
@@ -1838,35 +2193,52 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2014-07-19/2014-07-19-python-mixin学习笔记/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2014-07-19/2014-07-19-python-mixin学习笔记/" class="cy_cmt_count" data-xid="2014-07-19/2014-07-19-python-mixin学习笔记/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2014-07-19/2014-07-19-python-mixin学习笔记/" class="leancloud_visitors" data-flag-title="Python Mixin 学习笔记">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1878,20 +2250,20 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
 <h2 id="sec-1">2016-10-25 17:04 的邮件</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-正思考着如何给 <a href="https://github.com/BurnishTechCN/djkit">djkit</a>（Django starter）项目添加 admin 和 models 的支持，
-此时收到一封邮件，来自 <a href="https://github.com/uhayate">uhayate</a>，内容如下：
+正思考着如何给 <a href="https://github.com/BurnishTechCN/djkit" target="_blank" rel="external">djkit</a>（Django starter）项目添加 admin 和 models 的支持，
+此时收到一封邮件，来自 <a href="https://github.com/uhayate" target="_blank" rel="external">uhayate</a>，内容如下：
 </p>
 
 
 <div class="figure">
-<p><img src="http://cdn.defcoding.com/5EB59FBA-21CC-4BAB-98CB-BCA70237C5DD.png" alt="5EB59FBA-21CC-4BAB-98CB-BCA70237C5DD.png" />
+<p><img src="http://cdn.defcoding.com/5EB59FBA-21CC-4BAB-98CB-BCA70237C5DD.png" alt="5EB59FBA-21CC-4BAB-98CB-BCA70237C5DD.png">
 </p>
 </div>
 
 <p>
 看了他的 github 和博客，我确定我不认识这个同学，这下有意思了，我的博客居
 然被人搜索到而且还发现了一个错误，赶紧回了邮件然后审查文章压压惊，之后便有了
-这次更新，不得不说，两年前写的东西还是欠火候，至于评论功能，使用 <a href="https://github.com/runforever/runforever.github.com/issues/new">Issue</a>。
+这次更新，不得不说，两年前写的东西还是欠火候，至于评论功能，使用 <a href="https://github.com/runforever/runforever.github.com/issues/new" target="_blank" rel="external">Issue</a>。
 </p>
 </div>
 
@@ -1901,7 +2273,7 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
 <ol class="org-ol">
 <li>新式类 MRO 的机制理解。
 </li>
-<li>文章排版按照<a href="https://github.com/sparanoid/chinese-copywriting-guidelines"> 中文文案排版指北</a> 重排。
+<li>文章排版按照<a href="https://github.com/sparanoid/chinese-copywriting-guidelines" target="_blank" rel="external"> 中文文案排版指北</a> 重排。
 </li>
 <li>Mixin 使用场景。
 </li>
@@ -1945,24 +2317,29 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
 </ol>
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2014-07-19/2014-07-19-python-mixin学习笔记/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1972,6 +2349,10 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1979,13 +2360,27 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2014-07-11/2014-07-11-saltstack自定义模块/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -1993,38 +2388,42 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2014-07-11/2014-07-11-saltstack自定义模块/" itemprop="url">
-                  saltstack自定义模块
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2014-07-11/2014-07-11-saltstack自定义模块/" itemprop="url">saltstack自定义模块</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-07-11T00:00:00+08:00" content="2014-07-11">
-              2014-07-11
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-07-11T00:00:00+08:00">
+                2014-07-11
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/saltstack/" itemprop="url" rel="index">
                     <span itemprop="name">saltstack</span>
                   </a>
@@ -2032,35 +2431,52 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2014-07-11/2014-07-11-saltstack自定义模块/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2014-07-11/2014-07-11-saltstack自定义模块/" class="cy_cmt_count" data-xid="2014-07-11/2014-07-11-saltstack自定义模块/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2014-07-11/2014-07-11-saltstack自定义模块/" class="leancloud_visitors" data-flag-title="saltstack自定义模块">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -2075,10 +2491,10 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
 <h3 id="sec-1-1">来由</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-公司项目以前使用的是fabric将代码部署到云平台，现在迁移到本地的服务器，<br  />
-再使用fabric显然有点不合适，然而使用SaltStack的state来描述发版本的过 <br  />
-程又略显不灵活，所以决定自己编写一个SaltStack的模块来实现版本发布的需求，<br  />
-下面给出编写自定义模块的方法。<br  />
+公司项目以前使用的是fabric将代码部署到云平台，现在迁移到本地的服务器，<br>
+再使用fabric显然有点不合适，然而使用SaltStack的state来描述发版本的过 <br>
+程又略显不灵活，所以决定自己编写一个SaltStack的模块来实现版本发布的需求，<br>
+下面给出编写自定义模块的方法。<br>
 </p>
 </div>
 </div>
@@ -2103,7 +2519,7 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
 <h3 id="sec-1-3">如何编写SaltStack自定义模块</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
-编写SaltStack自定义模块超级简单，前提是需要你会一些Python编程，具体如下： <br  />
+编写SaltStack自定义模块超级简单，前提是需要你会一些Python编程，具体如下： <br>
 </p>
 </div>
 
@@ -2214,29 +2630,34 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
 <div class="outline-text-3" id="text-1-6">
 <blockquote>
 <p>
-<a href="http://docs.saltstack.com/en/latest/ref/modules/">Execution Modules</a>
+<a href="http://docs.saltstack.com/en/latest/ref/modules/" target="_blank" rel="external">Execution Modules</a>
 </p>
 </blockquote>
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2014-07-11/2014-07-11-saltstack自定义模块/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -2246,6 +2667,10 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -2253,13 +2678,27 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2014-06-21/2014-06-21-salt使用笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -2267,38 +2706,42 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2014-06-21/2014-06-21-salt使用笔记/" itemprop="url">
-                  saltstack使用笔记
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2014-06-21/2014-06-21-salt使用笔记/" itemprop="url">saltstack使用笔记</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-06-21T00:00:00+08:00" content="2014-06-21">
-              2014-06-21
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-06-21T00:00:00+08:00">
+                2014-06-21
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/saltstack/" itemprop="url" rel="index">
                     <span itemprop="name">saltstack</span>
                   </a>
@@ -2306,35 +2749,52 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2014-06-21/2014-06-21-salt使用笔记/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2014-06-21/2014-06-21-salt使用笔记/" class="cy_cmt_count" data-xid="2014-06-21/2014-06-21-salt使用笔记/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2014-06-21/2014-06-21-salt使用笔记/" class="leancloud_visitors" data-flag-title="saltstack使用笔记">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -2349,10 +2809,10 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
 <h3 id="sec-1-1">来由：</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-公司需要部署把服务部署到自己的服务器中，每次迁移服务都得重新安装软件<br  />
-配置什么东西，身为程序员的我本身比较懒，就想找个工具把配置写好，下次<br  />
-部署的时候直接使用配置来玩，而不是每次都手工，所以就发现了 <b>saltstack</b><br  />
-这个自动化部署工具了。<br  />
+公司需要部署把服务部署到自己的服务器中，每次迁移服务都得重新安装软件<br>
+配置什么东西，身为程序员的我本身比较懒，就想找个工具把配置写好，下次<br>
+部署的时候直接使用配置来玩，而不是每次都手工，所以就发现了 <b>saltstack</b><br>
+这个自动化部署工具了。<br>
 </p>
 </div>
 </div>
@@ -2361,7 +2821,7 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
 <h3 id="sec-1-2">简介</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
-salt采用的C/S架构，主机master和客户端minion，master通过命令控制客户端minion <br  />
+salt采用的C/S架构，主机master和客户端minion，master通过命令控制客户端minion <br>
 进行相应的任务（软件安装，配置，重启，定时任务，状态监控。。。）。
 </p>
 </div>
@@ -2371,9 +2831,9 @@ salt采用的C/S架构，主机master和客户端minion，master通过命令控�
 <h3 id="sec-1-3">核心</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
-远程执行引擎是Salt的核心，它能够为多组系统创建高速、安全的双向通讯网络。<br  />
-基于这个通许系统，Salt提供了一个非常快速、灵活并且容易使用的配置管理系统，<br  />
-称之为“Salt States”。<br  />
+远程执行引擎是Salt的核心，它能够为多组系统创建高速、安全的双向通讯网络。<br>
+基于这个通许系统，Salt提供了一个非常快速、灵活并且容易使用的配置管理系统，<br>
+称之为“Salt States”。<br>
 </p>
 </div>
 </div>
@@ -2382,7 +2842,7 @@ salt采用的C/S架构，主机master和客户端minion，master通过命令控�
 <h3 id="sec-1-4">安装配置</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
-参考 <a href="http://docs.saltstack.cn/topics/tutorials/walkthrough.html">http://docs.saltstack.cn/topics/tutorials/walkthrough.html</a> <br  />
+参考 <a href="http://docs.saltstack.cn/topics/tutorials/walkthrough.html" target="_blank" rel="external">http://docs.saltstack.cn/topics/tutorials/walkthrough.html</a> <br>
 </p>
 <div class="org-src-container">
 
@@ -2401,7 +2861,7 @@ salt采用的C/S架构，主机master和客户端minion，master通过命令控�
 <h4 id="sec-1-5-1">salt state</h4>
 <div class="outline-text-4" id="text-1-5-1">
 <p>
-SLS（代表SaLt State文件）只是结构化的数据。<br  />
+SLS（代表SaLt State文件）只是结构化的数据。<br>
 </p>
 <div class="org-src-container">
 
@@ -2420,7 +2880,7 @@ salt <span style="color: #00ff00;">'minion1.example.com'</span> state.highstate 
 <h4 id="sec-1-5-2">更多使用教程</h4>
 <div class="outline-text-4" id="text-1-5-2">
 <p>
-官方文档 <a href="http://docs.saltstack.com/">http://docs.saltstack.com/</a>
+官方文档 <a href="http://docs.saltstack.com/" target="_blank" rel="external">http://docs.saltstack.com/</a>
 </p>
 </div>
 </div>
@@ -2460,13 +2920,13 @@ pillar_root:
 <ol class="org-ol">
 <li>salt 的配置文件使用yaml格式，文件名后缀是.sls
 </li>
-<li>关于yaml格式可以参考<a href="http://www.yaml.org/spec/1.2/spec.html">http://www.yaml.org/spec/1.2/spec.html</a>
+<li>关于yaml格式可以参考<a href="http://www.yaml.org/spec/1.2/spec.html" target="_blank" rel="external">http://www.yaml.org/spec/1.2/spec.html</a>
 <ul class="org-ul">
 <li>json是yaml的子集，yaml可以描述更多的东西
 </li>
 <li>yaml的可读性要比json好，但是身为程序员的我觉得json的可读性更好。
 </li>
-<li>学习yaml可以使用如下网站进行json和yaml的转换，<a href="http://yamltojson.com/">http://yamltojson.com/</a> ，这样可以更好的理解yaml。
+<li>学习yaml可以使用如下网站进行json和yaml的转换，<a href="http://yamltojson.com/" target="_blank" rel="external">http://yamltojson.com/</a> ，这样可以更好的理解yaml。
 </li>
 </ul>
 </li>
@@ -2546,30 +3006,35 @@ saltstack 可以让你像编程一样去管理服务器，简单，高效，有�
 <div class="outline-text-3" id="text-1-8">
 <blockquote>
 <p>
-<a href="http://docs.saltstack.cn/topics/tutorials/walkthrough.html">saltstack演练</a> <br  />
-<a href="http://docs.saltstack.cn/topics/tutorials/starting_states.html">http://docs.saltstack.cn/topics/tutorials/starting_states.html</a> <br  />
-<a href="http://www.ituring.com.cn/article/42398">http://www.ituring.com.cn/article/42398</a> <br  />
+<a href="http://docs.saltstack.cn/topics/tutorials/walkthrough.html" target="_blank" rel="external">saltstack演练</a> <br>
+<a href="http://docs.saltstack.cn/topics/tutorials/starting_states.html" target="_blank" rel="external">http://docs.saltstack.cn/topics/tutorials/starting_states.html</a> <br>
+<a href="http://www.ituring.com.cn/article/42398" target="_blank" rel="external">http://www.ituring.com.cn/article/42398</a> <br>
 </p>
 </blockquote>
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2014-06-21/2014-06-21-salt使用笔记/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -2579,6 +3044,10 @@ saltstack 可以让你像编程一样去管理服务器，简单，高效，有�
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -2611,31 +3080,39 @@ saltstack 可以让你像编程一样去管理服务器，简单，高效，有�
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg"
                alt="runforever" />
           <p class="site-author-name" itemprop="name">runforever</p>
-          <p class="site-description motion-element" itemprop="description">思考与记录</p>
+           
+              <p class="site-description motion-element" itemprop="description">K.I.S.S</p>
+          
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">32</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
 
           
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -2663,7 +3140,9 @@ saltstack 可以让你像编程一样去管理服务器，简单，高效，有�
                   
                     <i class="fa fa-fw fa-github"></i>
                   
-                  GitHub
+                    
+                      GitHub
+                    
                 </a>
               </span>
             
@@ -2672,16 +3151,20 @@ saltstack 可以让你像编程一样去管理服务器，简单，高效，有�
                   
                     <i class="fa fa-fw fa-globe"></i>
                   
-                  Bitbucket
+                    
+                      Bitbucket
+                    
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://github.com/runforever/runforever.github.com/issues/new" target="_blank" title="提 Issue">
+                <a href="https://github.com/runforever/runforever.github.com/issues/new" target="_blank" title="Issue">
                   
                     <i class="fa fa-fw fa-globe"></i>
                   
-                  提 Issue
+                    
+                      Issue
+                    
                 </a>
               </span>
             
@@ -2694,7 +3177,12 @@ saltstack 可以让你像编程一样去管理服务器，简单，高效，有�
         
         
 
+        
+
+
       </section>
+
+      
 
       
 
@@ -2716,28 +3204,44 @@ saltstack 可以让你像编程一样去管理服务器，简单，高效，有�
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">runforever</span>
+
+  
 </div>
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
+  <div class="powered-by">
+    由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+  </div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">
+    主题 &mdash;
+    <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+      NexT.Gemini
+    </a>
+  </div>
+
 
         
+
+
+
+
+
+
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
   </div>
 
   
@@ -2757,6 +3261,15 @@ saltstack 可以让你像编程一样去管理服务器，简单，高效，有�
 
 
   
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2782,42 +3295,78 @@ saltstack 可以让你像编程一样去管理服务器，简单，高效，有�
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
-
-
-
-  
-
-
-
-  
-
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
   
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
   
 
   
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cytaFECxl"></script>
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
   <script>AV.initialize("X8cdFXDspCtfRDzoNsWTTLdv-gzGzoHsz", "44Pa7S7UXwFW2x1syGaCOnLX");</script>
   <script>
     function showTime(Counter) {
@@ -2927,6 +3476,11 @@ saltstack 可以让你像编程一样去管理服务器，简单，高效，有�
 
   
 
+  
+
+  
+
+  
 
 </body>
 </html>

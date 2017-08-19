@@ -1,20 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next mist use-motion">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
 
 
 
@@ -63,12 +73,12 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="关注你创造的价值" />
+  <meta name="keywords" content="一个人的思考" />
 
 
 
@@ -79,50 +89,58 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
 
 
 
 
-<meta name="description" content="思考与记录">
+<meta name="description" content="K.I.S.S">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Runforever">
-<meta property="og:url" content="http://runforever.github.io/page/3/index.html">
+<meta property="og:url" content="http://blog.defcoding.com/page/3/index.html">
 <meta property="og:site_name" content="Runforever">
-<meta property="og:description" content="思考与记录">
+<meta property="og:description" content="K.I.S.S">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Runforever">
-<meta name="twitter:description" content="思考与记录">
+<meta name="twitter:description" content="K.I.S.S">
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"always"},
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"right","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
+    tabs: true,
     motion: true,
     duoshuo: {
       userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
+  <link rel="canonical" href="http://blog.defcoding.com/page/3/"/>
 
-  <link rel="canonical" href="http://runforever.github.io/page/3/"/>
 
 
-  <title> Runforever </title>
-</head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
 
+  <title>Runforever</title>
   
 
 
@@ -132,38 +150,44 @@
 
 
 
+</head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left 
+  <div class="container sidebar-position-right 
    page-home 
  ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Runforever</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Runforever</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">to be a rock star</p>
+      
   </div>
-  <p class="site-subtitle">K.I.S.S</p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -176,23 +200,29 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
             首页
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
             
-            分类
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
             
-            归档
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
           </a>
         </li>
       
@@ -203,6 +233,8 @@
 
   
 </nav>
+
+
 
  </div>
     </header>
@@ -217,13 +249,27 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2014-06-15/2014-06-15-justforfun读书感想/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -231,38 +277,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2014-06-15/2014-06-15-justforfun读书感想/" itemprop="url">
-                  JustForFun读书感想
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2014-06-15/2014-06-15-justforfun读书感想/" itemprop="url">JustForFun读书感想</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-06-15T00:00:00+08:00" content="2014-06-15">
-              2014-06-15
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-06-15T00:00:00+08:00">
+                2014-06-15
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/life/" itemprop="url" rel="index">
                     <span itemprop="name">life</span>
                   </a>
@@ -270,35 +320,52 @@
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2014-06-15/2014-06-15-justforfun读书感想/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2014-06-15/2014-06-15-justforfun读书感想/" class="cy_cmt_count" data-xid="2014-06-15/2014-06-15-justforfun读书感想/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2014-06-15/2014-06-15-justforfun读书感想/" class="leancloud_visitors" data-flag-title="JustForFun读书感想">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -323,15 +390,15 @@
 <div class="outline-text-3" id="text-1-2">
 <blockquote>
 <p>
-有三件事具有生命的意义：第一是生存，第二是社会秩序，第三是娱乐。<br  />
-一切事物都将从生存走向娱乐。<br  />
-Just for Fun <br  />
+有三件事具有生命的意义：第一是生存，第二是社会秩序，第三是娱乐。<br>
+一切事物都将从生存走向娱乐。<br>
+Just for Fun <br>
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-我问他,如果见到比尔盖茨想说些什么,他却说连与后者见 一面的欲望都没有。<br  />
+我问他,如果见到比尔盖茨想说些什么,他却说连与后者见 一面的欲望都没有。<br>
 “在我们俩之间没有什么关系可言,”他说,“他所做的事是世界上最优秀的,但我却丝
 毫不感兴趣。我所做的事在世界上也可能是最优秀的,他也不感兴趣。我对他经商
 提不出任何建议,他对我的技术也提不出任何看法。”
@@ -349,34 +416,34 @@ Just for Fun <br  />
 <blockquote>
 <p>
 每个人都会一本改变其一生的书籍,比如《圣经》、《资本论》、《星期二和莫瑞在一起》、
-《我想 知道我在幼儿园里学到的一切》等等. <br  />
+《我想 知道我在幼儿园里学到的一切》等等. <br>
 把我推向生命高峰的是安德鲁?塔南鲍姆 (Andrew S. Tanenbaum)写的《操作系统:设计和实现》。
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-通过阅读和对 UNIX 的了解愈来愈深,我的热情高涨起来。<br  />
-说实话,我的热情从来没有低落过(我希望你在做某件事时也能说出同样的话)。<br  />
+通过阅读和对 UNIX 的了解愈来愈深,我的热情高涨起来。<br>
+说实话,我的热情从来没有低落过(我希望你在做某件事时也能说出同样的话)。<br>
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-UNIX的理念是越小越漂亮。一小堆简单基本的建筑材料,结合起来就能创造出无限的复杂表述。<br  />
+UNIX的理念是越小越漂亮。一小堆简单基本的建筑材料,结合起来就能创造出无限的复杂表述。<br>
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-编程给人带来的最初兴奋的原因有部分是显而易见的,<br  />
+编程给人带来的最初兴奋的原因有部分是显而易见的,<br>
 那就是:通过编程你可以支配一台计算机,你叫计算机做什么,它就做什么,永远准确无误,而且毫无怨言。
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-一个伟大的 编程者能凭借其聪明的头脑就知道答案是什么。他知道怎样写出漂亮的程序,知道怎样采用<br  />
+一个伟大的 编程者能凭借其聪明的头脑就知道答案是什么。他知道怎样写出漂亮的程序,知道怎样采用<br>
 一种全新的但最终会被证明是正确的方法。
 </p>
 </blockquote>
@@ -389,15 +456,15 @@ UNIX的理念是越小越漂亮。一小堆简单基本的建筑材料,结合起
 
 <blockquote>
 <p>
-Linux 所取得的许多成功,其实可以归结为我的缺点所致: <br  />
-1、 我很懒散。<br  />
-2、 我喜欢授权给其他人。<br  />
+Linux 所取得的许多成功,其实可以归结为我的缺点所致: <br>
+1、 我很懒散。<br>
+2、 我喜欢授权给其他人。<br>
 </p>
 </blockquote>
 
 <blockquote>
 <p>
-我遇上了塔芙。她对我一生的影响甚至比《操作系统:设计与执行》一书对我的影响 还要大。<br  />
+我遇上了塔芙。她对我一生的影响甚至比《操作系统:设计与执行》一书对我的影响 还要大。<br>
 </p>
 </blockquote>
 </div>
@@ -412,24 +479,29 @@ Linux 所取得的许多成功,其实可以归结为我的缺点所致: <br  />
 </pre>
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2014-06-15/2014-06-15-justforfun读书感想/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -439,6 +511,10 @@ Linux 所取得的许多成功,其实可以归结为我的缺点所致: <br  />
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -446,13 +522,27 @@ Linux 所取得的许多成功,其实可以归结为我的缺点所致: <br  />
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2014-05-31/2014-05-31-clojure写dsl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -460,38 +550,42 @@ Linux 所取得的许多成功,其实可以归结为我的缺点所致: <br  />
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2014-05-31/2014-05-31-clojure写dsl/" itemprop="url">
-                  Clojure写DSL
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2014-05-31/2014-05-31-clojure写dsl/" itemprop="url">Clojure写DSL</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-05-31T00:00:00+08:00" content="2014-05-31">
-              2014-05-31
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-05-31T00:00:00+08:00">
+                2014-05-31
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Clojure/" itemprop="url" rel="index">
                     <span itemprop="name">Clojure</span>
                   </a>
@@ -499,35 +593,52 @@ Linux 所取得的许多成功,其实可以归结为我的缺点所致: <br  />
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2014-05-31/2014-05-31-clojure写dsl/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2014-05-31/2014-05-31-clojure写dsl/" class="cy_cmt_count" data-xid="2014-05-31/2014-05-31-clojure写dsl/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2014-05-31/2014-05-31-clojure写dsl/" class="leancloud_visitors" data-flag-title="Clojure写DSL">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -662,30 +773,35 @@ Lisp 强大还是在于她本身的语言表现力，描述问题是什么，而
 <div class="outline-text-3" id="text-1-7">
 <blockquote>
 <p>
-<a href="http://coolshell.cn/articles/10822.html">http://coolshell.cn/articles/10822.html</a> <br  />
-<a href="http://mzhou.me/article/95219/">http://mzhou.me/article/95219/</a> <br  />
+<a href="http://coolshell.cn/articles/10822.html" target="_blank" rel="external">http://coolshell.cn/articles/10822.html</a> <br>
+<a href="http://mzhou.me/article/95219/" target="_blank" rel="external">http://mzhou.me/article/95219/</a> <br>
 </p>
 </blockquote>
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2014-05-31/2014-05-31-clojure写dsl/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -695,6 +811,10 @@ Lisp 强大还是在于她本身的语言表现力，描述问题是什么，而
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -702,13 +822,27 @@ Lisp 强大还是在于她本身的语言表现力，描述问题是什么，而
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2014-05-28/2014-05-28-golang实现简单http服务器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -716,38 +850,42 @@ Lisp 强大还是在于她本身的语言表现力，描述问题是什么，而
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2014-05-28/2014-05-28-golang实现简单http服务器/" itemprop="url">
-                  Golang实现简单HTTP服务器
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2014-05-28/2014-05-28-golang实现简单http服务器/" itemprop="url">Golang实现简单HTTP服务器</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-05-28T00:00:00+08:00" content="2014-05-28">
-              2014-05-28
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-05-28T00:00:00+08:00">
+                2014-05-28
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Go/" itemprop="url" rel="index">
                     <span itemprop="name">Go</span>
                   </a>
@@ -757,9 +895,8 @@ Lisp 强大还是在于她本身的语言表现力，描述问题是什么，而
                 
                   ， 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Go/Http/" itemprop="url" rel="index">
                     <span itemprop="name">Http</span>
                   </a>
@@ -767,35 +904,52 @@ Lisp 强大还是在于她本身的语言表现力，描述问题是什么，而
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2014-05-28/2014-05-28-golang实现简单http服务器/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2014-05-28/2014-05-28-golang实现简单http服务器/" class="cy_cmt_count" data-xid="2014-05-28/2014-05-28-golang实现简单http服务器/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2014-05-28/2014-05-28-golang实现简单http服务器/" class="leancloud_visitors" data-flag-title="Golang实现简单HTTP服务器">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -810,10 +964,10 @@ Lisp 强大还是在于她本身的语言表现力，描述问题是什么，而
 <h3 id="sec-1-1">设计思想</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-一图胜千言：<br  />
-<img src="http://i1.piimg.com/567571/1bcc6ee379374835.png" alt="1bcc6ee379374835.png" />
-并发模型是，只要有client来访问就开一个goroutine去处理，goroutine之间<br  />
-不需要通信。<br  />
+一图胜千言：<br>
+<img src="http://i1.piimg.com/567571/1bcc6ee379374835.png" alt="1bcc6ee379374835.png">
+并发模型是，只要有client来访问就开一个goroutine去处理，goroutine之间<br>
+不需要通信。<br>
 </p>
 </div>
 </div>
@@ -941,25 +1095,30 @@ Lisp 强大还是在于她本身的语言表现力，描述问题是什么，而
 </div>
 
 <p>
-完整代码请参照<a href="https://bitbucket.org/runforever/gohttpserver/overview">https://bitbucket.org/runforever/gohttpserver/overview</a>
-          <div class="post-more-link text-center">
+完整代码请参照<a href="https://bitbucket.org/runforever/gohttpserver/overview" target="_blank" rel="external">https://bitbucket.org/runforever/gohttpserver/overview</a>
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2014-05-28/2014-05-28-golang实现简单http服务器/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -969,6 +1128,10 @@ Lisp 强大还是在于她本身的语言表现力，描述问题是什么，而
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -976,13 +1139,27 @@ Lisp 强大还是在于她本身的语言表现力，描述问题是什么，而
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2014-05-24/2014-05-24-如何正确的打印日志/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -990,38 +1167,42 @@ Lisp 强大还是在于她本身的语言表现力，描述问题是什么，而
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2014-05-24/2014-05-24-如何正确的打印日志/" itemprop="url">
-                  如何正确的打印日志
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2014-05-24/2014-05-24-如何正确的打印日志/" itemprop="url">如何正确的打印日志</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-05-24T00:00:00+08:00" content="2014-05-24">
-              2014-05-24
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-05-24T00:00:00+08:00">
+                2014-05-24
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/logging/" itemprop="url" rel="index">
                     <span itemprop="name">logging</span>
                   </a>
@@ -1029,35 +1210,52 @@ Lisp 强大还是在于她本身的语言表现力，描述问题是什么，而
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2014-05-24/2014-05-24-如何正确的打印日志/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2014-05-24/2014-05-24-如何正确的打印日志/" class="cy_cmt_count" data-xid="2014-05-24/2014-05-24-如何正确的打印日志/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2014-05-24/2014-05-24-如何正确的打印日志/" class="leancloud_visitors" data-flag-title="如何正确的打印日志">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1073,11 +1271,11 @@ Lisp 强大还是在于她本身的语言表现力，描述问题是什么，而
 <div class="outline-text-3" id="text-1-1">
 <blockquote>
 <ol class="org-ol">
-<li>日志应该像代码一样易于阅读和理解 <br  />
+<li>日志应该像代码一样易于阅读和理解 <br>
 </li>
-<li>清楚你在记录什么<br  />
+<li>清楚你在记录什么<br>
 </li>
-<li>不要为了日志而记日志 <br  />
+<li>不要为了日志而记日志 <br>
 </li>
 </ol>
 </blockquote>
@@ -1147,30 +1345,35 @@ DEBUG or TRACE — 这两种日志具体的规范应该由项目组自己定义�
 <div class="outline-text-3" id="text-1-4">
 <blockquote>
 <p>
-<a href="http://it.deepinmind.com/java/2014/02/27/%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97%E7%9A%8410%E4%B8%AA%E5%BB%BA%E8%AE%AE.html">打印日志的10个建议</a> <br  />
-<a href="http://www.oschina.net/question/12_44624">logging日志记录的最佳实践</a> <br  />
-<a href="http:blog.jobbole.com/56574/">王健：最佳日志实践</a> <br  />
+<a href="http://it.deepinmind.com/java/2014/02/27/%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97%E7%9A%8410%E4%B8%AA%E5%BB%BA%E8%AE%AE.html" target="_blank" rel="external">打印日志的10个建议</a> <br>
+<a href="http://www.oschina.net/question/12_44624" target="_blank" rel="external">logging日志记录的最佳实践</a> <br>
+<a href="http:blog.jobbole.com/56574/" target="_blank" rel="external">王健：最佳日志实践</a> <br>
 </p>
 </blockquote>
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2014-05-24/2014-05-24-如何正确的打印日志/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1180,6 +1383,10 @@ DEBUG or TRACE — 这两种日志具体的规范应该由项目组自己定义�
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1187,13 +1394,27 @@ DEBUG or TRACE — 这两种日志具体的规范应该由项目组自己定义�
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2014-05-18/2014-05-18-emacs-clojure-mode使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -1201,38 +1422,42 @@ DEBUG or TRACE — 这两种日志具体的规范应该由项目组自己定义�
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2014-05-18/2014-05-18-emacs-clojure-mode使用/" itemprop="url">
-                  Emacs clojure-mode使用
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2014-05-18/2014-05-18-emacs-clojure-mode使用/" itemprop="url">Emacs clojure-mode使用</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-05-18T00:00:00+08:00" content="2014-05-18">
-              2014-05-18
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-05-18T00:00:00+08:00">
+                2014-05-18
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Clojure/" itemprop="url" rel="index">
                     <span itemprop="name">Clojure</span>
                   </a>
@@ -1242,9 +1467,8 @@ DEBUG or TRACE — 这两种日志具体的规范应该由项目组自己定义�
                 
                   ， 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Clojure/Emacs/" itemprop="url" rel="index">
                     <span itemprop="name">Emacs</span>
                   </a>
@@ -1252,35 +1476,52 @@ DEBUG or TRACE — 这两种日志具体的规范应该由项目组自己定义�
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2014-05-18/2014-05-18-emacs-clojure-mode使用/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2014-05-18/2014-05-18-emacs-clojure-mode使用/" class="cy_cmt_count" data-xid="2014-05-18/2014-05-18-emacs-clojure-mode使用/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2014-05-18/2014-05-18-emacs-clojure-mode使用/" class="leancloud_visitors" data-flag-title="Emacs clojure-mode使用">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1295,7 +1536,7 @@ DEBUG or TRACE — 这两种日志具体的规范应该由项目组自己定义�
 <h3 id="sec-1-1">基本配置</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-兄弟，不要折腾了，直接照抄Emacs大师Steve Purcell的配置<a href="https://github.com/purcell/emacs.d">https://github.com/purcell/emacs.d</a> <br  />
+兄弟，不要折腾了，直接照抄Emacs大师Steve Purcell的配置<a href="https://github.com/purcell/emacs.d" target="_blank" rel="external">https://github.com/purcell/emacs.d</a> <br>
 配置完之后Clojure－Mode已经配置好，附带一些其他的配置。
 </p>
 </div>
@@ -1305,7 +1546,7 @@ DEBUG or TRACE — 这两种日志具体的规范应该由项目组自己定义�
 <h3 id="sec-1-2">使用</h3>
 <div class="outline-text-3" id="text-1-2">
 </div><div id="outline-container-sec-1-2-1" class="outline-4">
-<h4 id="sec-1-2-1">安装leiningen <a href="https://github.com/technomancy/leiningen">https://github.com/technomancy/leiningen</a></h4>
+<h4 id="sec-1-2-1">安装leiningen <a href="https://github.com/technomancy/leiningen" target="_blank" rel="external">https://github.com/technomancy/leiningen</a></h4>
 <div class="outline-text-4" id="text-1-2-1">
 <p>
 leiningen 是一个Clojure的项目管理工具。
@@ -1317,36 +1558,36 @@ leiningen 是一个Clojure的项目管理工具。
 <h4 id="sec-1-2-2">常用快捷键</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
-M-x cider-jack-in 打开一个repl 的session，你编写的Clojure代码之后会在这里运行。<br  />
+M-x cider-jack-in 打开一个repl 的session，你编写的Clojure代码之后会在这里运行。<br>
 </p>
 
 <p>
-C-c C-k 编译Clojure代码，如果编译出错 C-c C-f来定位错误的地方然后修正。<br  />
+C-c C-k 编译Clojure代码，如果编译出错 C-c C-f来定位错误的地方然后修正。<br>
 </p>
 
 <p>
-C-c C-, 可以用来运行测试文件，结果会输出到打开的repl session。<br  />
+C-c C-, 可以用来运行测试文件，结果会输出到打开的repl session。<br>
 </p>
 
 <p>
-C-c M-n 用来切换repl session的namespace， 如果你正在编写一个clojure文件，可以<br  />
-使用这个快捷键来一边开发，一边测试。<br  />
+C-c M-n 用来切换repl session的namespace， 如果你正在编写一个clojure文件，可以<br>
+使用这个快捷键来一边开发，一边测试。<br>
 </p>
 
 <p>
-C-c C-o 可以用来清初repl session的无用信息。<br  />
+C-c C-o 可以用来清初repl session的无用信息。<br>
 </p>
 
 <p>
-C-c C-d 可以用来查看函数的doc。<br  />
+C-c C-d 可以用来查看函数的doc。<br>
 </p>
 
 <p>
-M-. 可以查看函数的源代码。<br  />
+M-. 可以查看函数的源代码。<br>
 </p>
 
 <p>
-M-, 用来查看第三方库。<br  />
+M-, 用来查看第三方库。<br>
 </p>
 </div>
 </div>
@@ -1357,30 +1598,35 @@ M-, 用来查看第三方库。<br  />
 <div class="outline-text-3" id="text-1-3">
 <blockquote>
 <p>
-<a href="https://github.com/technomancy/leiningen">https://github.com/technomancy/leiningen</a> leiningen使用 <br  />
-<a href="http://clojure-doc.org/articles/tutorials/emacs.html">http://clojure-doc.org/articles/tutorials/emacs.html</a> 官方教程 <br  />
+<a href="https://github.com/technomancy/leiningen" target="_blank" rel="external">https://github.com/technomancy/leiningen</a> leiningen使用 <br>
+<a href="http://clojure-doc.org/articles/tutorials/emacs.html" target="_blank" rel="external">http://clojure-doc.org/articles/tutorials/emacs.html</a> 官方教程 <br>
 </p>
 </blockquote>
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2014-05-18/2014-05-18-emacs-clojure-mode使用/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1390,6 +1636,10 @@ M-, 用来查看第三方库。<br  />
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1397,13 +1647,27 @@ M-, 用来查看第三方库。<br  />
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2014-05-01/2014-05-01-docker使用笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -1411,38 +1675,42 @@ M-, 用来查看第三方库。<br  />
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2014-05-01/2014-05-01-docker使用笔记/" itemprop="url">
-                  Docker使用笔记
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2014-05-01/2014-05-01-docker使用笔记/" itemprop="url">Docker使用笔记</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-05-01T00:00:00+08:00" content="2014-05-01">
-              2014-05-01
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-05-01T00:00:00+08:00">
+                2014-05-01
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Docker/" itemprop="url" rel="index">
                     <span itemprop="name">Docker</span>
                   </a>
@@ -1450,35 +1718,52 @@ M-, 用来查看第三方库。<br  />
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2014-05-01/2014-05-01-docker使用笔记/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2014-05-01/2014-05-01-docker使用笔记/" class="cy_cmt_count" data-xid="2014-05-01/2014-05-01-docker使用笔记/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2014-05-01/2014-05-01-docker使用笔记/" class="leancloud_visitors" data-flag-title="Docker使用笔记">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1493,10 +1778,10 @@ M-, 用来查看第三方库。<br  />
 <h3 id="sec-1-1">什么是Docker</h3>
 <div class="outline-text-3" id="text-1-1">
 <p class="verse">
-docker的英文本意是码头工人，也就是搬运工，这种搬运工搬运的是集装箱（Container），<br  />
-集装箱里面装的可不是商品货物，而是任意类型的App，Docker把App（叫Payload）装在Container内，<br  />
-通过Linux Container技术的包装将App变成一种标准化的、可移植的、自管理的组件，<br  />
-这种组件可以在你的latop上开发、调试、运行，最终非常方便和一致地运行在production环境下。<br  />
+docker的英文本意是码头工人，也就是搬运工，这种搬运工搬运的是集装箱（Container），<br>
+集装箱里面装的可不是商品货物，而是任意类型的App，Docker把App（叫Payload）装在Container内，<br>
+通过Linux Container技术的包装将App变成一种标准化的、可移植的、自管理的组件，<br>
+这种组件可以在你的latop上开发、调试、运行，最终非常方便和一致地运行在production环境下。<br>
 </p>
 </div>
 </div>
@@ -1505,13 +1790,13 @@ docker的英文本意是码头工人，也就是搬运工，这种搬运工搬�
 <h3 id="sec-1-2">Docker的特点</h3>
 <div class="outline-text-3" id="text-1-2">
 <p class="verse">
-1. Docker提供了一种可移植的配置标准化机制，允许你一致性地在不同的机器上运行同一个Container；而LXC本身可能因为不同机器的不同配置而无法方便地移植运行；<br  />
-2. Docker以App为中心，为应用的部署做了很多优化，而LXC的帮助脚本主要是聚焦于如何机器启动地更快和耗更少的内存；<br  />
-3. Docker为App提供了一种自动化构建机制（Dockerfile），包括打包，基础设施依赖管理和安装等等；<br  />
-4. Docker提供了一种类似git的Container版本化的机制，允许你对你创建过的容器进行版本管理，依靠这种机制，你还可以下载别人创建的Container，甚至像git那样进行合并；<br  />
-5. Docker Container是可重用的，依赖于版本化机制，你很容易重用别人的Container（叫Image），作为基础版本进行扩展；<br  />
-6. Docker Container是可共享的，有点类似github一样，Docker有自己的INDEX，你可以创建自己的Docker用户并上传和下载Docker Image；<br  />
-7. Docker提供了很多的工具链，形成了一个生态系统；这些工具的目标是自动化、个性化和集成化，包括对PAAS平台的支持等；<br  />
+1. Docker提供了一种可移植的配置标准化机制，允许你一致性地在不同的机器上运行同一个Container；而LXC本身可能因为不同机器的不同配置而无法方便地移植运行；<br>
+2. Docker以App为中心，为应用的部署做了很多优化，而LXC的帮助脚本主要是聚焦于如何机器启动地更快和耗更少的内存；<br>
+3. Docker为App提供了一种自动化构建机制（Dockerfile），包括打包，基础设施依赖管理和安装等等；<br>
+4. Docker提供了一种类似git的Container版本化的机制，允许你对你创建过的容器进行版本管理，依靠这种机制，你还可以下载别人创建的Container，甚至像git那样进行合并；<br>
+5. Docker Container是可重用的，依赖于版本化机制，你很容易重用别人的Container（叫Image），作为基础版本进行扩展；<br>
+6. Docker Container是可共享的，有点类似github一样，Docker有自己的INDEX，你可以创建自己的Docker用户并上传和下载Docker Image；<br>
+7. Docker提供了很多的工具链，形成了一个生态系统；这些工具的目标是自动化、个性化和集成化，包括对PAAS平台的支持等；<br>
 </p>
 </div>
 </div>
@@ -1520,9 +1805,9 @@ docker的英文本意是码头工人，也就是搬运工，这种搬运工搬�
 <h3 id="sec-1-3">为什么使用Docker</h3>
 <div class="outline-text-3" id="text-1-3">
 <p class="verse">
-1. 打包的开发环境，方便部署和迁移。<br  />
-2. 对于没有服务器的程序员可以用来模拟集群。<br  />
-3. 保持开发机器的干净整洁，将数据库、Web服务器这些东西放到Container里。<br  />
+1. 打包的开发环境，方便部署和迁移。<br>
+2. 对于没有服务器的程序员可以用来模拟集群。<br>
+3. 保持开发机器的干净整洁，将数据库、Web服务器这些东西放到Container里。<br>
 </p>
 </div>
 </div>
@@ -1531,7 +1816,7 @@ docker的英文本意是码头工人，也就是搬运工，这种搬运工搬�
 <h3 id="sec-1-4">Mac上使用Docker</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
-直接根据官网教程安装即可，<a href="https://docs.docker.com/docker-for-mac/">https://docs.docker.com/docker-for-mac/</a>
+直接根据官网教程安装即可，<a href="https://docs.docker.com/docker-for-mac/" target="_blank" rel="external">https://docs.docker.com/docker-for-mac/</a>
 </p>
 </div>
 </div>
@@ -1540,12 +1825,12 @@ docker的英文本意是码头工人，也就是搬运工，这种搬运工搬�
 <h3 id="sec-1-5">使用Docker</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
-首先请查看官方的基础教程，移步<a href="https://www.docker.io/gettingstarted/">https://www.docker.io/gettingstarted/</a>  <br  />
+首先请查看官方的基础教程，移步<a href="https://www.docker.io/gettingstarted/" target="_blank" rel="external">https://www.docker.io/gettingstarted/</a>  <br>
 </p>
 
 <p>
-Docker类似Git，可以使用pull命令获取公共镜像。<br  />
-如我的开发环境需要Mysql，我可以很方便的使用下面的命令获取镜像。<br  />
+Docker类似Git，可以使用pull命令获取公共镜像。<br>
+如我的开发环境需要Mysql，我可以很方便的使用下面的命令获取镜像。<br>
 </p>
 <div class="org-src-container">
 
@@ -1604,31 +1889,36 @@ docker rm <span style="color: #ff00ff;">`docker ps -a -q`</span>
 <div class="outline-text-3" id="text-1-7">
 <blockquote>
 <p>
-<a href="http://tech.uc.cn/?p=2726">http://tech.uc.cn/?p=2726</a> <br  />
-<a href="http://cn.soulmachine.me/blog/20131026/">http://cn.soulmachine.me/blog/20131026/</a> <br  />
-<a href="http://blog.segmentfault.com/yexiaobai/1190000000482229">http://blog.segmentfault.com/yexiaobai/1190000000482229</a> <br  />
+<a href="http://tech.uc.cn/?p=2726" target="_blank" rel="external">http://tech.uc.cn/?p=2726</a> <br>
+<a href="http://cn.soulmachine.me/blog/20131026/" target="_blank" rel="external">http://cn.soulmachine.me/blog/20131026/</a> <br>
+<a href="http://blog.segmentfault.com/yexiaobai/1190000000482229" target="_blank" rel="external">http://blog.segmentfault.com/yexiaobai/1190000000482229</a> <br>
 </p>
 </blockquote>
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2014-05-01/2014-05-01-docker使用笔记/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1638,6 +1928,10 @@ docker rm <span style="color: #ff00ff;">`docker ps -a -q`</span>
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1645,13 +1939,27 @@ docker rm <span style="color: #ff00ff;">`docker ps -a -q`</span>
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2014-04-27/2014-04-27-golang单元测试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -1659,38 +1967,42 @@ docker rm <span style="color: #ff00ff;">`docker ps -a -q`</span>
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2014-04-27/2014-04-27-golang单元测试/" itemprop="url">
-                  Golang单元测试
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2014-04-27/2014-04-27-golang单元测试/" itemprop="url">Golang单元测试</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-04-27T00:00:00+08:00" content="2014-04-27">
-              2014-04-27
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-04-27T00:00:00+08:00">
+                2014-04-27
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Go/" itemprop="url" rel="index">
                     <span itemprop="name">Go</span>
                   </a>
@@ -1698,35 +2010,52 @@ docker rm <span style="color: #ff00ff;">`docker ps -a -q`</span>
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2014-04-27/2014-04-27-golang单元测试/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2014-04-27/2014-04-27-golang单元测试/" class="cy_cmt_count" data-xid="2014-04-27/2014-04-27-golang单元测试/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2014-04-27/2014-04-27-golang单元测试/" class="leancloud_visitors" data-flag-title="Golang单元测试">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1752,15 +2081,15 @@ docker rm <span style="color: #ff00ff;">`docker ps -a -q`</span>
 <h3 id="sec-1-2">测似的粒度</h3>
 <div class="outline-text-3" id="text-1-2">
 <p class="verse">
-老板为我的代码付报酬，而不是测试，所以，我对此的价值观是——测试越少越好，<br  />
-少到你对你的代码质量达到了某种自信（我觉得这种的自信标准应该要高于业内的<br  />
-标准，当然，这种自信也可能是种自大）。如果我的编码生涯中不会犯这种典型的<br  />
-错误（如：在构造函数中设了个错误的值），那我就不会测试它。我倾向于去对<br  />
-那些有意义的错误做测试，所以，我对一些比较复杂的条件逻辑会异常地小心。<br  />
-当在一个团队中，我会非常小心的测试那些会让团队容易出错的代码。<br  />
-<br  />
-个人理解：测试需要测有意义的东西，而不是盲目的100%覆盖，需要的是恰到好处<br  />
-的UT。<br  />
+老板为我的代码付报酬，而不是测试，所以，我对此的价值观是——测试越少越好，<br>
+少到你对你的代码质量达到了某种自信（我觉得这种的自信标准应该要高于业内的<br>
+标准，当然，这种自信也可能是种自大）。如果我的编码生涯中不会犯这种典型的<br>
+错误（如：在构造函数中设了个错误的值），那我就不会测试它。我倾向于去对<br>
+那些有意义的错误做测试，所以，我对一些比较复杂的条件逻辑会异常地小心。<br>
+当在一个团队中，我会非常小心的测试那些会让团队容易出错的代码。<br>
+<br>
+个人理解：测试需要测有意义的东西，而不是盲目的100%覆盖，需要的是恰到好处<br>
+的UT。<br>
 </p>
 </div>
 </div>
@@ -1769,18 +2098,18 @@ docker rm <span style="color: #ff00ff;">`docker ps -a -q`</span>
 <h3 id="sec-1-3">TDD(测试驱动开发)</h3>
 <div class="outline-text-3" id="text-1-3">
 <p class="verse">
-个人理解：<br  />
-1. 测试不能帮助你写出优秀的设计，只能保证你写的代码不出错。<br  />
-2. 软件开发是一种发现问题解决问题的过程，TDD并不能达到这样<br  />
-&#xa0;&#xa0;&#xa0;的效果。<br  />
-3. TDD保证代码正确，但是什么来保证TDD的case是正确的。<br  />
-4. TDD的好处大多是理论上的，实际上是不是只有做过才知道。<br  />
-5. 决定软件工艺的还是设计，程序员需要知道怎么思考，怎么设计，<br  />
-&#xa0;&#xa0;&#xa0;怎么测试，而不是教条主义的照搬某某理论，某某Best Practice。<br  />
-6. 软件工程是没有银弹的，TDD也许适合你的项目，你的编程风格，<br  />
-&#xa0;&#xa0;&#xa0;但是不一定适合所有人。<br  />
-<br  />
-总结： 软件需要的是恰到好处的设计和单元测试。<br  />
+个人理解：<br>
+1. 测试不能帮助你写出优秀的设计，只能保证你写的代码不出错。<br>
+2. 软件开发是一种发现问题解决问题的过程，TDD并不能达到这样<br>
+&#xa0;&#xa0;&#xa0;的效果。<br>
+3. TDD保证代码正确，但是什么来保证TDD的case是正确的。<br>
+4. TDD的好处大多是理论上的，实际上是不是只有做过才知道。<br>
+5. 决定软件工艺的还是设计，程序员需要知道怎么思考，怎么设计，<br>
+&#xa0;&#xa0;&#xa0;怎么测试，而不是教条主义的照搬某某理论，某某Best Practice。<br>
+6. 软件工程是没有银弹的，TDD也许适合你的项目，你的编程风格，<br>
+&#xa0;&#xa0;&#xa0;但是不一定适合所有人。<br>
+<br>
+总结： 软件需要的是恰到好处的设计和单元测试。<br>
 </p>
 </div>
 </div>
@@ -1789,7 +2118,7 @@ docker rm <span style="color: #ff00ff;">`docker ps -a -q`</span>
 <h3 id="sec-1-4">Go语言中的单元测试</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
-go语言自带 <b>testing</b> 测试框架， <b>go test</b> 命令可以运行单元测试和性能测试。<br  />
+go语言自带 <b>testing</b> 测试框架， <b>go test</b> 命令可以运行单元测试和性能测试。<br>
 </p>
 </div>
 
@@ -1854,16 +2183,16 @@ go test
 <h3 id="sec-1-7">使用原则</h3>
 <div class="outline-text-3" id="text-1-7">
 <p class="verse">
-1. 文件名必须是_test.go结尾的，这样在执行go test的时候才会执行到相应的代码<br  />
-2. 你必须import testing这个包<br  />
-3. 所有的测试用例函数必须是Test开头<br  />
-4. 测试用例会按照源代码中写的顺序依次执行<br  />
-5. 测试函数TestXxx()的参数是testing.T，我们可以使用该类型来记录错误或者是<br  />
-&#xa0;&#xa0;&#xa0;测试状态<br  />
-6. 测试格式：func TestXxx (t *testing.T),Xxx部分可以为任意的字母数字的组合，<br  />
-&#xa0;&#xa0;&#xa0;但是首字母不能是小写字母[a-z]，例如Testintdiv是错误的函数名。<br  />
-7. 函数中通过调用testing.T的Error, Errorf, FailNow, Fatal, FatalIf方法，<br  />
-&#xa0;&#xa0;&#xa0;说明测试不通过，调用Log方法用来记录测试的信息。<br  />
+1. 文件名必须是_test.go结尾的，这样在执行go test的时候才会执行到相应的代码<br>
+2. 你必须import testing这个包<br>
+3. 所有的测试用例函数必须是Test开头<br>
+4. 测试用例会按照源代码中写的顺序依次执行<br>
+5. 测试函数TestXxx()的参数是testing.T，我们可以使用该类型来记录错误或者是<br>
+&#xa0;&#xa0;&#xa0;测试状态<br>
+6. 测试格式：func TestXxx (t *testing.T),Xxx部分可以为任意的字母数字的组合，<br>
+&#xa0;&#xa0;&#xa0;但是首字母不能是小写字母[a-z]，例如Testintdiv是错误的函数名。<br>
+7. 函数中通过调用testing.T的Error, Errorf, FailNow, Fatal, FatalIf方法，<br>
+&#xa0;&#xa0;&#xa0;说明测试不通过，调用Log方法用来记录测试的信息。<br>
 </p>
 </div>
 </div>
@@ -1873,28 +2202,33 @@ go test
 <h3 id="sec-1-8">参考</h3>
 <div class="outline-text-3" id="text-1-8">
 <p class="verse">
-<a href="http://coolshell.cn/articles/8209.html">http://coolshell.cn/articles/8209.html</a><br  />
-<a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/ebook/11.3.md">https://github.com/astaxie/build-web-application-with-golang/blob/master/ebook/11.3.md</a><br  />
+<a href="http://coolshell.cn/articles/8209.html" target="_blank" rel="external">http://coolshell.cn/articles/8209.html</a><br>
+<a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/ebook/11.3.md" target="_blank" rel="external">https://github.com/astaxie/build-web-application-with-golang/blob/master/ebook/11.3.md</a><br>
 </p>
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2014-04-27/2014-04-27-golang单元测试/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1904,6 +2238,10 @@ go test
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1911,13 +2249,27 @@ go test
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2014-04-26/2014-04-26-go面向对象和接口/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -1925,38 +2277,42 @@ go test
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2014-04-26/2014-04-26-go面向对象和接口/" itemprop="url">
-                  Golang面向对象编程
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2014-04-26/2014-04-26-go面向对象和接口/" itemprop="url">Golang面向对象编程</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-04-26T00:00:00+08:00" content="2014-04-26">
-              2014-04-26
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-04-26T00:00:00+08:00">
+                2014-04-26
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Go/" itemprop="url" rel="index">
                     <span itemprop="name">Go</span>
                   </a>
@@ -1964,35 +2320,52 @@ go test
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2014-04-26/2014-04-26-go面向对象和接口/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2014-04-26/2014-04-26-go面向对象和接口/" class="cy_cmt_count" data-xid="2014-04-26/2014-04-26-go面向对象和接口/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2014-04-26/2014-04-26-go面向对象和接口/" class="leancloud_visitors" data-flag-title="Golang面向对象编程">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -2229,7 +2602,7 @@ sharp.<span style="color: #0000ff; font-weight: bold;">Circle</span>()
 <h4 id="sec-1-5-2">指针：Go语言的指针，基本上只剩下用于区分 byref 和 byval 语义。</h4>
 <div class="outline-text-4" id="text-1-5-2">
 <p>
-解释： 值类型保存的是具体的值 引用类型保存的是值的地址。<br  />
+解释： 值类型保存的是具体的值 引用类型保存的是值的地址。<br>
 </p>
 <div class="org-src-container">
 
@@ -2284,24 +2657,29 @@ sharp.<span style="color: #0000ff; font-weight: bold;">Circle</span>()
 
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2014-04-26/2014-04-26-go面向对象和接口/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -2311,6 +2689,10 @@ sharp.<span style="color: #0000ff; font-weight: bold;">Circle</span>()
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -2318,13 +2700,27 @@ sharp.<span style="color: #0000ff; font-weight: bold;">Circle</span>()
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2014-04-25/2014-04-25-go语言并发模型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -2332,38 +2728,42 @@ sharp.<span style="color: #0000ff; font-weight: bold;">Circle</span>()
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2014-04-25/2014-04-25-go语言并发模型/" itemprop="url">
-                  go语言并发模型
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2014-04-25/2014-04-25-go语言并发模型/" itemprop="url">go语言并发模型</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-04-25T00:00:00+08:00" content="2014-04-25">
-              2014-04-25
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-04-25T00:00:00+08:00">
+                2014-04-25
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Go/" itemprop="url" rel="index">
                     <span itemprop="name">Go</span>
                   </a>
@@ -2371,35 +2771,52 @@ sharp.<span style="color: #0000ff; font-weight: bold;">Circle</span>()
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2014-04-25/2014-04-25-go语言并发模型/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2014-04-25/2014-04-25-go语言并发模型/" class="cy_cmt_count" data-xid="2014-04-25/2014-04-25-go语言并发模型/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2014-04-25/2014-04-25-go语言并发模型/" class="leancloud_visitors" data-flag-title="go语言并发模型">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -2454,10 +2871,10 @@ sharp.<span style="color: #0000ff; font-weight: bold;">Circle</span>()
 </p>
 
 <p>
-线程的问题是：<br  />
-1）存在线程安全问题，出了问题非常不易定位。<br  />
-2）进程内部有线程数目的限制。<br  />
-3）随着并发量的增加，线程生成和切换的成本也变得昂贵。<br  />
+线程的问题是：<br>
+1）存在线程安全问题，出了问题非常不易定位。<br>
+2）进程内部有线程数目的限制。<br>
+3）随着并发量的增加，线程生成和切换的成本也变得昂贵。<br>
 </p>
 </blockquote>
 </div>
@@ -2496,16 +2913,16 @@ sharp.<span style="color: #0000ff; font-weight: bold;">Circle</span>()
 <div class="outline-text-3" id="text-1-3">
 <blockquote>
 <p>
-并发编程的难度在于协调，而协调就要通过通信。<br  />
-并发通信模型： 共享数据和消息。<br  />
+并发编程的难度在于协调，而协调就要通过通信。<br>
+并发通信模型： 共享数据和消息。<br>
 </p>
 
 <p>
-基于内存的消息通信缺点：<br  />
-我们还能用多线程干活，只是因为我们手里还有加锁机制，<br  />
-而它可以部分地堵上线程模型的漏洞。讽刺的是，<br  />
-引入加锁机制解决问题的同时，又带来了新的问题，<br  />
-所以我们编写多线程程序总会遇上死锁，活锁，优先级反转……等等。<br  />
+基于内存的消息通信缺点：<br>
+我们还能用多线程干活，只是因为我们手里还有加锁机制，<br>
+而它可以部分地堵上线程模型的漏洞。讽刺的是，<br>
+引入加锁机制解决问题的同时，又带来了新的问题，<br>
+所以我们编写多线程程序总会遇上死锁，活锁，优先级反转……等等。<br>
 </p>
 
 <p>
@@ -2533,7 +2950,7 @@ sharp.<span style="color: #0000ff; font-weight: bold;">Circle</span>()
 <h3 id="sec-1-4">go语言并发编程</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
-<b>goroutine</b> 是协程的实现，由Go runtime管理，使用只需要<br  />
+<b>goroutine</b> 是协程的实现，由Go runtime管理，使用只需要<br>
 <b>go</b> 关键字开启。
 </p>
 
@@ -2542,12 +2959,12 @@ sharp.<span style="color: #0000ff; font-weight: bold;">Circle</span>()
 </p>
 <blockquote>
 <p>
-通道是协程之间的数据传输通道。通道可以在众多的协程之间传递数据，<br  />
-具体可以值也可以是个引用。通道有两种使用方式。<br  />
- ·  协程可以试图向通道放入数据，如果通道满了，会挂起协程，<br  />
-    直到通道可以为他放入数据为止。<br  />
- ·  协程可以试图向通道索取数据，如果通道没有数据，会挂起协程，<br  />
-    直到通道返回数据为止。<br  />
+通道是协程之间的数据传输通道。通道可以在众多的协程之间传递数据，<br>
+具体可以值也可以是个引用。通道有两种使用方式。<br>
+ ·  协程可以试图向通道放入数据，如果通道满了，会挂起协程，<br>
+    直到通道可以为他放入数据为止。<br>
+ ·  协程可以试图向通道索取数据，如果通道没有数据，会挂起协程，<br>
+    直到通道返回数据为止。<br>
 </p>
 </blockquote>
 </div>
@@ -2593,7 +3010,7 @@ sharp.<span style="color: #0000ff; font-weight: bold;">Circle</span>()
 <div id="outline-container-sec-1-6" class="outline-3">
 <h3 id="sec-1-6">总结</h3>
 <div class="outline-text-3" id="text-1-6">
-</div><ul class="org-ul"><li>Golang的并发模型是基于消息来共享内存，这种模型的好处就是程序员可以控制并发。<br  /></li></ul>
+</div><ul class="org-ul"><li>Golang的并发模型是基于消息来共享内存，这种模型的好处就是程序员可以控制并发。<br></li></ul>
 </div>
 
 
@@ -2602,32 +3019,37 @@ sharp.<span style="color: #0000ff; font-weight: bold;">Circle</span>()
 <div class="outline-text-3" id="text-1-7">
 <blockquote>
 <p>
-<a href="http://www.cnblogs.com/shenguanpu/archive/2013/05/05/3060616.html">http://www.cnblogs.com/shenguanpu/archive/2013/05/05/3060616.html</a> <br  />
-<a href="http://www.cnblogs.com/chgaowei/archive/2012/06/21/2557175.html">http://www.cnblogs.com/chgaowei/archive/2012/06/21/2557175.html</a><br  />
-《Go语言编程》 许式伟 吕桂华<br  />
-<a href="http://qing.blog.sina.com.cn/tj/88ca09aa33002ele.html">http://qing.blog.sina.com.cn/tj/88ca09aa33002ele.html</a><br  />
+<a href="http://www.cnblogs.com/shenguanpu/archive/2013/05/05/3060616.html" target="_blank" rel="external">http://www.cnblogs.com/shenguanpu/archive/2013/05/05/3060616.html</a> <br>
+<a href="http://www.cnblogs.com/chgaowei/archive/2012/06/21/2557175.html" target="_blank" rel="external">http://www.cnblogs.com/chgaowei/archive/2012/06/21/2557175.html</a><br>
+《Go语言编程》 许式伟 吕桂华<br>
+<a href="http://qing.blog.sina.com.cn/tj/88ca09aa33002ele.html" target="_blank" rel="external">http://qing.blog.sina.com.cn/tj/88ca09aa33002ele.html</a><br>
 </p>
 </blockquote>
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2014-04-25/2014-04-25-go语言并发模型/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -2637,6 +3059,10 @@ sharp.<span style="color: #0000ff; font-weight: bold;">Circle</span>()
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -2644,13 +3070,27 @@ sharp.<span style="color: #0000ff; font-weight: bold;">Circle</span>()
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2014-04-20/2014-04-20-mysql统计/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -2658,38 +3098,42 @@ sharp.<span style="color: #0000ff; font-weight: bold;">Circle</span>()
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2014-04-20/2014-04-20-mysql统计/" itemprop="url">
-                  MySQL统计
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2014-04-20/2014-04-20-mysql统计/" itemprop="url">MySQL统计</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-04-20T00:00:00+08:00" content="2014-04-20">
-              2014-04-20
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-04-20T00:00:00+08:00">
+                2014-04-20
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/MySql/" itemprop="url" rel="index">
                     <span itemprop="name">MySql</span>
                   </a>
@@ -2697,35 +3141,52 @@ sharp.<span style="color: #0000ff; font-weight: bold;">Circle</span>()
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2014-04-20/2014-04-20-mysql统计/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2014-04-20/2014-04-20-mysql统计/" class="cy_cmt_count" data-xid="2014-04-20/2014-04-20-mysql统计/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2014-04-20/2014-04-20-mysql统计/" class="leancloud_visitors" data-flag-title="MySQL统计">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -2737,7 +3198,7 @@ sharp.<span style="color: #0000ff; font-weight: bold;">Circle</span>()
 <h2 id="sec-1">按日期统计</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-代码：<br  />
+代码：<br>
 </p>
 <div class="org-src-container">
 
@@ -2764,8 +3225,8 @@ GROUP BY YEAR(`date_field`), MONTH(`date_field`), DAY(`date_field`)
 <h2 id="sec-2">一个字段不同的统计条件</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-使用 <b>CASE</b> 关键字<br  />
-代码：<br  />
+使用 <b>CASE</b> 关键字<br>
+代码：<br>
 </p>
 <div class="org-src-container">
 
@@ -2789,7 +3250,7 @@ GROUP BY YEAR(`finishtime`), MONTH(`finishtime`)
 <h3 id="sec-3-1">为什么使用 ` `</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
-为了区别SQL关键字和数据库的字段。<br  />
+为了区别SQL关键字和数据库的字段。<br>
 </p>
 </div>
 </div>
@@ -2798,8 +3259,8 @@ GROUP BY YEAR(`finishtime`), MONTH(`finishtime`)
 <h3 id="sec-3-2">为什么不用IS NULL 和 IS NOT NULL来过滤数据</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
-使用IS NULL 或这IS NOT NULL 无法命中索引，导致效率问题，<br  />
-可以使用 `field`&gt;'' 或者 `field`&gt;0替换上述情况。<br  />
+使用IS NULL 或这IS NOT NULL 无法命中索引，导致效率问题，<br>
+可以使用 `field`&gt;'' 或者 `field`&gt;0替换上述情况。<br>
 </p>
 </div>
 </div>
@@ -2808,7 +3269,7 @@ GROUP BY YEAR(`finishtime`), MONTH(`finishtime`)
 <h3 id="sec-3-3">SQL 规范</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
-SQL 的关键字都用大写。 <br  />
+SQL 的关键字都用大写。 <br>
 </p>
 </div>
 </div>
@@ -2836,26 +3297,31 @@ FROM_UNIXTIME(unixtime)
 </div>
 </div>
 
-<ul class="org-ul"><li>最后更新<span class="timestamp-wrapper"><span class="timestamp">[2014-04-20 日 20:24]</span></span><br  /><div class="outline-text-6" id="text-3-5-0-0-1">
+<ul class="org-ul"><li>最后更新<span class="timestamp-wrapper"><span class="timestamp">[2014-04-20 日 20:24]</span></span><br><div class="outline-text-6" id="text-3-5-0-0-1">
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2014-04-20/2014-04-20-mysql统计/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -2865,6 +3331,10 @@ FROM_UNIXTIME(unixtime)
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -2897,31 +3367,39 @@ FROM_UNIXTIME(unixtime)
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg"
                alt="runforever" />
           <p class="site-author-name" itemprop="name">runforever</p>
-          <p class="site-description motion-element" itemprop="description">思考与记录</p>
+           
+              <p class="site-description motion-element" itemprop="description">K.I.S.S</p>
+          
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">32</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
 
           
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -2949,7 +3427,9 @@ FROM_UNIXTIME(unixtime)
                   
                     <i class="fa fa-fw fa-github"></i>
                   
-                  GitHub
+                    
+                      GitHub
+                    
                 </a>
               </span>
             
@@ -2958,16 +3438,20 @@ FROM_UNIXTIME(unixtime)
                   
                     <i class="fa fa-fw fa-globe"></i>
                   
-                  Bitbucket
+                    
+                      Bitbucket
+                    
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://github.com/runforever/runforever.github.com/issues/new" target="_blank" title="提 Issue">
+                <a href="https://github.com/runforever/runforever.github.com/issues/new" target="_blank" title="Issue">
                   
                     <i class="fa fa-fw fa-globe"></i>
                   
-                  提 Issue
+                    
+                      Issue
+                    
                 </a>
               </span>
             
@@ -2980,7 +3464,12 @@ FROM_UNIXTIME(unixtime)
         
         
 
+        
+
+
       </section>
+
+      
 
       
 
@@ -3002,28 +3491,44 @@ FROM_UNIXTIME(unixtime)
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">runforever</span>
+
+  
 </div>
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
+  <div class="powered-by">
+    由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+  </div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">
+    主题 &mdash;
+    <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+      NexT.Gemini
+    </a>
+  </div>
+
 
         
+
+
+
+
+
+
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
   </div>
 
   
@@ -3043,6 +3548,15 @@ FROM_UNIXTIME(unixtime)
 
 
   
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3068,42 +3582,78 @@ FROM_UNIXTIME(unixtime)
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
-
-
-
-  
-
-
-
-  
-
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
   
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
   
 
   
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cytaFECxl"></script>
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
   <script>AV.initialize("X8cdFXDspCtfRDzoNsWTTLdv-gzGzoHsz", "44Pa7S7UXwFW2x1syGaCOnLX");</script>
   <script>
     function showTime(Counter) {
@@ -3213,6 +3763,11 @@ FROM_UNIXTIME(unixtime)
 
   
 
+  
+
+  
+
+  
 
 </body>
 </html>

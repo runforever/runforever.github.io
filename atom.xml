@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Runforever</title>
-  <subtitle>K.I.S.S</subtitle>
+  <subtitle>to be a rock star</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://runforever.github.io/"/>
+  <link href="http://blog.defcoding.com/"/>
   <updated>2017-07-13T11:16:31.000Z</updated>
-  <id>http://runforever.github.io/</id>
+  <id>http://blog.defcoding.com/</id>
   
   <author>
     <name>runforever</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>使用 Python 和 Phantomjs 对网页截图</title>
-    <link href="http://runforever.github.io/2017-07-13/2017-07-13-%E4%BD%BF%E7%94%A8-python-%E5%92%8C-phantomjs-%E5%AF%B9%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/"/>
-    <id>http://runforever.github.io/2017-07-13/2017-07-13-使用-python-和-phantomjs-对网页截图/</id>
+    <link href="http://blog.defcoding.com/2017-07-13/2017-07-13-%E4%BD%BF%E7%94%A8-python-%E5%92%8C-phantomjs-%E5%AF%B9%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/"/>
+    <id>http://blog.defcoding.com/2017-07-13/2017-07-13-使用-python-和-phantomjs-对网页截图/</id>
     <published>2017-07-12T16:00:00.000Z</published>
     <updated>2017-07-13T11:16:31.000Z</updated>
     
@@ -134,9 +134,9 @@
 &lt;h2 id=&quot;sec-3&quot;&gt;安装&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 &lt;ol class=&quot;org-ol&quot;&gt;
-&lt;li&gt;使用这个 &lt;a href=&quot;https://gist.github.com/rahularyan/ff4619c435f8bb94ef5b&quot;&gt;Gist&lt;/a&gt; 安装 phantomjs。
+&lt;li&gt;使用这个 &lt;a href=&quot;https://gist.github.com/rahularyan/ff4619c435f8bb94ef5b&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Gist&lt;/a&gt; 安装 phantomjs。
 &lt;/li&gt;
-&lt;li&gt;使用 &lt;code&gt;pip install selenium&lt;/code&gt; ，&lt;a href=&quot;http://selenium-python.readthedocs.io/installation.html&quot;&gt;Selenium 文档&lt;/a&gt;。
+&lt;li&gt;使用 &lt;code&gt;pip install selenium&lt;/code&gt; ，&lt;a href=&quot;http://selenium-python.readthedocs.io/installation.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Selenium 文档&lt;/a&gt;。
 &lt;/li&gt;
 &lt;li&gt;安装中文字体： &lt;code&gt;apt-get install xfonts-wqy ttf-wqy-microhei&lt;/code&gt;
 &lt;/li&gt;
@@ -146,15 +146,15 @@
     
     </summary>
     
-      <category term="Python" scheme="http://runforever.github.io/categories/Python/"/>
+      <category term="Python" scheme="http://blog.defcoding.com/categories/Python/"/>
     
     
   </entry>
   
   <entry>
     <title>扩展 Docker 官方镜像（以 Elasticsearch 添加 ik 分词为例）</title>
-    <link href="http://runforever.github.io/2017-02-06/2017-02-06-%E6%89%A9%E5%B1%95-docker-%E5%AE%98%E6%96%B9%E9%95%9C%E5%83%8F%EF%BC%88%E4%BB%A5-elasticsearch-%E6%B7%BB%E5%8A%A0-ik-%E5%88%86%E8%AF%8D%E4%B8%BA%E4%BE%8B%EF%BC%89/"/>
-    <id>http://runforever.github.io/2017-02-06/2017-02-06-扩展-docker-官方镜像（以-elasticsearch-添加-ik-分词为例）/</id>
+    <link href="http://blog.defcoding.com/2017-02-06/2017-02-06-%E6%89%A9%E5%B1%95-docker-%E5%AE%98%E6%96%B9%E9%95%9C%E5%83%8F%EF%BC%88%E4%BB%A5-elasticsearch-%E6%B7%BB%E5%8A%A0-ik-%E5%88%86%E8%AF%8D%E4%B8%BA%E4%BE%8B%EF%BC%89/"/>
+    <id>http://blog.defcoding.com/2017-02-06/2017-02-06-扩展-docker-官方镜像（以-elasticsearch-添加-ik-分词为例）/</id>
     <published>2017-02-05T16:00:00.000Z</published>
     <updated>2017-02-06T12:56:47.000Z</updated>
     
@@ -335,7 +335,7 @@ GitHub 地址：<a href="https://github.com/runforever/es_ik5.1.1" target="_blan
 &lt;h2 id=&quot;sec-1&quot;&gt;需求&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 &lt;p&gt;
-最近做的一个应用使用 Elasticsearch 做全文搜索引擎，由于是中文的全文搜索，需要 Elasticsearch 的中文分词插件对内容进行分词，经过调研决定使用 Elasticsearch 5.1.1 版本（现已更新成 5.2.0 版本）和 &lt;a href=&quot;https://github.com/medcl/elasticsearch-analysis-ik&quot;&gt;elasticsearch-analysis-ik&lt;/a&gt; 中文分词插件。
+最近做的一个应用使用 Elasticsearch 做全文搜索引擎，由于是中文的全文搜索，需要 Elasticsearch 的中文分词插件对内容进行分词，经过调研决定使用 Elasticsearch 5.1.1 版本（现已更新成 5.2.0 版本）和 &lt;a href=&quot;https://github.com/medcl/elasticsearch-analysis-ik&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;elasticsearch-analysis-ik&lt;/a&gt; 中文分词插件。
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -364,17 +364,17 @@ GitHub 地址：<a href="https://github.com/runforever/es_ik5.1.1" target="_blan
     
     </summary>
     
-      <category term="Docker" scheme="http://runforever.github.io/categories/Docker/"/>
+      <category term="Docker" scheme="http://blog.defcoding.com/categories/Docker/"/>
     
-      <category term="Elasticsearch" scheme="http://runforever.github.io/categories/Docker/Elasticsearch/"/>
+      <category term="Elasticsearch" scheme="http://blog.defcoding.com/categories/Docker/Elasticsearch/"/>
     
     
   </entry>
   
   <entry>
     <title>PostgresSQL 同步数据到 Elasticsearch 方案调研总结</title>
-    <link href="http://runforever.github.io/2017-02-05/2017-02-05-postgressql-%E5%90%8C%E6%AD%A5%E6%95%B0%E6%8D%AE%E5%88%B0-elasticsearch-%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88%E8%B0%83%E7%A0%94/"/>
-    <id>http://runforever.github.io/2017-02-05/2017-02-05-postgressql-同步数据到-elasticsearch-技术方案调研/</id>
+    <link href="http://blog.defcoding.com/2017-02-05/2017-02-05-postgressql-%E5%90%8C%E6%AD%A5%E6%95%B0%E6%8D%AE%E5%88%B0-elasticsearch-%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88%E8%B0%83%E7%A0%94/"/>
+    <id>http://blog.defcoding.com/2017-02-05/2017-02-05-postgressql-同步数据到-elasticsearch-技术方案调研/</id>
     <published>2017-02-04T16:00:00.000Z</published>
     <updated>2017-02-06T12:49:24.000Z</updated>
     
@@ -569,16 +569,16 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
 &lt;h2 id=&quot;sec-3&quot;&gt;方案一：通过 PostgreSQL 的 FDW 功能同步&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 &lt;p&gt;
-方案的来源：&lt;a href=&quot;https://yq.aliyun.com/articles/56824&quot;&gt;PostgreSQL内核扩展之 - Elasticsearch同步插件&lt;/a&gt;
+方案的来源：&lt;a href=&quot;https://yq.aliyun.com/articles/56824&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;PostgreSQL内核扩展之 - Elasticsearch同步插件&lt;/a&gt;
 &lt;/p&gt;
 
 &lt;p&gt;
 架构图：
-&lt;img src=&quot;http://cdn.defcoding.com/70591D01-86B9-4006-BA3A-EEBE4D64787B.png&quot; alt=&quot;70591D01-86B9-4006-BA3A-EEBE4D64787B.png&quot; /&gt;
+&lt;img src=&quot;http://cdn.defcoding.com/70591D01-86B9-4006-BA3A-EEBE4D64787B.png&quot; alt=&quot;70591D01-86B9-4006-BA3A-EEBE4D64787B.png&quot;&gt;
 &lt;/p&gt;
 
 &lt;p&gt;
-关键技术点：通过 PostgreSQL 的 &lt;a href=&quot;https://wiki.postgresql.org/wiki/Foreign_data_wrappers&quot;&gt;FDW&lt;/a&gt;（Foreign data wrappers）特性，在 PostgreSQL 层面使用数据库触发器的方式将相应的表数据同步到 Elasticsearch 中，
+关键技术点：通过 PostgreSQL 的 &lt;a href=&quot;https://wiki.postgresql.org/wiki/Foreign_data_wrappers&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;FDW&lt;/a&gt;（Foreign data wrappers）特性，在 PostgreSQL 层面使用数据库触发器的方式将相应的表数据同步到 Elasticsearch 中，
 在要同步的表上添加新建、更新、删除的同步触发器。
 &lt;/p&gt;
 
@@ -586,17 +586,17 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
     
     </summary>
     
-      <category term="PostgreSQL" scheme="http://runforever.github.io/categories/PostgreSQL/"/>
+      <category term="PostgreSQL" scheme="http://blog.defcoding.com/categories/PostgreSQL/"/>
     
-      <category term="Elasticsearch" scheme="http://runforever.github.io/categories/PostgreSQL/Elasticsearch/"/>
+      <category term="Elasticsearch" scheme="http://blog.defcoding.com/categories/PostgreSQL/Elasticsearch/"/>
     
     
   </entry>
   
   <entry>
     <title>我用 5 天写了一个 OSX Menu Bar App（第五天）</title>
-    <link href="http://runforever.github.io/2017-02-04/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%94%E5%A4%A9%EF%BC%89/"/>
-    <id>http://runforever.github.io/2017-02-04/2017-02-03-我用-5-天写了一个-osx-menu-bar-app（第五天）/</id>
+    <link href="http://blog.defcoding.com/2017-02-04/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%94%E5%A4%A9%EF%BC%89/"/>
+    <id>http://blog.defcoding.com/2017-02-04/2017-02-03-我用-5-天写了一个-osx-menu-bar-app（第五天）/</id>
     <published>2017-02-03T16:00:00.000Z</published>
     <updated>2017-02-03T13:01:30.000Z</updated>
     
@@ -605,15 +605,15 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
 <h2 id="sec-1">目录</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
-<li><a href="http://blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/" target="_blank" rel="external">第一天（方案调研和框架搭建）</a>
+<li><a href="http://blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/">第一天（方案调研和框架搭建）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第二天（快速原型跑通流程）</a>
+<li><a href="http://blog.defcoding.com/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/">第二天（快速原型跑通流程）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第三天（拖动上传和上传多张图片）</a>
+<li><a href="http://blog.defcoding.com/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/">第三天（拖动上传和上传多张图片）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E5%9B%9B%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第四天（UI 细节调整）</a>
+<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E5%9B%9B%E5%A4%A9%EF%BC%89/">第四天（UI 细节调整）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%94%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第五天（设计 Logo 和总结）</a>
+<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%94%E5%A4%A9%EF%BC%89/">第五天（设计 Logo 和总结）</a>
 </li>
 </ol>
 </div>
@@ -706,7 +706,7 @@ Logo 设计出来了，要把它转成 Mac 需要格式和大小，不知道什�
 &lt;h2 id=&quot;sec-2&quot;&gt;第五天（设计 Logo 和总结）&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 &lt;p&gt;
-前面的工作做完这个应用就基本成型了，接下来就是重构代码，迭代新 Feature，设计一下 Logo，写写总结了。&lt;br  /&gt;
+前面的工作做完这个应用就基本成型了，接下来就是重构代码，迭代新 Feature，设计一下 Logo，写写总结了。&lt;br&gt;
 重构和迭代是一个持续的过程，这个没什么好说的，就是不断的改进代码，设计 Logo 的过程倒是可以说说。
 &lt;/p&gt;
 
@@ -714,15 +714,15 @@ Logo 设计出来了，要把它转成 Mac 需要格式和大小，不知道什�
     
     </summary>
     
-      <category term="Swift" scheme="http://runforever.github.io/categories/Swift/"/>
+      <category term="Swift" scheme="http://blog.defcoding.com/categories/Swift/"/>
     
     
   </entry>
   
   <entry>
     <title>我用 5 天写了一个 OSX Menu Bar App（第四天）</title>
-    <link href="http://runforever.github.io/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E5%9B%9B%E5%A4%A9%EF%BC%89/"/>
-    <id>http://runforever.github.io/2017-02-03/2017-02-03-我用-5-天写了一个-osx-menu-bar-app（第四天）/</id>
+    <link href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E5%9B%9B%E5%A4%A9%EF%BC%89/"/>
+    <id>http://blog.defcoding.com/2017-02-03/2017-02-03-我用-5-天写了一个-osx-menu-bar-app（第四天）/</id>
     <published>2017-02-02T16:00:00.000Z</published>
     <updated>2017-02-03T12:51:43.000Z</updated>
     
@@ -731,15 +731,15 @@ Logo 设计出来了，要把它转成 Mac 需要格式和大小，不知道什�
 <h2 id="sec-1">目录</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
-<li><a href="http://blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/" target="_blank" rel="external">第一天（方案调研和框架搭建）</a>
+<li><a href="http://blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/">第一天（方案调研和框架搭建）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第二天（快速原型跑通流程）</a>
+<li><a href="http://blog.defcoding.com/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/">第二天（快速原型跑通流程）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第三天（拖动上传和上传多张图片）</a>
+<li><a href="http://blog.defcoding.com/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/">第三天（拖动上传和上传多张图片）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E5%9B%9B%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第四天（UI 细节调整）</a>
+<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E5%9B%9B%E5%A4%A9%EF%BC%89/">第四天（UI 细节调整）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%94%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第五天（设计 Logo 和总结）</a>
+<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%94%E5%A4%A9%EF%BC%89/">第五天（设计 Logo 和总结）</a>
 </li>
 </ol>
 </div>
@@ -1085,12 +1085,12 @@ class SettingViewController: NSViewController {
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-2-1&quot;&gt;
 &lt;p&gt;
 上传成功的 UI
-&lt;img src=&quot;http://cdn.defcoding.com/6FDE92BD-2FE0-4063-BB98-B9573AA94D3C.png&quot; alt=&quot;6FDE92BD-2FE0-4063-BB98-B9573AA94D3C.png&quot; /&gt;
+&lt;img src=&quot;http://cdn.defcoding.com/6FDE92BD-2FE0-4063-BB98-B9573AA94D3C.png&quot; alt=&quot;6FDE92BD-2FE0-4063-BB98-B9573AA94D3C.png&quot;&gt;
 &lt;/p&gt;
 
 &lt;p&gt;
 设置的 UI
-&lt;img src=&quot;http://cdn.defcoding.com/E9A7253E-51F1-420F-AF85-DDB558831949.png&quot; alt=&quot;E9A7253E-51F1-420F-AF85-DDB558831949.png&quot; /&gt;
+&lt;img src=&quot;http://cdn.defcoding.com/E9A7253E-51F1-420F-AF85-DDB558831949.png&quot; alt=&quot;E9A7253E-51F1-420F-AF85-DDB558831949.png&quot;&gt;
 &lt;/p&gt;
 
 &lt;p&gt;
@@ -1101,15 +1101,15 @@ class SettingViewController: NSViewController {
     
     </summary>
     
-      <category term="Swift" scheme="http://runforever.github.io/categories/Swift/"/>
+      <category term="Swift" scheme="http://blog.defcoding.com/categories/Swift/"/>
     
     
   </entry>
   
   <entry>
     <title>我用 5 天写了一个 OSX Menu Bar App（第三天）</title>
-    <link href="http://runforever.github.io/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/"/>
-    <id>http://runforever.github.io/2017-02-02/2017-02-02-我用-5-天写了一个-osx-menu-bar-app（第三天）/</id>
+    <link href="http://blog.defcoding.com/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/"/>
+    <id>http://blog.defcoding.com/2017-02-02/2017-02-02-我用-5-天写了一个-osx-menu-bar-app（第三天）/</id>
     <published>2017-02-01T16:00:00.000Z</published>
     <updated>2017-02-03T12:51:43.000Z</updated>
     
@@ -1118,15 +1118,15 @@ class SettingViewController: NSViewController {
 <h2 id="sec-1">目录</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
-<li><a href="http://blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/" target="_blank" rel="external">第一天（方案调研和框架搭建）</a>
+<li><a href="http://blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/">第一天（方案调研和框架搭建）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第二天（快速原型跑通流程）</a>
+<li><a href="http://blog.defcoding.com/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/">第二天（快速原型跑通流程）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第三天（拖动上传和上传多张图片）</a>
+<li><a href="http://blog.defcoding.com/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/">第三天（拖动上传和上传多张图片）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E5%9B%9B%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第四天（UI 细节调整）</a>
+<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E5%9B%9B%E5%A4%A9%EF%BC%89/">第四天（UI 细节调整）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%94%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第五天（设计 Logo 和总结）</a>
+<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%94%E5%A4%A9%EF%BC%89/">第五天（设计 Logo 和总结）</a>
 </li>
 </ol>
 </div>
@@ -1452,14 +1452,14 @@ Promise 编程模型和 PromiseKit 库是非常值得学习的，在 iOS 相关�
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 &lt;p&gt;
 使用 Google 先查找方案：
-&lt;img src=&quot;http://cdn.defcoding.com/CB8C546F-AD0E-4F7E-9AFA-29138BBFE187.png&quot; alt=&quot;CB8C546F-AD0E-4F7E-9AFA-29138BBFE187.png&quot; /&gt;
+&lt;img src=&quot;http://cdn.defcoding.com/CB8C546F-AD0E-4F7E-9AFA-29138BBFE187.png&quot; alt=&quot;CB8C546F-AD0E-4F7E-9AFA-29138BBFE187.png&quot;&gt;
 &lt;/p&gt;
 
 &lt;p&gt;
-根据 Google 搜到文章的更新时间查看了一下相关资料，其中这篇 &lt;a href=&quot;http://swiftrien.blogspot.hk/2015/03/file-drag-drop-for-os-x.html&quot;&gt;File drag &amp;amp; drop for OS-X&lt;/a&gt; 让
-我对 &lt;code&gt;OSX 的 Drag &amp;amp; Drop&lt;/code&gt; 编程有了个大概的了解，进而查找到了&lt;a href=&quot;https://developer.apple.com/reference/appkit/nsdraggingdestination&quot;&gt;NSDraggingDestination&lt;/a&gt;  协议，
+根据 Google 搜到文章的更新时间查看了一下相关资料，其中这篇 &lt;a href=&quot;http://swiftrien.blogspot.hk/2015/03/file-drag-drop-for-os-x.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;File drag &amp;amp; drop for OS-X&lt;/a&gt; 让
+我对 &lt;code&gt;OSX 的 Drag &amp;amp; Drop&lt;/code&gt; 编程有了个大概的了解，进而查找到了&lt;a href=&quot;https://developer.apple.com/reference/appkit/nsdraggingdestination&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NSDraggingDestination&lt;/a&gt;  协议，
 查看官方文档确定这个是我想要的东西。
-&lt;img src=&quot;http://cdn.defcoding.com/BB27652F-7B86-433A-A19E-1365AEA67B24.png&quot; alt=&quot;BB27652F-7B86-433A-A19E-1365AEA67B24.png&quot; /&gt;
+&lt;img src=&quot;http://cdn.defcoding.com/BB27652F-7B86-433A-A19E-1365AEA67B24.png&quot; alt=&quot;BB27652F-7B86-433A-A19E-1365AEA67B24.png&quot;&gt;
 &lt;/p&gt;
 
 &lt;p&gt;
@@ -1481,15 +1481,15 @@ NSDraaingDestination 的使用总结：
     
     </summary>
     
-      <category term="Swift" scheme="http://runforever.github.io/categories/Swift/"/>
+      <category term="Swift" scheme="http://blog.defcoding.com/categories/Swift/"/>
     
     
   </entry>
   
   <entry>
     <title>我用 5 天写了一个 OSX Menu Bar App（第二天）</title>
-    <link href="http://runforever.github.io/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/"/>
-    <id>http://runforever.github.io/2017-02-01/2017-02-01-我用-5-天写了一个-osx-menu-bar-app（第二天）/</id>
+    <link href="http://blog.defcoding.com/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/"/>
+    <id>http://blog.defcoding.com/2017-02-01/2017-02-01-我用-5-天写了一个-osx-menu-bar-app（第二天）/</id>
     <published>2017-01-31T16:00:00.000Z</published>
     <updated>2017-02-03T12:51:44.000Z</updated>
     
@@ -1498,15 +1498,15 @@ NSDraaingDestination 的使用总结：
 <h2 id="sec-1">目录</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
-<li><a href="http://blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/" target="_blank" rel="external">第一天（方案调研和框架搭建）</a>
+<li><a href="http://blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/">第一天（方案调研和框架搭建）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第二天（快速原型跑通流程）</a>
+<li><a href="http://blog.defcoding.com/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/">第二天（快速原型跑通流程）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第三天（拖动上传和上传多张图片）</a>
+<li><a href="http://blog.defcoding.com/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/">第三天（拖动上传和上传多张图片）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E5%9B%9B%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第四天（UI 细节调整）</a>
+<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E5%9B%9B%E5%A4%A9%EF%BC%89/">第四天（UI 细节调整）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%94%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第五天（设计 Logo 和总结）</a>
+<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%94%E5%A4%A9%EF%BC%89/">第五天（设计 Logo 和总结）</a>
 </li>
 </ol>
 </div>
@@ -1881,8 +1881,8 @@ upload fail
 &lt;h3 id=&quot;sec-3-1&quot;&gt;七牛推荐的模型&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-1&quot;&gt;
 &lt;p&gt;
-&lt;img src=&quot;http://cdn.defcoding.com/3DC4851E-57DE-4743-AD1C-9ED2DC763D02.png&quot; alt=&quot;3DC4851E-57DE-4743-AD1C-9ED2DC763D02.png&quot; /&gt;
-参考文档：&lt;a href=&quot;https://developer.qiniu.io/kodo/manual/security&quot;&gt;七牛安全机制&lt;/a&gt;
+&lt;img src=&quot;http://cdn.defcoding.com/3DC4851E-57DE-4743-AD1C-9ED2DC763D02.png&quot; alt=&quot;3DC4851E-57DE-4743-AD1C-9ED2DC763D02.png&quot;&gt;
+参考文档：&lt;a href=&quot;https://developer.qiniu.io/kodo/manual/security&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;七牛安全机制&lt;/a&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1910,8 +1910,8 @@ upload fail
 &lt;/ol&gt;
 
 &lt;p&gt;
-七牛推荐的方式是客户端在上传时先请求服务端生成上传策略，客户端获取到上传策略后才能上传文件。&lt;br  /&gt;
-这个应用只有客户端，上传凭证只能在客户端构造，构造的算法参考：&lt;a href=&quot;https://developer.qiniu.io/kodo/manual/upload-token&quot;&gt;上传凭证&lt;/a&gt;
+七牛推荐的方式是客户端在上传时先请求服务端生成上传策略，客户端获取到上传策略后才能上传文件。&lt;br&gt;
+这个应用只有客户端，上传凭证只能在客户端构造，构造的算法参考：&lt;a href=&quot;https://developer.qiniu.io/kodo/manual/upload-token&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;上传凭证&lt;/a&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1920,11 +1920,11 @@ upload fail
 &lt;h3 id=&quot;sec-3-4&quot;&gt;经过分析，我需要如下 Swift 库：&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-3-4&quot;&gt;
 &lt;ol class=&quot;org-ol&quot;&gt;
-&lt;li&gt;七牛的官方 &lt;a href=&quot;https://github.com/qiniu/objc-sdk&quot;&gt;iOS SDK&lt;/a&gt;。
+&lt;li&gt;七牛的官方 &lt;a href=&quot;https://github.com/qiniu/objc-sdk&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS SDK&lt;/a&gt;。
 &lt;/li&gt;
-&lt;li&gt;对字符串进行 HMAC-SHA1 加密的库 &lt;a href=&quot;https://github.com/krzyzanowskim/CryptoSwift&quot;&gt;CryptoSwift&lt;/a&gt;。
+&lt;li&gt;对字符串进行 HMAC-SHA1 加密的库 &lt;a href=&quot;https://github.com/krzyzanowskim/CryptoSwift&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CryptoSwift&lt;/a&gt;。
 &lt;/li&gt;
-&lt;li&gt;能解析 JSON 的库 &lt;a href=&quot;https://github.com/SwiftyJSON/SwiftyJSON&quot;&gt;SwiftyJSON&lt;/a&gt;。
+&lt;li&gt;能解析 JSON 的库 &lt;a href=&quot;https://github.com/SwiftyJSON/SwiftyJSON&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SwiftyJSON&lt;/a&gt;。
 &lt;/li&gt;
 &lt;/ol&gt;
 
@@ -1936,15 +1936,15 @@ upload fail
     
     </summary>
     
-      <category term="Swift" scheme="http://runforever.github.io/categories/Swift/"/>
+      <category term="Swift" scheme="http://blog.defcoding.com/categories/Swift/"/>
     
     
   </entry>
   
   <entry>
     <title>我用 5 天写了一个 OSX Menu Bar App（第一天）</title>
-    <link href="http://runforever.github.io/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/"/>
-    <id>http://runforever.github.io/2016-12-05/2016-12-05-我用-5-天写了一个-osx-menu-bar-app/</id>
+    <link href="http://blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/"/>
+    <id>http://blog.defcoding.com/2016-12-05/2016-12-05-我用-5-天写了一个-osx-menu-bar-app/</id>
     <published>2016-12-04T16:00:00.000Z</published>
     <updated>2017-02-03T12:51:44.000Z</updated>
     
@@ -1953,15 +1953,15 @@ upload fail
 <h2 id="sec-1">目录</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
-<li><a href="http://blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/" target="_blank" rel="external">第一天（方案调研和框架搭建）</a>
+<li><a href="http://blog.defcoding.com/2016-12-05/2016-12-05-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app/">第一天（方案调研和框架搭建）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第二天（快速原型跑通流程）</a>
+<li><a href="http://blog.defcoding.com/2017-02-01/2017-02-01-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%8C%E5%A4%A9%EF%BC%89/">第二天（快速原型跑通流程）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第三天（拖动上传和上传多张图片）</a>
+<li><a href="http://blog.defcoding.com/2017-02-02/2017-02-02-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%B8%89%E5%A4%A9%EF%BC%89/">第三天（拖动上传和上传多张图片）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E5%9B%9B%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第四天（UI 细节调整）</a>
+<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E5%9B%9B%E5%A4%A9%EF%BC%89/">第四天（UI 细节调整）</a>
 </li>
-<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%94%E5%A4%A9%EF%BC%89/" target="_blank" rel="external">第五天（设计 Logo 和总结）</a>
+<li><a href="http://blog.defcoding.com/2017-02-03/2017-02-03-%E6%88%91%E7%94%A8-5-%E5%A4%A9%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA-osx-menu-bar-app%EF%BC%88%E7%AC%AC%E4%BA%94%E5%A4%A9%EF%BC%89/">第五天（设计 Logo 和总结）</a>
 </li>
 </ol>
 </div>
@@ -2322,7 +2322,7 @@ class DragAppController: NSObject {
 &lt;h2 id=&quot;sec-3&quot;&gt;起源&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-3&quot;&gt;
 &lt;p&gt;
-我在尝试写一本初学者的编程书《&lt;a href=&quot;http://py.defcoding.com&quot;&gt;如何教妹子学 Python&lt;/a&gt;》，书中的图片是上传到七牛云上的，每次上传图片的流程让我觉得很难受，保存图片到桌面，打开浏览器，进入七牛后台，选择图片，上传成功，复制链接，写成 Markdown，放到书里&amp;#x2026;&amp;#x2026;&lt;br  /&gt;
+我在尝试写一本初学者的编程书《&lt;a href=&quot;http://py.defcoding.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;如何教妹子学 Python&lt;/a&gt;》，书中的图片是上传到七牛云上的，每次上传图片的流程让我觉得很难受，保存图片到桌面，打开浏览器，进入七牛后台，选择图片，上传成功，复制链接，写成 Markdown，放到书里&amp;#x2026;&amp;#x2026;&lt;br&gt;
 在 App Store 里找了一圈，有个叫 iPic 的工具，感觉是我想要的东西，但是我接受不了每年要交 20 元的收费模式，又不是什么很难的东西，打算自己实现，实现的过程中学到了很多东西，便有了将实现过程分享出来的想法，
 试着帮助那些遇到同样问题的人，上传工具早在国庆期间就写完了，现在才写文章完全是自己的拖延症导致的。
 &lt;/p&gt;
@@ -2380,7 +2380,7 @@ class DragAppController: NSObject {
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-7&quot;&gt;
 
 &lt;div class=&quot;figure&quot;&gt;
-&lt;p&gt;&lt;img src=&quot;http://cdn.defcoding.com/idragshow.gif&quot; alt=&quot;idragshow.gif&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.defcoding.com/idragshow.gif&quot; alt=&quot;idragshow.gif&quot;&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 
@@ -2388,15 +2388,15 @@ class DragAppController: NSObject {
     
     </summary>
     
-      <category term="Swift" scheme="http://runforever.github.io/categories/Swift/"/>
+      <category term="Swift" scheme="http://blog.defcoding.com/categories/Swift/"/>
     
     
   </entry>
   
   <entry>
     <title>Git Flow 重新思考</title>
-    <link href="http://runforever.github.io/2016-11-16/2016-11-16-git-flow-%E7%9A%84%E6%80%9D%E8%80%83%E5%92%8C%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://runforever.github.io/2016-11-16/2016-11-16-git-flow-的思考和模式/</id>
+    <link href="http://blog.defcoding.com/2016-11-16/2016-11-16-git-flow-%E7%9A%84%E6%80%9D%E8%80%83%E5%92%8C%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://blog.defcoding.com/2016-11-16/2016-11-16-git-flow-的思考和模式/</id>
     <published>2016-11-15T16:00:00.000Z</published>
     <updated>2016-11-19T13:25:33.000Z</updated>
     
@@ -2591,15 +2591,15 @@ Git 是为了管理 Linux 内核源代码而开发的版本控制系统，它与
     
     </summary>
     
-      <category term="git" scheme="http://runforever.github.io/categories/git/"/>
+      <category term="git" scheme="http://blog.defcoding.com/categories/git/"/>
     
     
   </entry>
   
   <entry>
     <title>djkit 开发记录</title>
-    <link href="http://runforever.github.io/2016-11-04/2016-11-04-djkit-%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/"/>
-    <id>http://runforever.github.io/2016-11-04/2016-11-04-djkit-开发记录/</id>
+    <link href="http://blog.defcoding.com/2016-11-04/2016-11-04-djkit-%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/"/>
+    <id>http://blog.defcoding.com/2016-11-04/2016-11-04-djkit-开发记录/</id>
     <published>2016-11-03T16:00:00.000Z</published>
     <updated>2016-11-04T06:25:05.000Z</updated>
     
@@ -3028,13 +3028,13 @@ raven==5.26.0
 &lt;/div&gt;
 
 &lt;p&gt;
-Django 使用 1.9.10 的原因是这个版本和 &lt;a href=&quot;http://django-rest-swagger.readthedocs.io/en/stable-0.3.x/&quot;&gt;django-rest-swagger&lt;/a&gt; 的 0.3.7 版本配合比较好，比较适合我们团队，
+Django 使用 1.9.10 的原因是这个版本和 &lt;a href=&quot;http://django-rest-swagger.readthedocs.io/en/stable-0.3.x/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;django-rest-swagger&lt;/a&gt; 的 0.3.7 版本配合比较好，比较适合我们团队，
 可以很方便的在浏览器下调试，效果如下：
 &lt;/p&gt;
 
 
 &lt;div class=&quot;figure&quot;&gt;
-&lt;p&gt;&lt;img src=&quot;http://cdn.defcoding.com/21986351-ADE1-4AAA-9E2F-CC05B27E5EE1.png&quot; alt=&quot;21986351-ADE1-4AAA-9E2F-CC05B27E5EE1.png&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.defcoding.com/21986351-ADE1-4AAA-9E2F-CC05B27E5EE1.png&quot; alt=&quot;21986351-ADE1-4AAA-9E2F-CC05B27E5EE1.png&quot;&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 
@@ -3042,15 +3042,15 @@ Django 使用 1.9.10 的原因是这个版本和 &lt;a href=&quot;http://django-
     
     </summary>
     
-      <category term="django" scheme="http://runforever.github.io/categories/django/"/>
+      <category term="django" scheme="http://blog.defcoding.com/categories/django/"/>
     
     
   </entry>
   
   <entry>
     <title>迁移 Octopress 到 Hexo</title>
-    <link href="http://runforever.github.io/2016-11-02/2016-11-02-%E8%BF%81%E7%A7%BB-octopress-%E5%88%B0-hexo/"/>
-    <id>http://runforever.github.io/2016-11-02/2016-11-02-迁移-octopress-到-hexo/</id>
+    <link href="http://blog.defcoding.com/2016-11-02/2016-11-02-%E8%BF%81%E7%A7%BB-octopress-%E5%88%B0-hexo/"/>
+    <id>http://blog.defcoding.com/2016-11-02/2016-11-02-迁移-octopress-到-hexo/</id>
     <published>2016-11-01T16:00:00.000Z</published>
     <updated>2017-02-10T08:06:48.000Z</updated>
     
@@ -3059,7 +3059,7 @@ Django 使用 1.9.10 的原因是这个版本和 &lt;a href=&quot;http://django-
 <h2 id="sec-1">不折腾会死</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-前几天更新了 <a href="http://runforever.github.io/2014-07-19/2014-07-19-python-mixin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Python Mixin 学习笔记</a> 这篇文章，文章中有一张图要显示，于是想添加 fancybox 插件来预览图片，
+前几天更新了 <a href="http://runforever.github.io/2014-07-19/2014-07-19-python-mixin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_blank" rel="external">Python Mixin 学习笔记</a> 这篇文章，文章中有一张图要显示，于是想添加 fancybox 插件来预览图片，
 原本以为是非常简单的一件事，结果上 google 果然没有找到，同时发现博客的分页有 bug，再看看 Octopress 的
 最后更新时间，想到 Octopress 这些茫茫多的问题于是便有了迁移 Octopress 到 Hexo 的念头。
 </p>
@@ -3239,7 +3239,7 @@ hexo s --watch
 </p>
 
 <p>
-配置好后，重启 Emacs，修改了 <a href="http://runforever.github.io/2016-02-03/2016-02-03-ansible%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/">Ansible 使用入门</a> 文章来测试效果，没有问题。
+配置好后，重启 Emacs，修改了 <a href="http://runforever.github.io/2016-02-03/2016-02-03-ansible%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/" target="_blank" rel="external">Ansible 使用入门</a> 文章来测试效果，没有问题。
 </p>
 </div>
 </div>
@@ -3494,7 +3494,7 @@ git push
 &lt;h2 id=&quot;sec-1&quot;&gt;不折腾会死&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 &lt;p&gt;
-前几天更新了 &lt;a href=&quot;http://runforever.github.io/2014-07-19/2014-07-19-python-mixin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&quot;&gt;Python Mixin 学习笔记&lt;/a&gt; 这篇文章，文章中有一张图要显示，于是想添加 fancybox 插件来预览图片，
+前几天更新了 &lt;a href=&quot;http://runforever.github.io/2014-07-19/2014-07-19-python-mixin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Python Mixin 学习笔记&lt;/a&gt; 这篇文章，文章中有一张图要显示，于是想添加 fancybox 插件来预览图片，
 原本以为是非常简单的一件事，结果上 google 果然没有找到，同时发现博客的分页有 bug，再看看 Octopress 的
 最后更新时间，想到 Octopress 这些茫茫多的问题于是便有了迁移 Octopress 到 Hexo 的念头。
 &lt;/p&gt;
@@ -3512,7 +3512,7 @@ google 找了一些迁移的文章，发现迁移没有想象中难，于是开�
 我的需求：
 &lt;/p&gt;
 &lt;ol class=&quot;org-ol&quot;&gt;
-&lt;li&gt;可以继续使用 Emacs 上的 &lt;a href=&quot;https://github.com/yoshinari-nomura/org-octopress&quot;&gt;org-octopress&lt;/a&gt; 插件写博客。
+&lt;li&gt;可以继续使用 Emacs 上的 &lt;a href=&quot;https://github.com/yoshinari-nomura/org-octopress&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;org-octopress&lt;/a&gt; 插件写博客。
 &lt;/li&gt;
 &lt;li&gt;可以兼容我之前写的文章，代码高亮必须漂亮。
 &lt;/li&gt;
@@ -3560,15 +3560,15 @@ google 找了一些迁移的文章，发现迁移没有想象中难，于是开�
     
     </summary>
     
-      <category term="blog" scheme="http://runforever.github.io/categories/blog/"/>
+      <category term="blog" scheme="http://blog.defcoding.com/categories/blog/"/>
     
     
   </entry>
   
   <entry>
     <title>搭建私有 Docker Registry</title>
-    <link href="http://runforever.github.io/2016-07-06/2016-07-06-%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89docker-registry/"/>
-    <id>http://runforever.github.io/2016-07-06/2016-07-06-如何搭建私有docker-registry/</id>
+    <link href="http://blog.defcoding.com/2016-07-06/2016-07-06-%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89docker-registry/"/>
+    <id>http://blog.defcoding.com/2016-07-06/2016-07-06-如何搭建私有docker-registry/</id>
     <published>2016-07-05T16:00:00.000Z</published>
     <updated>2016-11-01T06:35:28.000Z</updated>
     
@@ -3906,7 +3906,7 @@ cp /etc/letsencrypt/live/yourdomain/privkey.pem /yourpath/docker-registry/certs/
     <summary type="html">
     
       &lt;p&gt;
-为了团队的其他同学可以方便的更新开发环境到本地，我们决定搭建私有的 Docker Registry。&lt;br  /&gt;
+为了团队的其他同学可以方便的更新开发环境到本地，我们决定搭建私有的 Docker Registry。&lt;br&gt;
 不使用公共服务的原因：
 &lt;/p&gt;
 &lt;ol class=&quot;org-ol&quot;&gt;
@@ -3936,15 +3936,15 @@ cp /etc/letsencrypt/live/yourdomain/privkey.pem /yourpath/docker-registry/certs/
     
     </summary>
     
-      <category term="Docker" scheme="http://runforever.github.io/categories/Docker/"/>
+      <category term="Docker" scheme="http://blog.defcoding.com/categories/Docker/"/>
     
     
   </entry>
   
   <entry>
     <title>Django项目如何使用Docker搭建环境</title>
-    <link href="http://runforever.github.io/2016-06-28/2016-06-28-django%E9%A1%B9%E7%9B%AE%E4%BD%BF%E7%94%A8docker%E5%81%9A%E7%8E%AF%E5%A2%83%E7%BB%9F%E4%B8%80/"/>
-    <id>http://runforever.github.io/2016-06-28/2016-06-28-django项目使用docker做环境统一/</id>
+    <link href="http://blog.defcoding.com/2016-06-28/2016-06-28-django%E9%A1%B9%E7%9B%AE%E4%BD%BF%E7%94%A8docker%E5%81%9A%E7%8E%AF%E5%A2%83%E7%BB%9F%E4%B8%80/"/>
+    <id>http://blog.defcoding.com/2016-06-28/2016-06-28-django项目使用docker做环境统一/</id>
     <published>2016-06-27T16:00:00.000Z</published>
     <updated>2016-11-01T06:35:28.000Z</updated>
     
@@ -4202,7 +4202,7 @@ Redis缓存，Python的库，每次搭建环境更新环境对于前端的同学
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-2&quot;&gt;
 
 &lt;div class=&quot;figure&quot;&gt;
-&lt;p&gt;&lt;img src=&quot;http://i1.piimg.com/567571/b91020a400c2106d.png&quot; alt=&quot;b91020a400c2106d.png&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;http://i1.piimg.com/567571/b91020a400c2106d.png&quot; alt=&quot;b91020a400c2106d.png&quot;&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 
@@ -4210,17 +4210,17 @@ Redis缓存，Python的库，每次搭建环境更新环境对于前端的同学
     
     </summary>
     
-      <category term="Docker" scheme="http://runforever.github.io/categories/Docker/"/>
+      <category term="Docker" scheme="http://blog.defcoding.com/categories/Docker/"/>
     
-      <category term="Django" scheme="http://runforever.github.io/categories/Docker/Django/"/>
+      <category term="Django" scheme="http://blog.defcoding.com/categories/Docker/Django/"/>
     
     
   </entry>
   
   <entry>
     <title>Ansible 使用入门</title>
-    <link href="http://runforever.github.io/2016-02-03/2016-02-03-ansible%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/"/>
-    <id>http://runforever.github.io/2016-02-03/2016-02-03-ansible使用入门/</id>
+    <link href="http://blog.defcoding.com/2016-02-03/2016-02-03-ansible%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/"/>
+    <id>http://blog.defcoding.com/2016-02-03/2016-02-03-ansible使用入门/</id>
     <published>2016-02-02T16:00:00.000Z</published>
     <updated>2016-11-01T07:45:39.000Z</updated>
     
@@ -4231,7 +4231,7 @@ Redis缓存，Python的库，每次搭建环境更新环境对于前端的同学
 <p>
 由于经常有部署新服务器的需求，服务器部署过程中的配置和基础环境的安装很多都是重复性的
 工作，所以使用配置管理工具将这些重复性的工作控制起来最合适不过了，之前有写过一篇用<a href="https://docs.saltstack.com/en/latest/" target="_blank" rel="external"> SaltStack</a>
-做自动化运维的文章<a href="http://runforever.github.io/2014-06-21/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"> saltstack 使用笔记</a>，这次换用 <a href="http://docs.ansible.com" target="_blank" rel="external">Ansible</a> ，顺便比较一下两种工具。
+做自动化运维的文章<a href="http://runforever.github.io/2014-06-21/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/" target="_blank" rel="external"> saltstack 使用笔记</a>，这次换用 <a href="http://docs.ansible.com" target="_blank" rel="external">Ansible</a> ，顺便比较一下两种工具。
 </p>
 </div>
 </div>
@@ -4436,8 +4436,8 @@ Ansible 对于我来说最大的有点就是使用 ssh 来执行命令，而 Sal
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 &lt;p&gt;
 由于经常有部署新服务器的需求，服务器部署过程中的配置和基础环境的安装很多都是重复性的
-工作，所以使用配置管理工具将这些重复性的工作控制起来最合适不过了，之前有写过一篇用&lt;a href=&quot;https://docs.saltstack.com/en/latest/&quot;&gt; SaltStack&lt;/a&gt;
-做自动化运维的文章&lt;a href=&quot;http://runforever.github.io/2014-06-21/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/&quot;&gt; saltstack 使用笔记&lt;/a&gt;，这次换用 &lt;a href=&quot;http://docs.ansible.com&quot;&gt;Ansible&lt;/a&gt; ，顺便比较一下两种工具。
+工作，所以使用配置管理工具将这些重复性的工作控制起来最合适不过了，之前有写过一篇用&lt;a href=&quot;https://docs.saltstack.com/en/latest/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt; SaltStack&lt;/a&gt;
+做自动化运维的文章&lt;a href=&quot;http://runforever.github.io/2014-06-21/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt; saltstack 使用笔记&lt;/a&gt;，这次换用 &lt;a href=&quot;http://docs.ansible.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Ansible&lt;/a&gt; ，顺便比较一下两种工具。
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4456,15 +4456,15 @@ Ansible 对于我来说最大的有点就是使用 ssh 来执行命令，而 Sal
     
     </summary>
     
-      <category term="Ansible" scheme="http://runforever.github.io/categories/Ansible/"/>
+      <category term="Ansible" scheme="http://blog.defcoding.com/categories/Ansible/"/>
     
     
   </entry>
   
   <entry>
     <title>uwsgi部署Django服务的坑</title>
-    <link href="http://runforever.github.io/2016-01-31/2016-01-31-django-uwsgi%E9%83%A8%E7%BD%B2/"/>
-    <id>http://runforever.github.io/2016-01-31/2016-01-31-django-uwsgi部署/</id>
+    <link href="http://blog.defcoding.com/2016-01-31/2016-01-31-django-uwsgi%E9%83%A8%E7%BD%B2/"/>
+    <id>http://blog.defcoding.com/2016-01-31/2016-01-31-django-uwsgi部署/</id>
     <published>2016-01-30T16:00:00.000Z</published>
     <updated>2016-11-01T06:35:29.000Z</updated>
     
@@ -4565,7 +4565,7 @@ no-orphans
 &lt;h4 id=&quot;sec-1-1-1&quot;&gt;gunicorn + Nginx&lt;/h4&gt;
 &lt;div class=&quot;outline-text-4&quot; id=&quot;text-1-1-1&quot;&gt;
 &lt;p&gt;
-&lt;a href=&quot;http://gunicorn.org&quot;&gt;http://gunicorn.org&lt;/a&gt; 最大的好处就是部署简单，如果没有特殊要求，推荐使用这种方式部署Python Web程序
+&lt;a href=&quot;http://gunicorn.org&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://gunicorn.org&lt;/a&gt; 最大的好处就是部署简单，如果没有特殊要求，推荐使用这种方式部署Python Web程序
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4578,22 +4578,22 @@ uwsgi 相对 gunicorn来说配置选项相对复杂，但是uwsgi是支持websoc
 &lt;/p&gt;
 &lt;/div&gt;
 
-&lt;ul class=&quot;org-ul&quot;&gt;&lt;li&gt;问题1：uwsgi的默认监听进程的数量100&lt;br  /&gt;&lt;div class=&quot;outline-text-5&quot; id=&quot;text-1-1-2-1&quot;&gt;
+&lt;ul class=&quot;org-ul&quot;&gt;&lt;li&gt;问题1：uwsgi的默认监听进程的数量100&lt;br&gt;&lt;div class=&quot;outline-text-5&quot; id=&quot;text-1-1-2-1&quot;&gt;
 &lt;p&gt;
-解决： 之前由于只知道启动uwsgi worker的数量，不管怎么调worker的数量，并发都很低，&lt;br  /&gt;
+解决： 之前由于只知道启动uwsgi worker的数量，不管怎么调worker的数量，并发都很低，&lt;br&gt;
 配置listen参数解决，根据服务器配置和访问来决定，目前我开的是20000
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 
-&lt;li&gt;问题2：supervisor没有办法优雅的重启uwsgi worker，导致服务器资源被重启的uwsgi进程占满&lt;br  /&gt;&lt;div class=&quot;outline-text-5&quot; id=&quot;text-1-1-2-2&quot;&gt;
+&lt;li&gt;问题2：supervisor没有办法优雅的重启uwsgi worker，导致服务器资源被重启的uwsgi进程占满&lt;br&gt;&lt;div class=&quot;outline-text-5&quot; id=&quot;text-1-1-2-2&quot;&gt;
 &lt;p&gt;
 解决：配置no-orphans参数
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/li&gt;
 
-&lt;li&gt;配置范例&lt;br  /&gt;&lt;div class=&quot;outline-text-5&quot; id=&quot;text-1-1-2-3&quot;&gt;
+&lt;li&gt;配置范例&lt;br&gt;&lt;div class=&quot;outline-text-5&quot; id=&quot;text-1-1-2-3&quot;&gt;
 &lt;div class=&quot;org-src-container&quot;&gt;
 
 &lt;pre class=&quot;src src-ini&quot;&gt;master = true
@@ -4617,17 +4617,17 @@ no-orphans
     
     </summary>
     
-      <category term="uwsgi" scheme="http://runforever.github.io/categories/uwsgi/"/>
+      <category term="uwsgi" scheme="http://blog.defcoding.com/categories/uwsgi/"/>
     
-      <category term="django" scheme="http://runforever.github.io/categories/uwsgi/django/"/>
+      <category term="django" scheme="http://blog.defcoding.com/categories/uwsgi/django/"/>
     
     
   </entry>
   
   <entry>
     <title>Angular.js入门参考</title>
-    <link href="http://runforever.github.io/2014-12-20/2014-12-20-angular.js%E5%85%A5%E9%97%A8%E5%8F%82%E8%80%83/"/>
-    <id>http://runforever.github.io/2014-12-20/2014-12-20-angular.js入门参考/</id>
+    <link href="http://blog.defcoding.com/2014-12-20/2014-12-20-angular.js%E5%85%A5%E9%97%A8%E5%8F%82%E8%80%83/"/>
+    <id>http://blog.defcoding.com/2014-12-20/2014-12-20-angular.js入门参考/</id>
     <published>2014-12-19T16:00:00.000Z</published>
     <updated>2016-11-01T06:35:30.000Z</updated>
     
@@ -4840,9 +4840,9 @@ app.js
 &lt;h3 id=&quot;sec-1-1&quot;&gt;来源&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;
 &lt;p&gt;
-很早听说这个前端MV*框架，最近公司的一个新项目未来可能需要支持手机App，所以决定&lt;br  /&gt;
-使用API驱动的设计，也就是网站后端只提供API，逻辑处理由前端实现，也就是Angular这些&lt;br  /&gt;
-前端框架要做的事情了，以后如果上手机App的话也可以使用同一套API，不用单独为手机App&lt;br  /&gt;
+很早听说这个前端MV*框架，最近公司的一个新项目未来可能需要支持手机App，所以决定&lt;br&gt;
+使用API驱动的设计，也就是网站后端只提供API，逻辑处理由前端实现，也就是Angular这些&lt;br&gt;
+前端框架要做的事情了，以后如果上手机App的话也可以使用同一套API，不用单独为手机App&lt;br&gt;
 开发新的API。
 &lt;/p&gt;
 &lt;/div&gt;
@@ -4852,8 +4852,8 @@ app.js
 &lt;h3 id=&quot;sec-1-2&quot;&gt;前端MV*是什么？&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-2&quot;&gt;
 &lt;p&gt;
-MV* 可以是MVC(Model, View, Controller)模式，也可以是MVVM(Model, View, ViewModel)&lt;br  /&gt;
-你可以把Angular用成你想要的模式，而MVVM正是我项目里面想要的东西，Model和UI的双向绑定&lt;br  /&gt;
+MV* 可以是MVC(Model, View, Controller)模式，也可以是MVVM(Model, View, ViewModel)&lt;br&gt;
+你可以把Angular用成你想要的模式，而MVVM正是我项目里面想要的东西，Model和UI的双向绑定&lt;br&gt;
 也就是Model变化UI相应的改变，UI改变Model也跟着改变。
 &lt;/p&gt;
 &lt;/div&gt;
@@ -5028,15 +5028,15 @@ app.js
     
     </summary>
     
-      <category term="Angular" scheme="http://runforever.github.io/categories/Angular/"/>
+      <category term="Angular" scheme="http://blog.defcoding.com/categories/Angular/"/>
     
     
   </entry>
   
   <entry>
     <title>Python使用支付宝接口</title>
-    <link href="http://runforever.github.io/2014-10-02/2014-10-02-%E6%94%AF%E4%BB%98%E5%AE%9D%E6%8E%A5%E5%8F%A3%E4%BD%BF%E7%94%A8/"/>
-    <id>http://runforever.github.io/2014-10-02/2014-10-02-支付宝接口使用/</id>
+    <link href="http://blog.defcoding.com/2014-10-02/2014-10-02-%E6%94%AF%E4%BB%98%E5%AE%9D%E6%8E%A5%E5%8F%A3%E4%BD%BF%E7%94%A8/"/>
+    <id>http://blog.defcoding.com/2014-10-02/2014-10-02-支付宝接口使用/</id>
     <published>2014-10-01T16:00:00.000Z</published>
     <updated>2016-11-01T06:35:31.000Z</updated>
     
@@ -5338,7 +5338,7 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
 &lt;h3 id=&quot;sec-1-2&quot;&gt;使用支付宝什么接口&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-2&quot;&gt;
 &lt;p&gt;
-支付宝接口有很多，而线上支付使用的是即时到账接口，这里有&lt;a href=&quot;https:b.alipay.com/order/productDetail.htm?productId=2012111200373124&amp;tabId=1#ps-tabinfo-hash&quot;&gt;官方介绍&lt;/a&gt;
+支付宝接口有很多，而线上支付使用的是即时到账接口，这里有&lt;a href=&quot;https:b.alipay.com/order/productDetail.htm?productId=2012111200373124&amp;tabId=1#ps-tabinfo-hash&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方介绍&lt;/a&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5347,7 +5347,7 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
 &lt;h3 id=&quot;sec-1-3&quot;&gt;如何使用该接口&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-3&quot;&gt;
 &lt;p&gt;
-实现代码参考了&lt;a href=&quot;https:github.com/yefei/python-alipay&quot;&gt;python-alipay&lt;/a&gt;
+实现代码参考了&lt;a href=&quot;https:github.com/yefei/python-alipay&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;python-alipay&lt;/a&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 
@@ -5355,7 +5355,7 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
 &lt;h4 id=&quot;sec-1-3-1&quot;&gt;获取PID和32位KEY&lt;/h4&gt;
 &lt;div class=&quot;outline-text-4&quot; id=&quot;text-1-3-1&quot;&gt;
 &lt;p&gt;
-只能是企业才能申请该接口的使用，实名认证通过后，你只要拿到PID和KEY &lt;br  /&gt;
+只能是企业才能申请该接口的使用，实名认证通过后，你只要拿到PID和KEY &lt;br&gt;
 就行了。
 &lt;/p&gt;
 &lt;/div&gt;
@@ -5364,7 +5364,7 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
 &lt;div id=&quot;outline-container-sec-1-3-2&quot; class=&quot;outline-4&quot;&gt;
 &lt;h4 id=&quot;sec-1-3-2&quot;&gt;使用该接口&lt;/h4&gt;
 &lt;div class=&quot;outline-text-4&quot; id=&quot;text-1-3-2&quot;&gt;
-&lt;/div&gt;&lt;ul class=&quot;org-ul&quot;&gt;&lt;li&gt;使用该接口需要实现两个工具函数:&lt;br  /&gt;&lt;div class=&quot;outline-text-5&quot; id=&quot;text-1-3-2-1&quot;&gt;
+&lt;/div&gt;&lt;ul class=&quot;org-ul&quot;&gt;&lt;li&gt;使用该接口需要实现两个工具函数:&lt;br&gt;&lt;div class=&quot;outline-text-5&quot; id=&quot;text-1-3-2-1&quot;&gt;
 &lt;ol class=&quot;org-ol&quot;&gt;
 &lt;li&gt;构造支付宝的支付链接，如果链接请求成功会生存支付宝的支付页面。
 &lt;/li&gt;
@@ -5374,7 +5374,7 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
 &lt;/div&gt;
 &lt;/li&gt;
 
-&lt;li&gt;实现构造支付链接&lt;br  /&gt;&lt;div class=&quot;outline-text-5&quot; id=&quot;text-1-3-2-2&quot;&gt;
+&lt;li&gt;实现构造支付链接&lt;br&gt;&lt;div class=&quot;outline-text-5&quot; id=&quot;text-1-3-2-2&quot;&gt;
 &lt;p&gt;
 注意事项：
 &lt;/p&gt;
@@ -5387,9 +5387,9 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
 &lt;/div&gt;
 &lt;/li&gt;
 
-&lt;li&gt;实现验证支付宝返回数据的验证&lt;br  /&gt;&lt;div class=&quot;outline-text-5&quot; id=&quot;text-1-3-2-3&quot;&gt;
+&lt;li&gt;实现验证支付宝返回数据的验证&lt;br&gt;&lt;div class=&quot;outline-text-5&quot; id=&quot;text-1-3-2-3&quot;&gt;
 &lt;p&gt;
-验证支付宝请求return_url和notify_url的数据 &lt;br  /&gt;
+验证支付宝请求return_url和notify_url的数据 &lt;br&gt;
 注意事项
 &lt;/p&gt;
 &lt;ol class=&quot;org-ol&quot;&gt;
@@ -5401,8 +5401,8 @@ https://mapi.alipay.com/gateway.do?<span style="color: #ffff00;">_input_charset<
 
 &lt;p&gt;
 代码：
-一个配置类AlipayConfig &lt;br  /&gt;
-一个工具类AlipayUtils &lt;br  /&gt;
+一个配置类AlipayConfig &lt;br&gt;
+一个工具类AlipayUtils &lt;br&gt;
 &lt;/p&gt;
 
 &lt;p&gt;
@@ -5589,25 +5589,25 @@ https://mapi.alipay.com/gateway.do?&lt;span style=&quot;color: #ffff00;&quot;&gt
 &lt;h3 id=&quot;sec-1-4&quot;&gt;总结：&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-4&quot;&gt;
 &lt;p&gt;
-支付宝的文档确实有点看不懂，上面放了两个运行结果，希望大家做起来有点方向，知道构造什么，验证什么，&lt;br  /&gt;
-感谢github上&lt;a href=&quot;https:github.com/yefei/python-alipay&quot;&gt;这个repo&lt;/a&gt;, 给了我很大的帮助。
+支付宝的文档确实有点看不懂，上面放了两个运行结果，希望大家做起来有点方向，知道构造什么，验证什么，&lt;br&gt;
+感谢github上&lt;a href=&quot;https:github.com/yefei/python-alipay&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个repo&lt;/a&gt;, 给了我很大的帮助。
 &lt;/p&gt;
 
 &lt;p&gt;
     
     </summary>
     
-      <category term="Python" scheme="http://runforever.github.io/categories/Python/"/>
+      <category term="Python" scheme="http://blog.defcoding.com/categories/Python/"/>
     
-      <category term="Alipay" scheme="http://runforever.github.io/categories/Python/Alipay/"/>
+      <category term="Alipay" scheme="http://blog.defcoding.com/categories/Python/Alipay/"/>
     
     
   </entry>
   
   <entry>
     <title>Python Mixin 学习笔记</title>
-    <link href="http://runforever.github.io/2014-07-19/2014-07-19-python-mixin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://runforever.github.io/2014-07-19/2014-07-19-python-mixin学习笔记/</id>
+    <link href="http://blog.defcoding.com/2014-07-19/2014-07-19-python-mixin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://blog.defcoding.com/2014-07-19/2014-07-19-python-mixin学习笔记/</id>
     <published>2014-07-18T16:00:00.000Z</published>
     <updated>2016-11-01T06:35:31.000Z</updated>
     
@@ -6084,20 +6084,20 @@ f.do_something()
 &lt;h2 id=&quot;sec-1&quot;&gt;2016-10-25 17:04 的邮件&lt;/h2&gt;
 &lt;div class=&quot;outline-text-2&quot; id=&quot;text-1&quot;&gt;
 &lt;p&gt;
-正思考着如何给 &lt;a href=&quot;https://github.com/BurnishTechCN/djkit&quot;&gt;djkit&lt;/a&gt;（Django starter）项目添加 admin 和 models 的支持，
-此时收到一封邮件，来自 &lt;a href=&quot;https://github.com/uhayate&quot;&gt;uhayate&lt;/a&gt;，内容如下：
+正思考着如何给 &lt;a href=&quot;https://github.com/BurnishTechCN/djkit&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;djkit&lt;/a&gt;（Django starter）项目添加 admin 和 models 的支持，
+此时收到一封邮件，来自 &lt;a href=&quot;https://github.com/uhayate&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;uhayate&lt;/a&gt;，内容如下：
 &lt;/p&gt;
 
 
 &lt;div class=&quot;figure&quot;&gt;
-&lt;p&gt;&lt;img src=&quot;http://cdn.defcoding.com/5EB59FBA-21CC-4BAB-98CB-BCA70237C5DD.png&quot; alt=&quot;5EB59FBA-21CC-4BAB-98CB-BCA70237C5DD.png&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;http://cdn.defcoding.com/5EB59FBA-21CC-4BAB-98CB-BCA70237C5DD.png&quot; alt=&quot;5EB59FBA-21CC-4BAB-98CB-BCA70237C5DD.png&quot;&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;
 看了他的 github 和博客，我确定我不认识这个同学，这下有意思了，我的博客居
 然被人搜索到而且还发现了一个错误，赶紧回了邮件然后审查文章压压惊，之后便有了
-这次更新，不得不说，两年前写的东西还是欠火候，至于评论功能，使用 &lt;a href=&quot;https://github.com/runforever/runforever.github.com/issues/new&quot;&gt;Issue&lt;/a&gt;。
+这次更新，不得不说，两年前写的东西还是欠火候，至于评论功能，使用 &lt;a href=&quot;https://github.com/runforever/runforever.github.com/issues/new&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Issue&lt;/a&gt;。
 &lt;/p&gt;
 &lt;/div&gt;
 
@@ -6107,7 +6107,7 @@ f.do_something()
 &lt;ol class=&quot;org-ol&quot;&gt;
 &lt;li&gt;新式类 MRO 的机制理解。
 &lt;/li&gt;
-&lt;li&gt;文章排版按照&lt;a href=&quot;https://github.com/sparanoid/chinese-copywriting-guidelines&quot;&gt; 中文文案排版指北&lt;/a&gt; 重排。
+&lt;li&gt;文章排版按照&lt;a href=&quot;https://github.com/sparanoid/chinese-copywriting-guidelines&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt; 中文文案排版指北&lt;/a&gt; 重排。
 &lt;/li&gt;
 &lt;li&gt;Mixin 使用场景。
 &lt;/li&gt;
@@ -6154,15 +6154,15 @@ f.do_something()
     
     </summary>
     
-      <category term="Python" scheme="http://runforever.github.io/categories/Python/"/>
+      <category term="Python" scheme="http://blog.defcoding.com/categories/Python/"/>
     
     
   </entry>
   
   <entry>
     <title>saltstack自定义模块</title>
-    <link href="http://runforever.github.io/2014-07-11/2014-07-11-saltstack%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97/"/>
-    <id>http://runforever.github.io/2014-07-11/2014-07-11-saltstack自定义模块/</id>
+    <link href="http://blog.defcoding.com/2014-07-11/2014-07-11-saltstack%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97/"/>
+    <id>http://blog.defcoding.com/2014-07-11/2014-07-11-saltstack自定义模块/</id>
     <published>2014-07-10T16:00:00.000Z</published>
     <updated>2016-11-01T06:35:32.000Z</updated>
     
@@ -6334,10 +6334,10 @@ f.do_something()
 &lt;h3 id=&quot;sec-1-1&quot;&gt;来由&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;
 &lt;p&gt;
-公司项目以前使用的是fabric将代码部署到云平台，现在迁移到本地的服务器，&lt;br  /&gt;
-再使用fabric显然有点不合适，然而使用SaltStack的state来描述发版本的过 &lt;br  /&gt;
-程又略显不灵活，所以决定自己编写一个SaltStack的模块来实现版本发布的需求，&lt;br  /&gt;
-下面给出编写自定义模块的方法。&lt;br  /&gt;
+公司项目以前使用的是fabric将代码部署到云平台，现在迁移到本地的服务器，&lt;br&gt;
+再使用fabric显然有点不合适，然而使用SaltStack的state来描述发版本的过 &lt;br&gt;
+程又略显不灵活，所以决定自己编写一个SaltStack的模块来实现版本发布的需求，&lt;br&gt;
+下面给出编写自定义模块的方法。&lt;br&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6362,7 +6362,7 @@ f.do_something()
 &lt;h3 id=&quot;sec-1-3&quot;&gt;如何编写SaltStack自定义模块&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-3&quot;&gt;
 &lt;p&gt;
-编写SaltStack自定义模块超级简单，前提是需要你会一些Python编程，具体如下： &lt;br  /&gt;
+编写SaltStack自定义模块超级简单，前提是需要你会一些Python编程，具体如下： &lt;br&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 
@@ -6473,7 +6473,7 @@ f.do_something()
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-6&quot;&gt;
 &lt;blockquote&gt;
 &lt;p&gt;
-&lt;a href=&quot;http://docs.saltstack.com/en/latest/ref/modules/&quot;&gt;Execution Modules&lt;/a&gt;
+&lt;a href=&quot;http://docs.saltstack.com/en/latest/ref/modules/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Execution Modules&lt;/a&gt;
 &lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -6481,15 +6481,15 @@ f.do_something()
     
     </summary>
     
-      <category term="saltstack" scheme="http://runforever.github.io/categories/saltstack/"/>
+      <category term="saltstack" scheme="http://blog.defcoding.com/categories/saltstack/"/>
     
     
   </entry>
   
   <entry>
     <title>saltstack使用笔记</title>
-    <link href="http://runforever.github.io/2014-06-21/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
-    <id>http://runforever.github.io/2014-06-21/2014-06-21-salt使用笔记/</id>
+    <link href="http://blog.defcoding.com/2014-06-21/2014-06-21-salt%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
+    <id>http://blog.defcoding.com/2014-06-21/2014-06-21-salt使用笔记/</id>
     <published>2014-06-20T16:00:00.000Z</published>
     <updated>2016-11-01T06:35:32.000Z</updated>
     
@@ -6720,10 +6720,10 @@ saltstack 可以让你像编程一样去管理服务器，简单，高效，有�
 &lt;h3 id=&quot;sec-1-1&quot;&gt;来由：&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-1&quot;&gt;
 &lt;p&gt;
-公司需要部署把服务部署到自己的服务器中，每次迁移服务都得重新安装软件&lt;br  /&gt;
-配置什么东西，身为程序员的我本身比较懒，就想找个工具把配置写好，下次&lt;br  /&gt;
-部署的时候直接使用配置来玩，而不是每次都手工，所以就发现了 &lt;b&gt;saltstack&lt;/b&gt;&lt;br  /&gt;
-这个自动化部署工具了。&lt;br  /&gt;
+公司需要部署把服务部署到自己的服务器中，每次迁移服务都得重新安装软件&lt;br&gt;
+配置什么东西，身为程序员的我本身比较懒，就想找个工具把配置写好，下次&lt;br&gt;
+部署的时候直接使用配置来玩，而不是每次都手工，所以就发现了 &lt;b&gt;saltstack&lt;/b&gt;&lt;br&gt;
+这个自动化部署工具了。&lt;br&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6732,7 +6732,7 @@ saltstack 可以让你像编程一样去管理服务器，简单，高效，有�
 &lt;h3 id=&quot;sec-1-2&quot;&gt;简介&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-2&quot;&gt;
 &lt;p&gt;
-salt采用的C/S架构，主机master和客户端minion，master通过命令控制客户端minion &lt;br  /&gt;
+salt采用的C/S架构，主机master和客户端minion，master通过命令控制客户端minion &lt;br&gt;
 进行相应的任务（软件安装，配置，重启，定时任务，状态监控。。。）。
 &lt;/p&gt;
 &lt;/div&gt;
@@ -6742,9 +6742,9 @@ salt采用的C/S架构，主机master和客户端minion，master通过命令控�
 &lt;h3 id=&quot;sec-1-3&quot;&gt;核心&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-3&quot;&gt;
 &lt;p&gt;
-远程执行引擎是Salt的核心，它能够为多组系统创建高速、安全的双向通讯网络。&lt;br  /&gt;
-基于这个通许系统，Salt提供了一个非常快速、灵活并且容易使用的配置管理系统，&lt;br  /&gt;
-称之为“Salt States”。&lt;br  /&gt;
+远程执行引擎是Salt的核心，它能够为多组系统创建高速、安全的双向通讯网络。&lt;br&gt;
+基于这个通许系统，Salt提供了一个非常快速、灵活并且容易使用的配置管理系统，&lt;br&gt;
+称之为“Salt States”。&lt;br&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6753,7 +6753,7 @@ salt采用的C/S架构，主机master和客户端minion，master通过命令控�
 &lt;h3 id=&quot;sec-1-4&quot;&gt;安装配置&lt;/h3&gt;
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-4&quot;&gt;
 &lt;p&gt;
-参考 &lt;a href=&quot;http://docs.saltstack.cn/topics/tutorials/walkthrough.html&quot;&gt;http://docs.saltstack.cn/topics/tutorials/walkthrough.html&lt;/a&gt; &lt;br  /&gt;
+参考 &lt;a href=&quot;http://docs.saltstack.cn/topics/tutorials/walkthrough.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://docs.saltstack.cn/topics/tutorials/walkthrough.html&lt;/a&gt; &lt;br&gt;
 &lt;/p&gt;
 &lt;div class=&quot;org-src-container&quot;&gt;
 
@@ -6772,7 +6772,7 @@ salt采用的C/S架构，主机master和客户端minion，master通过命令控�
 &lt;h4 id=&quot;sec-1-5-1&quot;&gt;salt state&lt;/h4&gt;
 &lt;div class=&quot;outline-text-4&quot; id=&quot;text-1-5-1&quot;&gt;
 &lt;p&gt;
-SLS（代表SaLt State文件）只是结构化的数据。&lt;br  /&gt;
+SLS（代表SaLt State文件）只是结构化的数据。&lt;br&gt;
 &lt;/p&gt;
 &lt;div class=&quot;org-src-container&quot;&gt;
 
@@ -6791,7 +6791,7 @@ salt &lt;span style=&quot;color: #00ff00;&quot;&gt;&#39;minion1.example.com&#39;
 &lt;h4 id=&quot;sec-1-5-2&quot;&gt;更多使用教程&lt;/h4&gt;
 &lt;div class=&quot;outline-text-4&quot; id=&quot;text-1-5-2&quot;&gt;
 &lt;p&gt;
-官方文档 &lt;a href=&quot;http://docs.saltstack.com/&quot;&gt;http://docs.saltstack.com/&lt;/a&gt;
+官方文档 &lt;a href=&quot;http://docs.saltstack.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://docs.saltstack.com/&lt;/a&gt;
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6831,13 +6831,13 @@ pillar_root:
 &lt;ol class=&quot;org-ol&quot;&gt;
 &lt;li&gt;salt 的配置文件使用yaml格式，文件名后缀是.sls
 &lt;/li&gt;
-&lt;li&gt;关于yaml格式可以参考&lt;a href=&quot;http://www.yaml.org/spec/1.2/spec.html&quot;&gt;http://www.yaml.org/spec/1.2/spec.html&lt;/a&gt;
+&lt;li&gt;关于yaml格式可以参考&lt;a href=&quot;http://www.yaml.org/spec/1.2/spec.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.yaml.org/spec/1.2/spec.html&lt;/a&gt;
 &lt;ul class=&quot;org-ul&quot;&gt;
 &lt;li&gt;json是yaml的子集，yaml可以描述更多的东西
 &lt;/li&gt;
 &lt;li&gt;yaml的可读性要比json好，但是身为程序员的我觉得json的可读性更好。
 &lt;/li&gt;
-&lt;li&gt;学习yaml可以使用如下网站进行json和yaml的转换，&lt;a href=&quot;http://yamltojson.com/&quot;&gt;http://yamltojson.com/&lt;/a&gt; ，这样可以更好的理解yaml。
+&lt;li&gt;学习yaml可以使用如下网站进行json和yaml的转换，&lt;a href=&quot;http://yamltojson.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://yamltojson.com/&lt;/a&gt; ，这样可以更好的理解yaml。
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -6917,16 +6917,16 @@ saltstack 可以让你像编程一样去管理服务器，简单，高效，有�
 &lt;div class=&quot;outline-text-3&quot; id=&quot;text-1-8&quot;&gt;
 &lt;blockquote&gt;
 &lt;p&gt;
-&lt;a href=&quot;http://docs.saltstack.cn/topics/tutorials/walkthrough.html&quot;&gt;saltstack演练&lt;/a&gt; &lt;br  /&gt;
-&lt;a href=&quot;http://docs.saltstack.cn/topics/tutorials/starting_states.html&quot;&gt;http://docs.saltstack.cn/topics/tutorials/starting_states.html&lt;/a&gt; &lt;br  /&gt;
-&lt;a href=&quot;http://www.ituring.com.cn/article/42398&quot;&gt;http://www.ituring.com.cn/article/42398&lt;/a&gt; &lt;br  /&gt;
+&lt;a href=&quot;http://docs.saltstack.cn/topics/tutorials/walkthrough.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;saltstack演练&lt;/a&gt; &lt;br&gt;
+&lt;a href=&quot;http://docs.saltstack.cn/topics/tutorials/starting_states.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://docs.saltstack.cn/topics/tutorials/starting_states.html&lt;/a&gt; &lt;br&gt;
+&lt;a href=&quot;http://www.ituring.com.cn/article/42398&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.ituring.com.cn/article/42398&lt;/a&gt; &lt;br&gt;
 &lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;
     
     </summary>
     
-      <category term="saltstack" scheme="http://runforever.github.io/categories/saltstack/"/>
+      <category term="saltstack" scheme="http://blog.defcoding.com/categories/saltstack/"/>
     
     
   </entry>

@@ -1,20 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next mist use-motion">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
 
 
 
@@ -63,12 +73,12 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="关注你创造的价值" />
+  <meta name="keywords" content="一个人的思考" />
 
 
 
@@ -79,50 +89,58 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
 
 
 
 
-<meta name="description" content="思考与记录">
+<meta name="description" content="K.I.S.S">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Runforever">
-<meta property="og:url" content="http://runforever.github.io/index.html">
+<meta property="og:url" content="http://blog.defcoding.com/index.html">
 <meta property="og:site_name" content="Runforever">
-<meta property="og:description" content="思考与记录">
+<meta property="og:description" content="K.I.S.S">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Runforever">
-<meta name="twitter:description" content="思考与记录">
+<meta name="twitter:description" content="K.I.S.S">
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"always"},
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"right","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
+    tabs: true,
     motion: true,
     duoshuo: {
       userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
+  <link rel="canonical" href="http://blog.defcoding.com/"/>
 
-  <link rel="canonical" href="http://runforever.github.io/"/>
 
 
-  <title> Runforever </title>
-</head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
 
+  <title>Runforever</title>
   
 
 
@@ -132,38 +150,44 @@
 
 
 
+</head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left 
+  <div class="container sidebar-position-right 
    page-home 
  ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Runforever</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Runforever</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">to be a rock star</p>
+      
   </div>
-  <p class="site-subtitle">K.I.S.S</p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -176,23 +200,29 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
             首页
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
             
-            分类
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
             
-            归档
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
           </a>
         </li>
       
@@ -203,6 +233,8 @@
 
   
 </nav>
+
+
 
  </div>
     </header>
@@ -217,13 +249,27 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2017-07-13/2017-07-13-使用-python-和-phantomjs-对网页截图/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -231,38 +277,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017-07-13/2017-07-13-使用-python-和-phantomjs-对网页截图/" itemprop="url">
-                  使用 Python 和 Phantomjs 对网页截图
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017-07-13/2017-07-13-使用-python-和-phantomjs-对网页截图/" itemprop="url">使用 Python 和 Phantomjs 对网页截图</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-07-13T00:00:00+08:00" content="2017-07-13">
-              2017-07-13
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-13T00:00:00+08:00">
+                2017-07-13
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Python/" itemprop="url" rel="index">
                     <span itemprop="name">Python</span>
                   </a>
@@ -270,35 +320,52 @@
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017-07-13/2017-07-13-使用-python-和-phantomjs-对网页截图/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2017-07-13/2017-07-13-使用-python-和-phantomjs-对网页截图/" class="cy_cmt_count" data-xid="2017-07-13/2017-07-13-使用-python-和-phantomjs-对网页截图/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2017-07-13/2017-07-13-使用-python-和-phantomjs-对网页截图/" class="leancloud_visitors" data-flag-title="使用 Python 和 Phantomjs 对网页截图">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -331,33 +398,38 @@
 <h2 id="sec-3">安装</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
-<li>使用这个 <a href="https://gist.github.com/rahularyan/ff4619c435f8bb94ef5b">Gist</a> 安装 phantomjs。
+<li>使用这个 <a href="https://gist.github.com/rahularyan/ff4619c435f8bb94ef5b" target="_blank" rel="external">Gist</a> 安装 phantomjs。
 </li>
-<li>使用 <code>pip install selenium</code> ，<a href="http://selenium-python.readthedocs.io/installation.html">Selenium 文档</a>。
+<li>使用 <code>pip install selenium</code> ，<a href="http://selenium-python.readthedocs.io/installation.html" target="_blank" rel="external">Selenium 文档</a>。
 </li>
 <li>安装中文字体： <code>apt-get install xfonts-wqy ttf-wqy-microhei</code>
 </li>
 </ol>
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2017-07-13/2017-07-13-使用-python-和-phantomjs-对网页截图/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -367,6 +439,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -374,13 +450,27 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2017-02-06/2017-02-06-扩展-docker-官方镜像（以-elasticsearch-添加-ik-分词为例）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -388,38 +478,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017-02-06/2017-02-06-扩展-docker-官方镜像（以-elasticsearch-添加-ik-分词为例）/" itemprop="url">
-                  扩展 Docker 官方镜像（以 Elasticsearch 添加 ik 分词为例）
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017-02-06/2017-02-06-扩展-docker-官方镜像（以-elasticsearch-添加-ik-分词为例）/" itemprop="url">扩展 Docker 官方镜像（以 Elasticsearch 添加 ik 分词为例）</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-06T00:00:00+08:00" content="2017-02-06">
-              2017-02-06
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-06T00:00:00+08:00">
+                2017-02-06
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Docker/" itemprop="url" rel="index">
                     <span itemprop="name">Docker</span>
                   </a>
@@ -429,9 +523,8 @@
                 
                   ， 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Docker/Elasticsearch/" itemprop="url" rel="index">
                     <span itemprop="name">Elasticsearch</span>
                   </a>
@@ -439,35 +532,52 @@
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017-02-06/2017-02-06-扩展-docker-官方镜像（以-elasticsearch-添加-ik-分词为例）/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2017-02-06/2017-02-06-扩展-docker-官方镜像（以-elasticsearch-添加-ik-分词为例）/" class="cy_cmt_count" data-xid="2017-02-06/2017-02-06-扩展-docker-官方镜像（以-elasticsearch-添加-ik-分词为例）/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2017-02-06/2017-02-06-扩展-docker-官方镜像（以-elasticsearch-添加-ik-分词为例）/" class="leancloud_visitors" data-flag-title="扩展 Docker 官方镜像（以 Elasticsearch 添加 ik 分词为例）">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -479,7 +589,7 @@
 <h2 id="sec-1">需求</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-最近做的一个应用使用 Elasticsearch 做全文搜索引擎，由于是中文的全文搜索，需要 Elasticsearch 的中文分词插件对内容进行分词，经过调研决定使用 Elasticsearch 5.1.1 版本（现已更新成 5.2.0 版本）和 <a href="https://github.com/medcl/elasticsearch-analysis-ik">elasticsearch-analysis-ik</a> 中文分词插件。
+最近做的一个应用使用 Elasticsearch 做全文搜索引擎，由于是中文的全文搜索，需要 Elasticsearch 的中文分词插件对内容进行分词，经过调研决定使用 Elasticsearch 5.1.1 版本（现已更新成 5.2.0 版本）和 <a href="https://github.com/medcl/elasticsearch-analysis-ik" target="_blank" rel="external">elasticsearch-analysis-ik</a> 中文分词插件。
 </p>
 </div>
 </div>
@@ -505,24 +615,29 @@
 </p>
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2017-02-06/2017-02-06-扩展-docker-官方镜像（以-elasticsearch-添加-ik-分词为例）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -532,6 +647,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -539,13 +658,27 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2017-02-05/2017-02-05-postgressql-同步数据到-elasticsearch-技术方案调研/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -553,38 +686,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017-02-05/2017-02-05-postgressql-同步数据到-elasticsearch-技术方案调研/" itemprop="url">
-                  PostgresSQL 同步数据到 Elasticsearch 方案调研总结
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017-02-05/2017-02-05-postgressql-同步数据到-elasticsearch-技术方案调研/" itemprop="url">PostgresSQL 同步数据到 Elasticsearch 方案调研总结</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-05T00:00:00+08:00" content="2017-02-05">
-              2017-02-05
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-05T00:00:00+08:00">
+                2017-02-05
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/PostgreSQL/" itemprop="url" rel="index">
                     <span itemprop="name">PostgreSQL</span>
                   </a>
@@ -594,9 +731,8 @@
                 
                   ， 
                 
-
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/PostgreSQL/Elasticsearch/" itemprop="url" rel="index">
                     <span itemprop="name">Elasticsearch</span>
                   </a>
@@ -604,35 +740,52 @@
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017-02-05/2017-02-05-postgressql-同步数据到-elasticsearch-技术方案调研/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2017-02-05/2017-02-05-postgressql-同步数据到-elasticsearch-技术方案调研/" class="cy_cmt_count" data-xid="2017-02-05/2017-02-05-postgressql-同步数据到-elasticsearch-技术方案调研/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2017-02-05/2017-02-05-postgressql-同步数据到-elasticsearch-技术方案调研/" class="leancloud_visitors" data-flag-title="PostgresSQL 同步数据到 Elasticsearch 方案调研总结">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -672,38 +825,43 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
 <h2 id="sec-3">方案一：通过 PostgreSQL 的 FDW 功能同步</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-方案的来源：<a href="https://yq.aliyun.com/articles/56824">PostgreSQL内核扩展之 - Elasticsearch同步插件</a>
+方案的来源：<a href="https://yq.aliyun.com/articles/56824" target="_blank" rel="external">PostgreSQL内核扩展之 - Elasticsearch同步插件</a>
 </p>
 
 <p>
 架构图：
-<img src="http://cdn.defcoding.com/70591D01-86B9-4006-BA3A-EEBE4D64787B.png" alt="70591D01-86B9-4006-BA3A-EEBE4D64787B.png" />
+<img src="http://cdn.defcoding.com/70591D01-86B9-4006-BA3A-EEBE4D64787B.png" alt="70591D01-86B9-4006-BA3A-EEBE4D64787B.png">
 </p>
 
 <p>
-关键技术点：通过 PostgreSQL 的 <a href="https://wiki.postgresql.org/wiki/Foreign_data_wrappers">FDW</a>（Foreign data wrappers）特性，在 PostgreSQL 层面使用数据库触发器的方式将相应的表数据同步到 Elasticsearch 中，
+关键技术点：通过 PostgreSQL 的 <a href="https://wiki.postgresql.org/wiki/Foreign_data_wrappers" target="_blank" rel="external">FDW</a>（Foreign data wrappers）特性，在 PostgreSQL 层面使用数据库触发器的方式将相应的表数据同步到 Elasticsearch 中，
 在要同步的表上添加新建、更新、删除的同步触发器。
 </p>
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2017-02-05/2017-02-05-postgressql-同步数据到-elasticsearch-技术方案调研/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -713,6 +871,10 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -720,13 +882,27 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2017-02-04/2017-02-03-我用-5-天写了一个-osx-menu-bar-app（第五天）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -734,38 +910,42 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017-02-04/2017-02-03-我用-5-天写了一个-osx-menu-bar-app（第五天）/" itemprop="url">
-                  我用 5 天写了一个 OSX Menu Bar App（第五天）
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017-02-04/2017-02-03-我用-5-天写了一个-osx-menu-bar-app（第五天）/" itemprop="url">我用 5 天写了一个 OSX Menu Bar App（第五天）</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-04T00:00:00+08:00" content="2017-02-04">
-              2017-02-04
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-04T00:00:00+08:00">
+                2017-02-04
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Swift/" itemprop="url" rel="index">
                     <span itemprop="name">Swift</span>
                   </a>
@@ -773,35 +953,52 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017-02-04/2017-02-03-我用-5-天写了一个-osx-menu-bar-app（第五天）/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2017-02-04/2017-02-03-我用-5-天写了一个-osx-menu-bar-app（第五天）/" class="cy_cmt_count" data-xid="2017-02-04/2017-02-03-我用-5-天写了一个-osx-menu-bar-app（第五天）/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2017-02-04/2017-02-03-我用-5-天写了一个-osx-menu-bar-app（第五天）/" class="leancloud_visitors" data-flag-title="我用 5 天写了一个 OSX Menu Bar App（第五天）">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -831,29 +1028,34 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
 <h2 id="sec-2">第五天（设计 Logo 和总结）</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-前面的工作做完这个应用就基本成型了，接下来就是重构代码，迭代新 Feature，设计一下 Logo，写写总结了。<br  />
+前面的工作做完这个应用就基本成型了，接下来就是重构代码，迭代新 Feature，设计一下 Logo，写写总结了。<br>
 重构和迭代是一个持续的过程，这个没什么好说的，就是不断的改进代码，设计 Logo 的过程倒是可以说说。
 </p>
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2017-02-04/2017-02-03-我用-5-天写了一个-osx-menu-bar-app（第五天）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -863,6 +1065,10 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -870,13 +1076,27 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2017-02-03/2017-02-03-我用-5-天写了一个-osx-menu-bar-app（第四天）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -884,38 +1104,42 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017-02-03/2017-02-03-我用-5-天写了一个-osx-menu-bar-app（第四天）/" itemprop="url">
-                  我用 5 天写了一个 OSX Menu Bar App（第四天）
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017-02-03/2017-02-03-我用-5-天写了一个-osx-menu-bar-app（第四天）/" itemprop="url">我用 5 天写了一个 OSX Menu Bar App（第四天）</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-03T00:00:00+08:00" content="2017-02-03">
-              2017-02-03
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-03T00:00:00+08:00">
+                2017-02-03
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Swift/" itemprop="url" rel="index">
                     <span itemprop="name">Swift</span>
                   </a>
@@ -923,35 +1147,52 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017-02-03/2017-02-03-我用-5-天写了一个-osx-menu-bar-app（第四天）/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2017-02-03/2017-02-03-我用-5-天写了一个-osx-menu-bar-app（第四天）/" class="cy_cmt_count" data-xid="2017-02-03/2017-02-03-我用-5-天写了一个-osx-menu-bar-app（第四天）/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2017-02-03/2017-02-03-我用-5-天写了一个-osx-menu-bar-app（第四天）/" class="leancloud_visitors" data-flag-title="我用 5 天写了一个 OSX Menu Bar App（第四天）">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -998,12 +1239,12 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
 <div class="outline-text-3" id="text-2-1">
 <p>
 上传成功的 UI
-<img src="http://cdn.defcoding.com/6FDE92BD-2FE0-4063-BB98-B9573AA94D3C.png" alt="6FDE92BD-2FE0-4063-BB98-B9573AA94D3C.png" />
+<img src="http://cdn.defcoding.com/6FDE92BD-2FE0-4063-BB98-B9573AA94D3C.png" alt="6FDE92BD-2FE0-4063-BB98-B9573AA94D3C.png">
 </p>
 
 <p>
 设置的 UI
-<img src="http://cdn.defcoding.com/E9A7253E-51F1-420F-AF85-DDB558831949.png" alt="E9A7253E-51F1-420F-AF85-DDB558831949.png" />
+<img src="http://cdn.defcoding.com/E9A7253E-51F1-420F-AF85-DDB558831949.png" alt="E9A7253E-51F1-420F-AF85-DDB558831949.png">
 </p>
 
 <p>
@@ -1011,24 +1252,29 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
 </p>
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2017-02-03/2017-02-03-我用-5-天写了一个-osx-menu-bar-app（第四天）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1038,6 +1284,10 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1045,13 +1295,27 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2017-02-02/2017-02-02-我用-5-天写了一个-osx-menu-bar-app（第三天）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -1059,38 +1323,42 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017-02-02/2017-02-02-我用-5-天写了一个-osx-menu-bar-app（第三天）/" itemprop="url">
-                  我用 5 天写了一个 OSX Menu Bar App（第三天）
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017-02-02/2017-02-02-我用-5-天写了一个-osx-menu-bar-app（第三天）/" itemprop="url">我用 5 天写了一个 OSX Menu Bar App（第三天）</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-02T00:00:00+08:00" content="2017-02-02">
-              2017-02-02
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-02T00:00:00+08:00">
+                2017-02-02
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Swift/" itemprop="url" rel="index">
                     <span itemprop="name">Swift</span>
                   </a>
@@ -1098,35 +1366,52 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017-02-02/2017-02-02-我用-5-天写了一个-osx-menu-bar-app（第三天）/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2017-02-02/2017-02-02-我用-5-天写了一个-osx-menu-bar-app（第三天）/" class="cy_cmt_count" data-xid="2017-02-02/2017-02-02-我用-5-天写了一个-osx-menu-bar-app（第三天）/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2017-02-02/2017-02-02-我用-5-天写了一个-osx-menu-bar-app（第三天）/" class="leancloud_visitors" data-flag-title="我用 5 天写了一个 OSX Menu Bar App（第三天）">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1167,14 +1452,14 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
 <div class="outline-text-2" id="text-3">
 <p>
 使用 Google 先查找方案：
-<img src="http://cdn.defcoding.com/CB8C546F-AD0E-4F7E-9AFA-29138BBFE187.png" alt="CB8C546F-AD0E-4F7E-9AFA-29138BBFE187.png" />
+<img src="http://cdn.defcoding.com/CB8C546F-AD0E-4F7E-9AFA-29138BBFE187.png" alt="CB8C546F-AD0E-4F7E-9AFA-29138BBFE187.png">
 </p>
 
 <p>
-根据 Google 搜到文章的更新时间查看了一下相关资料，其中这篇 <a href="http://swiftrien.blogspot.hk/2015/03/file-drag-drop-for-os-x.html">File drag &amp; drop for OS-X</a> 让
-我对 <code>OSX 的 Drag &amp; Drop</code> 编程有了个大概的了解，进而查找到了<a href="https://developer.apple.com/reference/appkit/nsdraggingdestination">NSDraggingDestination</a>  协议，
+根据 Google 搜到文章的更新时间查看了一下相关资料，其中这篇 <a href="http://swiftrien.blogspot.hk/2015/03/file-drag-drop-for-os-x.html" target="_blank" rel="external">File drag &amp; drop for OS-X</a> 让
+我对 <code>OSX 的 Drag &amp; Drop</code> 编程有了个大概的了解，进而查找到了<a href="https://developer.apple.com/reference/appkit/nsdraggingdestination" target="_blank" rel="external">NSDraggingDestination</a>  协议，
 查看官方文档确定这个是我想要的东西。
-<img src="http://cdn.defcoding.com/BB27652F-7B86-433A-A19E-1365AEA67B24.png" alt="BB27652F-7B86-433A-A19E-1365AEA67B24.png" />
+<img src="http://cdn.defcoding.com/BB27652F-7B86-433A-A19E-1365AEA67B24.png" alt="BB27652F-7B86-433A-A19E-1365AEA67B24.png">
 </p>
 
 <p>
@@ -1193,24 +1478,29 @@ NSDraaingDestination 的使用总结：
 
 <p>
 下面开始写代码。
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2017-02-02/2017-02-02-我用-5-天写了一个-osx-menu-bar-app（第三天）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1220,6 +1510,10 @@ NSDraaingDestination 的使用总结：
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1227,13 +1521,27 @@ NSDraaingDestination 的使用总结：
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2017-02-01/2017-02-01-我用-5-天写了一个-osx-menu-bar-app（第二天）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -1241,38 +1549,42 @@ NSDraaingDestination 的使用总结：
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017-02-01/2017-02-01-我用-5-天写了一个-osx-menu-bar-app（第二天）/" itemprop="url">
-                  我用 5 天写了一个 OSX Menu Bar App（第二天）
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2017-02-01/2017-02-01-我用-5-天写了一个-osx-menu-bar-app（第二天）/" itemprop="url">我用 5 天写了一个 OSX Menu Bar App（第二天）</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-01T00:00:00+08:00" content="2017-02-01">
-              2017-02-01
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-01T00:00:00+08:00">
+                2017-02-01
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Swift/" itemprop="url" rel="index">
                     <span itemprop="name">Swift</span>
                   </a>
@@ -1280,35 +1592,52 @@ NSDraaingDestination 的使用总结：
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017-02-01/2017-02-01-我用-5-天写了一个-osx-menu-bar-app（第二天）/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2017-02-01/2017-02-01-我用-5-天写了一个-osx-menu-bar-app（第二天）/" class="cy_cmt_count" data-xid="2017-02-01/2017-02-01-我用-5-天写了一个-osx-menu-bar-app（第二天）/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2017-02-01/2017-02-01-我用-5-天写了一个-osx-menu-bar-app（第二天）/" class="leancloud_visitors" data-flag-title="我用 5 天写了一个 OSX Menu Bar App（第二天）">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1351,8 +1680,8 @@ NSDraaingDestination 的使用总结：
 <h3 id="sec-3-1">七牛推荐的模型</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
-<img src="http://cdn.defcoding.com/3DC4851E-57DE-4743-AD1C-9ED2DC763D02.png" alt="3DC4851E-57DE-4743-AD1C-9ED2DC763D02.png" />
-参考文档：<a href="https://developer.qiniu.io/kodo/manual/security">七牛安全机制</a>
+<img src="http://cdn.defcoding.com/3DC4851E-57DE-4743-AD1C-9ED2DC763D02.png" alt="3DC4851E-57DE-4743-AD1C-9ED2DC763D02.png">
+参考文档：<a href="https://developer.qiniu.io/kodo/manual/security" target="_blank" rel="external">七牛安全机制</a>
 </p>
 </div>
 </div>
@@ -1380,8 +1709,8 @@ NSDraaingDestination 的使用总结：
 </ol>
 
 <p>
-七牛推荐的方式是客户端在上传时先请求服务端生成上传策略，客户端获取到上传策略后才能上传文件。<br  />
-这个应用只有客户端，上传凭证只能在客户端构造，构造的算法参考：<a href="https://developer.qiniu.io/kodo/manual/upload-token">上传凭证</a>
+七牛推荐的方式是客户端在上传时先请求服务端生成上传策略，客户端获取到上传策略后才能上传文件。<br>
+这个应用只有客户端，上传凭证只能在客户端构造，构造的算法参考：<a href="https://developer.qiniu.io/kodo/manual/upload-token" target="_blank" rel="external">上传凭证</a>
 </p>
 </div>
 </div>
@@ -1390,11 +1719,11 @@ NSDraaingDestination 的使用总结：
 <h3 id="sec-3-4">经过分析，我需要如下 Swift 库：</h3>
 <div class="outline-text-3" id="text-3-4">
 <ol class="org-ol">
-<li>七牛的官方 <a href="https://github.com/qiniu/objc-sdk">iOS SDK</a>。
+<li>七牛的官方 <a href="https://github.com/qiniu/objc-sdk" target="_blank" rel="external">iOS SDK</a>。
 </li>
-<li>对字符串进行 HMAC-SHA1 加密的库 <a href="https://github.com/krzyzanowskim/CryptoSwift">CryptoSwift</a>。
+<li>对字符串进行 HMAC-SHA1 加密的库 <a href="https://github.com/krzyzanowskim/CryptoSwift" target="_blank" rel="external">CryptoSwift</a>。
 </li>
-<li>能解析 JSON 的库 <a href="https://github.com/SwiftyJSON/SwiftyJSON">SwiftyJSON</a>。
+<li>能解析 JSON 的库 <a href="https://github.com/SwiftyJSON/SwiftyJSON" target="_blank" rel="external">SwiftyJSON</a>。
 </li>
 </ol>
 
@@ -1403,24 +1732,29 @@ NSDraaingDestination 的使用总结：
 </p>
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2017-02-01/2017-02-01-我用-5-天写了一个-osx-menu-bar-app（第二天）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1430,6 +1764,10 @@ NSDraaingDestination 的使用总结：
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1437,13 +1775,27 @@ NSDraaingDestination 的使用总结：
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2016-12-05/2016-12-05-我用-5-天写了一个-osx-menu-bar-app/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -1451,38 +1803,42 @@ NSDraaingDestination 的使用总结：
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016-12-05/2016-12-05-我用-5-天写了一个-osx-menu-bar-app/" itemprop="url">
-                  我用 5 天写了一个 OSX Menu Bar App（第一天）
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016-12-05/2016-12-05-我用-5-天写了一个-osx-menu-bar-app/" itemprop="url">我用 5 天写了一个 OSX Menu Bar App（第一天）</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-05T00:00:00+08:00" content="2016-12-05">
-              2016-12-05
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-05T00:00:00+08:00">
+                2016-12-05
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Swift/" itemprop="url" rel="index">
                     <span itemprop="name">Swift</span>
                   </a>
@@ -1490,35 +1846,52 @@ NSDraaingDestination 的使用总结：
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2016-12-05/2016-12-05-我用-5-天写了一个-osx-menu-bar-app/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2016-12-05/2016-12-05-我用-5-天写了一个-osx-menu-bar-app/" class="cy_cmt_count" data-xid="2016-12-05/2016-12-05-我用-5-天写了一个-osx-menu-bar-app/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2016-12-05/2016-12-05-我用-5-天写了一个-osx-menu-bar-app/" class="leancloud_visitors" data-flag-title="我用 5 天写了一个 OSX Menu Bar App（第一天）">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1552,7 +1925,7 @@ NSDraaingDestination 的使用总结：
 <h2 id="sec-3">起源</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-我在尝试写一本初学者的编程书《<a href="http://py.defcoding.com">如何教妹子学 Python</a>》，书中的图片是上传到七牛云上的，每次上传图片的流程让我觉得很难受，保存图片到桌面，打开浏览器，进入七牛后台，选择图片，上传成功，复制链接，写成 Markdown，放到书里&#x2026;&#x2026;<br  />
+我在尝试写一本初学者的编程书《<a href="http://py.defcoding.com" target="_blank" rel="external">如何教妹子学 Python</a>》，书中的图片是上传到七牛云上的，每次上传图片的流程让我觉得很难受，保存图片到桌面，打开浏览器，进入七牛后台，选择图片，上传成功，复制链接，写成 Markdown，放到书里&#x2026;&#x2026;<br>
 在 App Store 里找了一圈，有个叫 iPic 的工具，感觉是我想要的东西，但是我接受不了每年要交 20 元的收费模式，又不是什么很难的东西，打算自己实现，实现的过程中学到了很多东西，便有了将实现过程分享出来的想法，
 试着帮助那些遇到同样问题的人，上传工具早在国庆期间就写完了，现在才写文章完全是自己的拖延症导致的。
 </p>
@@ -1610,29 +1983,34 @@ NSDraaingDestination 的使用总结：
 <div class="outline-text-2" id="text-7">
 
 <div class="figure">
-<p><img src="http://cdn.defcoding.com/idragshow.gif" alt="idragshow.gif" />
+<p><img src="http://cdn.defcoding.com/idragshow.gif" alt="idragshow.gif">
 </p>
 </div>
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2016-12-05/2016-12-05-我用-5-天写了一个-osx-menu-bar-app/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1642,6 +2020,10 @@ NSDraaingDestination 的使用总结：
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1649,13 +2031,27 @@ NSDraaingDestination 的使用总结：
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2016-11-16/2016-11-16-git-flow-的思考和模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -1663,38 +2059,42 @@ NSDraaingDestination 的使用总结：
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016-11-16/2016-11-16-git-flow-的思考和模式/" itemprop="url">
-                  Git Flow 重新思考
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016-11-16/2016-11-16-git-flow-的思考和模式/" itemprop="url">Git Flow 重新思考</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-16T00:00:00+08:00" content="2016-11-16">
-              2016-11-16
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-16T00:00:00+08:00">
+                2016-11-16
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/git/" itemprop="url" rel="index">
                     <span itemprop="name">git</span>
                   </a>
@@ -1702,35 +2102,52 @@ NSDraaingDestination 的使用总结：
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2016-11-16/2016-11-16-git-flow-的思考和模式/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2016-11-16/2016-11-16-git-flow-的思考和模式/" class="cy_cmt_count" data-xid="2016-11-16/2016-11-16-git-flow-的思考和模式/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2016-11-16/2016-11-16-git-flow-的思考和模式/" class="leancloud_visitors" data-flag-title="Git Flow 重新思考">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1776,24 +2193,29 @@ Git 是为了管理 Linux 内核源代码而开发的版本控制系统，它与
 </ol>
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2016-11-16/2016-11-16-git-flow-的思考和模式/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1803,6 +2225,10 @@ Git 是为了管理 Linux 内核源代码而开发的版本控制系统，它与
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1810,13 +2236,27 @@ Git 是为了管理 Linux 内核源代码而开发的版本控制系统，它与
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.defcoding.com/2016-11-04/2016-11-04-djkit-开发记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="runforever">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Runforever">
+    </span>
 
     
       <header class="post-header">
@@ -1824,38 +2264,42 @@ Git 是为了管理 Linux 内核源代码而开发的版本控制系统，它与
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016-11-04/2016-11-04-djkit-开发记录/" itemprop="url">
-                  djkit 开发记录
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2016-11-04/2016-11-04-djkit-开发记录/" itemprop="url">djkit 开发记录</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-04T00:00:00+08:00" content="2016-11-04">
-              2016-11-04
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-04T00:00:00+08:00">
+                2016-11-04
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/django/" itemprop="url" rel="index">
                     <span itemprop="name">django</span>
                   </a>
@@ -1863,35 +2307,52 @@ Git 是为了管理 Linux 内核源代码而开发的版本控制系统，它与
 
                 
                 
-
               
             </span>
           
 
           
             
-          
-
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2016-11-04/2016-11-04-djkit-开发记录/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://blog.defcoding.com/2016-11-04/2016-11-04-djkit-开发记录/" class="cy_cmt_count" data-xid="2016-11-04/2016-11-04-djkit-开发记录/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
           
 
           
           
              <span id="/2016-11-04/2016-11-04-djkit-开发记录/" class="leancloud_visitors" data-flag-title="djkit 开发记录">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1933,35 +2394,40 @@ raven==5.26.0
 </div>
 
 <p>
-Django 使用 1.9.10 的原因是这个版本和 <a href="http://django-rest-swagger.readthedocs.io/en/stable-0.3.x/">django-rest-swagger</a> 的 0.3.7 版本配合比较好，比较适合我们团队，
+Django 使用 1.9.10 的原因是这个版本和 <a href="http://django-rest-swagger.readthedocs.io/en/stable-0.3.x/" target="_blank" rel="external">django-rest-swagger</a> 的 0.3.7 版本配合比较好，比较适合我们团队，
 可以很方便的在浏览器下调试，效果如下：
 </p>
 
 
 <div class="figure">
-<p><img src="http://cdn.defcoding.com/21986351-ADE1-4AAA-9E2F-CC05B27E5EE1.png" alt="21986351-ADE1-4AAA-9E2F-CC05B27E5EE1.png" />
+<p><img src="http://cdn.defcoding.com/21986351-ADE1-4AAA-9E2F-CC05B27E5EE1.png" alt="21986351-ADE1-4AAA-9E2F-CC05B27E5EE1.png">
 </p>
 </div>
 
 <p>
-          <div class="post-more-link text-center">
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2016-11-04/2016-11-04-djkit-开发记录/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1971,6 +2437,10 @@ Django 使用 1.9.10 的原因是这个版本和 <a href="http://django-rest-swa
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -2003,31 +2473,39 @@ Django 使用 1.9.10 的原因是这个版本和 <a href="http://django-rest-swa
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg"
                alt="runforever" />
           <p class="site-author-name" itemprop="name">runforever</p>
-          <p class="site-description motion-element" itemprop="description">思考与记录</p>
+           
+              <p class="site-description motion-element" itemprop="description">K.I.S.S</p>
+          
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">32</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
 
           
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -2055,7 +2533,9 @@ Django 使用 1.9.10 的原因是这个版本和 <a href="http://django-rest-swa
                   
                     <i class="fa fa-fw fa-github"></i>
                   
-                  GitHub
+                    
+                      GitHub
+                    
                 </a>
               </span>
             
@@ -2064,16 +2544,20 @@ Django 使用 1.9.10 的原因是这个版本和 <a href="http://django-rest-swa
                   
                     <i class="fa fa-fw fa-globe"></i>
                   
-                  Bitbucket
+                    
+                      Bitbucket
+                    
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://github.com/runforever/runforever.github.com/issues/new" target="_blank" title="提 Issue">
+                <a href="https://github.com/runforever/runforever.github.com/issues/new" target="_blank" title="Issue">
                   
                     <i class="fa fa-fw fa-globe"></i>
                   
-                  提 Issue
+                    
+                      Issue
+                    
                 </a>
               </span>
             
@@ -2086,7 +2570,12 @@ Django 使用 1.9.10 的原因是这个版本和 <a href="http://django-rest-swa
         
         
 
+        
+
+
       </section>
+
+      
 
       
 
@@ -2108,28 +2597,44 @@ Django 使用 1.9.10 的原因是这个版本和 <a href="http://django-rest-swa
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">runforever</span>
+
+  
 </div>
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
+  <div class="powered-by">
+    由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+  </div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">
+    主题 &mdash;
+    <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+      NexT.Gemini
+    </a>
+  </div>
+
 
         
+
+
+
+
+
+
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
   </div>
 
   
@@ -2149,6 +2654,15 @@ Django 使用 1.9.10 的原因是这个版本和 <a href="http://django-rest-swa
 
 
   
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2174,42 +2688,78 @@ Django 使用 1.9.10 的原因是这个版本和 <a href="http://django-rest-swa
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
-
-
-
-  
-
-
-
-  
-
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
   
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
   
 
   
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cytaFECxl"></script>
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
   <script>AV.initialize("X8cdFXDspCtfRDzoNsWTTLdv-gzGzoHsz", "44Pa7S7UXwFW2x1syGaCOnLX");</script>
   <script>
     function showTime(Counter) {
@@ -2319,6 +2869,11 @@ Django 使用 1.9.10 的原因是这个版本和 <a href="http://django-rest-swa
 
   
 
+  
+
+  
+
+  
 
 </body>
 </html>
