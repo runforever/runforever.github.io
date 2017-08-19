@@ -4,8 +4,8 @@
 
 # Site
 title: Runforever
-subtitle: K.I.S.S
-description: 思考与记录
+subtitle: to be a rock star
+description: K.I.S.S
 author: runforever
 language: zh-Hans
 timezone: Asia/Shanghai
@@ -13,7 +13,7 @@ avatar: http://cdn.defcoding.com/0227c20b4bab4ef28f08f9ae3c6aa875.jpg
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://runforever.github.io
+url: http://blog.defcoding.com
 root: /
 permalink: :year-:month-:day/:title/
 permalink_defaults:
