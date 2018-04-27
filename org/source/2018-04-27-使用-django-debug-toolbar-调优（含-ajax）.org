@@ -1,0 +1,145 @@
+#+TITLE: 使用 Django debug toolbar 分析 ORM Query（含 Ajax）
+#+DATE: 2018-04-27
+#+SETUPFILE: ~/CodeRepo/GitRepo/Road/blog/org/setupfile.org
+#+JEKYLL_LAYOUT: post
+#+JEKYLL_CATEGORIES: Django
+#+JEKYLL_PUBLISHED: true
+#+JEKYLL_COMMENTS: true
+
+** 使用 Django debug toolbar 分析 ORM Query（含 Ajax）
+
+** 背景
+环境：
+
+1. Django 1.11.9
+2. Python 2.7.13
+3. djangorestframework 3.7.7
+4. MySQL 5.7.17
+
+信条:
+
+#+BEGIN_QUOTE
+过早优化是万恶之源
+#+END_QUOTE
+
+原由：
+
+使用 Django 这么久，慢慢形成了一个习惯，写 Model 的时候会考虑业务的查询条件，给相应的字段做索引，写 ORM query 的时候会考虑到这个 query 在编译成 SQL 语句时会产生几次查询或者 Join 情况是怎样的，这些是自己的经验和直觉，要验证是否正确就需要使用 [[https:////github.com/jazzband/django-debug-toolbar][django-debug-toolbar]] 了。
+
+{{{more}}}
+
+** 安装
+
+*** Part 1 普通安装
+根据 django-debug-toolbar 的 [[https:////django-debug-toolbar.readthedocs.io/en/stable/installation.html][官方文档]] 进行安装：
+
+使用 =pip install django-debug-toolbar= 安装好库。
+
+=settings.py= 配置如下:
+
+#+BEGIN_SRC python
+# INSATALLED_APP
+INSTALLED_APPS = [
+    # ...
+    'django.contrib.staticfiles', # 这个必须要有
+    # ...
+    'debug_toolbar',
+]
+
+# MIDDLEWARE
+MIDDLEWARE = [
+    # ...
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # ...
+]
+
+# 添加 INTERNAL_IPS
+INTERNAL_IPS = ('127.0.0.1',)
+
+# 配置 JQuery 和 SHOW_TOOLBAR_CALLBACK
+DEBUG_TOOLBAR_CONFIG = {
+    'JQUERY_URL': 'http://code.jquery.com/jquery-2.1.1.min.js',
+    'SHOW_TOOLBAR_CALLBACK': lambda request: DEBUG,
+}
+#+END_SRC
+
+注意：
+1. =JQuery= 的 cdn 地址要换成国内可以访问的，否则界面会被卡住。
+2. =SHOW_TOOLBAR_CALLBACK= 如果不配置界面展示不出来。
+
+=urls.py= 配置如下:
+
+#+BEGIN_SRC python
+
+from django.conf import settings
+from django.conf.urls import include, url
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns
+
+#+END_SRC
+
+刷新页面后应该可以看到如下界面：
+
+http:////cdn.defcoding.com/B25491EA-7867-41DC-93A1-805A0CA17341.png
+
+点击展开全部选项：
+
+http:////cdn.defcoding.com/5C91644A-0A76-46D0-8D28-6407C0FB763D.png
+
+点击 SQL 选项可以看到当前 URL 使用的 SQL 语句：
+
+http:////cdn.defcoding.com/C8902D70-FB0F-44DE-B2E6-377D2FB51868.png
+
+至此，已经可以使用这个工具去做验证了。
+
+*** Part 2 添加 Ajax 查询支持
+由于使用 django-rest-framework，数据都是通过接口返回的，要分析接口的 query 还需要安装一个额外的工具：[[https:////github.com/recamshak/django-debug-panel][django-debug-panel]] 。
+
+根据 [[https:////github.com/recamshak/django-debug-panel][django-debug-panel 文档]]，步骤如下：
+
+使用 =pip install django-debug-panel=
+
+=settings.py= 配置如下：
+
+#+BEGIN_SRC python
+INSTALLED_APPS = [
+    # ...
+    'django.contrib.staticfiles', # 这个必须要有
+    # ...
+    'debug_toolbar',
+    'debug_panel',
+]
+
+# MIDDLEWARE
+MIDDLEWARE = [
+    # ...
+    'debug_panel.middleware.DebugPanelMiddleware',
+    # ...
+]
+
+# 添加 INTERNAL_IPS
+INTERNAL_IPS = ('127.0.0.1',)
+
+# 配置 JQuery 和 SHOW_TOOLBAR_CALLBACK
+DEBUG_TOOLBAR_CONFIG = {
+    'JQUERY_URL': 'http://code.jquery.com/jquery-2.1.1.min.js',
+    'SHOW_TOOLBAR_CALLBACK': lambda request: DEBUG,
+}
+#+END_SRC
+
+Chrome 安装 [[https:////chrome.google.com/webstore/detail/django-debug-panel/nbiajhhibgfgkjegbnflpdccejocmbbn][Django Debug Panel]] 插件。
+
+安装配置好效果如下：
+
+http:////cdn.defcoding.com/0E5A627F-9A89-4598-86B9-C7AB2FB83AB0.png
+
+http:////cdn.defcoding.com/DB36FC06-69F2-4322-B5A2-7186FDA77C38.png
+
+这里介绍了工具的安装和基本使用，下来说说调优。
+
+** 调优相关
+未完待续...
