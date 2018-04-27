@@ -417,7 +417,7 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
 <h2 id="sec-3">方案一：通过 PostgreSQL 的 FDW 功能同步</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-方案的来源：<a href="https://yq.aliyun.com/articles/56824" target="_blank" rel="external">PostgreSQL内核扩展之 - Elasticsearch同步插件</a>
+方案的来源：<a href="https://yq.aliyun.com/articles/56824" target="_blank" rel="noopener">PostgreSQL内核扩展之 - Elasticsearch同步插件</a>
 </p>
 
 <p>
@@ -426,7 +426,7 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
 </p>
 
 <p>
-关键技术点：通过 PostgreSQL 的 <a href="https://wiki.postgresql.org/wiki/Foreign_data_wrappers" target="_blank" rel="external">FDW</a>（Foreign data wrappers）特性，在 PostgreSQL 层面使用数据库触发器的方式将相应的表数据同步到 Elasticsearch 中，
+关键技术点：通过 PostgreSQL 的 <a href="https://wiki.postgresql.org/wiki/Foreign_data_wrappers" target="_blank" rel="noopener">FDW</a>（Foreign data wrappers）特性，在 PostgreSQL 层面使用数据库触发器的方式将相应的表数据同步到 Elasticsearch 中，
 在要同步的表上添加新建、更新、删除的同步触发器。
 </p>
 
@@ -439,7 +439,7 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
 </p>
 
 <p>
-根据教程，我先扩展了 PostgreSQL 的 Docker <a href="https://hub.docker.com/_/postgres/" target="_blank" rel="external">官方镜像</a>，为镜像添加上了 <a href="http://multicorn.org" target="_blank" rel="external">multicorn</a> 和 <a href="https://github.com/Mikulas/pg-es-fdw?spm=5176.100239.blogcont56824.12.9bOrBa" target="_blank" rel="external">pg-es-fdw </a>，扩展镜像地址：<a href="https:github.com/runforever/docker-psql-es" target="_blank" rel="external">docker-psql-es</a>。<br>
+根据教程，我先扩展了 PostgreSQL 的 Docker <a href="https://hub.docker.com/_/postgres/" target="_blank" rel="noopener">官方镜像</a>，为镜像添加上了 <a href="http://multicorn.org" target="_blank" rel="noopener">multicorn</a> 和 <a href="https://github.com/Mikulas/pg-es-fdw?spm=5176.100239.blogcont56824.12.9bOrBa" target="_blank" rel="noopener">pg-es-fdw </a>，扩展镜像地址：<a href="https:github.com/runforever/docker-psql-es" target="_blank" rel="noopener">docker-psql-es</a>。<br>
 说明：pg-es-fdw 使用 multicorn 同步 PostgreSQL 的数据到 Elasticsearch 中。
 </p>
 
@@ -459,12 +459,12 @@ PostgreSQL 的表数据到 Elasticsearch 于是便开始了方案调研。
 </ol>
 
 <p>
-测试的时候，果不其然，新建 PostgreSQL 表数据可以正常同步到 Elasticsearch 中，更新的时候就报错了，于是发现了这个 <a href="https://github.com/Mikulas/pg-es-fdw/issues/2" target="_blank" rel="external">issue </a>：
+测试的时候，果不其然，新建 PostgreSQL 表数据可以正常同步到 Elasticsearch 中，更新的时候就报错了，于是发现了这个 <a href="https://github.com/Mikulas/pg-es-fdw/issues/2" target="_blank" rel="noopener">issue </a>：
 <img src="http://cdn.defcoding.com/B4F39FD4-F28C-4B90-A308-DA2EC13D9245.png" alt="B4F39FD4-F28C-4B90-A308-DA2EC13D9245.png">
 </p>
 
 <p>
-Elasticsearch 版本是 1.7 才能解决，这个方案简直要了亲命，1.7 到 5.1.1 都跨了 2.x 这个大版本了，再看看 <a href="https://github.com/medcl/elasticsearch-analysis-ik" target="_blank" rel="external">elasticsearch-analysis-ik</a> 中文分词的支持版本，有种要绝望的感觉，1.7 版本我是肯定不能用的。
+Elasticsearch 版本是 1.7 才能解决，这个方案简直要了亲命，1.7 到 5.1.1 都跨了 2.x 这个大版本了，再看看 <a href="https://github.com/medcl/elasticsearch-analysis-ik" target="_blank" rel="noopener">elasticsearch-analysis-ik</a> 中文分词的支持版本，有种要绝望的感觉，1.7 版本我是肯定不能用的。
 </p>
 
 <p>
@@ -479,7 +479,7 @@ Elasticsearch 版本是 1.7 才能解决，这个方案简直要了亲命，1.7 
 <h2 id="sec-4">方案二：MySQL 配合 go-mysql-elasticsearch 工具同步</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-这个方案业务数据库要换成 MySQL，<a href="https://github.com/siddontang/go-mysql-elasticsearch" target="_blank" rel="external">go-mysql-elasticsearch</a> 这个工具会通过 mysqldump 获取 MySQL 的原始数据，之后用 binlog 同步。<br>
+这个方案业务数据库要换成 MySQL，<a href="https://github.com/siddontang/go-mysql-elasticsearch" target="_blank" rel="noopener">go-mysql-elasticsearch</a> 这个工具会通过 mysqldump 获取 MySQL 的原始数据，之后用 binlog 同步。<br>
 这个方案不错，Star 很多，应该可行，于是便开始扩展 Docker 镜像。<br>
 </p>
 
@@ -654,7 +654,7 @@ Elasticsearch 版本是 1.7 才能解决，这个方案简直要了亲命，1.7 
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -665,7 +665,7 @@ Elasticsearch 版本是 1.7 才能解决，这个方案简直要了亲命，1.7 
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

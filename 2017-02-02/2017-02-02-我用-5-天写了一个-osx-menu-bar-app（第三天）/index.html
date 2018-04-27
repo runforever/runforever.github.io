@@ -416,8 +416,8 @@
 </p>
 
 <p>
-根据 Google 搜到文章的更新时间查看了一下相关资料，其中这篇 <a href="http://swiftrien.blogspot.hk/2015/03/file-drag-drop-for-os-x.html" target="_blank" rel="external">File drag &amp; drop for OS-X</a> 让
-我对 <code>OSX 的 Drag &amp; Drop</code> 编程有了个大概的了解，进而查找到了<a href="https://developer.apple.com/reference/appkit/nsdraggingdestination" target="_blank" rel="external">NSDraggingDestination</a>  协议，
+根据 Google 搜到文章的更新时间查看了一下相关资料，其中这篇 <a href="http://swiftrien.blogspot.hk/2015/03/file-drag-drop-for-os-x.html" target="_blank" rel="noopener">File drag &amp; drop for OS-X</a> 让
+我对 <code>OSX 的 Drag &amp; Drop</code> 编程有了个大概的了解，进而查找到了<a href="https://developer.apple.com/reference/appkit/nsdraggingdestination" target="_blank" rel="noopener">NSDraggingDestination</a>  协议，
 查看官方文档确定这个是我想要的东西。
 <img src="http://cdn.defcoding.com/BB27652F-7B86-433A-A19E-1365AEA67B24.png" alt="BB27652F-7B86-433A-A19E-1365AEA67B24.png">
 </p>
@@ -515,7 +515,7 @@ class DragAppController: NSObject, NSWindowDelegate, NSDraggingDestination {
 </div>
 
 <p>
-测试上传图片成功了，这个应用目前是支持多张图片同时上传的，不过如果想达到所有图片都上传成功之后做一些通知相关的操作就比较麻烦了，因为上传 API 异步编程模型（callback 回调方式的编程模型），为了让代码可读性更高，避免 Callback Hell，我 Google 了相关的方案，找到了 <a href="http://promisekit.org" target="_blank" rel="external">PromiseKit</a> 这个库，目的是用同步的方式写出异步的代码。
+测试上传图片成功了，这个应用目前是支持多张图片同时上传的，不过如果想达到所有图片都上传成功之后做一些通知相关的操作就比较麻烦了，因为上传 API 异步编程模型（callback 回调方式的编程模型），为了让代码可读性更高，避免 Callback Hell，我 Google 了相关的方案，找到了 <a href="http://promisekit.org" target="_blank" rel="noopener">PromiseKit</a> 这个库，目的是用同步的方式写出异步的代码。
 </p>
 </div>
 </div>
@@ -525,7 +525,7 @@ class DragAppController: NSObject, NSWindowDelegate, NSDraggingDestination {
 <h2 id="sec-5">PromiseKit 使用</h2>
 <div class="outline-text-2" id="text-5">
 <p>
-使用一项技术前，必须先对技术有一定的了解，确定这项技术是否能解决问题，而不是“靠撞大运编程”，我已经确定 Promise 编程范式可以达到我的目的，所以我使用它，关于 Promise 编程范式可以参考 <a href="http://liubin.org/promises-book/" target="_blank" rel="external">JavaScript Promise 迷你书</a>，这里不拓展了。
+使用一项技术前，必须先对技术有一定的了解，确定这项技术是否能解决问题，而不是“靠撞大运编程”，我已经确定 Promise 编程范式可以达到我的目的，所以我使用它，关于 Promise 编程范式可以参考 <a href="http://liubin.org/promises-book/" target="_blank" rel="noopener">JavaScript Promise 迷你书</a>，这里不拓展了。
 </p>
 </div>
 
@@ -676,7 +676,7 @@ Promise 编程模型和 PromiseKit 库是非常值得学习的，在 iOS 相关�
 </p>
 
 <p>
-示例代码：<a href="https://github.com/runforever/iDragProject" target="_blank" rel="external">iDragProject</a>
+示例代码：<a href="https://github.com/runforever/iDragProject" target="_blank" rel="noopener">iDragProject</a>
 </p>
 </div>
 </div>
@@ -795,7 +795,7 @@ Promise 编程模型和 PromiseKit 库是非常值得学习的，在 iOS 相关�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -806,7 +806,7 @@ Promise 编程模型和 PromiseKit 库是非常值得学习的，在 iOS 相关�
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

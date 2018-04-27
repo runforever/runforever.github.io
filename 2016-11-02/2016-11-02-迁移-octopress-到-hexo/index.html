@@ -377,7 +377,7 @@
 <h2 id="sec-1">不折腾会死</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-前几天更新了 <a href="http://runforever.github.io/2014-07-19/2014-07-19-python-mixin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_blank" rel="external">Python Mixin 学习笔记</a> 这篇文章，文章中有一张图要显示，于是想添加 fancybox 插件来预览图片，
+前几天更新了 <a href="http://runforever.github.io/2014-07-19/2014-07-19-python-mixin%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_blank" rel="noopener">Python Mixin 学习笔记</a> 这篇文章，文章中有一张图要显示，于是想添加 fancybox 插件来预览图片，
 原本以为是非常简单的一件事，结果上 google 果然没有找到，同时发现博客的分页有 bug，再看看 Octopress 的
 最后更新时间，想到 Octopress 这些茫茫多的问题于是便有了迁移 Octopress 到 Hexo 的念头。
 </p>
@@ -395,7 +395,7 @@ google 找了一些迁移的文章，发现迁移没有想象中难，于是开�
 我的需求：
 </p>
 <ol class="org-ol">
-<li>可以继续使用 Emacs 上的 <a href="https://github.com/yoshinari-nomura/org-octopress" target="_blank" rel="external">org-octopress</a> 插件写博客。
+<li>可以继续使用 Emacs 上的 <a href="https://github.com/yoshinari-nomura/org-octopress" target="_blank" rel="noopener">org-octopress</a> 插件写博客。
 </li>
 <li>可以兼容我之前写的文章，代码高亮必须漂亮。
 </li>
@@ -448,12 +448,12 @@ google 找了一些迁移的文章，发现迁移没有想象中难，于是开�
 <h3 id="sec-4-1">安装配置 Hexo</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
-安装过程可以参考 <a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">官方文档</a>，值得注意的地方是：
+安装过程可以参考 <a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">官方文档</a>，值得注意的地方是：
 </p>
 <ol class="org-ol">
-<li>推荐使用 <a href="https://github.com/creationix/nvm" target="_blank" rel="external">nvm</a> 安装 node。
+<li>推荐使用 <a href="https://github.com/creationix/nvm" target="_blank" rel="noopener">nvm</a> 安装 node。
 </li>
-<li><code>Error with DTrace</code> 使用 <code>npm install hexo --no-optional</code> 解决，参考 <a href="https:hexo.io/docs/troubleshooting.html#Error-with-DTrace-Mac-OS-X" target="_blank" rel="external">hexo troubleshooting</a>。
+<li><code>Error with DTrace</code> 使用 <code>npm install hexo --no-optional</code> 解决，参考 <a href="https:hexo.io/docs/troubleshooting.html#Error-with-DTrace-Mac-OS-X" target="_blank" rel="noopener">hexo troubleshooting</a>。
 </li>
 </ol>
 </div>
@@ -463,7 +463,7 @@ google 找了一些迁移的文章，发现迁移没有想象中难，于是开�
 <h3 id="sec-4-2">迁移 <code>source/_posts</code> 里的博客源文件</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
-Hexo 有 <a href="https://hexo.io/zh-cn/docs/migration.html#Octopress" target="_blank" rel="external">迁移文档</a>，我的迁移过程：
+Hexo 有 <a href="https://hexo.io/zh-cn/docs/migration.html#Octopress" target="_blank" rel="noopener">迁移文档</a>，我的迁移过程：
 </p>
 <div class="org-src-container">
 
@@ -557,7 +557,7 @@ hexo s --watch
 </p>
 
 <p>
-配置好后，重启 Emacs，修改了 <a href="http://runforever.github.io/2016-02-03/2016-02-03-ansible%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/" target="_blank" rel="external">Ansible 使用入门</a> 文章来测试效果，没有问题。
+配置好后，重启 Emacs，修改了 <a href="http://runforever.github.io/2016-02-03/2016-02-03-ansible%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/" target="_blank" rel="noopener">Ansible 使用入门</a> 文章来测试效果，没有问题。
 </p>
 </div>
 </div>
@@ -566,12 +566,12 @@ hexo s --watch
 <h3 id="sec-4-4">选择一个兼容 Octopress 文章的主题</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
-这个过程是整个迁移过程中最耗时的，<a href="https://hexo.io/themes/" target="_blank" rel="external">Hexo Theme</a> 这里满屏幕的主题，经过测试 <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">hexo-theme-next</a> 是对
+这个过程是整个迁移过程中最耗时的，<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo Theme</a> 这里满屏幕的主题，经过测试 <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">hexo-theme-next</a> 是对
 迁移的兼容性最好的，别的主题要么样式错乱，要么代码高亮有问题，整个测试过程让我崩溃的想要放弃。
 </p>
 
 <p>
-next 主题 <a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">安装文档</a>，过程：
+next 主题 <a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">安装文档</a>，过程：
 </p>
 <div class="org-src-container">
 
@@ -670,7 +670,7 @@ hexo s
 </div>
 <p>
 经过测试，代码高亮主题为 <code>night</code> 的时候兼容效果最好，预览后，终于看到曙光了，
-不过侧边栏分类页面无法显示，查看<a href="http:theme-next.iissnan.com/theme-settings.html#categories-page" target="_blank" rel="external"> 主题配置</a> 文档找到了解决方案。
+不过侧边栏分类页面无法显示，查看<a href="http:theme-next.iissnan.com/theme-settings.html#categories-page" target="_blank" rel="noopener"> 主题配置</a> 文档找到了解决方案。
 </p>
 
 
@@ -695,7 +695,7 @@ hexo s
 <h3 id="sec-4-6">博客代码管理</h3>
 <div class="outline-text-3" id="text-4-6">
 <p>
-我依然使用 GitHub Pages 来发布博客，根据<a href="https://hexo.io/zh-cn/docs/deployment.html#Git" target="_blank" rel="external"> 官方部署文档</a> 来做就行。
+我依然使用 GitHub Pages 来发布博客，根据<a href="https://hexo.io/zh-cn/docs/deployment.html#Git" target="_blank" rel="noopener"> 官方部署文档</a> 来做就行。
 </p>
 <div class="org-src-container">
 
@@ -774,7 +774,7 @@ git push -f
 <h4 id="sec-4-6-2">提交博客主题</h4>
 <div class="outline-text-4" id="text-4-6-2">
 <p>
-首先，GitHub 上 fork 一份 <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">hexo-theme-next</a> 到自己的仓库。
+首先，GitHub 上 fork 一份 <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">hexo-theme-next</a> 到自己的仓库。
 然后，开始提交代码。
 </p>
 <div class="org-src-container">
@@ -919,7 +919,7 @@ git push
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -930,7 +930,7 @@ git push
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

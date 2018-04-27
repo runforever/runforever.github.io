@@ -407,7 +407,7 @@ raven==5.26.0
 </div>
 
 <p>
-Django 使用 1.9.10 的原因是这个版本和 <a href="http://django-rest-swagger.readthedocs.io/en/stable-0.3.x/" target="_blank" rel="external">django-rest-swagger</a> 的 0.3.7 版本配合比较好，比较适合我们团队，
+Django 使用 1.9.10 的原因是这个版本和 <a href="http://django-rest-swagger.readthedocs.io/en/stable-0.3.x/" target="_blank" rel="noopener">django-rest-swagger</a> 的 0.3.7 版本配合比较好，比较适合我们团队，
 可以很方便的在浏览器下调试，效果如下：
 </p>
 
@@ -422,13 +422,13 @@ Django 使用 1.9.10 的原因是这个版本和 <a href="http://django-rest-swa
 </p>
 
 <ul class="org-ul">
-<li><a href="https://github.com/ottoyiu/django-cors-headers" target="_blank" rel="external">django-cors-headers</a> 用来解决前端请求接口的跨域问题。
+<li><a href="https://github.com/ottoyiu/django-cors-headers" target="_blank" rel="noopener">django-cors-headers</a> 用来解决前端请求接口的跨域问题。
 </li>
-<li><a href="https://github.com/GetBlimp/django-rest-framework-jwt" target="_blank" rel="external">djangorestframework-jwt</a> 用来解决接口的 Token Auth 问题。
+<li><a href="https://github.com/GetBlimp/django-rest-framework-jwt" target="_blank" rel="noopener">djangorestframework-jwt</a> 用来解决接口的 Token Auth 问题。
 </li>
-<li><a href="https://github.com/PyMySQL/mysqlclient-python" target="_blank" rel="external">mysqlclient</a> Python 的 MySQL 驱动，支持 Python 3。
+<li><a href="https://github.com/PyMySQL/mysqlclient-python" target="_blank" rel="noopener">mysqlclient</a> Python 的 MySQL 驱动，支持 Python 3。
 </li>
-<li><a href="https://docs.sentry.io/clients/python/" target="_blank" rel="external">raven</a> Sentry 的客户端，用于记录生产环境用户遇到 500 异常。
+<li><a href="https://docs.sentry.io/clients/python/" target="_blank" rel="noopener">raven</a> Sentry 的客户端，用于记录生产环境用户遇到 500 异常。
 </li>
 </ul>
 </div>
@@ -592,7 +592,7 @@ admin.py 功能是把所有 models 添加到 django admin 中，方便开发过�
 </div>
 
 <p>
-以上的模板可以在 <a href="https://github.com/BurnishTechCN/django-starter-template" target="_blank" rel="external">django-starter-template</a> 里找到。
+以上的模板可以在 <a href="https://github.com/BurnishTechCN/django-starter-template" target="_blank" rel="noopener">django-starter-template</a> 里找到。
 </p>
 </div>
 </div>
@@ -617,7 +617,7 @@ admin.py 功能是把所有 models 添加到 django admin 中，方便开发过�
 <h3 id="sec-3-2">技术调研</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
-命令行工具的选用，经过了各种筛选，最终使用了 <a href="http://click.pocoo.org/5/" target="_blank" rel="external">click</a> 这个库来做命令行工具的解析，原因很简单，
+命令行工具的选用，经过了各种筛选，最终使用了 <a href="http://click.pocoo.org/5/" target="_blank" rel="noopener">click</a> 这个库来做命令行工具的解析，原因很简单，
 个人直觉。<br>
 文件的操作我就直接使用了笨办法，subprocess 调用 shell 命令解决。
 </p>
@@ -628,7 +628,7 @@ admin.py 功能是把所有 models 添加到 django admin 中，方便开发过�
 <h3 id="sec-3-3">初始化流程</h3>
 <div class="outline-text-3" id="text-3-3">
 <ol class="org-ol">
-<li>clone <a href="https://github.com/BurnishTechCN/django-starter-template" target="_blank" rel="external">django-starter-template</a> 到 /tmp 目录。
+<li>clone <a href="https://github.com/BurnishTechCN/django-starter-template" target="_blank" rel="noopener">django-starter-template</a> 到 /tmp 目录。
 </li>
 <li>/tmp 目录初始化一个 virtualenv 里面安装 django 1.9.10。
 </li>
@@ -665,7 +665,7 @@ admin.py 功能是把所有 models 添加到 django admin 中，方便开发过�
 
 <p>
 核心代码在 <code>djkit/djkit.py</code> 里。<br>
-所有代码实现在 <a href="https://github.com/BurnishTechCN/djkit" target="_blank" rel="external">djkit</a> 项目，对细节感兴趣的可以去看源代码。
+所有代码实现在 <a href="https://github.com/BurnishTechCN/djkit" target="_blank" rel="noopener">djkit</a> 项目，对细节感兴趣的可以去看源代码。
 </p>
 </div>
 </div>
@@ -752,9 +752,9 @@ djkit init webapi
 <h2 id="sec-4">附上代码</h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
-<li><a href="https://github.com/BurnishTechCN/djkit" target="_blank" rel="external">djkit</a>
+<li><a href="https://github.com/BurnishTechCN/djkit" target="_blank" rel="noopener">djkit</a>
 </li>
-<li><a href="https://github.com/BurnishTechCN/django-starter-template" target="_blank" rel="external">django-starter-template</a>
+<li><a href="https://github.com/BurnishTechCN/django-starter-template" target="_blank" rel="noopener">django-starter-template</a>
 </li>
 </ol>
 </div>
@@ -874,7 +874,7 @@ djkit init webapi
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -885,7 +885,7 @@ djkit init webapi
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

@@ -419,7 +419,7 @@
 <div class="outline-text-3" id="text-3-1">
 <p>
 <img src="http://cdn.defcoding.com/3DC4851E-57DE-4743-AD1C-9ED2DC763D02.png" alt="3DC4851E-57DE-4743-AD1C-9ED2DC763D02.png">
-参考文档：<a href="https://developer.qiniu.io/kodo/manual/security" target="_blank" rel="external">七牛安全机制</a>
+参考文档：<a href="https://developer.qiniu.io/kodo/manual/security" target="_blank" rel="noopener">七牛安全机制</a>
 </p>
 </div>
 </div>
@@ -448,7 +448,7 @@
 
 <p>
 七牛推荐的方式是客户端在上传时先请求服务端生成上传策略，客户端获取到上传策略后才能上传文件。<br>
-这个应用只有客户端，上传凭证只能在客户端构造，构造的算法参考：<a href="https://developer.qiniu.io/kodo/manual/upload-token" target="_blank" rel="external">上传凭证</a>
+这个应用只有客户端，上传凭证只能在客户端构造，构造的算法参考：<a href="https://developer.qiniu.io/kodo/manual/upload-token" target="_blank" rel="noopener">上传凭证</a>
 </p>
 </div>
 </div>
@@ -457,11 +457,11 @@
 <h3 id="sec-3-4">经过分析，我需要如下 Swift 库：</h3>
 <div class="outline-text-3" id="text-3-4">
 <ol class="org-ol">
-<li>七牛的官方 <a href="https://github.com/qiniu/objc-sdk" target="_blank" rel="external">iOS SDK</a>。
+<li>七牛的官方 <a href="https://github.com/qiniu/objc-sdk" target="_blank" rel="noopener">iOS SDK</a>。
 </li>
-<li>对字符串进行 HMAC-SHA1 加密的库 <a href="https://github.com/krzyzanowskim/CryptoSwift" target="_blank" rel="external">CryptoSwift</a>。
+<li>对字符串进行 HMAC-SHA1 加密的库 <a href="https://github.com/krzyzanowskim/CryptoSwift" target="_blank" rel="noopener">CryptoSwift</a>。
 </li>
-<li>能解析 JSON 的库 <a href="https://github.com/SwiftyJSON/SwiftyJSON" target="_blank" rel="external">SwiftyJSON</a>。
+<li>能解析 JSON 的库 <a href="https://github.com/SwiftyJSON/SwiftyJSON" target="_blank" rel="noopener">SwiftyJSON</a>。
 </li>
 </ol>
 
@@ -480,12 +480,12 @@
 <h2 id="sec-4">使用 CocoaPods 安装 Swift 库</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-我写应用的时候刚好赶上 Swift3 发布，Swift3 有了自己的包管理器 <a href="https://github.com/apple/swift-package-manager" target="_blank" rel="external">Swift Package Manager（SPM）</a>，因为是刚刚发布，可能很多库上面都还没有，
-保险起见我还是使用 <a href="https://cocoapods.org" target="_blank" rel="external">CocoaPods</a> 来管理 Swift 的库。
+我写应用的时候刚好赶上 Swift3 发布，Swift3 有了自己的包管理器 <a href="https://github.com/apple/swift-package-manager" target="_blank" rel="noopener">Swift Package Manager（SPM）</a>，因为是刚刚发布，可能很多库上面都还没有，
+保险起见我还是使用 <a href="https://cocoapods.org" target="_blank" rel="noopener">CocoaPods</a> 来管理 Swift 的库。
 </p>
 
 <p>
-我使用 <a href="https://rvm.io" target="_blank" rel="external">RVM</a> 管理 Ruby 环境，按照 <a href="https:guides.cocoapods.org/using/getting-started.html#getting-started" target="_blank" rel="external">官方安装文档</a> 安装 CocoaPods 很顺利，执行 <code>pod repo update</code> 同步的时候巨慢，原因大家都懂，
+我使用 <a href="https://rvm.io" target="_blank" rel="noopener">RVM</a> 管理 Ruby 环境，按照 <a href="https:guides.cocoapods.org/using/getting-started.html#getting-started" target="_blank" rel="noopener">官方安装文档</a> 安装 CocoaPods 很顺利，执行 <code>pod repo update</code> 同步的时候巨慢，原因大家都懂，
 网上有加速的办法，大家自行寻找适合自己的吧，我自己使用的是 ShadowSocks + proxychains4，我的同步方法 <code>proxychains4 pod repo update</code> 。
 <img src="http://cdn.defcoding.com/E399924F-EE60-486E-AF8F-E66247BD534B.png" alt="E399924F-EE60-486E-AF8F-E66247BD534B.png">
 </p>
@@ -846,7 +846,7 @@ upload fail
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -857,7 +857,7 @@ upload fail
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
