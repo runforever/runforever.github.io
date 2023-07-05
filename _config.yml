@@ -70,4 +70,4 @@ theme: next
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/runforever/runforever.github.io.git
+  repo: git@github.com:runforever/runforever.github.io.git
